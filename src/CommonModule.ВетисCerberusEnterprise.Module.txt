@@ -1,0 +1,227 @@
+﻿
+// тип, описывающий хозяйствующий субъект (ХС)
+// Параметры:
+//  guid - Строка - собственно guid
+//       - Структура - структура со значениями свойств
+Функция BusinessEntity(guid = Неопределено) Экспорт
+	
+	_Объект = Создать("BusinessEntity");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid);
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция BusinessEntityList(guid = Неопределено) Экспорт
+	
+	_Объект = Создать("BusinessEntityList");
+	
+	Если НЕ guid = Неопределено Тогда
+		BusinessEntityListДобавить(_Объект, guid);
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция BusinessEntityListДобавить(List, guid) Экспорт
+	
+	Если ТипЗнч(guid) = Тип("Массив") Тогда
+		Для каждого _guid Из guid Цикл
+			List.businessEntity.Добавить(BusinessEntity(_guid));
+		КонецЦикла;
+	ИначеЕсли ТипЗнч(guid) = Тип("Строка") Тогда
+		List.businessEntity.Добавить(BusinessEntity(guid));
+	КонецЕсли;
+	
+КонецФункции
+
+//Операция изменения связи между хозяйствующим субъектом и предприятиями. 
+//Параметры:
+// type - Тип операции (CREATE, DELETE) bs:RegisterModificationType 1
+// businessEntityGuid - Строка 1
+// enterpriseGuid - Строка 1..*
+Функция BusinessEntityActivityLocationsModificationOperation(type, businessEntityGuid, enterpriseGuid) Экспорт
+	
+	_Объект = Создать("BEActivityLocationsModificationOperation");
+	
+	_Enterprise = Enterprise(enterpriseGuid);
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, BusinessEntity(businessEntityGuid), "businessEntity");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, EnterpriseList(_Enterprise), "enterpriseList");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Операция внесения изменений в реестр ХС
+// Параметры:
+//  registerModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE) bs:RegisterModificationType
+//  affectedList - Входящий список ХС ent:BusinessEntity
+//  resultingList - Получаемые в результате операции записи ent:BusinessEntity
+//  reason - Основание добавления записи в реестр xs:String
+Функция BusinessEntityModificationOperation(registerModificationType, affectedList = Неопределено, resultingList = Неопределено, reason = Неопределено) Экспорт
+	
+	_Объект = Создать("BEModificationOperation");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, registerModificationType, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, affectedList, "affectedList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, resultingList, "resultingList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+
+// тип, описывающий связку хозяйствующего субъекта и площадки (поднадзорного объекта)
+Функция BusinessMember(businessEntityGuid, enterpriseGuid) Экспорт
+	
+	_Объект = Создать("BusinessMember");
+	
+	_Объект.businessEntity = BusinessEntity(businessEntityGuid);
+	_Объект.enterprise     = Enterprise(enterpriseGuid);
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+
+// тип, описывающий предприятие
+// Параметры:
+//  guid - Строка - собственно guid
+//       - Структура - структура со значениями свойств
+Функция Enterprise(guid = Неопределено) Экспорт
+	
+	_Объект = Создать("Enterprise");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid);
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция EnterpriseActivity(name = Неопределено) Экспорт
+	
+	_Объект = Создать("EnterpriseActivity");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, name, "name");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция EnterpriseActivityList(activity = Неопределено) Экспорт
+	
+	_Объект = Создать("EnterpriseActivityList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, activity, "activity");
+	
+	_Объект.count = _Объект.activity.Количество();
+	_Объект.offset = 0;
+	_Объект.total = 0;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция EnterpriseList(enterprise = Неопределено) Экспорт
+	
+	_Объект = Создать("EnterpriseList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
+	
+	_Объект.count = _Объект.enterprise.Количество();
+	_Объект.offset = 0;
+	_Объект.total = 0;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция EnterpriseNumberList(enterpriseNumber = Неопределено) Экспорт
+	
+	_Объект = Создать("EnterpriseNumberList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseNumber, "enterpriseNumber");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+//Операция внесения изменений в реестр ХС
+//Параметры:
+// type - bs:RegisterModificationType - Тип операции (CREATE, UPDATE)
+// enterprise - dt:Enterprise - сведения о добавляемых поднадзорных объектах.
+//                 На данный момент поддерживается добавление только одной площадки в рамках одной заявки.
+// reason - xs:String - Основание добавления записи в реестр
+Функция EnterpriseModificationOperation(type, enterprise = Неопределено, reason = Неопределено) Экспорт
+	
+	_Объект = Создать("ENTModificationOperation");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, EnterpriseList(enterprise), "resultingList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+
+Функция IncorporationForm(code, shortName = "", name = "") Экспорт
+	
+	_Объект = Создать("IncorporationForm");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, code, "code");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, name, "name");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, shortName, "shortName");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+
+// тип, описывающий производителя продукции
+Функция Producer(guid) Экспорт
+	
+	_Объект = Создать("Producer");
+	
+	_Объект.enterprise = Enterprise(guid);
+	
+	_Объект.role = ВетисКонстанты.EnterpriseRole_PRODUCER();
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Тип, описывающий список производителей продукции
+Функция ProducerList(guid) Экспорт
+	
+	_Объект = Создать("ProducerList");
+	
+	Если ТипЗнч(guid) = Тип("Массив") Тогда
+		Для каждого _guid Из guid Цикл
+			_Объект.producer.Добавить(Producer(_guid));
+		КонецЦикла;
+	ИначеЕсли ТипЗнч(guid) = Тип("Строка") Тогда
+		_Объект.producer.Добавить(Producer(guid));
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+
+Функция Создать(пИмя, пФабрика = Неопределено) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.Создать(пИмя, URI(), пФабрика);
+	
+КонецФункции
+
+Функция URI() Экспорт
+	
+	Возврат "http://api.vetrf.ru/schema/cdm/cerberus/enterprise";
+	
+КонецФункции

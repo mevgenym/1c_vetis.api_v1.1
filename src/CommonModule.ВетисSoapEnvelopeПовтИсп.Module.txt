@@ -1,0 +1,48 @@
+﻿
+Функция Фабрика() Экспорт
+	
+	_Чтение = Новый ЧтениеXML;
+	
+	_Чтение.УстановитьСтроку(xsd());
+	
+	_Модель = ФабрикаXDTO.ПрочитатьXML(_Чтение);
+	
+	_фабрика = Новый ФабрикаXDTO(_Модель);
+	
+	Возврат _фабрика;
+	
+КонецФункции
+
+
+Функция xsd()
+Возврат
+"<Model xmlns=""http://v8.1c.ru/8.1/xdto"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xsi:type=""Model"">
+|<package targetNamespace=""http://schemas.xmlsoap.org/soap/envelope/"" elementFormQualified=""false"" attributeFormQualified=""false"">
+|<property name=""mustUnderstand"" form=""Attribute"">
+|<typeDef xsi:type=""ValueType"" base=""xs:boolean"">
+|<pattern>0|1</pattern>
+|</typeDef>
+|</property>
+|<property name=""actor"" type=""xs:anyURI"" form=""Attribute""/>
+|<property xmlns:d3p1=""http://schemas.xmlsoap.org/soap/envelope/"" name=""encodingStyle"" type=""d3p1:encodingStyle"" form=""Attribute""/>
+|<property xmlns:d3p1=""http://schemas.xmlsoap.org/soap/envelope/"" name=""Body"" type=""d3p1:Body""/>
+|<property xmlns:d3p1=""http://schemas.xmlsoap.org/soap/envelope/"" name=""Fault"" type=""d3p1:Fault""/>
+|<property xmlns:d3p1=""http://schemas.xmlsoap.org/soap/envelope/"" name=""Header"" type=""d3p1:Header""/>
+|<property xmlns:d3p1=""http://schemas.xmlsoap.org/soap/envelope/"" name=""Envelope"" type=""d3p1:Envelope""/>
+|<valueType name=""encodingStyle"" itemType=""xs:anyURI""/>
+|<objectType name=""Body"" open=""true"" sequenced=""true""/>
+|<objectType name=""Envelope"" open=""true"" sequenced=""true"">
+|<property xmlns:d4p1=""http://schemas.xmlsoap.org/soap/envelope/"" ref=""d4p1:Header"" lowerBound=""0""/>
+|<property xmlns:d4p1=""http://schemas.xmlsoap.org/soap/envelope/"" ref=""d4p1:Body""/>
+|</objectType>
+|<objectType name=""Fault"">
+|<property name=""faultcode"" type=""xs:QName""/>
+|<property name=""faultstring"" type=""xs:string""/>
+|<property name=""faultactor"" type=""xs:anyURI"" lowerBound=""0""/>
+|<property xmlns:d4p1=""http://schemas.xmlsoap.org/soap/envelope/"" name=""detail"" type=""d4p1:detail"" lowerBound=""0""/>
+|</objectType>
+|<objectType name=""Header"" open=""true"" sequenced=""true""/>
+|<objectType name=""detail"" open=""true"" sequenced=""true""/>
+|</package>
+|</Model>";
+КонецФункции

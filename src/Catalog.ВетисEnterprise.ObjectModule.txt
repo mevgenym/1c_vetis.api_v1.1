@@ -1,0 +1,26 @@
+﻿
+Процедура ОбработкаЗаполнения(ДанныеЗаполнения, ТекстЗаполнения, СтандартнаяОбработка)
+	
+	Если ТипЗнч(ДанныеЗаполнения) = Тип("ОбъектXDTO") Тогда
+		ПометкаУдаления = Ложь;
+		guid         = ДанныеЗаполнения.guid;
+		уид          = Новый УникальныйИдентификатор(ДанныеЗаполнения.guid);
+		Наименование = СокрЛП(ДанныеЗаполнения.name);
+		//GLN          = СокрЛП(ДанныеЗаполнения.GLN);
+		eOwner       = ВетисDictionaryСлой1с.BusinessEntity(ДанныеЗаполнения.Owner);
+		type         = ВетисDictionaryСлой1с.EnterpriseType(ДанныеЗаполнения.type);
+		Если НЕ ДанныеЗаполнения.address = Неопределено Тогда
+			country      = ВетисDictionaryСлой1с.Country(ДанныеЗаполнения.address.country);
+			region       = ВетисDictionaryСлой1с.Region(ДанныеЗаполнения.address.region);
+			district     = ВетисDictionaryСлой1с.District(ДанныеЗаполнения.address.district);
+			locality     = ВетисDictionaryСлой1с.Locality(ДанныеЗаполнения.address.locality);
+			addressView  = СокрЛП(ДанныеЗаполнения.address.addressView);
+		КонецЕсли;
+		Если НЕ ДанныеЗаполнения.numberList = Неопределено Тогда
+			Для каждого enterpriseNumber Из ДанныеЗаполнения.numberList.enterpriseNumber Цикл
+				numberList.Добавить().enterpriseNumber = enterpriseNumber;
+			КонецЦикла;
+		КонецЕсли;
+	КонецЕсли;
+	
+КонецПроцедуры

@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="fullName" id="10">
+			<DataPath>Объект.fullName</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="fullNameКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="fullNameРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="fio" id="13">
+			<DataPath>Объект.fio</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="fioКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="fioРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<Pages name="Страницы" id="49">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="50"/>
+			<ChildItems>
+				<Page name="СтраницаРеквизиты" id="51">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизиты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница реквизиты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаРеквизитыРасширеннаяПодсказка" id="52"/>
+					<ChildItems>
+						<InputField name="inn" id="16">
+							<DataPath>Объект.inn</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="innКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="innРасширеннаяПодсказка" id="18"/>
+						</InputField>
+						<InputField name="kpp" id="19">
+							<DataPath>Объект.kpp</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="kppКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="kppРасширеннаяПодсказка" id="21"/>
+						</InputField>
+						<InputField name="ogrn" id="22">
+							<DataPath>Объект.ogrn</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ogrnКонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="ogrnРасширеннаяПодсказка" id="24"/>
+						</InputField>
+						<InputField name="type" id="25">
+							<DataPath>Объект.type</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="typeКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="typeРасширеннаяПодсказка" id="27"/>
+						</InputField>
+						<InputField name="incorporationForm" id="28">
+							<DataPath>Объект.incorporationForm</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="incorporationFormКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="incorporationFormРасширеннаяПодсказка" id="30"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаАдрес" id="53">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница адрес</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаАдресРасширеннаяПодсказка" id="54"/>
+					<ChildItems>
+						<InputField name="Country" id="31">
+							<DataPath>Объект.Country</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="CountryКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="CountryРасширеннаяПодсказка" id="33"/>
+						</InputField>
+						<InputField name="Region" id="34">
+							<DataPath>Объект.Region</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="RegionКонтекстноеМеню" id="35"/>
+							<ExtendedTooltip name="RegionРасширеннаяПодсказка" id="36"/>
+						</InputField>
+						<InputField name="District" id="37">
+							<DataPath>Объект.District</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="DistrictКонтекстноеМеню" id="38"/>
+							<ExtendedTooltip name="DistrictРасширеннаяПодсказка" id="39"/>
+						</InputField>
+						<InputField name="Locality" id="40">
+							<DataPath>Объект.Locality</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="LocalityКонтекстноеМеню" id="41"/>
+							<ExtendedTooltip name="LocalityРасширеннаяПодсказка" id="42"/>
+						</InputField>
+						<InputField name="addressView" id="43">
+							<DataPath>Объект.addressView</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="addressViewКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="addressViewРасширеннаяПодсказка" id="45"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаДополнительно" id="55">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница дополнительно</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаДополнительноРасширеннаяПодсказка" id="56"/>
+					<ChildItems>
+						<InputField name="guid" id="7">
+							<DataPath>Объект.guid</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="guidКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="guidРасширеннаяПодсказка" id="9"/>
+						</InputField>
+						<LabelField name="уид" id="4">
+							<DataPath>Объект.уид</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="уидКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="уидРасширеннаяПодсказка" id="6"/>
+						</LabelField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<InputField name="Комментарий" id="46">
+			<DataPath>Объект.Комментарий</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="47"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="48"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ВетисBusinessEntity</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

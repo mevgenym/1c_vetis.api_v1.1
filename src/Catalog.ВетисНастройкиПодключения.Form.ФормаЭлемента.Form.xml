@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаКомандаОсновная" id="62">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаОсновная</CommandName>
+				<ExtendedTooltip name="ФормаКомандаОсновнаяРасширеннаяПодсказка" id="63"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Сервис" id="72">
+			<DataPath>Объект.Сервис</DataPath>
+			<ContextMenu name="СервисКонтекстноеМеню" id="73"/>
+			<ExtendedTooltip name="СервисРасширеннаяПодсказка" id="74"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="70">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="71"/>
+			<ChildItems>
+				<InputField name="ВерсияAPI" id="64">
+					<DataPath>Объект.ВерсияAPI</DataPath>
+					<ContextMenu name="ВерсияAPIКонтекстноеМеню" id="65"/>
+					<ExtendedTooltip name="ВерсияAPIРасширеннаяПодсказка" id="66"/>
+				</InputField>
+				<CheckBoxField name="Тестовый" id="67">
+					<DataPath>Объект.Тестовый</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ТестовыйКонтекстноеМеню" id="68"/>
+					<ExtendedTooltip name="ТестовыйРасширеннаяПодсказка" id="69"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Логин" id="7">
+			<DataPath>Объект.Логин</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ЛогинКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ЛогинРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="Пароль" id="10">
+			<DataPath>Объект.Пароль</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПарольКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="КлючАПИ" id="13">
+			<DataPath>Объект.КлючАПИ</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КлючАПИКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="КлючАПИРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="Пользователь" id="75">
+			<DataPath>Объект.ЛогинПользователя</DataPath>
+			<ContextMenu name="ПользовательКонтекстноеМеню" id="76"/>
+			<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="77"/>
+		</InputField>
+		<UsualGroup name="ГруппаОписание" id="50">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Описание параметров</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа описание</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Collapsible</Behavior>
+			<Collapsed>true</Collapsed>
+			<ExtendedTooltip name="ГруппаОписаниеРасширеннаяПодсказка" id="51"/>
+			<ChildItems>
+				<LabelDecoration name="ДекорацияОписание1" id="19">
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:ВетисЦветТекстаПодсказок</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Описание параметров авторизации можно узнать на странице:</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияОписание1КонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ДекорацияОписание1РасширеннаяПодсказка" id="21"/>
+				</LabelDecoration>
+				<LabelDecoration name="ДекорацияUrl1" id="16">
+					<TextColor>style:ВетисЦветТекстаПодсказок</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>http://help.vetrf.ru/wiki/Процесс_авторизации_в_шлюзе</v8:content>
+						</v8:item>
+					</Title>
+					<Hyperlink>true</Hyperlink>
+					<ContextMenu name="ДекорацияUrl1КонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ДекорацияUrl1РасширеннаяПодсказка" id="18"/>
+					<Events>
+						<Event name="Click">Декорация1Нажатие</Event>
+					</Events>
+				</LabelDecoration>
+				<LabelDecoration name="ДекорацияОписание2" id="22">
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:ВетисЦветТекстаПодсказок</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Как получить параметры описано здесь (раздел: "Предоставление доступа"):</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияОписание2КонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ДекорацияОписание2РасширеннаяПодсказка" id="24"/>
+				</LabelDecoration>
+				<LabelDecoration name="ДекорацияUrl2" id="25">
+					<TextColor>style:ВетисЦветТекстаПодсказок</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>http://help.vetrf.ru/wiki/Ветис.API</v8:content>
+						</v8:item>
+					</Title>
+					<Hyperlink>true</Hyperlink>
+					<ContextMenu name="ДекорацияUrl2КонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ДекорацияUrl2РасширеннаяПодсказка" id="27"/>
+					<Events>
+						<Event name="Click">Декорация1Нажатие</Event>
+					</Events>
+				</LabelDecoration>
+				<LabelDecoration name="ДекорацияОписание3" id="28">
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:ВетисЦветТекстаПодсказок</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Эти параметры общие для всех юр. лиц (хозяйствующих субъектов), которые были указаны в "заявке на предоставление доступа". Ниже необходимо указать идентификаторы ХС полученные в ответе на заявку и заполнить ХС.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияОписание3КонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ДекорацияОписание3РасширеннаяПодсказка" id="30"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ИдентификаторыХС" id="31">
+			<HeightInTableRows>1</HeightInTableRows>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.ИдентификаторыХС</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ИдентификаторыХСКонтекстноеМеню" id="32"/>
+			<AutoCommandBar name="ИдентификаторыХСКоманднаяПанель" id="33">
+				<ChildItems>
+					<Button name="ИдентификаторыХСКомандаСоздатьХС" id="52">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.КомандаЗаполнитьХС</CommandName>
+						<ExtendedTooltip name="ИдентификаторыХСКомандаСоздатьХСРасширеннаяПодсказка" id="53"/>
+					</Button>
+					<Button name="ИдентификаторыХСКомандаОсновнойХС" id="60">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.КомандаОсновнойХС</CommandName>
+						<ExtendedTooltip name="ИдентификаторыХСКомандаОсновнойХСРасширеннаяПодсказка" id="61"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ИдентификаторыХСРасширеннаяПодсказка" id="34"/>
+			<SearchStringAddition name="ИдентификаторыХССтрокаПоиска" id="35">
+				<AdditionSource>
+					<Item>ИдентификаторыХС</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ИдентификаторыХССтрокаПоискаКонтекстноеМеню" id="36"/>
+				<ExtendedTooltip name="ИдентификаторыХССтрокаПоискаРасширеннаяПодсказка" id="37"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ИдентификаторыХССостояниеПросмотра" id="38">
+				<AdditionSource>
+					<Item>ИдентификаторыХС</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ИдентификаторыХССостояниеПросмотраКонтекстноеМеню" id="39"/>
+				<ExtendedTooltip name="ИдентификаторыХССостояниеПросмотраРасширеннаяПодсказка" id="40"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ИдентификаторыХСУправлениеПоиском" id="41">
+				<AdditionSource>
+					<Item>ИдентификаторыХС</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ИдентификаторыХСУправлениеПоискомКонтекстноеМеню" id="42"/>
+				<ExtendedTooltip name="ИдентификаторыХСУправлениеПоискомРасширеннаяПодсказка" id="43"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ИдентификаторыХСНомерСтроки" id="44">
+					<DataPath>Объект.ИдентификаторыХС.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ИдентификаторыХСНомерСтрокиКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="ИдентификаторыХСНомерСтрокиРасширеннаяПодсказка" id="46"/>
+				</LabelField>
+				<InputField name="ИдентификаторыХСissuerID" id="47">
+					<DataPath>Объект.ИдентификаторыХС.issuerID</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ИдентификаторыХСissuerIDКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="ИдентификаторыХСissuerIDРасширеннаяПодсказка" id="49"/>
+				</InputField>
+				<InputField name="ИдентификаторыХСBusinessEntity" id="57">
+					<DataPath>Объект.ИдентификаторыХС.BusinessEntity</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>15</Width>
+					<ContextMenu name="ИдентификаторыХСBusinessEntityКонтекстноеМеню" id="58"/>
+					<ExtendedTooltip name="ИдентификаторыХСBusinessEntityРасширеннаяПодсказка" id="59"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ВетисНастройкиПодключения</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ОсновнойХС" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основной ХС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВетисBusinessEntity</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОсновнаяНастройка" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основная настройка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВетисНастройкиПодключения</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ИдентификаторыХСНомерСтроки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ИдентификаторыХСissuerID</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ИдентификаторыХСBusinessEntity</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ИдентификаторыХС.BusinessEntity</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:Field">Объект.BusinessEntity</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаЗаполнитьХС" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить ХС</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда заполнить ХС</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаЗаполнитьХС</Action>
+		</Command>
+		<Command name="КомандаОсновнойХС" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основной</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда основной ХС</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОсновнойХС</Action>
+		</Command>
+		<Command name="КомандаОсновная" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основная</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда основная</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОсновная</Action>
+		</Command>
+	</Commands>
+</Form>

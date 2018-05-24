@@ -1,0 +1,187 @@
+﻿
+Функция getBusinessEntityByGuid(guid, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_ИмяСервиса = ВетисEnterpriseService_2_0.ИмяСервиса();
+	_Фабрика = ВетисПовтИсп.ФабрикаWS(_ИмяСервиса);
+	_request = Создать("getBusinessEntityByGuidRequest", _Фабрика);
+	_request.guid = guid;
+	_response = Прокси(_ИмяСервиса, _request, пОтказ, пОшибка);
+	
+	Если НЕ пОтказ = Истина Тогда
+		Возврат ПривестиКТипу(_response, "getBusinessEntityByGuidResponse", "businessEntity", _Фабрика);
+	КонецЕсли;
+	
+КонецФункции
+
+Функция getBusinessEntityListNext(filter = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		_ИмяСервиса = ВетисEnterpriseService_2_0.ИмяСервиса();
+		_Фабрика = ВетисПовтИсп.ФабрикаWS(_ИмяСервиса);
+		_request = Создать("getBusinessEntityListRequest", _Фабрика);
+		_request.listOptions = ВетисBase_2_0.ListOptions();
+		Если НЕ filter = Неопределено Тогда
+			_request.businessEntity = ВетисDictionary_2_0.BusinessEntity(filter);
+		КонецЕсли;
+		GetListNextInit(_ИмяСервиса, _Фабрика, _request, "getBusinessEntityListResponse", "businessEntityList", "businessEntity", , пПараметры);
+	КонецЕсли;
+	
+	Возврат GetListNext(пItem, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
+
+Функция getEnterpriseByGuid(guid, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_ИмяСервиса = ВетисEnterpriseService_2_0.ИмяСервиса();
+	_Фабрика = ВетисПовтИсп.ФабрикаWS(_ИмяСервиса);
+	_request = Создать("getEnterpriseByGuidRequest", _Фабрика);
+	_request.guid = guid;
+	_response = Прокси(_ИмяСервиса, _request, пОтказ, пОшибка);
+	Если НЕ пОтказ = Истина Тогда
+		Возврат ПривестиКТипу(_response, "getEnterpriseByGuidResponse", "enterprise", _Фабрика);
+	КонецЕсли;
+	
+КонецФункции
+
+Функция getRussianEnterpriseListNext(filter = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		_ИмяСервиса = ВетисEnterpriseService_2_0.ИмяСервиса();
+		_Фабрика = ВетисПовтИсп.ФабрикаWS(_ИмяСервиса);
+		_request = Создать("getRussianEnterpriseListRequest", _Фабрика);
+		_request.listOptions = ВетисBase_2_0.ListOptions();
+		Если НЕ filter = Неопределено Тогда
+			_request.enterprise = ВетисDictionary_2_0.Enterprise(filter);
+		КонецЕсли;
+		GetListNextInit(_ИмяСервиса, _Фабрика, _request, "getRussianEnterpriseListResponse", "enterpriseList", "enterprise", , пПараметры);
+	КонецЕсли;
+	
+	Возврат GetListNext(пItem, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
+
+Функция getRussianEnterpriseChangesListNext(beginDate, endDate = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		_ИмяСервиса = ВетисEnterpriseService_2_0.ИмяСервиса();
+		_Фабрика = ВетисПовтИсп.ФабрикаWS(_ИмяСервиса);
+		_request = Создать("getRussianEnterpriseChangesListRequest", _Фабрика);
+		_request.listOptions = ВетисBase_2_0.ListOptions();
+		_request.updateDateInterval = ВетисBase_2_0.DateInterval(beginDate, endDate);
+		GetListNextInit(_ИмяСервиса, _Фабрика, _request, "getRussianEnterpriseChangesListResponse", "enterpriseList", "enterprise", , пПараметры);
+	КонецЕсли;
+	
+	Возврат GetListNext(пItem, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
+
+Функция getActivityLocationListNext(businessEntityGuid, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		_ИмяСервиса = ВетисEnterpriseService_2_0.ИмяСервиса();
+		_Фабрика = ВетисПовтИсп.ФабрикаWS(_ИмяСервиса);
+		_request = Создать("getActivityLocationListRequest", _Фабрика);
+		_request.listOptions = ВетисBase_2_0.ListOptions();
+		_request.BusinessEntity = ВетисDictionary_2_0.BusinessEntity(businessEntityGuid);
+		GetListNextInit(_ИмяСервиса, _Фабрика, _request, "getActivityLocationListResponse", "activityLocationList", "location", "enterprise", пПараметры);
+	КонецЕсли;
+	
+	Возврат GetListNext(пItem, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
+
+Функция getR13nConditionListNext(пЗаболевание = Неопределено, пУсловие, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		_ИмяСервиса = ВетисRegionalizationService_2_0.ИмяСервиса();
+		_Фабрика = ВетисПовтИсп.ФабрикаWS(_ИмяСервиса);
+		_request = Создать("getR13nConditionListRequest", _Фабрика);
+		_request.listOptions = ВетисBase_2_0.ListOptions();
+		_request.disease = ВетисDictionary_2_0.AnimalDisease(пЗаболевание);
+		GetListNextInit(_ИмяСервиса, _Фабрика, _request, "getR13nConditionListResponse", "r13nConditionList", "condition", "", пПараметры);
+	КонецЕсли;
+	
+	Возврат GetListNext(пУсловие, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
+
+
+Функция GetListNext(пItem, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Если НЕ пПараметры.Свойство("ListResponse") Тогда
+		//
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListRequest.ListOptions.offset = пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = Вычислить(пПараметры.СтрокаПолученияЭлементаКоллекции);
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	_ListResponse = Прокси(пПараметры.ИмяСервиса, пПараметры.ListRequest, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда
+		Возврат Ложь;
+	Иначе
+		пПараметры.Вставить("ListResponse", ПривестиКТипу(_ListResponse, пПараметры.ResponseИмя, пПараметры.ИмяСписка, пПараметры.Фабрика));
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Возврат Ложь;
+		Иначе
+			пItem = Вычислить(пПараметры.СтрокаПолученияЭлементаКоллекции);
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+КонецФункции
+
+Функция GetListNextInit(пИмяСервиса, пФабрика, пRequest, пResponseИмя, пИмяСписка, пИмяКоллекции, пИмяСвойства = "", пПараметры = Неопределено)
+	
+	пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+	пПараметры.Вставить("Индекс", 0);
+	пПараметры.Вставить("ИмяСервиса", пИмяСервиса);
+	пПараметры.Вставить("Фабрика", пФабрика);
+	пПараметры.Вставить("ListRequest", пRequest);
+	пПараметры.Вставить("ResponseИмя", пResponseИмя);
+	пПараметры.Вставить("ИмяСписка", пИмяСписка);
+	пПараметры.Вставить("ИмяКоллекции", пИмяКоллекции);
+	пПараметры.Вставить("ИмяСвойства", пИмяСвойства);
+	пПараметры.Вставить("СтрокаПолученияЭлементаКоллекции", "пПараметры.ListResponse."+пИмяКоллекции+"[пПараметры.Индекс]"+?(пИмяСвойства = "", "", "."+пИмяСвойства))
+		
+КонецФункции
+
+
+Функция ПривестиКТипу(пResponse, пИмяОперации, пИмяСвойства, пФабрика) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse[пИмяОперации], пИмяОперации, ServiceURI(), пФабрика)[пИмяСвойства];
+	
+КонецФункции
+
+Функция Создать(пИмя, пФабрика = Неопределено) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.Создать(пИмя, ServiceURI(), пФабрика);
+	
+КонецФункции
+
+Функция ServiceURI() Экспорт
+	
+	Возврат "http://api.vetrf.ru/schema/cdm/registry/ws-definitions/v2";
+	
+КонецФункции
+
+Функция Прокси(пИмяСервиса, пRequest, пОтказ, пОшибка)
+	
+	Возврат Ветис.ПроксиHttp(пИмяСервиса, пRequest, пОтказ, пОшибка);
+	
+КонецФункции

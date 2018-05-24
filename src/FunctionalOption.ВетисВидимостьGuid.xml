@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<FunctionalOption uuid="da371940-74d6-499e-a818-6f96c3fb9fe7">
+		<Properties>
+			<Name>ВетисВидимостьGuid</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ветис видимость guid</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<Location>Constant.ВетисВидимостьGuid</Location>
+			<PrivilegedGetMode>true</PrivilegedGetMode>
+			<Content>
+				<xr:Object>d528704f-96db-4dc5-9122-729dcda33f30</xr:Object>
+				<xr:Object>Catalog.ВетисAnimalDisease.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисBusinessEntity.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисCountry.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисDistrict.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисEnterprise.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисEnterpriseActivity.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисIncorporationForm.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисLocality.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисPackingForm.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисProduct.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисProductItem.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисPurpose.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисRegion.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисRegionalizationCondition.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисSubProduct.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисUnit.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисUser.Attribute.уид</xr:Object>
+				<xr:Object>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.уид</xr:Object>
+			</Content>
+		</Properties>
+	</FunctionalOption>
+</MetaDataObject>

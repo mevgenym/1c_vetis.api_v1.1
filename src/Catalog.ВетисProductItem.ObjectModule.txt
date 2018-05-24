@@ -1,0 +1,22 @@
+﻿
+Процедура ОбработкаЗаполнения(ДанныеЗаполнения, ТекстЗаполнения, СтандартнаяОбработка)
+	
+	Если ТипЗнч(ДанныеЗаполнения) = Тип("ОбъектXDTO") Тогда
+		ПометкаУдаления = Ложь;
+		guid         = ДанныеЗаполнения.guid;
+		уид          = Новый УникальныйИдентификатор(ДанныеЗаполнения.guid);
+		Наименование = СокрЛП(ДанныеЗаполнения.name);
+		piCode       = СокрЛП(ДанныеЗаполнения.code);
+		globalID     = ДанныеЗаполнения.globalID;
+		productType  = ВетисDictionaryСлой1с.ProductType(ДанныеЗаполнения.productType);
+		product      = ВетисDictionaryСлой1с.Product(ДанныеЗаполнения.product);
+		subProduct   = ВетисDictionaryСлой1с.SubProduct(ДанныеЗаполнения.subProduct);
+		producer     = ВетисDictionaryСлой1с.BusinessEntity(ДанныеЗаполнения.producer);
+		tmOwner      = ВетисDictionaryСлой1с.BusinessEntity(ДанныеЗаполнения.tmOwner);
+		
+		//Для каждого _producing Из ДанныеЗаполнения.producing Цикл
+		//	ЗаполнитьЗначенияСвойств(producing.Добавить(), _producing);
+		//КонецЦикла;
+	КонецЕсли;
+	
+КонецПроцедуры

@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<CommandSet>
+		<ExcludedCommand>WriteAndClose</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>Write</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаТест" id="43">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаТест</CommandName>
+				<ExtendedTooltip name="ФормаТестРасширеннаяПодсказка" id="44"/>
+			</Button>
+			<Button name="ФормаКомандаИмя" id="50">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаИмя</CommandName>
+				<ExtendedTooltip name="ФормаКомандаИмяРасширеннаяПодсказка" id="51"/>
+			</Button>
+			<Button name="ФормаКомандаТип" id="52">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаТип</CommandName>
+				<ExtendedTooltip name="ФормаКомандаТипРасширеннаяПодсказка" id="53"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="РасшифровкаМП" id="29">
+			<DataPath>Расшифровка</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="РасшифровкаМПКонтекстноеМеню" id="30"/>
+			<ExtendedTooltip name="РасшифровкаМПРасширеннаяПодсказка" id="31"/>
+		</InputField>
+		<TextDocumentField name="Расшифровка" id="15">
+			<DataPath>Расшифровка</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<TitleLocation>None</TitleLocation>
+			<ContextMenu name="РасшифровкаКонтекстноеМеню" id="16"/>
+			<ExtendedTooltip name="РасшифровкаРасширеннаяПодсказка" id="17"/>
+		</TextDocumentField>
+		<UsualGroup name="Группа3" id="38">
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="39"/>
+			<ChildItems>
+				<UsualGroup name="Группа1" id="13">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="14"/>
+					<ChildItems>
+						<LabelField name="Период" id="18">
+							<DataPath>Запись.Period</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="ПериодКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="20"/>
+						</LabelField>
+						<LabelField name="Миллисекунды" id="21">
+							<DataPath>Запись.Миллисекунды</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="МиллисекундыКонтекстноеМеню" id="22"/>
+							<ExtendedTooltip name="МиллисекундыРасширеннаяПодсказка" id="23"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа2" id="24">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="25"/>
+					<ChildItems>
+						<InputField name="Пользователь" id="10">
+							<DataPath>Запись.Пользователь</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="ПользовательКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="12"/>
+						</InputField>
+						<LabelField name="Контекст" id="32">
+							<DataPath>Запись.Контекст</DataPath>
+							<ContextMenu name="КонтекстКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="КонтекстРасширеннаяПодсказка" id="34"/>
+						</LabelField>
+						<LabelField name="Версия" id="35">
+							<DataPath>Запись.Версия</DataPath>
+							<ContextMenu name="ВерсияКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="37"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.ВетисЖурнал</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Расшифровка" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расшифровка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаТест" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тест</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда тест</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаТест</Action>
+		</Command>
+		<Command name="КомандаИмя" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда имя</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаИмя</Action>
+		</Command>
+		<Command name="КомандаТип" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда тип</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаТип</Action>
+		</Command>
+	</Commands>
+</Form>

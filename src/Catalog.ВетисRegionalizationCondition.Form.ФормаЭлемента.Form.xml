@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<VerticalStretch>false</VerticalStretch>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="16">
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="17"/>
+			<ChildItems>
+				<InputField name="НомерУсловия" id="4">
+					<DataPath>Объект.referenceNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерУсловияКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НомерУсловияРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<CheckBoxField name="Обязательность" id="10">
+					<DataPath>Объект.strict</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОбязательностьКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ОбязательностьРасширеннаяПодсказка" id="12"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ФормулировкаУсловия" id="7">
+			<DataPath>Объект.text</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<Width>50</Width>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="ФормулировкаУсловияКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ФормулировкаУсловияРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="Заболевание" id="13">
+			<DataPath>Объект.relatedDisease</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ЗаболеваниеКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ЗаболеваниеРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<Table name="Заболевания" id="18">
+			<HeightInTableRows>1</HeightInTableRows>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.Заболевания</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ЗаболеванияКонтекстноеМеню" id="19"/>
+			<AutoCommandBar name="ЗаболеванияКоманднаяПанель" id="20"/>
+			<ExtendedTooltip name="ЗаболеванияРасширеннаяПодсказка" id="21"/>
+			<SearchStringAddition name="ЗаболеванияСтрокаПоиска" id="22">
+				<AdditionSource>
+					<Item>Заболевания</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаболеванияСтрокаПоискаКонтекстноеМеню" id="23"/>
+				<ExtendedTooltip name="ЗаболеванияСтрокаПоискаРасширеннаяПодсказка" id="24"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ЗаболеванияСостояниеПросмотра" id="25">
+				<AdditionSource>
+					<Item>Заболевания</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаболеванияСостояниеПросмотраКонтекстноеМеню" id="26"/>
+				<ExtendedTooltip name="ЗаболеванияСостояниеПросмотраРасширеннаяПодсказка" id="27"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ЗаболеванияУправлениеПоиском" id="28">
+				<AdditionSource>
+					<Item>Заболевания</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаболеванияУправлениеПоискомКонтекстноеМеню" id="29"/>
+				<ExtendedTooltip name="ЗаболеванияУправлениеПоискомРасширеннаяПодсказка" id="30"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ЗаболеванияНомерСтроки" id="31">
+					<DataPath>Объект.Заболевания.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗаболеванияНомерСтрокиКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ЗаболеванияНомерСтрокиРасширеннаяПодсказка" id="33"/>
+				</LabelField>
+				<InputField name="ЗаболеванияЗаболевание" id="34">
+					<DataPath>Объект.Заболевания.Заболевание</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗаболеванияЗаболеваниеКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ЗаболеванияЗаболеваниеРасширеннаяПодсказка" id="36"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ВетисRegionalizationCondition</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

@@ -1,0 +1,26 @@
+﻿
+Процедура ОбработкаЗаполнения(ДанныеЗаполнения, ТекстЗаполнения, СтандартнаяОбработка)
+	
+	Если ТипЗнч(ДанныеЗаполнения) = Тип("ОбъектXDTO") Тогда
+		ПометкаУдаления = Ложь;
+		guid         = ДанныеЗаполнения.guid;
+		уид          = Новый УникальныйИдентификатор(ДанныеЗаполнения.guid);
+		Наименование = СокрЛП(?(ПустаяСтрока(ДанныеЗаполнения.name), ?(ПустаяСтрока(ДанныеЗаполнения.fullName), ДанныеЗаполнения.fio, ДанныеЗаполнения.fullName), ДанныеЗаполнения.name));
+		fullName     = СокрЛП(ДанныеЗаполнения.fullName);
+		fio          = СокрЛП(ДанныеЗаполнения.fio);
+		inn          = СокрЛП(ДанныеЗаполнения.inn);
+		kpp          = СокрЛП(ДанныеЗаполнения.kpp);
+		ogrn         = СокрЛП(ДанныеЗаполнения.ogrn);
+		type         = ВетисDictionaryСлой1с.BusinessEntityType(ДанныеЗаполнения.type);
+		incorporationForm = ВетисDictionaryСлой1с.IncorporationForm(ДанныеЗаполнения.incorporationForm);
+		Если НЕ ДанныеЗаполнения.juridicalAddress = Неопределено Тогда
+			country      = ВетисDictionaryСлой1с.Country(ДанныеЗаполнения.juridicalAddress.country);
+			region       = ВетисDictionaryСлой1с.Region(ДанныеЗаполнения.juridicalAddress.region);
+			district     = ВетисDictionaryСлой1с.District(ДанныеЗаполнения.juridicalAddress.district);
+			locality     = ВетисDictionaryСлой1с.Locality(ДанныеЗаполнения.juridicalAddress.locality);
+			addressView  = СокрЛП(ДанныеЗаполнения.juridicalAddress.addressView);
+		КонецЕсли;
+		
+	КонецЕсли;
+	
+КонецПроцедуры

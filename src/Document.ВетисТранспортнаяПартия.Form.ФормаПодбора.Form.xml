@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<CommandBarLocation>None</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="СписокПартии" id="1">
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>СписокПартии</DataPath>
+			<RowPictureDataPath>СписокПартии.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<ContextMenu name="СписокПартииКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокПартииКоманднаяПанель" id="3">
+				<ChildItems>
+					<Button name="СписокПартииКомандаВыбрать" id="109">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.КомандаВыбрать</CommandName>
+						<ExtendedTooltip name="СписокПартииКомандаВыбратьРасширеннаяПодсказка" id="110"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокПартииРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="СписокПартииСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>СписокПартии</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокПартииСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="СписокПартииСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокПартииСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>СписокПартии</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокПартииСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="СписокПартииСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокПартииУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>СписокПартии</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокПартииУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СписокПартииУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокПартииВыбор</Event>
+			</Events>
+			<ChildItems>
+				<ColumnGroup name="СписокПартииГруппа3" id="93">
+					<Visible>false</Visible>
+					<ExtendedTooltip name="СписокПартииГруппа3РасширеннаяПодсказка" id="94"/>
+					<ChildItems>
+						<LabelField name="СписокПартииProductType" id="35">
+							<DataPath>СписокПартии.ProductType</DataPath>
+							<ContextMenu name="СписокПартииProductTypeКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="СписокПартииProductTypeРасширеннаяПодсказка" id="37"/>
+						</LabelField>
+						<LabelField name="СписокПартииProduct" id="38">
+							<DataPath>СписокПартии.Product</DataPath>
+							<ContextMenu name="СписокПартииProductКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="СписокПартииProductРасширеннаяПодсказка" id="40"/>
+						</LabelField>
+						<LabelField name="СписокПартииSubProduct" id="41">
+							<DataPath>СписокПартии.SubProduct</DataPath>
+							<ContextMenu name="СписокПартииSubProductКонтекстноеМеню" id="42"/>
+							<ExtendedTooltip name="СписокПартииSubProductРасширеннаяПодсказка" id="43"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="СписокПартииГруппа4" id="95">
+					<ExtendedTooltip name="СписокПартииГруппа4РасширеннаяПодсказка" id="96"/>
+					<ChildItems>
+						<LabelField name="СписокПартииProductItem" id="44">
+							<DataPath>СписокПартии.ProductItem</DataPath>
+							<ContextMenu name="СписокПартииProductItemКонтекстноеМеню" id="45"/>
+							<ExtendedTooltip name="СписокПартииProductItemРасширеннаяПодсказка" id="46"/>
+						</LabelField>
+						<LabelField name="СписокПартииProductItemName" id="47">
+							<DataPath>СписокПартии.ProductItemName</DataPath>
+							<ContextMenu name="СписокПартииProductItemNameКонтекстноеМеню" id="48"/>
+							<ExtendedTooltip name="СписокПартииProductItemNameРасширеннаяПодсказка" id="49"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="СписокПартииГруппа2" id="91">
+					<ExtendedTooltip name="СписокПартииГруппа2РасширеннаяПодсказка" id="92"/>
+					<ChildItems>
+						<LabelField name="СписокПартииvolume" id="20">
+							<DataPath>СписокПартии.volume</DataPath>
+							<ContextMenu name="СписокПартииvolumeКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="СписокПартииvolumeРасширеннаяПодсказка" id="22"/>
+						</LabelField>
+						<LabelField name="СписокПартииpackingAmount" id="23">
+							<DataPath>СписокПартии.packingAmount</DataPath>
+							<ContextMenu name="СписокПартииpackingAmountКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="СписокПартииpackingAmountРасширеннаяПодсказка" id="25"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="СписокПартииГруппа5" id="97">
+					<ExtendedTooltip name="СписокПартииГруппа5РасширеннаяПодсказка" id="98"/>
+					<ChildItems>
+						<LabelField name="СписокПартииUnit" id="53">
+							<DataPath>СписокПартии.Unit</DataPath>
+							<ContextMenu name="СписокПартииUnitКонтекстноеМеню" id="54"/>
+							<ExtendedTooltip name="СписокПартииUnitРасширеннаяПодсказка" id="55"/>
+						</LabelField>
+						<LabelField name="СписокПартииPackingForm" id="50">
+							<DataPath>СписокПартии.PackingForm</DataPath>
+							<ContextMenu name="СписокПартииPackingFormКонтекстноеМеню" id="51"/>
+							<ExtendedTooltip name="СписокПартииPackingFormРасширеннаяПодсказка" id="52"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="СписокПартииГруппа7" id="101">
+					<ExtendedTooltip name="СписокПартииГруппа7РасширеннаяПодсказка" id="102"/>
+					<ChildItems>
+						<ColumnGroup name="СписокПартииГруппа10" id="107">
+							<Group>InCell</Group>
+							<ExtendedTooltip name="СписокПартииГруппа10РасширеннаяПодсказка" id="108"/>
+							<ChildItems>
+								<LabelField name="СписокПартииdateOfProductionFirst" id="71">
+									<DataPath>СписокПартии.dateOfProductionFirst</DataPath>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДЛФ=D</v8:content>
+										</v8:item>
+									</Format>
+									<ContextMenu name="СписокПартииdateOfProductionFirstКонтекстноеМеню" id="72"/>
+									<ExtendedTooltip name="СписокПартииdateOfProductionFirstРасширеннаяПодсказка" id="73"/>
+								</LabelField>
+								<LabelField name="СписокПартииdateOfProductionSecond" id="74">
+									<DataPath>СписокПартии.dateOfProductionSecond</DataPath>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДЛФ=D</v8:content>
+										</v8:item>
+									</Format>
+									<ContextMenu name="СписокПартииdateOfProductionSecondКонтекстноеМеню" id="75"/>
+									<ExtendedTooltip name="СписокПартииdateOfProductionSecondРасширеннаяПодсказка" id="76"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+						<LabelField name="СписокПартииdateOfProductionInformal" id="77">
+							<DataPath>СписокПартии.dateOfProductionInformal</DataPath>
+							<ContextMenu name="СписокПартииdateOfProductionInformalКонтекстноеМеню" id="78"/>
+							<ExtendedTooltip name="СписокПартииdateOfProductionInformalРасширеннаяПодсказка" id="79"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="СписокПартииГруппа8" id="103">
+					<ExtendedTooltip name="СписокПартииГруппа8РасширеннаяПодсказка" id="104"/>
+					<ChildItems>
+						<ColumnGroup name="СписокПартииГруппа9" id="105">
+							<Group>InCell</Group>
+							<ExtendedTooltip name="СписокПартииГруппа9РасширеннаяПодсказка" id="106"/>
+							<ChildItems>
+								<LabelField name="СписокПартииexpiryDateFirst" id="80">
+									<DataPath>СписокПартии.expiryDateFirst</DataPath>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДЛФ=D</v8:content>
+										</v8:item>
+									</Format>
+									<ContextMenu name="СписокПартииexpiryDateFirstКонтекстноеМеню" id="81"/>
+									<ExtendedTooltip name="СписокПартииexpiryDateFirstРасширеннаяПодсказка" id="82"/>
+								</LabelField>
+								<LabelField name="СписокПартииexpiryDateSecond" id="83">
+									<DataPath>СписокПартии.expiryDateSecond</DataPath>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДЛФ=D</v8:content>
+										</v8:item>
+									</Format>
+									<ContextMenu name="СписокПартииexpiryDateSecondКонтекстноеМеню" id="84"/>
+									<ExtendedTooltip name="СписокПартииexpiryDateSecondРасширеннаяПодсказка" id="85"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+						<LabelField name="СписокПартииexpiryDateInformal" id="86">
+							<DataPath>СписокПартии.expiryDateInformal</DataPath>
+							<ContextMenu name="СписокПартииexpiryDateInformalКонтекстноеМеню" id="87"/>
+							<ExtendedTooltip name="СписокПартииexpiryDateInformalРасширеннаяПодсказка" id="88"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="СписокПартииГруппа6" id="99">
+					<ExtendedTooltip name="СписокПартииГруппа6РасширеннаяПодсказка" id="100"/>
+					<ChildItems>
+						<LabelField name="СписокПартииproducer" id="56">
+							<DataPath>СписокПартии.producer</DataPath>
+							<ContextMenu name="СписокПартииproducerКонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="СписокПартииproducerРасширеннаяПодсказка" id="58"/>
+						</LabelField>
+						<LabelField name="СписокПартииcountry" id="59">
+							<DataPath>СписокПартии.country</DataPath>
+							<ContextMenu name="СписокПартииcountryКонтекстноеМеню" id="60"/>
+							<ExtendedTooltip name="СписокПартииcountryРасширеннаяПодсказка" id="61"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="СписокПартииГруппа1" id="89">
+					<ExtendedTooltip name="СписокПартииГруппа1РасширеннаяПодсказка" id="90"/>
+					<ChildItems>
+						<LabelField name="СписокПартииguid" id="17">
+							<DataPath>СписокПартии.guid</DataPath>
+							<ContextMenu name="СписокПартииguidКонтекстноеМеню" id="18"/>
+							<ExtendedTooltip name="СписокПартииguidРасширеннаяПодсказка" id="19"/>
+						</LabelField>
+						<LabelField name="СписокПартииentryNumber" id="26">
+							<DataPath>СписокПартии.entryNumber</DataPath>
+							<ContextMenu name="СписокПартииentryNumberКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="СписокПартииentryNumberРасширеннаяПодсказка" id="28"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="СписокПартии" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список партии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>InformationRegister.ВетисStockEntryList</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">volume</dcsset:left>
+							<dcsset:comparisonType>Greater</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаВыбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда выбрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаВыбрать</Action>
+		</Command>
+	</Commands>
+</Form>

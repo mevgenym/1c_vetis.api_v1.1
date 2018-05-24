@@ -1,0 +1,1255 @@
+﻿
+#Область StockEntry
+
+// Получение записи складского журнала по идентификатору.
+Функция GetStockEntryByGuidRequest(guid, enterpriseGuid) Экспорт
+	
+	_Объект = Создать("GetStockEntryByGuidRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid, "guid");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetStockEntryByGuidResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetStockEntryByGuidResponse, "GetStockEntryByGuidResponse", URI()).stockEntry;
+	
+КонецФункции
+
+Функция GetStockEntryByGuid(guid, enterpriseGuid, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = GetStockEntryByGuidRequest(guid, enterpriseGuid);
+	
+	_Response = Прокси("getStockEntryByGuidRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат GetStockEntryByGuidResponse(_Response);
+	
+КонецФункции
+
+
+// Получение актуального списка записей складского журнала.
+// Параметры:
+//  enterpriseGuid - Идентификатор предприятия
+//  searchPattern - отбор
+Функция GetStockEntryListRequest(enterpriseGuid, searchPattern = Неопределено, listOptions = Неопределено) Экспорт
+	
+	_Объект = Создать("GetStockEntryListRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, searchPattern, "searchPattern");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, listOptions, "listOptions", , ВетисBase_2_0.ListOptions());
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetStockEntryListResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetStockEntryListResponse, "GetStockEntryListResponse", URI()).stockEntryList;
+	
+КонецФункции
+
+// Предназначена для получения списка записей складского журнала
+// Используется самостоятельно в цикле Пока.
+// Параметры:
+//  enterpriseGuid - Идентификатор предприятия
+//  issuerId       - Идентификатор ХС
+//  пItem          - элемент списка, возвращаемый параметр
+//  пПараметры     - для внутреннего использования, начальное значение - Неопределено
+// Возвращаемое значение:
+//	Булево         - Ложь значит список пройден весь
+Функция GetStockEntryListNext(enterpriseGuid, searchPattern = Неопределено, issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		пПараметры.Вставить("Индекс", 0);
+		пПараметры.Вставить("ListRequest", GetStockEntryListRequest(enterpriseGuid, searchPattern, ВетисBase_2_0.ListOptions(?(пПараметры.Свойство("count"), пПараметры.count, Неопределено))));
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListRequest.ListOptions.offset = пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.stockEntry[пПараметры.Индекс];
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	_Response = Прокси("getStockEntryListRequest", пПараметры.ListRequest, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
+	
+	_ListResponse = GetStockEntryListResponse(_Response);
+	
+	пПараметры.Вставить("ListResponse", _ListResponse);
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		пItem = пПараметры.ListResponse.stockEntry[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
+	
+	Возврат Истина;
+	
+КонецФункции
+
+
+Функция GetStockEntryChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено, listOptions = Неопределено) Экспорт
+	
+	_Объект = Создать("GetStockEntryChangesListRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, listOptions, "listOptions", , ВетисBase_2_0.ListOptions());
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.DateInterval(beginDate, endDate), "updateDateInterval");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetStockEntryChangesListResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.getStockEntryChangesListResponse, "GetStockEntryChangesListResponse", URI()).stockEntryList;
+	
+КонецФункции
+
+Функция GetStockEntryChangesListNext(enterpriseGuid, beginDate, endDate = Неопределено, issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		пПараметры.Вставить("Индекс", 0);
+		пПараметры.Вставить("ListRequest", GetStockEntryChangesListRequest(enterpriseGuid, beginDate, endDate, ВетисBase_2_0.ListOptions(?(пПараметры.Свойство("count"), пПараметры.count, Неопределено))));
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListRequest.ListOptions.offset = пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.stockEntry[пПараметры.Индекс];
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	_Response = Прокси("getStockEntryChangesListRequest", пПараметры.ListRequest, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
+	
+	_ListResponse = GetStockEntryChangesListResponse(_Response);
+	
+	пПараметры.Вставить("ListResponse", _ListResponse);
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		пItem = пПараметры.ListResponse.stockEntry[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
+	
+	Возврат Истина;
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область VetDocument
+
+// Получение ВСД
+// Параметры:
+//  enterpriseGuid - Идентификатор предприятия
+//  vetDocumentUuid - Идентификатор ВСД
+Функция GetVetDocumentByUuidRequest(vetDocumentUuid, enterpriseGuid) Экспорт
+	
+	_Объект = Создать("GetVetDocumentByUuidRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentUuid, "uuid");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetVetDocumentByUuidResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetVetDocumentByUuidResponse, "GetVetDocumentByUuidResponse", URI()).vetDocument;
+	
+КонецФункции
+
+Функция GetVetDocumentByUuid(vetDocumentUuid, enterpriseGuid, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = GetVetDocumentByUuidRequest(vetDocumentUuid, enterpriseGuid);
+	
+	_Response = Прокси("getVetDocumentByUuidRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат GetVetDocumentByUuidResponse(_Response);
+	
+КонецФункции
+
+
+// Получение всех ВСД предприятия
+// Параметры:
+//  enterpriseGuid - Идентификатор предприятия
+//  vetDocumentType - vetd:VetDocumentType - Тип ВСД
+//  vetDocumentStatus - vetd:VetDocumentStatus - Статус ВСД
+Функция GetVetDocumentListRequest(enterpriseGuid, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено, listOptions = Неопределено) Экспорт
+	
+	_Объект = Создать("GetVetDocumentListRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, listOptions, "listOptions", , ВетисBase_2_0.ListOptions());
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentType, "vetDocumentType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentStatus, "vetDocumentStatus");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetVetDocumentListResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetVetDocumentListResponse, "GetVetDocumentListResponse", URI()).vetDocumentList;
+	
+КонецФункции
+
+// Предназначена для получения всех ВСД предприятия
+// Используется самостоятельно в цикле Пока.
+// Параметры:
+//  enterpriseGuid - Идентификатор предприятия
+//  issuerId       - Идентификатор ХС
+//  пItem          - элемент списка, возвращаемый параметр
+//  пПараметры     - для внутреннего использования, начальное значение - Неопределено
+// Возвращаемое значение:
+//	Булево         - Ложь значит список пройден весь
+Функция GetVetDocumentListNext(enterpriseGuid, issuerId = Неопределено, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		пПараметры.Вставить("Индекс", 0);
+		пПараметры.Вставить("ListRequest", getVetDocumentListRequest(enterpriseGuid, vetDocumentType, vetDocumentStatus));
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListRequest.ListOptions.offset = пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.vetDocument[пПараметры.Индекс];
+			//по отбору приходят ВСД с другим типом, пока ставлю ограничение здесь
+			Если НЕ vetDocumentType = Неопределено И НЕ пItem.vetDType = vetDocumentType
+				ИЛИ НЕ vetDocumentStatus = Неопределено И НЕ пItem.vetDStatus = vetDocumentStatus Тогда
+				Возврат GetVetDocumentListNext(enterpriseGuid, issuerId, vetDocumentType, vetDocumentStatus, пItem, пПараметры, пОтказ, пОшибка);
+			КонецЕсли;
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	_Response = Прокси("getVetDocumentListRequest", пПараметры.ListRequest, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
+	
+	_ListResponse = GetVetDocumentListResponse(_Response);
+	
+	пПараметры.Вставить("ListResponse", _ListResponse);
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		пItem = пПараметры.ListResponse.vetDocument[пПараметры.Индекс];
+		//по отбору приходят ВСД с другим типом, пока ставлю ограничение здесь
+		Если НЕ vetDocumentType = Неопределено И НЕ пItem.vetDType = vetDocumentType
+			ИЛИ НЕ vetDocumentStatus = Неопределено И НЕ пItem.vetDStatus = vetDocumentStatus Тогда
+			Возврат GetVetDocumentListNext(enterpriseGuid, issuerId, vetDocumentType, vetDocumentStatus, пItem, пПараметры, пОтказ, пОшибка);
+		КонецЕсли;
+		Возврат Истина;
+	КонецЕсли;
+	
+	Возврат Истина;
+	
+КонецФункции
+
+
+Функция GetVetDocumentChangesListRequest(enterpriseGuid, beginDate = Неопределено, endDate = Неопределено, listOptions = Неопределено) Экспорт
+	
+	_Объект = Создать("GetVetDocumentChangesListRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, listOptions, "listOptions", , ВетисBase_2_0.ListOptions());
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.DateInterval(beginDate, endDate), "updateDateInterval");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetVetDocumentChangesListResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.getVetDocumentChangesListResponse, "GetVetDocumentChangesListResponse", URI()).vetDocumentList;
+	
+КонецФункции
+
+Функция GetVetDocumentChangesListNext(enterpriseGuid, beginDate, endDate = Неопределено, issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		пПараметры.Вставить("Индекс", 0);
+		пПараметры.Вставить("ListRequest", getVetDocumentChangesListRequest(enterpriseGuid, beginDate, endDate));
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListRequest.ListOptions.offset = пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.vetDocument[пПараметры.Индекс];
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	_Response = Прокси("getVetDocumentChangesListRequest", пПараметры.ListRequest, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
+	
+	_ListResponse = getVetDocumentChangesListResponse(_Response);
+	
+	пПараметры.Вставить("ListResponse", _ListResponse);
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		пItem = пПараметры.ListResponse.vetDocument[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
+	
+	Возврат Истина;
+	
+КонецФункции
+
+
+Функция UpdateVeterinaryEventsRequest(enterprise, stockEntry) Экспорт
+	
+	_Объект = Создать("UpdateVeterinaryEventsRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, stockEntry, "stockEntry");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция UpdateVeterinaryEventsResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.UpdateVeterinaryEventsResponse, "UpdateVeterinaryEventsResponse", URI()).stockEntry;
+	
+КонецФункции
+
+Функция UpdateVeterinaryEvents(enterprise, stockEntry, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = UpdateVeterinaryEventsRequest(enterprise, stockEntry);
+	
+	_Response = Прокси("updateVeterinaryEventsRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат UpdateVeterinaryEventsResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область MergeOperation
+
+Функция MergeStockEntriesRequest(enterprise, mergeOperation) Экспорт
+	
+	_Объект = Создать("MergeStockEntriesRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, mergeOperation, "mergeOperation");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция MergeStockEntriesResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.mergeStockEntriesResponse, "MergeStockEntriesResponse", URI());
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область ProcessIncomingConsignment
+
+// Операция предназначена для оформления входящей партии.
+// Параметры:
+//  delivery - vetd:Delivery - Фактические сведения о принимаемой партии продукции и сопровождающих ее документах
+//  deliveryFacts - vetd:DeliveryFactList - Обобщенный результат приема партии продукции
+//  discrepancyReport - vetd:DiscrepancyReport - Акт несоответствия
+//  returnedDelivery - vetd:Delivery - Сведения о возвращаемой партии
+Функция ProcessIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport = Неопределено, returnedDelivery = Неопределено) Экспорт
+	
+	_Объект = Создать("ProcessIncomingConsignmentRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, delivery, "delivery");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, deliveryFacts, "deliveryFacts");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, discrepancyReport, "discrepancyReport");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, returnedDelivery, "returnedDelivery");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Объект содержит сведения о записях в складском журнале продукции системы Меркурий.
+Функция ProcessIncomingConsignmentResponse(пResponse) Экспорт
+	
+// http://vetrf.ru/vetrf-forum/posts/list/315/6855.page#39749
+// В ответе ProcessIncomingResponse будут отдельные ВСД.
+// В случае полного или частичного гашения будут возвращены данные погашенного ВСД
+// и в случае частичного гашения также будут возвращены данные возвратного ВСД.
+// В случае полного возврата партии возвращаются только данные возвратного сертификата.	
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ProcessIncomingConsignmentResponse, "ProcessIncomingConsignmentResponse", URI());
+	
+КонецФункции
+
+Функция ProcessIncomingConsignment(delivery, deliveryFacts, discrepancyReport = Неопределено, returnedDelivery = Неопределено, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = ProcessIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport, returnedDelivery);
+	
+	_Response = Прокси("processIncomingConsignmentRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат ProcessIncomingConsignmentResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область PrepareOutgoingConsignmentOperation
+
+// Операция предназначена для оформления транспортной партии.
+// Параметры:
+//  delivery - vetd:Delivery - Сведения для оформления транспортного ВСД
+Функция PrepareOutgoingConsignmentRequest(delivery) Экспорт
+	
+	_Объект = Создать("PrepareOutgoingConsignmentRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, delivery, "delivery");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция PrepareOutgoingConsignmentResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.PrepareOutgoingConsignmentResponse, "PrepareOutgoingConsignmentResponse", URI());
+	
+КонецФункции
+
+Функция PrepareOutgoingConsignment(delivery, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = PrepareOutgoingConsignmentRequest(delivery);
+	
+	_Response = Прокси("prepareOutgoingConsignmentRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат PrepareOutgoingConsignmentResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область RegisterProductionOperation
+
+// Операция предназначена для оформления производственной партии.
+// Параметры:
+Функция RegisterProductionOperationRequest(enterprise, productionOperation, vetDocument) Экспорт
+	
+	_Объект = Создать("RegisterProductionOperationRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, productionOperation, "productionOperation");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocument, "vetDocument");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция RegisterProductionOperationResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.RegisterProductionOperationResponse, "RegisterProductionOperationResponse", URI()).stockEntryList;
+	
+КонецФункции
+
+Функция RegisterProductionOperation(enterprise, productionOperation, vetDocument, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = RegisterProductionOperationRequest(enterprise, productionOperation, vetDocument);
+	
+	_Response = Прокси("registerProductionOperationRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат RegisterProductionOperationResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область ResolveDiscrepancyOperation
+
+// Операция предназначена для устранения возможных несоответствий сведений об объёмах в складском журнале продукции системы Меркурий
+// и фактических объёмов продукции на складе предприятия, выявленных по результатам проведенной инвентаризации.
+// Параметры:
+//  enterprise - dt:Enterprise - Площадка на которой осуществляется инвентаризация
+//  inventoryDate - xs:dateTime - Дата проведения инвентаризации
+//  responsible - dt:User - Ответственный за инвентаризацию
+//  stockDiscrepancy - vetd:StockDiscrepancy - Сведения о результате инвентаризации (по одному факту расхождения)
+//  discrepancyReport - vetd:DiscrepancyReport - Сведения об акте несоответствия
+Функция ResolveDiscrepancyRequest(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport) Экспорт
+	
+	_Объект = Создать("ResolveDiscrepancyRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяСервиса(inventoryDate), "inventoryDate");// xs:dateTime
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, responsible, "responsible");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, stockDiscrepancy, "stockDiscrepancy");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, discrepancyReport, "discrepancyReport");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Объект содержит сведения о результатах обработки заявки на регистрацию несоответствий
+// в записях складского журнала, выявленных в результате инвентаризации.
+Функция ResolveDiscrepancyResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ResolveDiscrepancyResponse, "ResolveDiscrepancyResponse", URI()).stockEntryList;
+	
+КонецФункции
+
+Функция ResolveDiscrepancy(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = ResolveDiscrepancyRequest(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport);
+	
+	_Response = Прокси("resolveDiscrepancyRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат ResolveDiscrepancyResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область WithdrawVetDocumentOperation
+// Если ВСД содержит ошибки, либо фактические сведения отличаются от того, что указано в ВСД,
+// то такой документ может быть аннулирован, то есть такой документ становится недействительным.
+// 
+// Операция аннулирования через шлюз Ветис.API доступна ТОЛЬКО для транспортных сертификатов.
+// Производственные сертификаты нужно аннулировать через веб-интерфейс через запись журнала или транзакцию.
+// 
+// После того как ВСД был аннулирован, объем продукции, на которую был выдан данный ВСД, возвращается в журнал предприятия-отправителя
+// и взамен аннулированного врач может выдать новый ВСД на эту партию продукции, содержащий верные сведения.
+// 
+// Аннулировать ВСД может тот, кто его выписал, либо другой ветеринарный врач обслуживающий то предприятие, с которого данный ВСД был выписан.
+// Если ВСД был погашен, то его аннулировать уже нельзя, то есть для аннулирования ВСД должен быть в статусе "Оформлен".
+
+// Предназначена для аннулирования ВСД.
+// Параметры:
+//  vetDocumentId	- bs:UUID - Идентификатор ВСД, который аннулируется
+//  withdrawReason - vetd:WithdrawReason - Причина аннулирования ВСД
+//  withdrawDate - xs:dateTime - Дата аннулирования ВСД
+//  specifiedPerson - argc:User - Ветеринарный врач, ответственный за аннулирование ВСД
+Функция WithdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, specifiedPerson) Экспорт
+	
+	_Объект = Создать("WithdrawVetDocumentRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentId, "vetDocumentId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, withdrawReason, "withdrawReason");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяСервиса(withdrawDate), "withdrawDate");// xs:dateTime
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, specifiedPerson, "specifiedPerson");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Объект содержит сведения об аннулированном ВСД.
+Функция WithdrawVetDocumentResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.WithdrawVetDocumentResponse, "WithdrawVetDocumentResponse", URI()).vetDocument;
+	
+КонецФункции
+
+Функция WithdrawVetDocument(vetDocumentId, withdrawReason, withdrawDate, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = WithdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, User());
+	
+	_Response = Прокси("withdrawVetDocumentRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат WithdrawVetDocumentResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+
+#Область ModifyBusinessEntityOperation
+
+// Предназначена для регистрации новых ХС в реестре,
+// а также для изменения информации об уже зарегистрированных.
+// Параметры:
+//  modificationOperation - vd:BEModificationOperation - Описание операции добавления/изменения информации о ХС.
+Функция ModifyBusinessEntityRequest(modificationOperation) Экспорт
+	
+	_Объект = Создать("ModifyBusinessEntityRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, modificationOperation, "modificationOperation");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Объект содержит сведения о ХС, который был изменен или добавлен.
+Функция ModifyBusinessEntityResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyBusinessEntityResponse, "ModifyBusinessEntityResponse", URI()).businessEntity;
+	
+КонецФункции
+
+Функция ModifyBusinessEntity(modificationOperation, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = ModifyBusinessEntityRequest(modificationOperation);
+	
+	_Response = Прокси("modifyBusinessEntityRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат ModifyBusinessEntityResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область ModifyEnterpriseOperation
+
+// Предназначена для регистрации новых площадок (поднадзорных объектов) в реестре,
+// а также для изменения информации об уже зарегистрированных.
+// Параметры:
+//  modificationOperation - vd:ENTModificationOperation - Описание операции добавления/изменения информации о поднадзорном объекте.
+Функция ModifyEnterpriseRequest(modificationOperation) Экспорт
+	
+	_Объект = Создать("ModifyEnterpriseRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, modificationOperation, "modificationOperation");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Объект содержит сведения о поднадзорном объекте, который был изменен или добавлен.
+Функция ModifyEnterpriseResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyEnterpriseResponse, "ModifyEnterpriseResponse", URI()).enterprise;
+	
+КонецФункции
+
+Функция ModifyEnterprise(modificationOperation, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = ModifyEnterpriseRequest(modificationOperation);
+	
+	_Response = Прокси("modifyEnterpriseRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат ModifyEnterpriseResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область ModifyActivityLocationsOperation
+
+// Предназначена для создание связи между ХС и площадкой или удаление этой связи.
+// Параметры:
+//  modificationOperation - vd:BEActivityLocationsModificationOperation
+Функция ModifyActivityLocationsRequest(modificationOperation) Экспорт
+	
+	_Объект = Создать("ModifyActivityLocationsRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, modificationOperation, "modificationOperation");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Объект содержит сведения о поднадзорном объекте, который был изменен или добавлен.
+Функция ModifyActivityLocationsResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyActivityLocationsResponse, "ModifyActivityLocationsResponse", URI()).businessEntity;
+	
+КонецФункции
+
+Функция ModifyActivityLocations(modificationOperation, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = ModifyActivityLocationsRequest(modificationOperation);
+	
+	_Response = Прокси("modifyActivityLocationsRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат ModifyActivityLocationsResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+
+#Область UpdateTransportMovementDetails
+
+// Предназначена для внесения номера транспортного средства в пункте перегрузке в уже оформленный ВСД
+// Параметры:
+Функция UpdateTransportMovementDetailsRequest(deliveryParticipant, vetDocumentUuid, shipmentRoute) Экспорт
+	
+	_Объект = Создать("UpdateTransportMovementDetailsRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, deliveryParticipant, "deliveryParticipant");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentUuid, "vetDocumentUuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, shipmentRoute, "shipmentRoute");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция UpdateTransportMovementDetailsResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.UpdateTransportMovementDetailsResponse, "UpdateTransportMovementDetailsResponse", URI()).vetDocument;
+	
+КонецФункции
+
+Функция UpdateTransportMovementDetails(deliveryParticipant, vetDocumentUuid, shipmentRoute, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = UpdateTransportMovementDetailsRequest(deliveryParticipant, vetDocumentUuid, shipmentRoute);
+	
+	_Response = Прокси("updateTransportMovementDetailsRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат UpdateTransportMovementDetailsResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область CheckShipmentRegionalization
+
+// Предназначена для проверки возможности осуществления перевозки в рамках регионализации
+// Параметры:
+Функция CheckShipmentRegionalizationRequest(cargoType, shipmentRoute) Экспорт
+	
+	_Объект = Создать("CheckShipmentRegionalizationRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, cargoType, "cargoType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, shipmentRoute, "shipmentRoute");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция CheckShipmentRegionalizationResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.CheckShipmentRegionalizationResponse, "CheckShipmentRegionalizationResponse", URI()).r13nRouteSection;
+	
+КонецФункции
+
+Функция CheckShipmentRegionalization(cargoType, shipmentRoute, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = CheckShipmentRegionalizationRequest(cargoType, shipmentRoute);
+	
+	_Response = Прокси("checkShipmentRegionalizationRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат CheckShipmentRegionalizationResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+
+#Область AddBusinessEntityUser
+
+// Предназначена для регистрации новых пользователей в системе Меркурий
+// или привязки существующих пользователей к хозяйствующему субъекту.
+// Параметры:
+//  user - Описание пользователя системы - vd:User
+Функция AddBusinessEntityUserRequest(user) Экспорт
+	
+	_Объект = Создать("AddBusinessEntityUserRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, user, "user");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция AddBusinessEntityUserResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.AddBusinessEntityUserResponse, "AddBusinessEntityUserResponse", URI()).user;
+	
+КонецФункции
+
+Функция AddBusinessEntityUser(user, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = AddBusinessEntityUserRequest(user);
+	
+	_Response = Прокси("addBusinessEntityUserRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат AddBusinessEntityUserResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область GetBusinessEntityUser
+
+// Предназначена для получения данных пользователя по логину или его уникальному идентификатору
+// Параметры:
+//  user - Описание пользователя системы - vd:User
+Функция GetBusinessEntityUserRequest(user) Экспорт
+	
+	_Объект = Создать("GetBusinessEntityUserRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, user, "user");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetBusinessEntityUserResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetBusinessEntityUserResponse, "GetBusinessEntityUserResponse", URI()).user;
+	
+КонецФункции
+
+Функция GetBusinessEntityUser(user, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = GetBusinessEntityUserRequest(user);
+	
+	_Response = Прокси("getBusinessEntityUserRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат GetBusinessEntityUserResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область GetBusinessEntityUserList
+
+// Предназначена для получения списка пользователей хозяйствующего субъекта
+// Параметры:
+Функция GetBusinessEntityUserListRequest() Экспорт
+	
+	_Объект = Создать("GetBusinessEntityUserListRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.ListOptions(), "listOptions");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetBusinessEntityUserListResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetBusinessEntityUserListResponse, "GetBusinessEntityUserListResponse", URI()).userList;
+	
+КонецФункции
+
+Функция GetBusinessEntityUserListNext(issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Если пПараметры = Неопределено Тогда
+		пПараметры = Новый Структура;
+		пПараметры.Вставить("Индекс", 0);
+		пПараметры.Вставить("ListRequest", GetBusinessEntityUserListRequest());
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListRequest.ListOptions.offset = пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.user[пПараметры.Индекс];
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	_Response = Прокси("getBusinessEntityUserListRequest", пПараметры.ListRequest, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
+	
+	_ListResponse = GetBusinessEntityUserListResponse(_Response);
+	
+	пПараметры.Вставить("ListResponse", _ListResponse);
+	
+	//2018-05-17
+	//count и Total возвращает Неопределено
+	пПараметры.ListResponse.count = пПараметры.ListResponse.user.Количество();
+	
+	пПараметры.ListResponse.Total = пПараметры.ListResponse.count;
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		пItem = пПараметры.ListResponse.user[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
+	
+	Возврат Истина;
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область UpdateUserAuthorities
+
+// Предназначена для назначения или изменения прав доступа пользователей в системе Меркурий.
+// Роли пользователя изменяются только применительно к хозяйствующему субъекту, инициировавшему запрос на выполнение данной операции.
+// Параметры:
+//  user - Описание пользователя системы - vd:User
+Функция UpdateUserAuthoritiesRequest(user) Экспорт
+	
+	_Объект = Создать("UpdateUserAuthoritiesRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, user, "user");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция UpdateUserAuthoritiesResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.UpdateUserAuthoritiesResponse, "UpdateUserAuthoritiesResponse", URI()).user;
+	
+КонецФункции
+
+Функция UpdateUserAuthorities(user, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = UpdateUserAuthoritiesRequest(user);
+	
+	_Response = Прокси("updateUserAuthoritiesRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат UpdateUserAuthoritiesResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область UpdateUserWorkingAreas
+
+// Предназначена для назначения зон ответственности пользователям в системе Меркурий
+// Параметры:
+//  user - Описание пользователя системы - vd:User
+Функция UpdateUserWorkingAreasRequest(user) Экспорт
+	
+	_Объект = Создать("UpdateUserWorkingAreasRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, user, "user");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция UpdateUserWorkingAreasResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.UpdateUserWorkingAreasResponse, "UpdateUserWorkingAreasResponse", URI()).user;
+	
+КонецФункции
+
+Функция UpdateUserWorkingAreas(user, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = UpdateUserWorkingAreasRequest(user);
+	
+	_Response = Прокси("updateUserWorkingAreasRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат UpdateUserWorkingAreasResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область UnbindBusinessEntityUser
+
+// Предназначена для удаления связи между пользователем и хозяйствующим субъектом
+// Параметры:
+//  user - Описание пользователя системы - vd:User
+Функция UnbindBusinessEntityUserRequest(user) Экспорт
+	
+	_Объект = Создать("UnbindBusinessEntityUserRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, user, "user");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция UnbindBusinessEntityUserResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.UnbindBusinessEntityUserResponse, "UnbindBusinessEntityUserResponse", URI()).user;
+	
+КонецФункции
+
+Функция UnbindBusinessEntityUser(user, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = UnbindBusinessEntityUserRequest(user);
+	
+	_Response = Прокси("unbindBusinessEntityUserRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат UnbindBusinessEntityUserResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область GetApplicableUserAuthorityList
+
+// Предназначена для получения списка прав пользователей для системы Меркурий
+// Параметры:
+Функция GetApplicableUserAuthorityListRequest() Экспорт
+	
+	_Объект = Создать("GetApplicableUserAuthorityListRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.ListOptions(), "listOptions");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetApplicableUserAuthorityListResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetApplicableUserAuthorityListResponse, "GetApplicableUserAuthorityListResponse", URI()).authorityList;
+	
+КонецФункции
+
+Функция GetApplicableUserAuthorityListNext(issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Если пПараметры = Неопределено Тогда
+		пПараметры = Новый Структура;
+		пПараметры.Вставить("Индекс", 0);
+		пПараметры.Вставить("ListRequest", GetApplicableUserAuthorityListRequest());
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListRequest.ListOptions.offset = пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.authority[пПараметры.Индекс];
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	_Response = Прокси("getApplicableUserAuthorityListRequest", пПараметры.ListRequest, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
+	
+	_ListResponse = GetApplicableUserAuthorityListResponse(_Response);
+	
+	пПараметры.Вставить("ListResponse", _ListResponse);
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		пItem = пПараметры.ListResponse.authority[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
+	
+	Возврат Истина;
+	
+КонецФункции
+
+//только для тестовых xsd (2017-11-16)
+Функция GetAppliedUserAuthorityListRequest() Экспорт
+	
+	_Объект = Создать("GetAppliedUserAuthorityListRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.ListOptions(), "listOptions");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetAppliedUserAuthorityListResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetAppliedUserAuthorityListResponse, "GetAppliedUserAuthorityListResponse", URI()).authorityList;
+	
+КонецФункции
+
+Функция GetAppliedUserAuthorityListNext(issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Если пПараметры = Неопределено Тогда
+		пПараметры = Новый Структура;
+		пПараметры.Вставить("Индекс", 0);
+		пПараметры.Вставить("ListRequest", GetAppliedUserAuthorityListRequest());
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListRequest.ListOptions.offset = пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.authority[пПараметры.Индекс];
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	_Response = Прокси("getAppliedUserAuthorityListRequest", пПараметры.ListRequest, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
+	
+	_ListResponse = GetAppliedUserAuthorityListResponse(_Response);
+	
+	пПараметры.Вставить("ListResponse", _ListResponse);
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		пItem = пПараметры.ListResponse.authority[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
+	
+	Возврат Истина;
+	
+КонецФункции
+
+#КонецОбласти
+
+
+Функция Создать(пИмя, пФабрика = Неопределено) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.Создать(пИмя, URI(), пФабрика);
+	
+КонецФункции
+
+Функция URI() Экспорт
+	
+	Если Ветис.Настройки_ЦелевойСервис() = Перечисления.ВетисЦелевойСервис.mercury_g2b_service Тогда
+		Возврат "http://api.vetrf.ru/schema/cdm/mercury/g2b/applications/v2";
+	ИначеЕсли Ветис.Настройки_ЦелевойСервис() = Перечисления.ВетисЦелевойСервис.mercury_vu_service Тогда
+		Возврат "http://api.vetrf.ru/schema/cdm/mercury/vu/applications/v2";
+	КонецЕсли;
+	
+КонецФункции
+
+Функция User()
+	
+	Возврат ВетисMercuryVetdocument_2_0.User(Ветис.Настройки_ЛогинПользователя());
+	
+КонецФункции
+
+Функция ИмяСервиса() Экспорт
+	
+	Возврат Перечисления.ВетисСервис.ApplicationManagementService;
+	
+КонецФункции
+
+Функция ФабрикаWS()
+	
+	Возврат ВетисПовтИсп.ФабрикаMA(ИмяСервиса(), URI());
+	
+КонецФункции
+
+Функция Прокси(пИмяОперации, пRequest, issuerId = Неопределено, пОтказ = Ложь, пОшибка = Неопределено)
+	
+	Возврат Ветис.ВыполнитьЗапрос(Перечисления.ВетисСервис.amsMercuryService, пИмяОперации, ФабрикаWS(), пRequest, issuerId, пОтказ, пОшибка);
+	
+КонецФункции
