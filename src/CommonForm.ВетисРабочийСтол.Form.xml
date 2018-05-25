@@ -938,35 +938,6 @@
 										</LabelField>
 									</ChildItems>
 								</ColumnGroup>
-								<ColumnGroup name="СписокСкладскойЖурналГруппаGuid" id="213">
-									<Visible>false</Visible>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список складской журнал группа guid</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список складской журнал группа guid</v8:content>
-										</v8:item>
-									</ToolTip>
-									<ExtendedTooltip name="СписокСкладскойЖурналГруппаGuidРасширеннаяПодсказка" id="214"/>
-									<ChildItems>
-										<LabelField name="СписокСкладскойЖурналentryNumber" id="262">
-											<DataPath>СписокСкладскойЖурнал.entryNumber</DataPath>
-											<ContextMenu name="СписокСкладскойЖурналentryNumberКонтекстноеМеню" id="263"/>
-											<ExtendedTooltip name="СписокСкладскойЖурналentryNumberРасширеннаяПодсказка" id="264"/>
-										</LabelField>
-										<LabelField name="СписокСкладскойЖурналguid" id="145">
-											<DataPath>СписокСкладскойЖурнал.guid</DataPath>
-											<Width>1</Width>
-											<ContextMenu name="СписокСкладскойЖурналguidКонтекстноеМеню" id="146"/>
-											<ExtendedTooltip name="СписокСкладскойЖурналguidРасширеннаяПодсказка" id="147"/>
-										</LabelField>
-									</ChildItems>
-								</ColumnGroup>
 								<ColumnGroup name="СписокСкладскойЖурналГруппа1" id="512">
 									<ExtendedTooltip name="СписокСкладскойЖурналГруппа1РасширеннаяПодсказка" id="513"/>
 									<ChildItems>
@@ -1058,6 +1029,34 @@
 											<DataPath>СписокСкладскойЖурнал.country</DataPath>
 											<ContextMenu name="СписокСкладскойЖурналcountryКонтекстноеМеню" id="541"/>
 											<ExtendedTooltip name="СписокСкладскойЖурналcountryРасширеннаяПодсказка" id="542"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокСкладскойЖурналГруппаGuid" id="213">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список складской журнал группа guid</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список складской журнал группа guid</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СписокСкладскойЖурналГруппаGuidРасширеннаяПодсказка" id="214"/>
+									<ChildItems>
+										<LabelField name="СписокСкладскойЖурналentryNumber" id="262">
+											<DataPath>СписокСкладскойЖурнал.entryNumber</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналentryNumberКонтекстноеМеню" id="263"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналentryNumberРасширеннаяПодсказка" id="264"/>
+										</LabelField>
+										<LabelField name="СписокСкладскойЖурналguid" id="145">
+											<DataPath>СписокСкладскойЖурнал.guid</DataPath>
+											<Width>1</Width>
+											<ContextMenu name="СписокСкладскойЖурналguidКонтекстноеМеню" id="146"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналguidРасширеннаяПодсказка" id="147"/>
 										</LabelField>
 									</ChildItems>
 								</ColumnGroup>

@@ -57,10 +57,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисАдминистратор</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисСоответствие</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.ВетисРабочийСтол</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">974ae331-9656-47af-8a46-da0abac3f4eb</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">811121c2-bfb1-4209-855f-d6937998af68</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисВерсияAPI</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">4b0d374c-0a18-4c8b-9e1f-8f202630b1ee</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисIkarService_2_0</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисEnterpriseService_2_0</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисEnterpriseService</xr:Item>
@@ -95,10 +92,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисIncorporationForm</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисLocality</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисEnterpriseType</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">4b8a5393-b687-4ba0-b672-4d8fe90bee6a</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисТипАдреса</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисХозяйственныеОперации</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">8155db6e-faa5-417b-bcc3-ace74e284bbb</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисЦелевойСервис</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.Ветис</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисВызовСервера</xr:Item>
@@ -144,6 +139,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисEnterpriseRole</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисPackageList</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисProductMarks</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисPackageList</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисProductMarks</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

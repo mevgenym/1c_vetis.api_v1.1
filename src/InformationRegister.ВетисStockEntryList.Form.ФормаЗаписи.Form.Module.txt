@@ -1,0 +1,18 @@
+﻿
+&НаКлиенте
+Процедура КомандаПроверитьВСервисе(Команда)
+	КомандаПроверитьВСервисеНаСервере();
+КонецПроцедуры
+
+&НаСервере
+Процедура КомандаПроверитьВСервисеНаСервере()
+	
+	_se = ВетисMercuryApplications_2_0.GetStockEntryByGuid(Запись.guid, ВетисDictionaryСлой1с.Enterprise(Запись.Enterprise));
+	
+	active = _se.active;
+	last   = _se.last;
+	status = _se.status;
+	createDate = _se.createDate;
+	updateDate = _se.updateDate;
+	
+КонецПроцедуры

@@ -86,25 +86,11 @@
 	_ПолучательПредприятие = _ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.ПолучательПредприятие);
 	
 	Если _Версия20 Тогда
-		_Consignment = ПолучитьConsignment_20(_всд, _СтрокаСЖ.Количество);
-		_Waybill = ПолучитьWaybill_20(_ттн);
-		_VetDocument = ПолучитьVetDocument_20(_всд, пОтказ, пОшибка);
-	Иначе
-		_Consignment = ПолучитьConsignment(_всд.Товары[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест);
-		_Waybill = ПолучитьWaybill(_ттн);
-		_VetDocument = ПолучитьVetDocument(_всд);
-	КонецЕсли;
-	
-	Если пОтказ = Истина Тогда
-		Возврат _Результат;
-	КонецЕсли;
-	
-	Если _Версия20 Тогда
 		_delivery = ВетисMercuryVetdocument_2_0.Delivery(
 			ВетисDictionary_2_0.BusinessMember(_Отправитель, _ОтправительПредприятие),
 			ВетисDictionary_2_0.BusinessMember(_Получатель, _ПолучательПредприятие),
-			_Consignment,
-			ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(_Waybill, _VetDocument),
+			ПолучитьConsignment_20(_всд, _СтрокаСЖ.Количество),
+			ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill_20(_ттн), ПолучитьVetDocument_20(_всд)),
 			ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_ттн.Посредник)),
 			ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.ТипТранспорта, _ттн.НомерТранспорта, _ттн.НомерПрицепа),
 			ВетисDictionaryСлой1с.TransportationStorageType(_ттн.СпособХранения));
@@ -112,8 +98,8 @@
 		_delivery = ВетисMercuryVetdocument.Delivery(
 			_ВетисCerberusEnterprise.BusinessMember(_Отправитель, _ОтправительПредприятие),
 			_ВетисCerberusEnterprise.BusinessMember(_Получатель, _ПолучательПредприятие),
-			_Consignment,
-			_ВетисMercuryVetdocument.ConsignmentDocumentList(_Waybill, _VetDocument));
+			ПолучитьConsignment(_всд.Товары[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
+			_ВетисMercuryVetdocument.ConsignmentDocumentList(ПолучитьWaybill(_ттн), ПолучитьVetDocument(_всд)));
 	КонецЕсли;
 	
 	_всдСтрокаСЖ = _всд.Товары[0];
@@ -179,7 +165,7 @@
 				ВетисDictionary_2_0.BusinessMember(_Получатель, _ПолучательПредприятие),
 				ВетисDictionary_2_0.BusinessMember(_Отправитель, _ОтправительПредприятие),
 				ПолучитьConsignment_20_Возвратный(_всд, _СтрокаСЖ.КоличествоВозврат),
-				ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill_20(_ттн, Истина, _ВозвратДата), ПолучитьVetDocument_20_Возвратный(_всд, , _ВозвратДата, пОтказ, пОшибка)),
+				ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill_20(_ттн, Истина, _ВозвратДата), ПолучитьVetDocument_20_Возвратный(_всд, , _ВозвратДата)),
 				ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_ттн.Посредник)),//пока тот же который привез
 				ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.ТипТранспорта, _ттн.НомерТранспорта, _ттн.НомерПрицепа),//пока тот же который привез
 				ВетисDictionaryСлой1с.TransportationStorageType(_ттн.СпособХранения)//пока тот же который привез
@@ -326,24 +312,24 @@
 				Продолжить;
 			КонецЕсли;
 			
-			_СтрокиТовары = пДокумент.Товары.НайтиСтроки(Новый Структура("КлючСтроки", _СтрокаПартии.КлючСвязи));
-			Если _СтрокиТовары.Количество() = 0 Тогда
-				Продолжить;
-			КонецЕсли;
+			//_СтрокиТовары = пДокумент.Товары.НайтиСтроки(Новый Структура("КлючСтроки", _СтрокаПартии.КлючСвязи));
+			//Если _СтрокиТовары.Количество() = 0 Тогда
+			//	Продолжить;
+			//КонецЕсли;
 			
-			_СтрокаТовары = _СтрокиТовары[0];
+			//_СтрокаТовары = _СтрокиТовары[0];
 			
 			_Consignment = ВетисMercuryVetdocument_2_0.Consignment();
 			_Consignment.id               = "id" + _id;
 			_Consignment.volume           = _СтрокаПартии.Количество;
-			_Consignment.unit             = ВетисDictionary_2_0.Unit(ВетисDictionaryСлой1с.Unit(_СтрокаПартии.ЕдиницаИзмерения));
+			_Consignment.unit             = ВетисDictionary_2_0.Unit(ВетисDictionaryСлой1с.Unit(_СтрокаПартии.Unit));
 			_Consignment.sourceStockEntry = ВетисMercuryVetdocument_2_0.StockEntry(_СтрокаПартии.guid);
 			
 			//Consignment это одна партия, значит несколько партий одной продукции будут упакованы одинаково
 			//наверное, физически это должно быть несколько упаковок
 			
 			_packageList = Новый Массив;
-			Для каждого _СтрокаУпаковка Из пДокумент.Упаковка.НайтиСтроки(Новый Структура("КлючСвязи", _СтрокаТовары.КлючСтроки)) Цикл
+			Для каждого _СтрокаУпаковка Из пДокумент.Упаковка.НайтиСтроки(Новый Структура("КлючСвязи", _СтрокаПартии.КлючСтроки)) Цикл
 				
 				//https://github.com/mevgenym/1c_vetis.api/issues/5#issuecomment-369898911
 				Если _СтрокаУпаковка.Количество = 0 Тогда
@@ -878,21 +864,21 @@
 	
 КонецФункции
 
-Функция ПолучитьVetDocument_20(пВСД, пОтказ = Ложь, пОшибка = "")
+Функция ПолучитьVetDocument_20(пВСД)
 	
 	_VetDocument = ВетисMercuryVetdocument_2_0.VetDocument();
 	
 	Если ЗначениеЗаполнено(пВСД.uuid) Тогда
 		_VetDocument.uuid = пВСД.uuid;
 	Иначе
-		ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать_20(_VetDocument, пВСД, пОтказ, пОшибка);
+		ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать_20(_VetDocument, пВСД);
 	КонецЕсли;
 	
 	Возврат _VetDocument;
 	
 КонецФункции
 
-Функция ПолучитьVetDocument_20_Возвратный(пВходящийВСД, пУсловияПеремещения = Неопределено, пВозвратДата, пОтказ = Ложь, пОшибка = "")
+Функция ПолучитьVetDocument_20_Возвратный(пВходящийВСД, пУсловияПеремещения = Неопределено, пВозвратДата)
 	
 	_VetDocument = ВетисMercuryVetdocument_2_0.VetDocument();
 	

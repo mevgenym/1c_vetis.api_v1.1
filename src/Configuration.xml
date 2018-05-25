@@ -209,13 +209,16 @@
 			<CommonCommand>ВетисEnterpriseAlter</CommonCommand>
 			<CommonCommand>ВетисIncorporationForm</CommonCommand>
 			<CommonCommand>ВетисLocality</CommonCommand>
+			<CommonCommand>ВетисPackageList</CommonCommand>
 			<CommonCommand>ВетисPackingForm</CommonCommand>
 			<CommonCommand>ВетисProduct</CommonCommand>
-			<CommonCommand>ВетисSubProduct</CommonCommand>
 			<CommonCommand>ВетисProductItem</CommonCommand>
+			<CommonCommand>ВетисProductMarks</CommonCommand>
 			<CommonCommand>ВетисPurpose</CommonCommand>
 			<CommonCommand>ВетисRegion</CommonCommand>
 			<CommonCommand>ВетисRegionalizationCondition</CommonCommand>
+			<CommonCommand>ВетисStockEntryList</CommonCommand>
+			<CommonCommand>ВетисSubProduct</CommonCommand>
 			<CommonCommand>ВетисTransport</CommonCommand>
 			<CommonCommand>ВетисUnit</CommonCommand>
 			<CommonCommand>ВетисUser</CommonCommand>
@@ -226,7 +229,6 @@
 			<CommonCommand>ВетисЖурнал</CommonCommand>
 			<CommonCommand>ВетисНастройки</CommonCommand>
 			<CommonCommand>ВетисПредприятияХС</CommonCommand>
-			<CommonCommand>ВетисСкладскойЖурнал</CommonCommand>
 			<CommonCommand>ВетисСоответствие</CommonCommand>
 			<CommandGroup>ВетисДокументы</CommandGroup>
 			<CommandGroup>ВетисСправочники</CommandGroup>

@@ -36,7 +36,7 @@
 			<Synonym>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Ветис product marks</v8:content>
+					<v8:content>Складской журнал - маркировка (ветис)</v8:content>
 				</v8:item>
 			</Synonym>
 			<Comment/>
@@ -413,11 +413,11 @@
 			</Dimension>
 			<Dimension uuid="962bcec1-d103-4a2a-b368-2381ff24fd30">
 				<Properties>
-					<Name>index</Name>
+					<Name>npp</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Index</v8:content>
+							<v8:content>Npp</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>

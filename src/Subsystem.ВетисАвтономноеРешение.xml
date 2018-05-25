@@ -15,7 +15,6 @@
 			<Explanation/>
 			<Picture/>
 			<Content>
-				<xr:Item xsi:type="xr:MDObjectRef">118435f8-bc6d-44a4-9915-19c747b059e4</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисAnimalDisease</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисDistrict</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисIncorporationForm</xr:Item>
@@ -28,13 +27,10 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисВходящаяПартияПоДокументам</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисЖурнал</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисНастройки</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">1e43da0d-9d45-4274-bfd0-540bfcad1b17</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисEnterprise</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисПредприятияХС</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисСкладскойЖурнал</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисStockEntryList</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисСоответствие</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">0803cfbe-97d2-4eb6-ac13-9ade385849e3</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">8ac7f516-d522-438c-b362-ffb7533a4f39</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисUnit</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисCountry</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисBusinessEntity</xr:Item>
@@ -49,7 +45,6 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисВетеринарноСопроводительныйДокумент</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисВходящаяПартияПоДокументам</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисТранспортнаяПартия</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">4b8a5393-b687-4ba0-b672-4d8fe90bee6a</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисAnimalDisease</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисDistrict</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисEnterpriseActivity</xr:Item>
@@ -68,15 +63,12 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Подразделения</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Пользователи</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Склады</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">4b0d374c-0a18-4c8b-9e1f-8f202630b1ee</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисНастройки</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">8155db6e-faa5-417b-bcc3-ace74e284bbb</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonPicture.ВетисНетСвязи</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonPicture.ВетисЕстьСвязь</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.ВетисXSD</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.ВетисНастройки</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.ВетисРабочийСтол</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">974ae331-9656-47af-8a46-da0abac3f4eb</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">ScheduledJob.ВетисОчередьЗапросов</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисАдминистратор</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисОператор</xr:Item>
@@ -123,8 +115,6 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисКонстанты</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисОбщегоНазначения</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисОбщегоНазначенияКлиентСервер</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">80b17773-0fae-41fe-8bc2-f6cfa505f997</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">811121c2-bfb1-4209-855f-d6937998af68</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисХозяйственныеОперации</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисBusinessEntityType</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисDeliveryDecision</xr:Item>
@@ -186,6 +176,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисEnterpriseRole</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисPackageList</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисProductMarks</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисPackageList</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисProductMarks</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

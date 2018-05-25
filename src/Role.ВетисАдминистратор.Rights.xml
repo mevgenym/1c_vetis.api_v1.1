@@ -34,6 +34,13 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonCommand.ВетисProductMarks</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>InformationRegister.ВетисStockEntryList.Attribute.entryNumber</name>
 		<right>
 			<name>Edit</name>
@@ -360,7 +367,7 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonCommand.ВетисСкладскойЖурнал</name>
+		<name>CommonCommand.ВетисStockEntryList</name>
 		<right>
 			<name>View</name>
 			<value>true</value>
@@ -1966,6 +1973,13 @@
 	</object>
 	<object>
 		<name>CommonCommand.ВетисBusinessEntity</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.ВетисPackageList</name>
 		<right>
 			<name>View</name>
 			<value>true</value>

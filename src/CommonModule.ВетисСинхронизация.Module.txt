@@ -179,7 +179,7 @@
 			
 			_НачалоПериода = ?(ЗначениеЗаполнено(Выборка.Граница), Выборка.Граница - 12*60*60, Дата(2017,1,1));
 			
-			_КонецПериода = _НачалоПериода + 20*24*60*60;//берем интервалами по 20 дней
+			_КонецПериода = ТекущаяДата();//_НачалоПериода + 20*24*60*60;//берем интервалами по 20 дней
 			
 			_enterpriseGuid = Выборка.enterpriseGuid;
 			
@@ -201,7 +201,7 @@
 					И НЕ _certifiedConsignment.consignor.enterprise.guid = _enterpriseGuid Тогда
 					Если НЕ _certifiedConsignment.consignee.enterprise.guid = _enterpriseGuid Тогда
 						_enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByGuid(_certifiedConsignment.consignee.enterprise.guid);
-						Пока НЕ (_enterprise.active И _enterprise.last) Цикл
+						Пока НЕ ЗаписьАктуальна(_enterprise) Цикл
 							_enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByUuid(_enterprise.next);
 							Если _enterprise.guid = _enterpriseGuid Тогда
 								Прервать;
@@ -217,7 +217,7 @@
 					
 					Если НЕ _certifiedConsignment.consignor.enterprise.guid = _enterpriseGuid Тогда
 						_enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByGuid(_certifiedConsignment.consignor.enterprise.guid);
-						Пока НЕ (_enterprise.active И _enterprise.last) Цикл
+						Пока НЕ ЗаписьАктуальна(_enterprise) Цикл
 							_enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByUuid(_enterprise.next);
 							Если _enterprise.guid = _enterpriseGuid Тогда
 								Прервать;
@@ -232,7 +232,7 @@
 					КонецЕсли;
 				КонецЕсли;
 				
-				_Строка = Документы.ВетисВетеринарноСопроводительныйДокумент.НайтиПоРеквизиту("uuid", _vetDocument.uuid);
+				_Строка = Документы.ВетисВетеринарноСопроводительныйДокумент.НайтиПоРеквизиту("уид", Новый УникальныйИдентификатор(_vetDocument.uuid));
 				
 				Если НЕ ЗначениеЗаполнено(_Строка) Тогда
 					_док = Документы.ВетисВетеринарноСопроводительныйДокумент.СоздатьДокумент();
@@ -326,73 +326,101 @@
 			
 			_НачалоПериода = ?(ЗначениеЗаполнено(Выборка.Граница), Выборка.Граница - 12*60*60, Дата(2017,1,1));
 			
-			_КонецПериода = _НачалоПериода + 20*24*60*60;
+			_КонецПериода = ТекущаяДата();//_НачалоПериода + 40*24*60*60;
 			
 			//2017-11-27
 			//дает разные результаты в 1.4 и в 2.0
 			Пока _ВетисMercuryApplications.getStockEntryChangesListNext(Выборка.enterpriseGuid, _НачалоПериода, _КонецПериода, Выборка.issuerId, _stockEntry, _параметры, пОтказ, пОшибка) Цикл
 				
-				_мз = РегистрыСведений.ВетисStockEntryList.СоздатьМенеджерЗаписи();
-				_мз.Enterprise = Выборка.Enterprise;
-				_мз.guid = _stockEntry.guid;
-				_мз.уид = Новый УникальныйИдентификатор(_stockEntry.guid);
+				_se = РегистрыСведений.ВетисStockEntryList.СоздатьМенеджерЗаписи();
+				_se.Enterprise = Выборка.Enterprise;
+				_se.guid = _stockEntry.guid;
+				_se.уид = Новый УникальныйИдентификатор(_stockEntry.guid);
 				
-				Если _stockEntry.last И _stockEntry.active Тогда
+				Если ЗаписьАктуальна(_stockEntry) Тогда
 					
-					_мз.entryNumber = _stockEntry.entryNumber;
+					_se.entryNumber = _stockEntry.entryNumber;
 					
-					_мз.updateDate = Ветис.ВремяМестное(_stockEntry.updateDate);// xs:dateTime
+					_se.updateDate = Ветис.ВремяМестное(_stockEntry.updateDate);// xs:dateTime
 					
-					_мз.ProductType = _ВетисArgusProductionСлой1с.productType(_stockEntry.batch.productType);
-					_мз.Product     = _ВетисArgusProductionСлой1с.Product(_stockEntry.batch.product);
-					_мз.SubProduct  = _ВетисArgusProductionСлой1с.SubProduct(_stockEntry.batch.subProduct);
-					_мз.ProductItem = _ВетисArgusProductionСлой1с.ProductItem(_stockEntry.batch.productItem);
-					_мз.ProductItemName = _stockEntry.batch.productItem.name;
+					_se.ProductType = _ВетисArgusProductionСлой1с.productType(_stockEntry.batch.productType);
+					_se.Product     = _ВетисArgusProductionСлой1с.Product(_stockEntry.batch.product);
+					_se.SubProduct  = _ВетисArgusProductionСлой1с.SubProduct(_stockEntry.batch.subProduct);
+					_se.ProductItem = _ВетисArgusProductionСлой1с.ProductItem(_stockEntry.batch.productItem);
+					_se.ProductItemName = _stockEntry.batch.productItem.name;
 					
-					_мз.Unit        = _ВетисArgusCommonСлой1с.Unit(_stockEntry.batch.unit);
-					_мз.volume      = _stockEntry.batch.volume;
+					_se.Unit        = _ВетисArgusCommonСлой1с.Unit(_stockEntry.batch.unit);
+					_se.volume      = _stockEntry.batch.volume;
 					
 					Если _Версия20 Тогда
 						
-						_мз.owner = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_stockEntry.batch.owner);
+						_se.owner = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_stockEntry.batch.owner);
 						
 						Если НЕ _stockEntry.batch.packageList = Неопределено Тогда
-							//берем одну последнюю
-							_package = ВетисDictionaryСлой1с.PackageList(_stockEntry.batch.packageList);
-							_мз.PackingForm   = ВетисDictionaryСлой1с.PackingType(_package.packingType);
-							_мз.packingAmount = _package.quantity;
+							_pl = РегистрыСведений.ВетисPackageList.СоздатьНаборЗаписей();
+							_pl.Отбор.уид.Установить(_se.уид);
+							_pm = РегистрыСведений.ВетисProductMarks.СоздатьНаборЗаписей();
+							_pm.Отбор.уид.Установить(_se.уид);
+							Для каждого _package Из _stockEntry.batch.packageList.package Цикл
+								_plСтрока = _pl.Добавить();
+								_plСтрока.guid = _se.guid;
+								_plСтрока.уид = _se.уид;
+								_plСтрока.level = ВетисDictionaryСлой1с.PackageLevelType(_package.level);
+								_plСтрока.packingType = ВетисDictionaryСлой1с.PackingType(_package.packingType);
+								_plСтрока.packingAmount = _package.quantity;
+								_pmIndex = 1;
+								Для каждого _productMarks Из _package.productMarks Цикл
+									_pmСтрока = _pm.Добавить();
+									_pmСтрока.guid = _se.guid;
+									_pmСтрока.уид = _se.уид;
+									_pmСтрока.level = _plСтрока.level;
+									_pmСтрока.packingType = _plСтрока.packingType;
+									_pmСтрока.npp = _pmIndex;
+									_pmСтрока.value = _productMarks.__content;
+									_pmСтрока.class = ВетисDictionaryСлой1с.ProductMarkingClass(_productMarks.class);
+									_pmIndex = _pmIndex + 1;
+								КонецЦикла;
+							КонецЦикла;
+							_pl.Записать();
+							_pm.Записать();
 						КонецЕсли;
 						
 						Если НЕ _stockEntry.batch.origin = Неопределено Тогда
 							//берем первого
 							Если _stockEntry.batch.origin.producer.Количество()>0 Тогда
-								_мз.producer = _ВетисCerberusEnterpriseСлой1с.Enterprise(_stockEntry.batch.origin.producer[0].enterprise);
+								_se.producer = _ВетисCerberusEnterpriseСлой1с.Enterprise(_stockEntry.batch.origin.producer[0].enterprise);
 							КонецЕсли;
 							Если НЕ _stockEntry.batch.origin.productItem = Неопределено Тогда
-								_мз.producerProductItem = _ВетисArgusProductionСлой1с.ProductItem(_stockEntry.batch.origin.productItem);
+								_se.producerProductItem = _ВетисArgusProductionСлой1с.ProductItem(_stockEntry.batch.origin.productItem);
 							КонецЕсли;
-							_мз.country = _ВетисIkarСлой1с.Country(_stockEntry.batch.origin.country);
+							_se.country = _ВетисIkarСлой1с.Country(_stockEntry.batch.origin.country);
 						КонецЕсли;
 						
 						Для каждого _vetDocument Из _stockEntry.vetDocument Цикл
-							_мз.vetDocument = ВетисMercuryVetdocumentСлой1с.VetDocument(_vetDocument);
+							_se.vetDocument = ВетисMercuryVetdocumentСлой1с.VetDocument(_vetDocument);
 							//берем только первый
 							Прервать;
 						КонецЦикла;
 						
-						_мз.dateOfProductionFirst = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.dateOfProduction.firstDate, Истина);
-						_мз.dateOfProductionSecond = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.dateOfProduction.secondDate, Истина);
-						_мз.dateOfProductionInformal = _stockEntry.batch.dateOfProduction.informalDate;
+						_se.dateOfProductionFirst = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.dateOfProduction.firstDate, Истина);
+						_se.dateOfProductionSecond = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.dateOfProduction.secondDate, Истина);
+						_se.dateOfProductionInformal = _stockEntry.batch.dateOfProduction.informalDate;
 						
-						_мз.expiryDateFirst = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.expiryDate.firstDate, Истина);
-						_мз.expiryDateSecond = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.expiryDate.secondDate, Истина);
-						_мз.expiryDateInformal = _stockEntry.batch.expiryDate.informalDate;
+						_se.expiryDateFirst = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.expiryDate.firstDate, Истина);
+						_se.expiryDateSecond = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.expiryDate.secondDate, Истина);
+						_se.expiryDateInformal = _stockEntry.batch.expiryDate.informalDate;
 						
 					КонецЕсли;
 					
-					_мз.Записать();
+					_se.Записать();
 				Иначе
-					_мз.Удалить();
+					_se.Удалить();
+					_pl = РегистрыСведений.ВетисPackageList.СоздатьНаборЗаписей();
+					_pl.Отбор.уид.Установить(_se.уид);
+					_pl.Записать();
+					_pm = РегистрыСведений.ВетисProductMarks.СоздатьНаборЗаписей();
+					_pm.Отбор.уид.Установить(_se.уид);
+					_pm.Записать();
 					
 				КонецЕсли;
 				
@@ -936,7 +964,7 @@
 	Пока _Service.GetUnitChangesListNext(_НачалоПериода, , _Выборка, _параметры, пОтказ, пОшибка) Цикл
 		_уид = Новый УникальныйИдентификатор(_Выборка.guid);
 		_Элемент = ВетисDictionaryСлой1с.Unit(_Выборка.guid);
-		Если НЕ (_Выборка.last И _Выборка.active И _Выборка.status < 400) Тогда
+		Если НЕ ЗаписьАктуальна(_Выборка) Тогда
 			Если НЕ _Элемент = Неопределено Тогда
 				Попытка
 					_Элемент.ПолучитьОбъект().УстановитьПометкуУдаления(Истина);
@@ -970,7 +998,7 @@
 	Пока _Service.GetPurposeChangesListNext(_НачалоПериода, , _Выборка, _параметры, пОтказ, пОшибка) Цикл
 		_уид = Новый УникальныйИдентификатор(_Выборка.guid);
 		_Элемент = ВетисDictionaryСлой1с.Purpose(_Выборка.guid);
-		Если НЕ (_Выборка.last И _Выборка.active И _Выборка.status < 400) Тогда
+		Если НЕ ЗаписьАктуальна(_Выборка) Тогда
 			Если НЕ _Элемент = Неопределено Тогда
 				Попытка
 					_Элемент.ПолучитьОбъект().УстановитьПометкуУдаления(Истина);
@@ -1029,7 +1057,7 @@
 
 Процедура BusinessEntityBodyLoop(_Выборка, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если _Выборка.last И _Выборка.active Тогда
+	Если ЗаписьАктуальна(_Выборка) Тогда
 		_Элемент = ВетисDictionaryСлой1с.BusinessEntity(_Выборка.guid);
 		Если _Выборка.status < 400 Тогда
 			_name = СокрЛП(?(ПустаяСтрока(_Выборка.name), ?(ПустаяСтрока(_Выборка.fullName), _Выборка.fio, _Выборка.fullName), _Выборка.name));
@@ -1093,7 +1121,7 @@
 	Пока _Service.GetCountryChangesListNext(_НачалоПериода, , _Выборка, _параметры, пОтказ, пОшибка) Цикл
 		_уид = Новый УникальныйИдентификатор(_Выборка.guid);
 		_Элемент = ВетисDictionaryСлой1с.Country(_Выборка.guid);
-		Если НЕ (_Выборка.last И _Выборка.active И _Выборка.status < 400) Тогда
+		Если НЕ ЗаписьАктуальна(_Выборка) Тогда
 			Если НЕ _Элемент = Неопределено Тогда
 				Попытка
 					_Элемент.ПолучитьОбъект().УстановитьПометкуУдаления(Истина);
@@ -1126,7 +1154,7 @@
 	_Выборка = Неопределено; _параметры = Неопределено;
 	Пока _Service.GetRegionChangesListNext(_НачалоПериода, , _Выборка, _параметры, пОтказ, пОшибка) Цикл
 		_Элемент = ВетисDictionaryСлой1с.Region(_Выборка.guid);
-		Если НЕ (_Выборка.last И _Выборка.active И _Выборка.status < 400) Тогда
+		Если НЕ ЗаписьАктуальна(_Выборка) Тогда
 			Если НЕ _Элемент = Неопределено Тогда
 				Попытка
 					_Элемент.ПолучитьОбъект().УстановитьПометкуУдаления(Истина);
@@ -1159,7 +1187,7 @@
 	_Выборка = Неопределено; _параметры = Неопределено;
 	Пока _Service.GetDistrictChangesListNext(_НачалоПериода, , _Выборка, _параметры, пОтказ, пОшибка) Цикл
 		_Элемент = ВетисDictionaryСлой1с.District(_Выборка.guid);
-		Если НЕ (_Выборка.last И _Выборка.active И _Выборка.status < 400) Тогда
+		Если НЕ ЗаписьАктуальна(_Выборка) Тогда
 			Если НЕ _Элемент = Неопределено Тогда
 				Попытка
 					_Элемент.ПолучитьОбъект().УстановитьПометкуУдаления(Истина);
@@ -1562,7 +1590,7 @@
 	_Выборка = Неопределено; _параметры = Неопределено;
 	Пока _Service.GetProductChangesListNext(_НачалоПериода, , _Выборка, _параметры, пОтказ, пОшибка) Цикл
 		_Элемент = ВетисDictionaryСлой1с.Product(_Выборка.guid);
-		Если НЕ (_Выборка.last И _Выборка.active И _Выборка.status < 400) Тогда
+		Если НЕ ЗаписьАктуальна(_Выборка) Тогда
 			Если НЕ _Элемент = Неопределено Тогда
 				Попытка
 					_Элемент.ПолучитьОбъект().УстановитьПометкуУдаления(Истина);
@@ -1595,7 +1623,7 @@
 	_Выборка = Неопределено; _параметры = Неопределено;
 	Пока _Service.GetSubProductChangesListNext(_НачалоПериода, , _Выборка, _параметры, пОтказ, пОшибка) Цикл
 		_Элемент = ВетисDictionaryСлой1с.SubProduct(_Выборка.guid);
-		Если НЕ (_Выборка.last И _Выборка.active И _Выборка.status < 400) Тогда
+		Если НЕ ЗаписьАктуальна(_Выборка) Тогда
 			Если НЕ _Элемент = Неопределено Тогда
 				Попытка
 					_Элемент.ПолучитьОбъект().УстановитьПометкуУдаления(Истина);
@@ -1616,3 +1644,36 @@
 Процедура ProductItemChanges(пОтказ = Ложь, пОшибка = "") Экспорт
 	
 КонецПроцедуры
+
+
+Функция ЗаписьАктуальна(item)
+//100	CREATED - Запись создана.
+//101	CREATED_WHEN_QUENCH_VETCERTIFICATE - Запись создана путем гашения ВС (импорт).
+//102	CREATED_WHEN_QUENCH_VETDOCUMENT - Запись создана путем гашения ВСД.
+//103	CREATED_BY_OPERATION - Запись создана в результате производственной операции.
+//110	CREATED_WHEN_MERGE - Запись создана в результате объединения двух или более других.
+//120	CREATED_WHEN_SPLIT - Запись создана в результате разделения другой.
+//200	UPDATED - В запись были внесены изменения.
+//201	WITHDRAWN - Запись журнала аннулирована.
+//202	UPDATED_WHEN_WRITINGOFF - Запись продукции изменена путём списания. Необязательно, чтобы продукция была списана полностью, может быть списана и часть объёма.
+//230	UPDATED_WHEN_ATTACH - Запись была обновлена в результате присоединения другой.
+//231	UPDATED_WHEN_ATTACH_AUTOMATIC - Запись была обновлена в результате присоединения другой.
+//240	UPDATED_WHEN_FORK - Запись была обновлена в результате отделения от неё другой.
+//250	RESTORED_AFTER_DELETE - Запись была восстановлена после удаления.
+//300	MOVED - Запись была перемещена в другую группу (для иерархических справочников).
+//400	DELETED - Запись была удалена.
+//410	DELETED_WHEN_MERGE - Запись была удалена в результате объединения.
+//420	DELETED_WHEN_SPLIT - Запись была удалена в результате разделения.
+//430	DELETED_WHEN_ATTACH - Запись была удалена в результате присоединения.
+	Возврат (item.status >= 100 И item.status < 200
+		ИЛИ item.status = 200
+		ИЛИ item.status = 202
+		ИЛИ item.status = 230
+		ИЛИ item.status = 231
+		ИЛИ item.status = 240
+		ИЛИ item.status = 250
+		ИЛИ item.status = 300)
+		И item.last
+		И item.active;
+		
+КонецФункции

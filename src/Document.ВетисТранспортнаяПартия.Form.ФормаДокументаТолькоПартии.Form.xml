@@ -58,13 +58,21 @@
 					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
 				</InputField>
-				<LabelField name="Статус" id="445">
+				<InputField name="Статус" id="445">
 					<DataPath>Объект.Статус</DataPath>
+					<ReadOnly>true</ReadOnly>
 					<TitleLocation>None</TitleLocation>
+					<HorizontalAlign>Center</HorizontalAlign>
 					<Font height="12" bold="true" underline="true" kind="AutoFont"/>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Новый</v8:content>
+						</v8:item>
+					</InputHint>
 					<ContextMenu name="СтатусКонтекстноеМеню" id="446"/>
 					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="447"/>
-				</LabelField>
+				</InputField>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаРеквизиты" id="111">
@@ -333,6 +341,7 @@
 								</ColumnGroup>
 								<InputField name="ПартииProductItem" id="522">
 									<DataPath>Объект.Партии.ProductItem</DataPath>
+									<Visible>false</Visible>
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="ПартииProductItemКонтекстноеМеню" id="523"/>
 									<ExtendedTooltip name="ПартииProductItemРасширеннаяПодсказка" id="524"/>
@@ -342,6 +351,12 @@
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="ПартииProductItemNameКонтекстноеМеню" id="526"/>
 									<ExtendedTooltip name="ПартииProductItemNameРасширеннаяПодсказка" id="527"/>
+								</InputField>
+								<InputField name="ПартииUnit" id="544">
+									<DataPath>Объект.Партии.Unit</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПартииUnitКонтекстноеМеню" id="545"/>
+									<ExtendedTooltip name="ПартииUnitРасширеннаяПодсказка" id="546"/>
 								</InputField>
 								<InputField name="ПартииКоличество" id="221">
 									<DataPath>Объект.Партии.Количество</DataPath>
@@ -357,6 +372,50 @@
 									<ContextMenu name="ПартииКоличествоМестКонтекстноеМеню" id="225"/>
 									<ExtendedTooltip name="ПартииКоличествоМестРасширеннаяПодсказка" id="226"/>
 								</InputField>
+								<InputField name="Партииproducer" id="541">
+									<DataPath>Объект.Партии.producer</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПартииproducerКонтекстноеМеню" id="542"/>
+									<ExtendedTooltip name="ПартииproducerРасширеннаяПодсказка" id="543"/>
+								</InputField>
+								<ColumnGroup name="ПартииГруппа2" id="539">
+									<Group>InCell</Group>
+									<ExtendedTooltip name="ПартииГруппа2РасширеннаяПодсказка" id="540"/>
+									<ChildItems>
+										<LabelField name="ПартииdateOfProductionFirst" id="530">
+											<DataPath>1/0:5f55d374-34e1-455b-9c09-39a199fce295/0:91ea691b-0fb2-40dc-bb0c-812421abcbaf</DataPath>
+											<Visible>false</Visible>
+											<EditMode>EnterOnInput</EditMode>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ДЛФ=D</v8:content>
+												</v8:item>
+											</Format>
+											<ContextMenu name="ПартииdateOfProductionFirstКонтекстноеМеню" id="531"/>
+											<ExtendedTooltip name="ПартииdateOfProductionFirstРасширеннаяПодсказка" id="532"/>
+										</LabelField>
+										<LabelField name="ПартииdateOfProductionSecond" id="533">
+											<DataPath>1/0:5f55d374-34e1-455b-9c09-39a199fce295/0:bdeaacff-5d44-4418-97e1-80f38480d7c3</DataPath>
+											<Visible>false</Visible>
+											<EditMode>EnterOnInput</EditMode>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ДЛФ=D</v8:content>
+												</v8:item>
+											</Format>
+											<ContextMenu name="ПартииdateOfProductionSecondКонтекстноеМеню" id="534"/>
+											<ExtendedTooltip name="ПартииdateOfProductionSecondРасширеннаяПодсказка" id="535"/>
+										</LabelField>
+										<LabelField name="ПартииdateOfProductionInformal" id="536">
+											<DataPath>Объект.Партии.dateOfProductionInformal</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПартииdateOfProductionInformalКонтекстноеМеню" id="537"/>
+											<ExtendedTooltip name="ПартииdateOfProductionInformalРасширеннаяПодсказка" id="538"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
 								<LabelField name="ПартииСтатус" id="454">
 									<DataPath>Объект.Партии.Статус</DataPath>
 									<EditMode>EnterOnInput</EditMode>
@@ -455,6 +514,7 @@
 										<InputField name="УпаковкаКоличество" id="409">
 											<DataPath>Объект.Упаковка.Количество</DataPath>
 											<EditMode>EnterOnInput</EditMode>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="УпаковкаКоличествоКонтекстноеМеню" id="410"/>
 											<ExtendedTooltip name="УпаковкаКоличествоРасширеннаяПодсказка" id="411"/>
 										</InputField>
@@ -649,11 +709,13 @@
 												</InputField>
 												<InputField name="ттнНомер" id="274">
 													<DataPath>ттнНомер</DataPath>
+													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<ContextMenu name="ттнНомерКонтекстноеМеню" id="275"/>
 													<ExtendedTooltip name="ттнНомерРасширеннаяПодсказка" id="276"/>
 												</InputField>
 												<InputField name="ттнДата" id="271">
 													<DataPath>ттнДата</DataPath>
+													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<ContextMenu name="ттнДатаКонтекстноеМеню" id="272"/>
 													<ExtendedTooltip name="ттнДатаРасширеннаяПодсказка" id="273"/>
 												</InputField>
@@ -691,6 +753,7 @@
 									<ChildItems>
 										<InputField name="ттнТип" id="283">
 											<DataPath>ттнТип</DataPath>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="ттнТипКонтекстноеМеню" id="284"/>
 											<ExtendedTooltip name="ттнТипРасширеннаяПодсказка" id="285"/>
 										</InputField>
