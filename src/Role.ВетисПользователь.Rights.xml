@@ -899,6 +899,13 @@
 		</right>
 	</object>
 	<object>
+		<name>FilterCriterion.ВетисСвязанныеДокументы</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.ВетисUnit.Attribute.fullName</name>
 		<right>
 			<name>Edit</name>

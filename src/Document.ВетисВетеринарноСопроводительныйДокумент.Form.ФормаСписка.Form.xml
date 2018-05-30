@@ -126,6 +126,11 @@
 					<ContextMenu name="КоличествоКонтекстноеМеню" id="71"/>
 					<ExtendedTooltip name="КоличествоРасширеннаяПодсказка" id="72"/>
 				</LabelField>
+				<LabelField name="Тип" id="81">
+					<DataPath>Список.Тип</DataPath>
+					<ContextMenu name="ТипКонтекстноеМеню" id="82"/>
+					<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="83"/>
+				</LabelField>
 				<LabelField name="uuid" id="78">
 					<DataPath>Список.uuid</DataPath>
 					<ContextMenu name="uuidКонтекстноеМеню" id="79"/>

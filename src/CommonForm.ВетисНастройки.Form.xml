@@ -432,6 +432,11 @@
 													<ContextMenu name="НазначениеГрузаКонтекстноеМеню" id="193"/>
 													<ExtendedTooltip name="НазначениеГрузаРасширеннаяПодсказка" id="194"/>
 												</InputField>
+												<InputField name="НазначениеГрузаНаВозврат" id="393">
+													<DataPath>ВСД_НазначениеГрузаНаВозврат</DataPath>
+													<ContextMenu name="НазначениеГрузаНаВозвратКонтекстноеМеню" id="394"/>
+													<ExtendedTooltip name="НазначениеГрузаНаВозвратРасширеннаяПодсказка" id="395"/>
+												</InputField>
 												<InputField name="БлагополучиеМестности" id="195">
 													<DataPath>ВСД_БлагополучиеМестности</DataPath>
 													<ContextMenu name="БлагополучиеМестностиКонтекстноеМеню" id="196"/>
@@ -522,12 +527,6 @@
 													<CheckBoxType>Auto</CheckBoxType>
 													<ContextMenu name="МероприятияКонтекстноеМеню" id="175"/>
 													<ExtendedTooltip name="МероприятияРасширеннаяПодсказка" id="176"/>
-												</CheckBoxField>
-												<CheckBoxField name="УсловияПеремещения" id="180">
-													<DataPath>УсловияПеремещения</DataPath>
-													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="УсловияПеремещенияКонтекстноеМеню" id="181"/>
-													<ExtendedTooltip name="УсловияПеремещенияРасширеннаяПодсказка" id="182"/>
 												</CheckBoxField>
 											</ChildItems>
 										</UsualGroup>
@@ -930,17 +929,6 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="МногоуровневаяУпаковка" id="12">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Многоуровневая упаковка</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-		</Attribute>
 		<Attribute name="ЛабораторныеИсследования" id="13">
 			<Title>
 				<v8:item>
@@ -968,17 +956,6 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Мультимодальные перевозки</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="УсловияПеремещения" id="16">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Условия перемещения</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1251,6 +1228,17 @@
 			</Title>
 			<Type>
 				<v8:Type>cfg:CatalogRef.ВетисUser</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВСД_НазначениеГрузаНаВозврат" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначение груза на возврат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВетисPurpose</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>

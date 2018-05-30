@@ -169,7 +169,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Количество мест</v8:content>
+							<v8:content>Количество</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -298,7 +298,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Level</v8:content>
+							<v8:content>Уровень</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -339,7 +339,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Packing type</v8:content>
+							<v8:content>Упаковка</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>

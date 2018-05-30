@@ -145,6 +145,7 @@
 			<Role>ВетисОператор</Role>
 			<Role>ВетисПолныеПрава</Role>
 			<Role>ВетисПользователь</Role>
+			<FilterCriterion>ВетисСвязанныеДокументы</FilterCriterion>
 			<CommonModule>Ветис</CommonModule>
 			<CommonModule>ВетисApplication</CommonModule>
 			<CommonModule>ВетисApplication_2_0</CommonModule>
@@ -288,7 +289,6 @@
 			<Enum>ВетисEnterpriseType</Enum>
 			<Enum>ВетисPackageLevelType</Enum>
 			<Enum>ВетисProductMarkingClass</Enum>
-			<Enum>ВетисProductType</Enum>
 			<Enum>ВетисReferenceType</Enum>
 			<Enum>ВетисResearchResult</Enum>
 			<Enum>ВетисTransportStorageType</Enum>

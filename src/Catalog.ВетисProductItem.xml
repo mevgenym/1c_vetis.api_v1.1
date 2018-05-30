@@ -28,7 +28,7 @@
 			<Synonym>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Product Item (ветис)</v8:content>
+					<v8:content>Номенклатура (ветис)</v8:content>
 				</v8:item>
 			</Synonym>
 			<Comment/>
@@ -257,7 +257,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Product type</v8:content>
+							<v8:content>Тип продукции</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -296,7 +296,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Product</v8:content>
+							<v8:content>Продукция</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -335,7 +335,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Sub product</v8:content>
+							<v8:content>Вид продукции</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>

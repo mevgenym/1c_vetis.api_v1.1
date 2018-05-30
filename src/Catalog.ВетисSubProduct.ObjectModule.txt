@@ -9,6 +9,7 @@
 		Код          = СокрЛП(ДанныеЗаполнения.code);
 		//productType  = ВетисDictionaryСлой1с.ProductType(ДанныеЗаполнения.productType);
 		product      = ВетисDictionaryСлой1с.Product(ДанныеЗаполнения.productGuid);
+		productType  = product.productType;
 	КонецЕсли;
 	
 КонецПроцедуры

@@ -453,46 +453,6 @@
 
 
 &НаКлиенте
-Процедура КомандаСкладскойЖурналТест(Команда)
-	
-	ТекущиеДанные = Элементы.СписокСкладскойЖурнал.ТекущиеДанные;
-	
-	СкладскойЖурналПолучитьТекущийСервер(ТекущиеДанные.guid);
-	
-КонецПроцедуры
-
-Процедура СкладскойЖурналПолучитьТекущийСервер(guid)
-	//тест:
-	//http://vetrf.ru/vetrf-forum/posts/list/1185/6855.page#46389
-	//В записи журнала есть объект vetDocument, в котором возвращаются реквизиты ВСД. То есть при выполнении метода, например, GetStockEntryByGuid вы получите данные записи журнала и UUID ветеринарного сертификата, на основании которого эта запись была создана. 
-	//результат:
-	//работает только в 2.0
-	
-	Если Ветис.Версия_2_0() Тогда
-		_enterpriseGuid = ВетисDictionaryСлой1с.Enterprise(ОтборПредприятие);
-		_issuerId       = ВетисDictionaryСлой1с.BusinessEntity(ОтборХС);
-		_StockEntry     = ВетисMercuryApplications_2_0.getStockEntryByGuid(guid, _enterpriseGuid, _issuerId);
-		
-		Если _StockEntry.vetDocument.Количество() > 0 Тогда
-			_VetDocument    = ВетисMercuryApplications_2_0.getVetDocumentByUuid(_StockEntry.vetDocument[0].uuid, _enterpriseGuid, _issuerId);
-		КонецЕсли;
-	Иначе
-		_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(ОтборПредприятие);
-		_issuerId       = ВетисCerberusEnterpriseСлой1с.BusinessEntity(ОтборХС);
-		_StockEntry     = ВетисMercuryApplications.getStockEntryByGuid(guid, _enterpriseGuid, _issuerId);
-		
-		Если _StockEntry.vetDocument.Количество() > 0 Тогда
-			_VetDocument    = ВетисMercuryApplications.getVetDocumentByUuid(_StockEntry.vetDocument[0].uuid, _enterpriseGuid, _issuerId);
-		КонецЕсли;
-		
-	КонецЕсли;
-	
-	Элементы.СписокСкладскойЖурналСкладскойЖурналПолучитьТекущий.Заголовок = "Тест "+_StockEntry.vetDocument.Количество();
-	
-КонецПроцедуры
-
-
-&НаКлиенте
 Процедура ОтборХСПриИзменении(Элемент)
 	
 	ВетисВызовСервера.ТекущийХС(ОтборХС);
@@ -640,5 +600,10 @@
 	_поле = пУО.Поля.Элементы.Добавить();
 	_поле.Использование = Истина;
 	_поле.Поле = Новый ПолеКомпоновкиДанных(пИмяПоля);
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура СписокСкладскойЖурналПриАктивизацииСтроки(Элемент)
 	
 КонецПроцедуры
