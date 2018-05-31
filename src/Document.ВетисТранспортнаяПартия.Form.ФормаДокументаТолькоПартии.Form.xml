@@ -767,11 +767,13 @@
 										</InputField>
 										<InputField name="ттнТипТранспорта" id="353">
 											<DataPath>ттнТипТранспорта</DataPath>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="ттнТипТранспортаКонтекстноеМеню" id="354"/>
 											<ExtendedTooltip name="ттнТипТранспортаРасширеннаяПодсказка" id="355"/>
 										</InputField>
 										<InputField name="ттнНомерТранспорта" id="359">
 											<DataPath>ттнНомерТранспорта</DataPath>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="ттнНомерТранспортаКонтекстноеМеню" id="360"/>
 											<ExtendedTooltip name="ттнНомерТранспортаРасширеннаяПодсказка" id="361"/>
 										</InputField>
@@ -901,23 +903,29 @@
 						</v8:item>
 					</ToolTip>
 					<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="96"/>
-					<ChildItems>
-						<InputField name="Ответственный" id="28">
-							<DataPath>Объект.Ответственный</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<ContextMenu name="ОтветственныйКонтекстноеМеню" id="29"/>
-							<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="30"/>
-						</InputField>
-					</ChildItems>
 				</Page>
 			</ChildItems>
 		</Pages>
-		<InputField name="Комментарий" id="31">
-			<DataPath>Объект.Комментарий</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<ContextMenu name="КомментарийКонтекстноеМеню" id="32"/>
-			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="33"/>
-		</InputField>
+		<UsualGroup name="Группа2" id="547">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="548"/>
+			<ChildItems>
+				<InputField name="Комментарий" id="31">
+					<DataPath>Объект.Комментарий</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КомментарийКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="33"/>
+				</InputField>
+				<InputField name="Ответственный" id="28">
+					<DataPath>Объект.Ответственный</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="30"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">

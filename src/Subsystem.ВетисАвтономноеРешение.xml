@@ -123,7 +123,6 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисDocumentType</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисEnterpriseType</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисProductMarkingClass</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">a9ec7d39-2733-4789-9068-9f2475155af9</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисPackageLevelType</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисReferenceType</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисResearchResult</xr:Item>
@@ -179,6 +178,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисPackageList</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисProductMarks</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">FilterCriterion.ВетисСвязанныеДокументы</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисСервис</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

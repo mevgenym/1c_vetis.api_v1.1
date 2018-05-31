@@ -191,12 +191,14 @@
 			<CommonModule>ВетисОбщегоНазначения</CommonModule>
 			<CommonModule>ВетисОбщегоНазначенияКлиентСервер</CommonModule>
 			<CommonModule>ВетисПовтИсп</CommonModule>
+			<CommonModule>ВетисСервис</CommonModule>
 			<CommonModule>ВетисСинхронизация</CommonModule>
 			<CommonModule>ВетисСинхронизацияВызовСервера</CommonModule>
 			<CommonModule>ВетисХозяйственныеОперации</CommonModule>
 			<CommonModule>ЗаполнениеДокументов</CommonModule>
 			<CommonModule>ОбщегоНазначения</CommonModule>
 			<CommonModule>Пользователи</CommonModule>
+			<HTTPService>trade</HTTPService>
 			<EventSubscription>ВетисПриУстановкеНовогоКода</EventSubscription>
 			<EventSubscription>ВетисПриУстановкеНовогоНомера</EventSubscription>
 			<ScheduledJob>ВетисОчередьЗапросов</ScheduledJob>

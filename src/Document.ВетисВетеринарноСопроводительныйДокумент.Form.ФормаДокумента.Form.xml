@@ -98,11 +98,13 @@
 						<InputField name="НомерВСД" id="445">
 							<DataPath>Объект.НомерВСД</DataPath>
 							<HorizontalStretch>false</HorizontalStretch>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="НомерВСДКонтекстноеМеню" id="446"/>
 							<ExtendedTooltip name="НомерВСДРасширеннаяПодсказка" id="447"/>
 						</InputField>
 						<InputField name="ДатаВСД" id="448">
 							<DataPath>Объект.ДатаВСД</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="ДатаВСДКонтекстноеМеню" id="449"/>
 							<ExtendedTooltip name="ДатаВСДРасширеннаяПодсказка" id="450"/>
 						</InputField>
@@ -340,17 +342,56 @@
 									<ChildItems>
 										<InputField name="сжProductType" id="923">
 											<DataPath>сжProductType</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Тип продукции</v8:content>
+												</v8:item>
+											</Title>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="сжProductTypeКонтекстноеМеню" id="924"/>
 											<ExtendedTooltip name="сжProductTypeРасширеннаяПодсказка" id="925"/>
 										</InputField>
 										<InputField name="сжProduct" id="920">
 											<DataPath>сжProduct</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Продукция</v8:content>
+												</v8:item>
+											</Title>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<ChoiceParameterLinks>
+												<xr:Link>
+													<xr:Name>Отбор.productType</xr:Name>
+													<xr:DataPath xsi:type="xs:string">сжProductType</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+											</ChoiceParameterLinks>
 											<ContextMenu name="сжProductКонтекстноеМеню" id="921"/>
 											<ExtendedTooltip name="сжProductРасширеннаяПодсказка" id="922"/>
 										</InputField>
 										<InputField name="сжSubProduct" id="476">
 											<DataPath>сжSubProduct</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Вид продукции</v8:content>
+												</v8:item>
+											</Title>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<ChoiceParameterLinks>
+												<xr:Link>
+													<xr:Name>Отбор.product</xr:Name>
+													<xr:DataPath xsi:type="xs:string">сжProduct</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+												<xr:Link>
+													<xr:Name>Отбор.productType</xr:Name>
+													<xr:DataPath xsi:type="xs:string">сжProductType</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+											</ChoiceParameterLinks>
 											<ContextMenu name="сжSubProductКонтекстноеМеню" id="477"/>
 											<ExtendedTooltip name="сжSubProductРасширеннаяПодсказка" id="478"/>
 											<Events>
@@ -359,6 +400,23 @@
 										</InputField>
 										<InputField name="сжНоменклатура" id="199">
 											<DataPath>сжProductItem</DataPath>
+											<ChoiceParameterLinks>
+												<xr:Link>
+													<xr:Name>Отбор.product</xr:Name>
+													<xr:DataPath xsi:type="xs:string">сжProduct</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+												<xr:Link>
+													<xr:Name>Отбор.productType</xr:Name>
+													<xr:DataPath xsi:type="xs:string">сжProductType</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+												<xr:Link>
+													<xr:Name>Отбор.subProduct</xr:Name>
+													<xr:DataPath xsi:type="xs:string">сжSubProduct</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+											</ChoiceParameterLinks>
 											<ContextMenu name="сжНоменклатураКонтекстноеМеню" id="200"/>
 											<ExtendedTooltip name="сжНоменклатураРасширеннаяПодсказка" id="201"/>
 											<Events>
@@ -370,8 +428,15 @@
 											<ContextMenu name="сжProductItemNameКонтекстноеМеню" id="915"/>
 											<ExtendedTooltip name="сжProductItemNameРасширеннаяПодсказка" id="916"/>
 										</InputField>
+										<InputField name="сжЕдиницаИзмерения" id="977">
+											<DataPath>сжЕдиницаИзмерения</DataPath>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<ContextMenu name="сжЕдиницаИзмеренияКонтекстноеМеню" id="978"/>
+											<ExtendedTooltip name="сжЕдиницаИзмеренияРасширеннаяПодсказка" id="979"/>
+										</InputField>
 										<InputField name="сжКоличество" id="202">
 											<DataPath>сжКоличество</DataPath>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="сжКоличествоКонтекстноеМеню" id="203"/>
 											<ExtendedTooltip name="сжКоличествоРасширеннаяПодсказка" id="204"/>
 										</InputField>
@@ -986,11 +1051,13 @@
 												</InputField>
 												<InputField name="ттнНомер" id="418">
 													<DataPath>ттнНомер</DataPath>
+													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<ContextMenu name="ттнНомерКонтекстноеМеню" id="419"/>
 													<ExtendedTooltip name="ттнНомерРасширеннаяПодсказка" id="420"/>
 												</InputField>
 												<InputField name="ттнДата" id="433">
 													<DataPath>ттнДата</DataPath>
+													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<ContextMenu name="ттнДатаКонтекстноеМеню" id="434"/>
 													<ExtendedTooltip name="ттнДатаРасширеннаяПодсказка" id="435"/>
 												</InputField>
@@ -1031,6 +1098,7 @@
 									<ChildItems>
 										<InputField name="ттнТип" id="430">
 											<DataPath>ттнТип</DataPath>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="ттнТипКонтекстноеМеню" id="431"/>
 											<ExtendedTooltip name="ттнТипРасширеннаяПодсказка" id="432"/>
 										</InputField>
@@ -1734,7 +1802,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Наименование</v8:content>
+					<v8:content>Номенклатура</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -2073,7 +2141,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Наименование строкой</v8:content>
+					<v8:content>Наименование</v8:content>
 				</v8:item>
 			</Title>
 			<Type>

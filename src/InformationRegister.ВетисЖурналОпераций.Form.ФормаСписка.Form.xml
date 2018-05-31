@@ -33,6 +33,7 @@
 			<DefaultItem>true</DefaultItem>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
+			<HeightInTableRows>1</HeightInTableRows>
 			<RowSelectionMode>Row</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -136,12 +137,10 @@
 									<ContextMenu name="ПользовательКонтекстноеМеню" id="28"/>
 									<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="29"/>
 								</LabelField>
-								<LabelField name="Контекст" id="42">
-									<DataPath>Список.Контекст</DataPath>
-									<Width>2</Width>
-									<HorizontalStretch>false</HorizontalStretch>
-									<ContextMenu name="КонтекстКонтекстноеМеню" id="43"/>
-									<ExtendedTooltip name="КонтекстРасширеннаяПодсказка" id="44"/>
+								<LabelField name="Операция" id="64">
+									<DataPath>Список.Операция</DataPath>
+									<ContextMenu name="ОперацияКонтекстноеМеню" id="65"/>
+									<ExtendedTooltip name="ОперацияРасширеннаяПодсказка" id="66"/>
 								</LabelField>
 								<LabelField name="КлючДанных" id="59">
 									<DataPath>~Список.КлючДанных</DataPath>

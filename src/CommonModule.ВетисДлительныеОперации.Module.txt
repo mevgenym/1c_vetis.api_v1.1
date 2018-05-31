@@ -34,7 +34,7 @@
 	
 	_Фабрика = ВетисПовтИсп.ФабрикаОбщая();
 	
-	_Envelope = ВетисОбщегоНазначения.Десериализовать(_Фабрика, _Ответ.Текст, _Envelope.Тип());
+	_Envelope = ВетисОбщегоНазначения.Десериализовать(_Ответ.Текст, _Envelope.Тип(), _Фабрика);
 	
 	_receiveResponse = ВетисSoapEnvelope.Извлечь(_Envelope).receiveApplicationResultResponse;
 	

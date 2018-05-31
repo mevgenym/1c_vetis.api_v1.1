@@ -72,10 +72,15 @@
 			<ContextMenu name="КлючАПИКонтекстноеМеню" id="14"/>
 			<ExtendedTooltip name="КлючАПИРасширеннаяПодсказка" id="15"/>
 		</InputField>
-		<InputField name="Пользователь" id="75">
+		<InputField name="Пользователь" id="78">
+			<DataPath>Объект.Пользователь</DataPath>
+			<ContextMenu name="ПользовательКонтекстноеМеню" id="79"/>
+			<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="80"/>
+		</InputField>
+		<InputField name="ЛогинПользователя" id="75">
 			<DataPath>Объект.ЛогинПользователя</DataPath>
-			<ContextMenu name="ПользовательКонтекстноеМеню" id="76"/>
-			<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="77"/>
+			<ContextMenu name="ЛогинПользователяКонтекстноеМеню" id="76"/>
+			<ExtendedTooltip name="ЛогинПользователяРасширеннаяПодсказка" id="77"/>
 		</InputField>
 		<UsualGroup name="ГруппаОписание" id="50">
 			<Title>

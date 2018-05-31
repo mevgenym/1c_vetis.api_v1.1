@@ -742,7 +742,13 @@
 							<MaxValue xsi:nil="true"/>
 							<FillChecking>DontCheck</FillChecking>
 							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-							<ChoiceParameterLinks/>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>Отбор.productType</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Document.ВетисТранспортнаяПартия.TabularSection.Товары.Attribute.ProductType</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
 							<ChoiceParameters/>
 							<QuickChoice>Auto</QuickChoice>
 							<CreateOnInput>Auto</CreateOnInput>
@@ -778,7 +784,18 @@
 							<MaxValue xsi:nil="true"/>
 							<FillChecking>DontCheck</FillChecking>
 							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-							<ChoiceParameterLinks/>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>Отбор.product</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Document.ВетисТранспортнаяПартия.TabularSection.Товары.Attribute.Product</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+								<xr:Link>
+									<xr:Name>Отбор.productType</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Document.ВетисТранспортнаяПартия.TabularSection.Товары.Attribute.ProductType</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
 							<ChoiceParameters/>
 							<QuickChoice>Auto</QuickChoice>
 							<CreateOnInput>Auto</CreateOnInput>
@@ -814,7 +831,23 @@
 							<MaxValue xsi:nil="true"/>
 							<FillChecking>DontCheck</FillChecking>
 							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-							<ChoiceParameterLinks/>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>Отбор.product</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Document.ВетисТранспортнаяПартия.TabularSection.Товары.Attribute.Product</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+								<xr:Link>
+									<xr:Name>Отбор.productType</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Document.ВетисТранспортнаяПартия.TabularSection.Товары.Attribute.ProductType</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+								<xr:Link>
+									<xr:Name>Отбор.subProduct</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Document.ВетисТранспортнаяПартия.TabularSection.Товары.Attribute.SubProduct</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
 							<ChoiceParameters/>
 							<QuickChoice>Auto</QuickChoice>
 							<CreateOnInput>Auto</CreateOnInput>

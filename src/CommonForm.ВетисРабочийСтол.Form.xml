@@ -167,6 +167,11 @@
 							<ContextMenu name="СписокВСДКонтекстноеМеню" id="6"/>
 							<AutoCommandBar name="СписокВСДКоманднаяПанель" id="7">
 								<ChildItems>
+									<Button name="СписокВСДКомандаСинхронизироватьВСД" id="599">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаСинхронизироватьВСД</CommandName>
+										<ExtendedTooltip name="СписокВСДКомандаСинхронизироватьВСДРасширеннаяПодсказка" id="600"/>
+									</Button>
 									<Button name="СписокВСДАннулировать" id="71">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаАннулироватьВСД</CommandName>
@@ -1119,6 +1124,9 @@
 										<ContextMenu name="СписокСкладскойЖурналУпаковкаУправлениеПоискомКонтекстноеМеню" id="563"/>
 										<ExtendedTooltip name="СписокСкладскойЖурналУпаковкаУправлениеПоискомРасширеннаяПодсказка" id="564"/>
 									</SearchControlAddition>
+									<Events>
+										<Event name="OnActivateRow">СписокСкладскойЖурналУпаковкаПриАктивизацииСтроки</Event>
+									</Events>
 									<ChildItems>
 										<LabelField name="СписокСкладскойЖурналУпаковкаlevel" id="590">
 											<DataPath>СписокСкладскойЖурналУпаковка.level</DataPath>
@@ -1184,15 +1192,15 @@
 										<ExtendedTooltip name="СписокСкладскойЖурналМаркировкаУправлениеПоискомРасширеннаяПодсказка" id="577"/>
 									</SearchControlAddition>
 									<ChildItems>
-										<LabelField name="СписокСкладскойЖурналМаркировкаclass" id="578">
-											<DataPath>СписокСкладскойЖурналМаркировка.class</DataPath>
-											<ContextMenu name="СписокСкладскойЖурналМаркировкаclassКонтекстноеМеню" id="579"/>
-											<ExtendedTooltip name="СписокСкладскойЖурналМаркировкаclassРасширеннаяПодсказка" id="580"/>
-										</LabelField>
 										<LabelField name="СписокСкладскойЖурналМаркировкаvalue" id="587">
 											<DataPath>СписокСкладскойЖурналМаркировка.value</DataPath>
 											<ContextMenu name="СписокСкладскойЖурналМаркировкаvalueКонтекстноеМеню" id="588"/>
 											<ExtendedTooltip name="СписокСкладскойЖурналМаркировкаvalueРасширеннаяПодсказка" id="589"/>
+										</LabelField>
+										<LabelField name="СписокСкладскойЖурналМаркировкаclass" id="578">
+											<DataPath>СписокСкладскойЖурналМаркировка.class</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналМаркировкаclassКонтекстноеМеню" id="579"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналМаркировкаclassРасширеннаяПодсказка" id="580"/>
 										</LabelField>
 									</ChildItems>
 								</Table>
@@ -1291,6 +1299,7 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<UseAlways>
+				<Field>СписокСкладскойЖурнал.уид</Field>
 				<Field>СписокСкладскойЖурнал.Enterprise</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
@@ -1548,6 +1557,10 @@
 			<Type>
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
+			<UseAlways>
+				<Field>СписокСкладскойЖурналУпаковка.уид</Field>
+				<Field>СписокСкладскойЖурналУпаковка.КлючСтроки</Field>
+			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>false</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
@@ -1580,6 +1593,11 @@
 			<Type>
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
+			<UseAlways>
+				<Field>СписокСкладскойЖурналМаркировка.уид</Field>
+				<Field>СписокСкладскойЖурналМаркировка.КлючСтроки</Field>
+				<Field>СписокСкладскойЖурналМаркировка.КлючСвязи</Field>
+			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>false</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>

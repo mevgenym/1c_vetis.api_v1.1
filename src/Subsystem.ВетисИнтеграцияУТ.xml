@@ -44,7 +44,6 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисDeliveryDecision</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисDeliveryInspectionResult</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисDocumentNature</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">a9ec7d39-2733-4789-9068-9f2475155af9</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисTransportStorageType</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисVetDocumentForm</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисVetDocumentStatus</xr:Item>
@@ -142,6 +141,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисPackageList</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисProductMarks</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">FilterCriterion.ВетисСвязанныеДокументы</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисСервис</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>
