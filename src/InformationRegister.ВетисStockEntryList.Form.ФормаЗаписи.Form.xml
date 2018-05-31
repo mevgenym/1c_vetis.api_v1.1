@@ -18,11 +18,6 @@
 			<ContextMenu name="volumeКонтекстноеМеню" id="8"/>
 			<ExtendedTooltip name="volumeРасширеннаяПодсказка" id="9"/>
 		</InputField>
-		<InputField name="packingAmount" id="10">
-			<DataPath>Запись.packingAmount</DataPath>
-			<ContextMenu name="packingAmountКонтекстноеМеню" id="11"/>
-			<ExtendedTooltip name="packingAmountРасширеннаяПодсказка" id="12"/>
-		</InputField>
 		<InputField name="entryNumber" id="13">
 			<DataPath>Запись.entryNumber</DataPath>
 			<ContextMenu name="entryNumberКонтекстноеМеню" id="14"/>

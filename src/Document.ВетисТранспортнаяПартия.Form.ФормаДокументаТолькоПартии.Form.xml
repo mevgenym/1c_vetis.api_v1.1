@@ -445,11 +445,23 @@
 								</LabelField>
 							</ChildItems>
 						</Table>
-						<UsualGroup name="Группа1" id="511">
+						<UsualGroup name="ГруппаУпаковка" id="511">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа упаковка</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа упаковка</v8:content>
+								</v8:item>
+							</ToolTip>
 							<Group>Horizontal</Group>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="512"/>
+							<ExtendedTooltip name="ГруппаУпаковкаРасширеннаяПодсказка" id="512"/>
 							<ChildItems>
 								<Table name="Упаковка" id="381">
 									<HeightInTableRows>1</HeightInTableRows>
@@ -786,107 +798,6 @@
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
-					</ChildItems>
-				</Page>
-				<Page name="ГруппаЛабораторныеИсследования" id="466">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Лаб. исследования</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа лабораторные исследования</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ExtendedTooltip name="ГруппаЛабораторныеИсследованияРасширеннаяПодсказка" id="467"/>
-					<ChildItems>
-						<Table name="ЛабораторныеИсследования" id="468">
-							<AutoInsertNewRow>true</AutoInsertNewRow>
-							<EnableStartDrag>true</EnableStartDrag>
-							<EnableDrag>true</EnableDrag>
-							<RowFilter xsi:nil="true"/>
-							<ContextMenu name="ЛабораторныеИсследованияКонтекстноеМеню" id="469"/>
-							<AutoCommandBar name="ЛабораторныеИсследованияКоманднаяПанель" id="470"/>
-							<ExtendedTooltip name="ЛабораторныеИсследованияРасширеннаяПодсказка" id="471"/>
-							<SearchStringAddition name="ЛабораторныеИсследованияСтрокаПоиска" id="472">
-								<AdditionSource>
-									<Item>ЛабораторныеИсследования</Item>
-									<Type>SearchStringRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="ЛабораторныеИсследованияСтрокаПоискаКонтекстноеМеню" id="473"/>
-								<ExtendedTooltip name="ЛабораторныеИсследованияСтрокаПоискаРасширеннаяПодсказка" id="474"/>
-							</SearchStringAddition>
-							<ViewStatusAddition name="ЛабораторныеИсследованияСостояниеПросмотра" id="475">
-								<AdditionSource>
-									<Item>ЛабораторныеИсследования</Item>
-									<Type>ViewStatusRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="ЛабораторныеИсследованияСостояниеПросмотраКонтекстноеМеню" id="476"/>
-								<ExtendedTooltip name="ЛабораторныеИсследованияСостояниеПросмотраРасширеннаяПодсказка" id="477"/>
-							</ViewStatusAddition>
-							<SearchControlAddition name="ЛабораторныеИсследованияУправлениеПоиском" id="478">
-								<AdditionSource>
-									<Item>ЛабораторныеИсследования</Item>
-									<Type>SearchControl</Type>
-								</AdditionSource>
-								<ContextMenu name="ЛабораторныеИсследованияУправлениеПоискомКонтекстноеМеню" id="479"/>
-								<ExtendedTooltip name="ЛабораторныеИсследованияУправлениеПоискомРасширеннаяПодсказка" id="480"/>
-							</SearchControlAddition>
-							<Events>
-								<Event name="2391e7b8-7235-45d7-ab7e-6ff3dc086396">ЛабораторныеИсследованияПередНачаломДобавления</Event>
-								<Event name="b3c10170-c5ff-4cba-b537-679e1c872b45">ЛабораторныеИсследованияПриНачалеРедактирования</Event>
-							</Events>
-							<ChildItems>
-								<LabelField name="ЛабораторныеИсследованияНомерСтроки" id="481">
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ЛабораторныеИсследованияНомерСтрокиКонтекстноеМеню" id="482"/>
-									<ExtendedTooltip name="ЛабораторныеИсследованияНомерСтрокиРасширеннаяПодсказка" id="483"/>
-								</LabelField>
-								<InputField name="ЛабораторныеИсследованияИДПартии" id="487">
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ЛабораторныеИсследованияИДПартииКонтекстноеМеню" id="488"/>
-									<ExtendedTooltip name="ЛабораторныеИсследованияИДПартииРасширеннаяПодсказка" id="489"/>
-								</InputField>
-								<InputField name="ЛабораторныеИсследованияНомерЭкспертизы" id="490">
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ЛабораторныеИсследованияНомерЭкспертизыКонтекстноеМеню" id="491"/>
-									<ExtendedTooltip name="ЛабораторныеИсследованияНомерЭкспертизыРасширеннаяПодсказка" id="492"/>
-								</InputField>
-								<InputField name="ЛабораторныеИсследованияПоказательБезопасности" id="493">
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ЛабораторныеИсследованияПоказательБезопасностиКонтекстноеМеню" id="494"/>
-									<ExtendedTooltip name="ЛабораторныеИсследованияПоказательБезопасностиРасширеннаяПодсказка" id="495"/>
-								</InputField>
-								<InputField name="ЛабораторныеИсследованияДополнительныеСведения" id="496">
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ЛабораторныеИсследованияДополнительныеСведенияКонтекстноеМеню" id="497"/>
-									<ExtendedTooltip name="ЛабораторныеИсследованияДополнительныеСведенияРасширеннаяПодсказка" id="498"/>
-								</InputField>
-								<InputField name="ЛабораторныеИсследованияЗаболевание" id="499">
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ЛабораторныеИсследованияЗаболеваниеКонтекстноеМеню" id="500"/>
-									<ExtendedTooltip name="ЛабораторныеИсследованияЗаболеваниеРасширеннаяПодсказка" id="501"/>
-								</InputField>
-								<InputField name="ЛабораторныеИсследованияМетодИсследования" id="502">
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ЛабораторныеИсследованияМетодИсследованияКонтекстноеМеню" id="503"/>
-									<ExtendedTooltip name="ЛабораторныеИсследованияМетодИсследованияРасширеннаяПодсказка" id="504"/>
-								</InputField>
-								<InputField name="ЛабораторныеИсследованияРезультатИсследования" id="505">
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ЛабораторныеИсследованияРезультатИсследованияКонтекстноеМеню" id="506"/>
-									<ExtendedTooltip name="ЛабораторныеИсследованияРезультатИсследованияРасширеннаяПодсказка" id="507"/>
-								</InputField>
-								<InputField name="ЛабораторныеИсследованияЗаключение" id="508">
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ЛабораторныеИсследованияЗаключениеКонтекстноеМеню" id="509"/>
-									<ExtendedTooltip name="ЛабораторныеИсследованияЗаключениеРасширеннаяПодсказка" id="510"/>
-								</InputField>
-							</ChildItems>
-						</Table>
 					</ChildItems>
 				</Page>
 				<Page name="ГруппаДополнительно" id="95">

@@ -781,7 +781,6 @@
 					<ExtendedTooltip name="ГруппаСкладскойЖурналРасширеннаяПодсказка" id="131"/>
 					<ChildItems>
 						<Table name="СписокСкладскойЖурнал" id="132">
-							<CommandBarLocation>None</CommandBarLocation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<HeightInTableRows>1</HeightInTableRows>
 							<UseAlternationRowColor>true</UseAlternationRowColor>
@@ -802,7 +801,17 @@
 							<AllowRootChoice>false</AllowRootChoice>
 							<UpdateOnDataChange>Auto</UpdateOnDataChange>
 							<ContextMenu name="СписокСкладскойЖурналКонтекстноеМеню" id="133"/>
-							<AutoCommandBar name="СписокСкладскойЖурналКоманднаяПанель" id="134"/>
+							<AutoCommandBar name="СписокСкладскойЖурналКоманднаяПанель" id="134">
+								<ChildItems>
+									<Button name="СписокСкладскойЖурналОбновить" id="601">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<OnlyInAllActions>true</OnlyInAllActions>
+										<CommandName>Form.Item.СписокСкладскойЖурнал.StandardCommand.Refresh</CommandName>
+										<ExtendedTooltip name="СписокСкладскойЖурналОбновитьРасширеннаяПодсказка" id="602"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
 							<ExtendedTooltip name="СписокСкладскойЖурналРасширеннаяПодсказка" id="135"/>
 							<SearchStringAddition name="СписокСкладскойЖурналСтрокаПоиска" id="136">
 								<AdditionSource>
@@ -913,7 +922,7 @@
 											<ExtendedTooltip name="СписокСкладскойЖурналvolumeРасширеннаяПодсказка" id="239"/>
 										</LabelField>
 										<LabelField name="СписокСкладскойЖурналpackingAmount" id="234">
-											<DataPath>СписокСкладскойЖурнал.packingAmount</DataPath>
+											<DataPath>~СписокСкладскойЖурнал.packingAmount</DataPath>
 											<ContextMenu name="СписокСкладскойЖурналpackingAmountКонтекстноеМеню" id="235"/>
 											<ExtendedTooltip name="СписокСкладскойЖурналpackingAmountРасширеннаяПодсказка" id="236"/>
 										</LabelField>
@@ -938,11 +947,6 @@
 											<DataPath>СписокСкладскойЖурнал.Unit</DataPath>
 											<ContextMenu name="СписокСкладскойЖурналUnitКонтекстноеМеню" id="203"/>
 											<ExtendedTooltip name="СписокСкладскойЖурналUnitРасширеннаяПодсказка" id="204"/>
-										</LabelField>
-										<LabelField name="СписокСкладскойЖурналPackingForm" id="205">
-											<DataPath>СписокСкладскойЖурнал.PackingForm</DataPath>
-											<ContextMenu name="СписокСкладскойЖурналPackingFormКонтекстноеМеню" id="206"/>
-											<ExtendedTooltip name="СписокСкладскойЖурналPackingFormРасширеннаяПодсказка" id="207"/>
 										</LabelField>
 									</ChildItems>
 								</ColumnGroup>
@@ -1026,6 +1030,7 @@
 									</ChildItems>
 								</ColumnGroup>
 								<ColumnGroup name="СписокСкладскойЖурналГруппа5" id="538">
+									<Group>Horizontal</Group>
 									<ExtendedTooltip name="СписокСкладскойЖурналГруппа5РасширеннаяПодсказка" id="539"/>
 									<ChildItems>
 										<LabelField name="СписокСкладскойЖурналproducer" id="543">
@@ -1053,6 +1058,7 @@
 											<v8:content>Список складской журнал группа guid</v8:content>
 										</v8:item>
 									</ToolTip>
+									<Group>Horizontal</Group>
 									<ExtendedTooltip name="СписокСкладскойЖурналГруппаGuidРасширеннаяПодсказка" id="214"/>
 									<ChildItems>
 										<LabelField name="СписокСкладскойЖурналentryNumber" id="262">
@@ -1620,6 +1626,128 @@
 				</ListSettings>
 			</Settings>
 		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокСкладскойЖурналProductItemName</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокСкладскойЖурнал.ProductItem</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокСкладскойЖурналProductItem</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокСкладскойЖурнал.ProductItem</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокСкладскойЖурналdateOfProductionFirst</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокСкладскойЖурналdateOfProductionSecond</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокСкладскойЖурнал.dateOfProductionInformal</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокСкладскойЖурналdateOfProductionInformal</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокСкладскойЖурнал.dateOfProductionInformal</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокСкладскойЖурналexpiryDateFirst</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокСкладскойЖурналexpiryDateSecond</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокСкладскойЖурнал.expiryDateInformal</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокСкладскойЖурналexpiryDateInformal</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокСкладскойЖурнал.expiryDateInformal</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
 		<Command name="КомандаАннулироватьВСД" id="1">

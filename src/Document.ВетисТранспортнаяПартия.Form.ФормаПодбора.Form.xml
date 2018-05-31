@@ -112,7 +112,7 @@
 							<ExtendedTooltip name="СписокПартииvolumeРасширеннаяПодсказка" id="22"/>
 						</LabelField>
 						<LabelField name="СписокПартииpackingAmount" id="23">
-							<DataPath>СписокПартии.packingAmount</DataPath>
+							<DataPath>~СписокПартии.packingAmount</DataPath>
 							<ContextMenu name="СписокПартииpackingAmountКонтекстноеМеню" id="24"/>
 							<ExtendedTooltip name="СписокПартииpackingAmountРасширеннаяПодсказка" id="25"/>
 						</LabelField>

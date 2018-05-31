@@ -81,11 +81,16 @@
 					<ContextMenu name="ОперацияКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="ОперацияРасширеннаяПодсказка" id="18"/>
 				</LabelField>
-				<LabelField name="Предприятие" id="19">
-					<DataPath>Список.Предприятие</DataPath>
+				<LabelField name="BusinessEntity" id="27">
+					<DataPath>Список.BusinessEntity</DataPath>
+					<ContextMenu name="BusinessEntityКонтекстноеМеню" id="28"/>
+					<ExtendedTooltip name="BusinessEntityРасширеннаяПодсказка" id="29"/>
+				</LabelField>
+				<LabelField name="Enterprise" id="19">
+					<DataPath>Список.Enterprise</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<ContextMenu name="ПредприятиеКонтекстноеМеню" id="20"/>
-					<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="21"/>
+					<ContextMenu name="EnterpriseКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="EnterpriseРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="Граница" id="22">
 					<DataPath>Список.Граница</DataPath>
