@@ -17,6 +17,7 @@
 			addressView  = СокрЛП(ДанныеЗаполнения.address.addressView);
 		КонецЕсли;
 		Если НЕ ДанныеЗаполнения.numberList = Неопределено Тогда
+			numberList.Очистить();
 			Для каждого enterpriseNumber Из ДанныеЗаполнения.numberList.enterpriseNumber Цикл
 				numberList.Добавить().enterpriseNumber = enterpriseNumber;
 			КонецЦикла;
