@@ -375,6 +375,26 @@
 	
 КонецФункции
 
+//Тип, описывающий операцию внесения изменений в реестр наименований продукции
+//Параметры:
+// type - bs:RegisterModificationType - Тип операции (CREATE, UPDATE, DELETE)
+// productItemList - Массив
+Функция PSLModificationOperation(type, productItemList = Неопределено) Экспорт
+	
+	_Объект = Создать("PSLModificationOperation");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	
+	Если type = ВетисКонстанты.RegisterModificationType_DELETE() Тогда
+		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисDictionary_2_0.ProductItemList(productItemList), "affectedList");
+	Иначе
+		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисDictionary_2_0.ProductItemList(productItemList), "resultingList");
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
 //Тип, описывающий cведения о связанном документе
 //Параметры:
 // relationshipType - Тип отношения между документами. ReferenceType 1..1

@@ -67,35 +67,47 @@
 	
 КонецФункции
 
+//Тип, описывающий список наименований продукции
+//Параметры:
+// productItemList - Наименование продукции в номенклатуре производителя. Массив - dt:ProductItem 0..*
+Функция ProductItemList(productItemList = Неопределено) Экспорт
+	
+	_Объект = Создать("ProductItemList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, productItemList, "productItem");
+	
+	_Объект.count = _Объект.productItem.Количество();
+	_Объект.offset = 0;
+	_Объект.total = 0;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
 //http://vetrf.ru/vetrf-forum/posts/list/645/6855.page#40125
 //Либо занесите номенклатуру (методы для этого есть), либо не указывайте его в ВСД. Этот параметр желателен, но не обязателен.
 
 //http://vetrf.ru/vetrf-forum/posts/list/1185/6855.page#46389
 //Четвёртый уровень продукции станет обязательным в Ветис.API 2.0 и в Меркурии 6.0 
 
-//Операция внесения изменений в реестр наименований продукции производителя
+//Тип, описывающий операцию внесения изменений в реестр наименований продукции
 //Параметры:
 // type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
 // enterprise - ent:Enterprise - Предприятие-производитель
-// affectedList - prod:ProductItemList - Входящие записи для операции
-//   На данный момент разрешается добавлять только по одной позиции.
-//   Используется только при удалении позиции
-// resultingList - 	prod:ProductItemList - Получаемые в результате операции записи
+// productItemList - Массив
 //   На данный момент разрешается добавлять только по одной позиции.
 //   Используется при добавлении и редактировании записи.
-Функция PSLModificationOperation(type, enterprise, affectedList = Неопределено, resultingList = Неопределено) Экспорт
+Функция PSLModificationOperation(type, enterprise, productItemList = Неопределено) Экспорт
 	
 	_Объект = Создать("PSLModificationOperation");
 	
-	_Объект.type = type;
-	_Объект.enterprise = enterprise;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
 	
-	Если НЕ affectedList = Неопределено Тогда
-		_Объект.affectedList = affectedList;
-	КонецЕсли;
-	
-	Если НЕ resultingList = Неопределено Тогда
-		_Объект.resultingList = resultingList;
+	Если type = ВетисКонстанты.RegisterModificationType_DELETE() Тогда
+		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ProductItemList(productItemList), "affectedList");
+	Иначе
+		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ProductItemList(productItemList), "resultingList");
 	КонецЕсли;
 	
 	Возврат _Объект;

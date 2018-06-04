@@ -908,6 +908,144 @@
 	
 КонецФункции
 
+Функция ModifyProducerStock(ProductItemList, RegisterModificationType, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_type = RegisterModificationType;
+	
+	_issuerId = Ветис.ТекущийХС();
+	
+	Запрос = Новый Запрос(
+	"ВЫБРАТЬ
+	|	_Таблица.Ссылка,
+	|	_Таблица.Наименование,
+	|	_Таблица.guid,
+	|	_Таблица.globalID,
+	|	_Таблица.piCode,
+	|	_Таблица.productType,
+	|	_Таблица.product.guid КАК product,
+	|	_Таблица.subProduct.guid КАК subProduct,
+	|	_Таблица.correspondsToGost,
+	|	_Таблица.gost,
+	|	_Таблица.producer.guid КАК producer,
+	|	_Таблица.tmOwner.guid КАК tmOwner,
+	|	_Таблица.producing.(
+	|		location.guid КАК location
+	|	),
+	|	_Таблица.packaging.(
+	|		packagingType,
+	|		quantity,
+	|		volume,
+	|		unit.guid КАК unit
+	|	)
+	|ИЗ
+	|	Справочник.ВетисProductItem КАК _Таблица
+	|ГДЕ
+	|	_Таблица.Ссылка В(&Список)");
+	
+	Запрос.УстановитьПараметр("Список", ProductItemList);
+	
+	Результат = Запрос.Выполнить();
+	Выборка = Результат.Выбрать();
+	
+	_productItemList = Новый Массив;
+	
+	Пока Выборка.Следующий() Цикл
+		
+		//операция принимает по одной записи (в 1.4 это прямо написано, в 2.0 нет такого утверждения, просто мои предположения)
+		_productItemList.Очистить();
+		
+		Если Ветис.Версия_2_0() Тогда
+			
+			_productItem = ВетисDictionary_2_0.ProductItem();
+			
+			Если НЕ _type = ВетисКонстанты.RegisterModificationType_CREATE() Тогда
+				_productItem.uuid = ВетисProductService_2_0.GetProductItemByGuid(Выборка.guid).uuid;
+			КонецЕсли;
+			
+			Если НЕ _type = ВетисКонстанты.RegisterModificationType_DELETE() Тогда
+				
+				_productItem.name = Выборка.Наименование;
+				_productItem.code = Выборка.piCode;
+				_productItem.productType = ВетисDictionaryСлой1с.ProductType(Выборка.productType);
+				_productItem.product = ВетисDictionary_2_0.Product(Выборка.product);
+				_productItem.subProduct = ВетисDictionary_2_0.SubProduct(Выборка.subProduct);
+				_productItem.correspondsToGost = Выборка.correspondsToGost;
+				_productItem.gost = Выборка.gost;
+				_productItem.producer = ВетисDictionary_2_0.BusinessEntity(Выборка.producer);
+				_productItem.tmOwner = ВетисDictionary_2_0.BusinessEntity(Выборка.tmOwner);
+				
+				Если ЗначениеЗаполнено(Выборка.globalID) Тогда
+					_productItem.globalID = Выборка.globalID;
+				КонецЕсли;
+				
+				ВыборкаProducing = Выборка.producing.Выбрать();
+				
+				Пока ВыборкаProducing.Следующий() Цикл
+					_productItem.producing.Добавить(ВетисDictionary_2_0.ProductItemProducing(ВетисDictionary_2_0.Enterprise(ВыборкаProducing.location)));
+				КонецЦикла;
+				
+				ВыборкаPackaging = Выборка.packaging.Выбрать();
+				
+				Если ВыборкаPackaging.Следующий() Тогда
+					_productItem.packaging = ВетисDictionary_2_0.Packaging(
+						ВетисDictionary_2_0.PackingType(ВетисDictionaryСлой1с.PackingType(ВыборкаPackaging.packagingType)),
+						ВыборкаPackaging.quantity,
+						ВыборкаPackaging.volume,
+						ВетисDictionary_2_0.Unit(ВыборкаPackaging.unit)
+					);
+				КонецЕсли;
+			КонецЕсли;
+			
+			_productItemList.Добавить(_productItem);
+			
+			_modificationOperation = ВетисMercuryVetdocument_2_0.PSLModificationOperation(_type, _productItemList);
+			
+			_Response = ВетисMercuryApplications_2_0.ModifyProducerStockList(_modificationOperation, _issuerId, пОтказ, пОшибка);
+			
+			Если пОтказ = Истина Тогда
+				Прервать;
+			КонецЕсли;
+			
+			Для каждого _productItem Из _Response.productItem Цикл
+				
+				Если _productItem.last Тогда
+					Если _productItem.active Тогда
+						//новая версия
+						_Объект = Выборка.Ссылка.ПолучитьОбъект();
+						_Объект.Заполнить(_productItem);
+						Попытка
+							_Объект.Записать();
+						Исключение
+							пОтказ = Истина;
+							пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+							ВетисОбщегоНазначения.ВывестиСообщение(пОшибка, "ModifyProducerStock");
+							Прервать;
+						КонецПопытки;
+					Иначе
+						//удаление
+						Попытка
+							Выборка.Ссылка.ПолучитьОбъект().УстановитьПометкуУдаления(Истина);
+						Исключение
+							пОтказ = Истина;
+							пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+							ВетисОбщегоНазначения.ВывестиСообщение(пОшибка, "ModifyProducerStock");
+							Прервать;
+						КонецПопытки;
+					КонецЕсли;
+				Иначе
+					//старая запись, пропускаем
+				КонецЕсли;
+				
+			КонецЦикла;
+			
+		Иначе
+			//код для 1.4 аналогичный
+			
+		КонецЕсли;
+		
+	КонецЦикла;
+	
+КонецФункции
 
 Функция Процент(Знач1, Знач2)
 	

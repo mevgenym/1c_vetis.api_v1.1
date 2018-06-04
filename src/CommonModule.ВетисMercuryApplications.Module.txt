@@ -708,6 +708,18 @@
 	
 КонецФункции
 
+Функция ModifyProducerStockList(modificationOperation, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = ModifyProducerStockListRequest(modificationOperation);
+	
+	_Response = Прокси("modifyProducerStockListRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат ModifyProducerStockListResponse(_Response);
+	
+КонецФункции
+
 #КонецОбласти
 
 

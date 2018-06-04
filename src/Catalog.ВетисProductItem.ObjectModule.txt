@@ -14,9 +14,20 @@
 		producer     = ВетисDictionaryСлой1с.BusinessEntity(ДанныеЗаполнения.producer);
 		tmOwner      = ВетисDictionaryСлой1с.BusinessEntity(ДанныеЗаполнения.tmOwner);
 		
-		//Для каждого _producing Из ДанныеЗаполнения.producing Цикл
-		//	ЗаполнитьЗначенияСвойств(producing.Добавить(), _producing);
-		//КонецЦикла;
+		producing.Очистить();
+		Для каждого _producing Из ДанныеЗаполнения.producing Цикл
+			ЗаполнитьЗначенияСвойств(producing.Добавить(), ВетисDictionaryСлой1с.Enterprise(_producing.location));
+		КонецЦикла;
+		
+		packaging.Очистить();
+		
+		_packaging = packaging.Добавить();
+		
+		_packaging.packagingType = ВетисDictionaryСлой1с.PackingType(ДанныеЗаполнения.packaging.packagingType);
+		_packaging.quantity = ДанныеЗаполнения.packaging.quantity;
+		_packaging.volume = ДанныеЗаполнения.packaging.volume;
+		_packaging.Unit = ВетисDictionaryСлой1с.Unit(ДанныеЗаполнения.packaging.Unit);
+		
 	КонецЕсли;
 	
 КонецПроцедуры

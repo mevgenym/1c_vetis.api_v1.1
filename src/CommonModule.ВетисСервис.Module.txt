@@ -46,6 +46,25 @@
 				_ответ.BusinessEntity.Добавить(Новый Структура("inn, Объекты", _ЗапросBusinessEntity.inn, _список));
 			КонецЕсли;
 		КонецЦикла;
+	ИначеЕсли _Запрос.Свойство("Enterprise") И ТипЗнч(_Запрос.Enterprise) = Тип("Массив") Тогда
+		_ответ.Вставить("Enterprise", Новый Массив);
+		Для каждого _ЗапросEnterprise Из _Запрос.Enterprise Цикл
+			_Отказ = Ложь; _Ошибка = "";
+			Если _ЗапросEnterprise.Свойство("businessEntityGuid") И ЗначениеЗаполнено(_ЗапросEnterprise.businessEntityGuid) Тогда
+				_список = Новый Массив;
+				//_ссылка = Справочники.ВетисEnterprise.НайтиПоРеквизиту("businessEntityGuid", _ЗапросEnterprise.businessEntityGuid);
+				//Если ЗначениеЗаполнено(_ссылка) Тогда
+				//	_список.Добавить(ПолучитьСтруктуруОбъекта(_ссылка));
+				//Иначе
+					_enterprise = Неопределено;
+					_параметры = Неопределено;
+					Пока ВетисEnterpriseService_2_0.GetActivityLocationListNext(_ЗапросEnterprise.businessEntityGuid, _enterprise, _параметры, _Отказ, _Ошибка) Цикл
+						_список.Добавить(ПолучитьСтруктуруОбъекта(ВетисDictionaryСлой1с.Enterprise(_enterprise)));
+					КонецЦикла;
+				//КонецЕсли;
+				_ответ.Enterprise.Добавить(Новый Структура("businessEntityGuid, Объекты", _ЗапросEnterprise.businessEntityGuid, _список));
+			КонецЕсли;
+		КонецЦикла;
 	КонецЕсли;
 	
 	Возврат ОтветСервер(_Сообщение, ,, _ответ);

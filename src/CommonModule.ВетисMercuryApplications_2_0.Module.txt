@@ -756,6 +756,45 @@
 
 #КонецОбласти
 
+#Область ModifyProducerStockListOperation
+
+//Операция предназнчена для изменения номенклатуры продукции предприятия.
+//Параметры:
+// modificationOperation - prod:PSLModificationOperation
+Функция ModifyProducerStockListRequest(modificationOperation) Экспорт
+	
+	_Объект = Создать("ModifyProducerStockListRequest");
+	
+	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator             = User();
+	_Объект.modificationOperation = modificationOperation;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+//Объект содержит информацию о позиции номенклатуры производителя, внесённой в список.
+//Возвращает список продукции, в которую внесены изменения. На данный момент список может состоять только из одного элемента.
+Функция ModifyProducerStockListResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyProducerStockListResponse, "ModifyProducerStockListResponse", URI()).productItemList;
+	
+КонецФункции
+
+Функция ModifyProducerStockList(modificationOperation, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = ModifyProducerStockListRequest(modificationOperation);
+	
+	_Response = Прокси("modifyProducerStockListRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат ModifyProducerStockListResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
 
 #Область UpdateTransportMovementDetails
 
