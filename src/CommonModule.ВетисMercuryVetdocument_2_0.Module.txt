@@ -456,14 +456,27 @@
 	
 КонецФункции
 
+//Тип, описывающий список пунктов в маршруте следования груза (в т.ч. точек перегрузки).
+//Параметры:
+// routePoint - Пункт перегрузки. vd:ShipmentRoutePoint 0..*
+Функция ShipmentRoute(routePoint = Неопределено) Экспорт
+	
+	_Объект = Создать("ShipmentRoute");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, routePoint, "routePoint");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
 //Тип, описывающий cведения о точке маршрута следования.
 //Наследуется от типа bs:GenericEntity.
 //Параметры:
-// sqnId - Пункт. bs:SequenceNumber 0..1
-// location - Пункт. dt:Location 0..1
-// enterprise - Пункт. dt:Enterprise 0..1
-// transshipment - Пункт. xs:boolean 0..1
-// nextTransport - Пункт. vd:TransportInfo 0..1
+// sqnId - Порядовый номер точки маршрута. bs:SequenceNumber 0..1
+// location - Сведения о пункте перегрузки. dt:Location 0..1
+// enterprise - Сведения о пункте перегрузки. dt:Enterprise 0..1
+// transshipment - Признак того, осуществляется ли в данной точке перегрузка. xs:boolean 0..1
+// nextTransport - Сведения о дальнейшем транспорте. vd:TransportInfo 0..1
 Функция ShipmentRoutePoint(sqnId = Неопределено, location = Неопределено, enterprise = Неопределено, transshipment = Неопределено, nextTransport = Неопределено) Экспорт
 	
 	_Объект = Создать("ShipmentRoutePoint");

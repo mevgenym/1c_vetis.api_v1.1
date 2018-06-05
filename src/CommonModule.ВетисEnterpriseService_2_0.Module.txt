@@ -119,8 +119,14 @@
 	КонецЕсли;
 	
 	Если Ветис.ВыборкаСпискаЭтоНачало(пПараметры) Тогда
-		Ветис.ВыборкаСпискаИнициализация(ИмяСервиса(), "GetRussianEnterpriseList", "enterprise", "", пПараметры, 
-			?(filter = Неопределено, ВетисDictionary_2_0.Enterprise(), ВетисDictionary_2_0.Enterprise(filter)));
+		Если filter = Неопределено Тогда
+			_filter = ВетисDictionary_2_0.Enterprise();
+		ИначеЕсли ТипЗнч(filter) = Тип("Структура") Тогда
+			_filter = ВетисDictionary_2_0.Enterprise(filter);
+		Иначе
+			_filter = filter;
+		КонецЕсли;
+		Ветис.ВыборкаСпискаИнициализация(ИмяСервиса(), "GetRussianEnterpriseList", "enterprise", "", пПараметры, _filter);
 	КонецЕсли;
 	
 	Возврат Ветис.ВыборкаСпискаСледующий(Item, пПараметры, пОтказ, пОшибка);
