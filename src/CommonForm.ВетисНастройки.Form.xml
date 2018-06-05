@@ -1194,17 +1194,6 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="ОсновнойХС" id="33">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Основной ХС</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>cfg:CatalogRef.ВетисBusinessEntity</v8:Type>
-			</Type>
-		</Attribute>
 		<Attribute name="ОтборХС" id="34">
 			<Title>
 				<v8:item>
@@ -1218,17 +1207,6 @@
 			<Save>
 				<Field>ОтборХС</Field>
 			</Save>
-		</Attribute>
-		<Attribute name="ОсновнойПользователь" id="35">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Основной пользователь</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>cfg:CatalogRef.ВетисUser</v8:Type>
-			</Type>
 		</Attribute>
 		<Attribute name="ВСД_НазначениеГрузаНаВозврат" id="1">
 			<Title>

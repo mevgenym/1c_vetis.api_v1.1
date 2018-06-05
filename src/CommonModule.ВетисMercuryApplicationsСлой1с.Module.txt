@@ -17,7 +17,7 @@
 	_inventoryDate = ТекущаяДата();
 	
 	//_responsible = _ВетисArgusCommon.User(Ветис.ЛогинХС());
-	_responsible = _ВетисArgusCommon.User(Ветис.Настройки_ЛогинПользователя());
+	_responsible = _ВетисArgusCommon.User(ВетисПовтИсп.Настройки_ЛогинПользователя());
 	
 	_stockDiscrepancy = _ВетисMercuryVetdocument.StockDiscrepancy(stockEntry);
 	

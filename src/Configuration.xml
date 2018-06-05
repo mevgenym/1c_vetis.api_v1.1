@@ -239,8 +239,6 @@
 			<Constant>ВетисВидимостьGuid</Constant>
 			<Constant>ВетисНастройки</Constant>
 			<Constant>ВетисОсновнаяНастройка</Constant>
-			<Constant>ВетисОсновнойПользователь</Constant>
-			<Constant>ВетисОсновнойХС</Constant>
 			<CommonForm>ВетисXSD</CommonForm>
 			<CommonForm>ВетисНастройки</CommonForm>
 			<CommonForm>ВетисРабочийСтол</CommonForm>

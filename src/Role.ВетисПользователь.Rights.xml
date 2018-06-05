@@ -428,13 +428,6 @@
 		</right>
 	</object>
 	<object>
-		<name>Constant.ВетисОсновнойХС</name>
-		<right>
-			<name>Read</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>Catalog.Подразделения.StandardAttribute.PredefinedDataName</name>
 		<right>
 			<name>Edit</name>
@@ -1504,13 +1497,6 @@
 		</right>
 		<right>
 			<name>InputByString</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>Constant.ВетисОсновнойПользователь</name>
-		<right>
-			<name>Read</name>
 			<value>true</value>
 		</right>
 	</object>

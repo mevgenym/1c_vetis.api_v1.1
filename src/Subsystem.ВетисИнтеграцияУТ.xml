@@ -131,7 +131,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">FunctionalOption.ВетисВидимостьGuid</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисВидимостьGuid</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисИнвентаризация</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисОсновнойХС</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">46861209-c139-4f99-8701-15e3b2b3b4fd</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисEnterpriseAlter</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисГраницыЗапросов</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисEnterpriseAlter</xr:Item>
