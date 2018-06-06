@@ -21,12 +21,13 @@
 		
 		packaging.Очистить();
 		
-		_packaging = packaging.Добавить();
-		
-		_packaging.packagingType = ВетисDictionaryСлой1с.PackingType(ДанныеЗаполнения.packaging.packagingType);
-		_packaging.quantity = ДанныеЗаполнения.packaging.quantity;
-		_packaging.volume = ДанныеЗаполнения.packaging.volume;
-		_packaging.Unit = ВетисDictionaryСлой1с.Unit(ДанныеЗаполнения.packaging.Unit);
+		Если НЕ ДанныеЗаполнения.packaging = Неопределено Тогда
+			_packaging = packaging.Добавить();
+			_packaging.packagingType = ВетисDictionaryСлой1с.PackingType(ДанныеЗаполнения.packaging.packagingType);
+			_packaging.quantity = ДанныеЗаполнения.packaging.quantity;
+			_packaging.volume = ДанныеЗаполнения.packaging.volume;
+			_packaging.Unit = ВетисDictionaryСлой1с.Unit(ДанныеЗаполнения.packaging.Unit);
+		КонецЕсли;
 		
 	КонецЕсли;
 	

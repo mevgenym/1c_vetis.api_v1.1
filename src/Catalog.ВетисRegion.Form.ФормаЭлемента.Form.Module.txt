@@ -1,0 +1,18 @@
+﻿
+&НаКлиенте
+Процедура КомандаПроверитьВСервисе(Команда)
+	КомандаПроверитьВСервисеНаСервере();
+КонецПроцедуры
+
+&НаСервере
+Процедура КомандаПроверитьВСервисеНаСервере()
+	
+	_se = ВетисIkarService_2_0.GetRegionByGuid(Объект.guid);
+	
+	active = _se.active;
+	last   = _se.last;
+	status = _se.status;
+	createDate = _se.createDate;
+	updateDate = _se.updateDate;
+	
+КонецПроцедуры
