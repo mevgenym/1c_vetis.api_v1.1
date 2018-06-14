@@ -290,6 +290,7 @@
 			<Enum>ВетисPackageLevelType</Enum>
 			<Enum>ВетисProductMarkingClass</Enum>
 			<Enum>ВетисReferenceType</Enum>
+			<Enum>ВетисRegionalizationDecision</Enum>
 			<Enum>ВетисResearchResult</Enum>
 			<Enum>ВетисTransportStorageType</Enum>
 			<Enum>ВетисTransportType</Enum>

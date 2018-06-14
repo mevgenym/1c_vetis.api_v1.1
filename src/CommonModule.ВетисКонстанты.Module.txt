@@ -273,7 +273,7 @@
 	
 КонецФункции
 
-Функция VersionStatus_Списано() Экспорт
+Функция VersionStatus_UPDATED_WHEN_WRITINGOFF() Экспорт
 	
 	Возврат 202;
 	
@@ -910,6 +910,25 @@
 Функция ReferenceType_RelatedDocument() Экспорт
 	
 	Возврат 6;
+	
+КонецФункции
+
+
+Функция RegionalizationDecision_Разрешено() Экспорт
+	
+	Возврат "1";
+	
+КонецФункции
+
+Функция RegionalizationDecision_РазрешеноУсловно() Экспорт
+	
+	Возврат "2";
+	
+КонецФункции
+
+Функция RegionalizationDecision_Запрещено() Экспорт
+	
+	Возврат "3";
 	
 КонецФункции
 

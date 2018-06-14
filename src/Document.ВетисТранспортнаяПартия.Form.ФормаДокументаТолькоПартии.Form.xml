@@ -253,6 +253,11 @@
 										<CommandName>Form.Command.КомандаПодборПартий</CommandName>
 										<ExtendedTooltip name="ТоварыКомандаПодборПартийРасширеннаяПодсказка" id="366"/>
 									</Button>
+									<Button name="ФормаКомандаУсловияПеремещения" id="549">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаУсловияПеремещения</CommandName>
+										<ExtendedTooltip name="ФормаКомандаУсловияПеремещенияРасширеннаяПодсказка" id="550"/>
+									</Button>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="ПартииРасширеннаяПодсказка" id="193"/>
@@ -361,14 +366,12 @@
 								<InputField name="ПартииКоличество" id="221">
 									<DataPath>Объект.Партии.Количество</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<FooterDataPath>38:02023637-7868-4a5f-8576-835a76e0c9ba/0:6c96de75-bda9-4e12-bd0d-e14129c34c43</FooterDataPath>
 									<ContextMenu name="ПартииКоличествоКонтекстноеМеню" id="222"/>
 									<ExtendedTooltip name="ПартииКоличествоРасширеннаяПодсказка" id="223"/>
 								</InputField>
 								<InputField name="ПартииКоличествоМест" id="224">
 									<DataPath>Объект.Партии.КоличествоМест</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<FooterDataPath>38:02023637-7868-4a5f-8576-835a76e0c9ba/0:67458d5d-b9de-4fb0-86c6-be7af5aa92ef</FooterDataPath>
 									<ContextMenu name="ПартииКоличествоМестКонтекстноеМеню" id="225"/>
 									<ExtendedTooltip name="ПартииКоличествоМестРасширеннаяПодсказка" id="226"/>
 								</InputField>
@@ -383,7 +386,6 @@
 									<ExtendedTooltip name="ПартииГруппа2РасширеннаяПодсказка" id="540"/>
 									<ChildItems>
 										<LabelField name="ПартииdateOfProductionFirst" id="530">
-											<DataPath>1/0:5f55d374-34e1-455b-9c09-39a199fce295/0:91ea691b-0fb2-40dc-bb0c-812421abcbaf</DataPath>
 											<Visible>false</Visible>
 											<EditMode>EnterOnInput</EditMode>
 											<Format>
@@ -396,7 +398,6 @@
 											<ExtendedTooltip name="ПартииdateOfProductionFirstРасширеннаяПодсказка" id="532"/>
 										</LabelField>
 										<LabelField name="ПартииdateOfProductionSecond" id="533">
-											<DataPath>1/0:5f55d374-34e1-455b-9c09-39a199fce295/0:bdeaacff-5d44-4418-97e1-80f38480d7c3</DataPath>
 											<Visible>false</Visible>
 											<EditMode>EnterOnInput</EditMode>
 											<Format>
@@ -1291,6 +1292,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаПодборПартийАвтоматически</Action>
+		</Command>
+		<Command name="КомандаУсловияПеремещения" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Условия перемещения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда условия перемещения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаУсловияПеремещения</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>

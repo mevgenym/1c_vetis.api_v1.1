@@ -127,7 +127,7 @@
 							<ExtendedTooltip name="СписокПартииUnitРасширеннаяПодсказка" id="55"/>
 						</LabelField>
 						<LabelField name="СписокПартииPackingForm" id="50">
-							<DataPath>СписокПартии.PackingForm</DataPath>
+							<DataPath>~СписокПартии.PackingForm</DataPath>
 							<ContextMenu name="СписокПартииPackingFormКонтекстноеМеню" id="51"/>
 							<ExtendedTooltip name="СписокПартииPackingFormРасширеннаяПодсказка" id="52"/>
 						</LabelField>

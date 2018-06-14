@@ -152,11 +152,11 @@
 			</EnumValue>
 			<EnumValue uuid="b464e485-7775-4584-bb1c-f2e860591d08">
 				<Properties>
-					<Name>Списано</Name>
+					<Name>UPDATED_WHEN_WRITINGOFF</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Списано</v8:content>
+							<v8:content>UPDATED WHEN WRITINGOFF</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>

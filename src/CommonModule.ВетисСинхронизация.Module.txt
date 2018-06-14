@@ -24,16 +24,12 @@
 		Возврат;
 	КонецЕсли;
 	
-	//Если Справочники.ВетисPurpose.Выбрать().Следующий() Тогда
-	//	Возврат;
-	//КонецЕсли;
-	
-	_Отказ = Ложь;
-	
-	Purpose(_Отказ);
-	
-	Если _Отказ Тогда
-		Возврат;
+	Если НЕ Справочники.ВетисPurpose.Выбрать().Следующий() Тогда
+		_Отказ = Ложь;
+		Purpose(_Отказ);
+		Если _Отказ Тогда
+			Возврат;
+		КонецЕсли;
 	КонецЕсли;
 	
 	//RegionalizationCondition(_Отказ);
@@ -119,13 +115,13 @@
 		Возврат;
 	КонецЕсли;
 	
-	StockEntryListChanges(пОтказ, пОшибка);
+	VetDocumentListChanges(пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда
 		Возврат;
 	КонецЕсли;
 	
-	VetDocumentListChanges(пОтказ, пОшибка);
+	StockEntryListChanges(пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда
 		Возврат;
@@ -180,7 +176,7 @@
 			
 			_НачалоПериода = ?(ЗначениеЗаполнено(Выборка.Граница), Выборка.Граница - 12*60*60, Дата(2015,1,1));
 			
-			_КонецПериода = ТекущаяДата();//_НачалоПериода + 20*24*60*60;//берем интервалами по 20 дней
+			_КонецПериода = ?(ДобавитьМесяц(КонецДня(_НачалоПериода),1) > ТекущаяДата(), ТекущаяДата(), ДобавитьМесяц(КонецДня(_НачалоПериода),1));
 			
 			_enterpriseGuid = Выборка.enterpriseGuid;
 			
@@ -188,47 +184,55 @@
 				
 				_certifiedConsignment = ?(_Версия20, _VetDocument.certifiedConsignment, _VetDocument);
 				
-				Если _certifiedConsignment = Неопределено
-					ИЛИ _certifiedConsignment.consignee = Неопределено
-					ИЛИ _certifiedConsignment.consignor = Неопределено
-					ИЛИ _certifiedConsignment.consignee.enterprise = Неопределено
-					ИЛИ _certifiedConsignment.consignor.enterprise = Неопределено Тогда
-					//СВХ пока не поддерживается
-					Продолжить;
-				КонецЕсли;
+				//Если _certifiedConsignment = Неопределено
+				//	ИЛИ _certifiedConsignment.consignee = Неопределено
+				//	ИЛИ _certifiedConsignment.consignor = Неопределено
+				//	ИЛИ _certifiedConsignment.consignee.enterprise = Неопределено
+				//	ИЛИ _certifiedConsignment.consignor.enterprise = Неопределено Тогда
+				//	//СВХ пока не поддерживается
+				//	Продолжить;
+				//КонецЕсли;
 				
 				//объединенные предприятия, надо определить отправитель или получатель наш
-				Если НЕ _certifiedConsignment.consignee.enterprise.guid = _enterpriseGuid
-					И НЕ _certifiedConsignment.consignor.enterprise.guid = _enterpriseGuid Тогда
-					Если НЕ _certifiedConsignment.consignee.enterprise.guid = _enterpriseGuid Тогда
-						_enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByGuid(_certifiedConsignment.consignee.enterprise.guid);
-						Пока НЕ ЗаписьАктуальна(_enterprise) И ЗначениеЗаполнено(_enterprise.next) Цикл
-							_enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByUuid(_enterprise.next);
-							Если _enterprise.guid = _enterpriseGuid Тогда
-								Прервать;
-							КонецЕсли;
-						КонецЦикла;
-						Если _enterprise.guid = _enterpriseGuid Тогда
-							_мз = РегистрыСведений.ВетисEnterpriseAlter.СоздатьМенеджерЗаписи();
-							_мз.enterprise = Выборка.Enterprise;
-							_мз.enterpriseAlter = ВетисDictionaryСлой1с.Enterprise(_certifiedConsignment.consignee.enterprise.guid);
-							_мз.Записать();
-						КонецЕсли;
-					КонецЕсли;
+				Если НЕ _certifiedConsignment = Неопределено
+					И НЕ _certifiedConsignment.consignee = Неопределено
+					И НЕ _certifiedConsignment.consignor = Неопределено
+					И НЕ _certifiedConsignment.consignee.enterprise = Неопределено
+					И НЕ _certifiedConsignment.consignor.enterprise = Неопределено Тогда
 					
-					Если НЕ _certifiedConsignment.consignor.enterprise.guid = _enterpriseGuid Тогда
-						_enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByGuid(_certifiedConsignment.consignor.enterprise.guid);
-						Пока НЕ ЗаписьАктуальна(_enterprise) И ЗначениеЗаполнено(_enterprise.next) Цикл
-							_enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByUuid(_enterprise.next);
+					Если НЕ _certifiedConsignment.consignee.enterprise.guid = _enterpriseGuid
+						И НЕ _certifiedConsignment.consignor.enterprise.guid = _enterpriseGuid Тогда
+						
+						Если НЕ _certifiedConsignment.consignee.enterprise.guid = _enterpriseGuid Тогда
+							_enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByGuid(_certifiedConsignment.consignee.enterprise.guid);
+							Пока НЕ ЗаписьАктуальна(_enterprise) И ЗначениеЗаполнено(_enterprise.next) Цикл
+								_enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByUuid(_enterprise.next);
+								Если _enterprise.guid = _enterpriseGuid Тогда
+									Прервать;
+								КонецЕсли;
+							КонецЦикла;
 							Если _enterprise.guid = _enterpriseGuid Тогда
-								Прервать;
+								_мз = РегистрыСведений.ВетисEnterpriseAlter.СоздатьМенеджерЗаписи();
+								_мз.enterprise = Выборка.Enterprise;
+								_мз.enterpriseAlter = ВетисDictionaryСлой1с.Enterprise(_certifiedConsignment.consignee.enterprise.guid);
+								_мз.Записать();
 							КонецЕсли;
-						КонецЦикла;
-						Если _enterprise.guid = _enterpriseGuid Тогда
-							_мз = РегистрыСведений.ВетисEnterpriseAlter.СоздатьМенеджерЗаписи();
-							_мз.enterprise = Выборка.Enterprise;
-							_мз.enterpriseAlter = ВетисDictionaryСлой1с.Enterprise(_certifiedConsignment.consignor.enterprise.guid);
-							_мз.Записать();
+						КонецЕсли;
+						
+						Если НЕ _certifiedConsignment.consignor.enterprise.guid = _enterpriseGuid Тогда
+							_enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByGuid(_certifiedConsignment.consignor.enterprise.guid);
+							Пока НЕ ЗаписьАктуальна(_enterprise) И ЗначениеЗаполнено(_enterprise.next) Цикл
+								_enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByUuid(_enterprise.next);
+								Если _enterprise.guid = _enterpriseGuid Тогда
+									Прервать;
+								КонецЕсли;
+							КонецЦикла;
+							Если _enterprise.guid = _enterpriseGuid Тогда
+								_мз = РегистрыСведений.ВетисEnterpriseAlter.СоздатьМенеджерЗаписи();
+								_мз.enterprise = Выборка.Enterprise;
+								_мз.enterpriseAlter = ВетисDictionaryСлой1с.Enterprise(_certifiedConsignment.consignor.enterprise.guid);
+								_мз.Записать();
+							КонецЕсли;
 						КонецЕсли;
 					КонецЕсли;
 				КонецЕсли;
@@ -323,7 +327,8 @@
 			
 			_НачалоПериода = ?(ЗначениеЗаполнено(Выборка.Граница), Выборка.Граница - 12*60*60, Дата(2015,1,1));
 			
-			_КонецПериода = ТекущаяДата();//_НачалоПериода + 40*24*60*60;
+			//_КонецПериода = ТекущаяДата();
+			_КонецПериода = ?(ДобавитьМесяц(КонецДня(_НачалоПериода),1) > ТекущаяДата(), ТекущаяДата(), ДобавитьМесяц(КонецДня(_НачалоПериода),1));
 			
 			//2017-11-27
 			//дает разные результаты в 1.4 и в 2.0
@@ -342,6 +347,7 @@
 					
 					_se.entryNumber = _stockEntry.entryNumber;
 					
+					_se.createDate = Ветис.ВремяМестное(_stockEntry.createDate);// xs:dateTime
 					_se.updateDate = Ветис.ВремяМестное(_stockEntry.updateDate);// xs:dateTime
 					
 					_se.ProductType = _ВетисArgusProductionСлой1с.productType(_stockEntry.batch.productType);

@@ -450,26 +450,18 @@
 		_док.Статус   = VetDocumentStatus(_всд.status);
 		_док.Форма    = VetDocumentForm(_всд.form);
 		
-		_док.Отправитель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.consignor.businessEntity);
-		_док.Получатель  = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.consignee.businessEntity);
+		Если НЕ _всд.consignor = Неопределено Тогда
+			_док.Отправитель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.consignor.businessEntity);
+			_док.ОтправительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.consignor.enterprise);
+		КонецЕсли;
 		
-		//_док.ОтправительGuid = _всд.consignor.businessEntity.guid;
-		//_док.ПолучательGuid  = _всд.consignee.businessEntity.guid;
-		
-		_док.ОтправительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.consignor.enterprise);
-		_док.ПолучательПредприятие  = ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.consignee.enterprise);
-		
-		//_док.ОтправительПредприятиеGuid = _всд.consignor.enterprise.guid;
-		//_док.ПолучательПредприятиеGuid  = _всд.consignee.enterprise.guid;
+		Если НЕ _всд.consignee = Неопределено Тогда
+			_док.Получатель  = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.consignee.businessEntity);
+			_док.ПолучательПредприятие  = ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.consignee.enterprise);
+		КонецЕсли;
 		
 		_строкаВСД = ?(_док.ВСД.Количество() = 0, _док.ВСД.Добавить(), _док.ВСД[0]);
 		
-		//_строкаВСД.Серия    = _всд.issueSeries;
-		//_строкаВСД.Номер    = _всд.issueNumber;
-		//_строкаВСД.Дата     = _всд.issueDate;
-		//_строкаВСД.Тип      = VetDocumentType(_всд.type);
-		//_строкаВСД.Статус   = VetDocumentStatus(_всд.status);
-		//_строкаВСД.Форма    = VetDocumentForm(_всд.form);
 		_строкаВСД.БлагополучиеМестности  = _всд.locationProsperity;
 		_строкаВСД.Ветсанэкспертиза       = _всд.cargoExpertized;
 		//_строкаВСД.ГосударственныйВетврач = _всд.confirmedBy.fio;
@@ -623,17 +615,18 @@
 		_док.Статус   = VetDocumentStatus(_всд.vetDStatus);
 		_док.Форма    = VetDocumentForm(_всд.vetDForm);
 		
-		_док.Отправитель = ВетисDictionaryСлой1с.BusinessEntity(_всд.certifiedConsignment.consignor.businessEntity);
-		_док.Получатель  = ВетисDictionaryСлой1с.BusinessEntity(_всд.certifiedConsignment.consignee.businessEntity);
+		_док.Дата     = ?(ЗначениеЗаполнено(_всд.issueDate), _всд.issueDate, _всд.lastUpdateDate);
 		
-		//_док.ОтправительGuid = _всд.certifiedConsignment.consignor.businessEntity.guid;
-		//_док.ПолучательGuid  = _всд.certifiedConsignment.consignee.businessEntity.guid;
-		
-		_док.ОтправительПредприятие = ВетисDictionaryСлой1с.Enterprise(_всд.certifiedConsignment.consignor.enterprise);
-		_док.ПолучательПредприятие  = ВетисDictionaryСлой1с.Enterprise(_всд.certifiedConsignment.consignee.enterprise);
-		
-		//_док.ОтправительПредприятиеGuid = _всд.certifiedConsignment.consignor.enterprise.guid;
-		//_док.ПолучательПредприятиеGuid  = _всд.certifiedConsignment.consignee.enterprise.guid;
+		Если НЕ _всд.certifiedConsignment = Неопределено Тогда
+			Если НЕ _всд.certifiedConsignment.consignor = Неопределено Тогда
+				_док.Отправитель = ВетисDictionaryСлой1с.BusinessEntity(_всд.certifiedConsignment.consignor.businessEntity);
+				_док.ОтправительПредприятие = ВетисDictionaryСлой1с.Enterprise(_всд.certifiedConsignment.consignor.enterprise);
+			КонецЕсли;
+			Если НЕ _всд.certifiedConsignment.consignee = Неопределено Тогда
+				_док.Получатель = ВетисDictionaryСлой1с.BusinessEntity(_всд.certifiedConsignment.consignee.businessEntity);
+				_док.ПолучательПредприятие = ВетисDictionaryСлой1с.Enterprise(_всд.certifiedConsignment.consignee.enterprise);
+			КонецЕсли;
+		КонецЕсли;
 		
 		_СтрокаВСД = ?(_док.РезультатыОсмотра.Количество() = 0, _док.РезультатыОсмотра.Добавить(), _док.РезультатыОсмотра[0]);
 		_СтрокаВСД.НазначениеГруза        = ВетисDictionaryСлой1с.Purpose(_всд.authentication.purpose);
@@ -668,29 +661,33 @@
 			_Строка.Заключение             = _laboratoryResearch.conclusion;
 		КонецЦикла;
 		
-		_СтрокаТТН = ?(_док.ТТН.Количество() = 0, _док.ТТН.Добавить(), _док.ТТН[0]);
-		_СтрокаТТН.Посредник      = ВетисDictionaryСлой1с.BusinessEntity(_всд.certifiedConsignment.broker);
-		_СтрокаТТН.СпособХранения = ВетисDictionaryСлой1с.TransportationStorageType(_всд.certifiedConsignment.transportStorageType);
-		//_СтрокаТТН.Транспорт      = TransportInfo(_всд.certifiedConsignment.transportInfo);
-		_СтрокаТТН.НомерТранспорта = TransportNumber(_всд.certifiedConsignment.transportInfo, , _СтрокаТТН.НомерПрицепа, _СтрокаТТН.ТипТранспорта);
+		Если НЕ _всд.certifiedConsignment = Неопределено Тогда
+			_СтрокаТТН = ?(_док.ТТН.Количество() = 0, _док.ТТН.Добавить(), _док.ТТН[0]);
+			_СтрокаТТН.Посредник      = ВетисDictionaryСлой1с.BusinessEntity(_всд.certifiedConsignment.broker);
+			_СтрокаТТН.СпособХранения = ВетисDictionaryСлой1с.TransportationStorageType(_всд.certifiedConsignment.transportStorageType);
+			//_СтрокаТТН.Транспорт      = TransportInfo(_всд.certifiedConsignment.transportInfo);
+			_СтрокаТТН.НомерТранспорта = TransportNumber(_всд.certifiedConsignment.transportInfo, , _СтрокаТТН.НомерПрицепа, _СтрокаТТН.ТипТранспорта);
+		КонецЕсли;
 		
 		_док.МаршрутСледования.Очистить();
-		Если НЕ _всд.certifiedConsignment.shipmentRoute = Неопределено Тогда
-			Для каждого _point Из _всд.certifiedConsignment.shipmentRoute.routePoint Цикл
-				_Строка = _док.МаршрутСледования.Добавить();
-				_Строка.ПунктПерегрузки = ?(_point.location = Неопределено, "", _point.location.name);
-				_Строка.Предприятие     = ВетисDictionaryСлой1с.Enterprise(_point.enterprise);
-				_Строка.ЕстьПерегрузка  = _point.transshipment;
-				//_Строка.Транспорт       = TransportInfo(_point.nextTransport);
-				_Строка.НомерТранспорта = TransportNumber(_point.nextTransport,, _Строка.НомерПрицепа, _Строка.ТипТранспорта);
-				Если НЕ _point.location = Неопределено И НЕ _point.location.address = Неопределено Тогда
-					_Строка.Адрес           = _point.location.address.addressView;
-					_Строка.Страна          = ВетисDictionaryСлой1с.Country(_point.location.address.country);
-					_Строка.Регион          = ВетисDictionaryСлой1с.Region(_point.location.address.region);
-					_Строка.Район           = ВетисDictionaryСлой1с.Region(_point.location.address.district);
-					_Строка.НаселенныйПункт = ВетисDictionaryСлой1с.Locality(_point.location.address.locality);
-				КонецЕсли;
-			КонецЦикла;
+		Если НЕ _всд.certifiedConsignment = Неопределено Тогда
+			Если НЕ _всд.certifiedConsignment.shipmentRoute = Неопределено Тогда
+				Для каждого _point Из _всд.certifiedConsignment.shipmentRoute.routePoint Цикл
+					_Строка = _док.МаршрутСледования.Добавить();
+					_Строка.ПунктПерегрузки = ?(_point.location = Неопределено, "", _point.location.name);
+					_Строка.Предприятие     = ВетисDictionaryСлой1с.Enterprise(_point.enterprise);
+					_Строка.ЕстьПерегрузка  = _point.transshipment;
+					//_Строка.Транспорт       = TransportInfo(_point.nextTransport);
+					_Строка.НомерТранспорта = TransportNumber(_point.nextTransport,, _Строка.НомерПрицепа, _Строка.ТипТранспорта);
+					Если НЕ _point.location = Неопределено И НЕ _point.location.address = Неопределено Тогда
+						_Строка.Адрес           = _point.location.address.addressView;
+						_Строка.Страна          = ВетисDictionaryСлой1с.Country(_point.location.address.country);
+						_Строка.Регион          = ВетисDictionaryСлой1с.Region(_point.location.address.region);
+						_Строка.Район           = ВетисDictionaryСлой1с.Region(_point.location.address.district);
+						_Строка.НаселенныйПункт = ВетисDictionaryСлой1с.Locality(_point.location.address.locality);
+					КонецЕсли;
+				КонецЦикла;
+			КонецЕсли;
 		КонецЕсли;
 		
 		_док.СвязанныеДокументы.Очистить();
@@ -715,33 +712,35 @@
 			КонецЦикла;
 		КонецЕсли;
 		
-		_СтрокаСЖ = ?(_док.Товары.Количество() = 0, _док.Товары.Добавить(), _док.Товары[0]);
-		
-		_batch = BatchКонвертировать_20(_всд.certifiedConsignment.batch);
-		
-		Для каждого _строка Из _batch.Товары Цикл
-			ЗаполнитьЗначенияСвойств(_СтрокаСЖ, _строка);
-		КонецЦикла;
-		
-		_док.Упаковка.Очистить();
-		Для каждого _строка Из _batch.Упаковка Цикл
-			ЗаполнитьЗначенияСвойств(_док.Упаковка.Добавить(), _строка);
-		КонецЦикла;
-		
-		_док.Маркировка.Очистить();
-		Для каждого _строка Из _batch.Маркировка Цикл
-			ЗаполнитьЗначенияСвойств(_док.Маркировка.Добавить(), _строка);
-		КонецЦикла;
-		
-		_док.Производители.Очистить();
-		Для каждого _строка Из _batch.Производители Цикл
-			ЗаполнитьЗначенияСвойств(_док.Производители.Добавить(), _строка);
-		КонецЦикла;
-		
-		_док.ИДПартии.Очистить();
-		Для каждого _строка Из _batch.ИДПартии Цикл
-			ЗаполнитьЗначенияСвойств(_док.ИДПартии.Добавить(), _строка);
-		КонецЦикла;
+		Если НЕ _всд.certifiedConsignment = Неопределено Тогда
+			_СтрокаСЖ = ?(_док.Товары.Количество() = 0, _док.Товары.Добавить(), _док.Товары[0]);
+			
+			_batch = BatchКонвертировать_20(_всд.certifiedConsignment.batch);
+			
+			Для каждого _строка Из _batch.Товары Цикл
+				ЗаполнитьЗначенияСвойств(_СтрокаСЖ, _строка);
+			КонецЦикла;
+			
+			_док.Упаковка.Очистить();
+			Для каждого _строка Из _batch.Упаковка Цикл
+				ЗаполнитьЗначенияСвойств(_док.Упаковка.Добавить(), _строка);
+			КонецЦикла;
+			
+			_док.Маркировка.Очистить();
+			Для каждого _строка Из _batch.Маркировка Цикл
+				ЗаполнитьЗначенияСвойств(_док.Маркировка.Добавить(), _строка);
+			КонецЦикла;
+			
+			_док.Производители.Очистить();
+			Для каждого _строка Из _batch.Производители Цикл
+				ЗаполнитьЗначенияСвойств(_док.Производители.Добавить(), _строка);
+			КонецЦикла;
+			
+			_док.ИДПартии.Очистить();
+			Для каждого _строка Из _batch.ИДПартии Цикл
+				ЗаполнитьЗначенияСвойств(_док.ИДПартии.Добавить(), _строка);
+			КонецЦикла;
+		КонецЕсли;
 		
 	ИначеЕсли ТипЗнч(value2) = Тип("ДокументОбъект.ВетисВетеринарноСопроводительныйДокумент")
 		ИЛИ ТипЗнч(value2) = Тип("ДанныеФормыСтруктура")
@@ -1041,7 +1040,9 @@
 				_ПроизводителиСтрока.Вставить("КлючСвязи", _строкаСЖ.КлючСтроки);
 				_ПроизводителиСтрока.Вставить("Предприятие", ВетисDictionaryСлой1с.Enterprise(_producer.enterprise));
 				_ПроизводителиСтрока.Вставить("Роль", ВетисDictionaryСлой1с.EnterpriseRole(_producer.role));
-				_Производители.Добавить(_ПроизводителиСтрока);
+				Если ЗначениеЗаполнено(_ПроизводителиСтрока.Предприятие) Тогда
+					_Производители.Добавить(_ПроизводителиСтрока);
+				КонецЕсли;
 			КонецЦикла;
 		КонецЕсли;
 		

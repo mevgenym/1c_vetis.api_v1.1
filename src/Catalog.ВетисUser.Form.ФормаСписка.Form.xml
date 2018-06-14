@@ -18,6 +18,7 @@
 			<Representation>List</Representation>
 			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
+			<HeightInTableRows>1</HeightInTableRows>
 			<UseAlternationRowColor>true</UseAlternationRowColor>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -75,7 +76,6 @@
 				</LabelField>
 				<LabelField name="phone" id="22">
 					<DataPath>Список.phone</DataPath>
-					<Visible>false</Visible>
 					<ContextMenu name="phoneКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="phoneРасширеннаяПодсказка" id="24"/>
 				</LabelField>
@@ -84,24 +84,18 @@
 					<ContextMenu name="loginКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="loginРасширеннаяПодсказка" id="30"/>
 				</LabelField>
-				<LabelField name="firstName" id="34">
-					<DataPath>Список.firstName</DataPath>
-					<ContextMenu name="firstNameКонтекстноеМеню" id="35"/>
-					<ExtendedTooltip name="firstNameРасширеннаяПодсказка" id="36"/>
+				<LabelField name="organization" id="43">
+					<DataPath>Список.organization</DataPath>
+					<ContextMenu name="organizationКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="organizationРасширеннаяПодсказка" id="45"/>
 				</LabelField>
-				<LabelField name="middleName" id="37">
-					<DataPath>Список.middleName</DataPath>
-					<ContextMenu name="middleNameКонтекстноеМеню" id="38"/>
-					<ExtendedTooltip name="middleNameРасширеннаяПодсказка" id="39"/>
-				</LabelField>
-				<LabelField name="lastName" id="40">
-					<DataPath>Список.lastName</DataPath>
-					<ContextMenu name="lastNameКонтекстноеМеню" id="41"/>
-					<ExtendedTooltip name="lastNameРасширеннаяПодсказка" id="42"/>
+				<LabelField name="post" id="46">
+					<DataPath>Список.post</DataPath>
+					<ContextMenu name="postКонтекстноеМеню" id="47"/>
+					<ExtendedTooltip name="postРасширеннаяПодсказка" id="48"/>
 				</LabelField>
 				<LabelField name="email" id="31">
 					<DataPath>Список.email</DataPath>
-					<Visible>false</Visible>
 					<ContextMenu name="emailКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="emailРасширеннаяПодсказка" id="33"/>
 				</LabelField>

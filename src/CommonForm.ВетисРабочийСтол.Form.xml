@@ -60,7 +60,6 @@
 			<ChildItems>
 				<InputField name="ОтборХС" id="172">
 					<DataPath>ОтборХС</DataPath>
-					<DropListButton>false</DropListButton>
 					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<InputHint>
@@ -77,7 +76,6 @@
 				</InputField>
 				<InputField name="ОтборПредприятие" id="175">
 					<DataPath>ОтборПредприятие</DataPath>
-					<DropListButton>false</DropListButton>
 					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ChooseType>false</ChooseType>
@@ -346,18 +344,37 @@
 											<v8:content>Список ВСДГруппа номенклатура</v8:content>
 										</v8:item>
 									</ToolTip>
-									<Group>InCell</Group>
+									<Group>Horizontal</Group>
 									<ExtendedTooltip name="СписокВСДГруппаНоменклатураРасширеннаяПодсказка" id="470"/>
 									<ChildItems>
-										<LabelField name="СписокВСДНоменклатурнаяГруппа" id="311">
-											<DataPath>~СписокВСД.НоменклатурнаяГруппа</DataPath>
-											<ContextMenu name="СписокВСДНоменклатурнаяГруппаКонтекстноеМеню" id="312"/>
-											<ExtendedTooltip name="СписокВСДНоменклатурнаяГруппаРасширеннаяПодсказка" id="313"/>
+										<LabelField name="СписокВСДProductItemName" id="612">
+											<DataPath>СписокВСД.ProductItemName</DataPath>
+											<Width>15</Width>
+											<ContextMenu name="СписокВСДProductItemNameКонтекстноеМеню" id="613"/>
+											<ExtendedTooltip name="СписокВСДProductItemNameРасширеннаяПодсказка" id="614"/>
 										</LabelField>
-										<LabelField name="СписокВСДНоменклатура" id="248">
-											<DataPath>~СписокВСД.Номенклатура</DataPath>
-											<ContextMenu name="СписокВСДНоменклатураКонтекстноеМеню" id="249"/>
-											<ExtendedTooltip name="СписокВСДНоменклатураРасширеннаяПодсказка" id="250"/>
+										<LabelField name="СписокВСДДатаВыработки" id="615">
+											<DataPath>СписокВСД.ДатаВыработки</DataPath>
+											<Width>10</Width>
+											<ContextMenu name="СписокВСДДатаВыработкиКонтекстноеМеню" id="616"/>
+											<ExtendedTooltip name="СписокВСДДатаВыработкиРасширеннаяПодсказка" id="617"/>
+										</LabelField>
+										<LabelField name="СписокВСДСрокГодности" id="621">
+											<DataPath>СписокВСД.СрокГодности</DataPath>
+											<Width>10</Width>
+											<ContextMenu name="СписокВСДСрокГодностиКонтекстноеМеню" id="622"/>
+											<ExtendedTooltip name="СписокВСДСрокГодностиРасширеннаяПодсказка" id="623"/>
+										</LabelField>
+										<LabelField name="СписокВСДСтранаПроисхождения" id="624">
+											<DataPath>СписокВСД.СтранаПроисхождения</DataPath>
+											<Width>10</Width>
+											<ContextMenu name="СписокВСДСтранаПроисхожденияКонтекстноеМеню" id="625"/>
+											<ExtendedTooltip name="СписокВСДСтранаПроисхожденияРасширеннаяПодсказка" id="626"/>
+										</LabelField>
+										<LabelField name="СписокВСДПроизводитель" id="618">
+											<DataPath>СписокВСД.Производитель</DataPath>
+											<ContextMenu name="СписокВСДПроизводительКонтекстноеМеню" id="619"/>
+											<ExtendedTooltip name="СписокВСДПроизводительРасширеннаяПодсказка" id="620"/>
 										</LabelField>
 									</ChildItems>
 								</ColumnGroup>
@@ -425,6 +442,7 @@
 									<ChildItems>
 										<LabelField name="СписокВСДКомментарий" id="355">
 											<DataPath>СписокВСД.Комментарий</DataPath>
+											<Visible>false</Visible>
 											<ContextMenu name="СписокВСДКомментарийКонтекстноеМеню" id="356"/>
 											<ExtendedTooltip name="СписокВСДКомментарийРасширеннаяПодсказка" id="357"/>
 										</LabelField>
@@ -1045,6 +1063,16 @@
 										</LabelField>
 									</ChildItems>
 								</ColumnGroup>
+								<LabelField name="СписокСкладскойЖурналvetDocument" id="606">
+									<DataPath>СписокСкладскойЖурнал.vetDocument</DataPath>
+									<ContextMenu name="СписокСкладскойЖурналvetDocumentКонтекстноеМеню" id="607"/>
+									<ExtendedTooltip name="СписокСкладскойЖурналvetDocumentРасширеннаяПодсказка" id="608"/>
+								</LabelField>
+								<LabelField name="СписокСкладскойЖурналcreateDate" id="603">
+									<DataPath>СписокСкладскойЖурнал.createDate</DataPath>
+									<ContextMenu name="СписокСкладскойЖурналcreateDateКонтекстноеМеню" id="604"/>
+									<ExtendedTooltip name="СписокСкладскойЖурналcreateDateРасширеннаяПодсказка" id="605"/>
+								</LabelField>
 								<ColumnGroup name="СписокСкладскойЖурналГруппаGuid" id="213">
 									<Title>
 										<v8:item>

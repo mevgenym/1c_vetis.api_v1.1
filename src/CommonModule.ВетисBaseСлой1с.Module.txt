@@ -26,8 +26,8 @@
 			Возврат ВетисКонстанты.VersionStatus_UPDATED_WHEN_FORK();
 		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.WITHDRAWN") Тогда
 			Возврат ВетисКонстанты.VersionStatus_WITHDRAWN();
-		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.Списано") Тогда
-			Возврат ВетисКонстанты.VersionStatus_Списано();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.UPDATED_WHEN_WRITINGOFF") Тогда
+			Возврат ВетисКонстанты.VersionStatus_UPDATED_WHEN_WRITINGOFF();
 		Иначе
 			Возврат ВетисКонстанты.VersionStatus_CREATED();
 		КонецЕсли;
@@ -56,8 +56,8 @@
 			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.UPDATED_WHEN_FORK");
 		ИначеЕсли value = ВетисКонстанты.VersionStatus_WITHDRAWN() Тогда
 			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.WITHDRAWN");
-		ИначеЕсли value = ВетисКонстанты.VersionStatus_Списано() Тогда
-			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.Списано");
+		ИначеЕсли value = ВетисКонстанты.VersionStatus_UPDATED_WHEN_WRITINGOFF() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.UPDATED_WHEN_WRITINGOFF");
 		Иначе
 			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.CREATED");
 		КонецЕсли;

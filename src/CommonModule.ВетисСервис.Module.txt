@@ -86,6 +86,13 @@
 					_отбор.numberList = ВетисDictionary_2_0.EnterpriseNumberList();
 					_отбор.numberList.enterpriseNumber.Добавить(_ЭлементЗапроса.number);
 				КонецЕсли;
+				Если _ЭлементЗапроса.Свойство("country") И ЗначениеЗаполнено(_ЭлементЗапроса.country) Тогда
+					_отбор.address = ВетисDictionary_2_0.Address();
+					_отбор.address.country = ВетисDictionary_2_0.Country(_ЭлементЗапроса.country);
+					Если _ЭлементЗапроса.Свойство("region") И ЗначениеЗаполнено(_ЭлементЗапроса.region) Тогда
+						_отбор.address.region = ВетисDictionary_2_0.Region(_ЭлементЗапроса.region);
+					КонецЕсли;
+				КонецЕсли;
 				_список = Новый Массив;
 				_enterprise = Неопределено;
 				_параметры = Неопределено;
@@ -93,8 +100,11 @@
 				Пока ВетисEnterpriseService_2_0.GetRussianEnterpriseListNext(_отбор, _enterprise, _параметры) Цикл
 					_список.Добавить(ПолучитьСтруктуруОбъекта(ВетисDictionaryСлой1с.Enterprise(_enterprise)));
 					_макс = _макс - 1;
+					Если _макс <= 0 Тогда
+						Прервать;
+					КонецЕсли;
 				КонецЦикла;
-				_ответ.Enterprise.Добавить(Новый Структура("name, number, Объекты", _отбор.name, _отбор.number, _ЭлементЗапроса.guid, _список));
+				_ответ.Enterprise.Добавить(Новый Структура("Объекты", _список));
 				
 			КонецЕсли;
 		КонецЦикла;

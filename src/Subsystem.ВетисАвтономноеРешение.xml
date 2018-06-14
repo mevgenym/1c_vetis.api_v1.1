@@ -168,7 +168,6 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисSubProduct</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисLocality</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисИнвентаризация</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">46861209-c139-4f99-8701-15e3b2b3b4fd</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисEnterpriseAlter</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисГраницыЗапросов</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисEnterpriseAlter</xr:Item>
@@ -179,6 +178,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисProductMarks</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">FilterCriterion.ВетисСвязанныеДокументы</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисСервис</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисRegionalizationDecision</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

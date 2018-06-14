@@ -411,6 +411,7 @@
 	
 	_ConsignmentСписок = Новый Массив;
 	_VetDocumentСписок = Новый Массив;
+	_shipmentRoute = Новый Массив;
 	_id = 1;
 	
 	Если _Версия20 Тогда
@@ -468,6 +469,8 @@
 			_VetDocument.authentication = _authentication;
 			_VetDocument.for = _Consignment.id;
 			
+			//сделать: добавить условия перемещения
+			
 			_VetDocumentСписок.Добавить(_VetDocument);
 			
 			_id = _id + 1;
@@ -478,9 +481,6 @@
 		_waybill.issueNumber   = _ттн.Номер;
 		_waybill.issueDate     = _ттн.Дата;
 		_waybill.type          = ВетисDictionaryСлой1с.DocumentType(_ттн.Тип);
-		_waybill.broker        = ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_ттн.Посредник));
-		_waybill.transportInfo = ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.ТипТранспорта, _ттн.НомерТранспорта, _ттн.НомерПрицепа);
-		_waybill.transportStorageType = ВетисDictionaryСлой1с.TransportationStorageType(_ттн.СпособХранения);
 		
 		_delivery = ВетисMercuryVetdocument_2_0.Delivery(
 			ВетисDictionary_2_0.BusinessMember(_Отправитель, _ОтправительПредприятие),
@@ -593,9 +593,9 @@
 		_СтрокаПартии.Отправлена = Истина;
 	КонецЦикла;
 	
-	Если НЕ пОтказ = Истина Тогда
-		ВетисСинхронизация.VetDocumentListChanges(пОтказ, пОшибка);
-	КонецЕсли;
+	//Если НЕ пОтказ = Истина Тогда
+	//	ВетисСинхронизация.VetDocumentListChanges(пОтказ, пОшибка);
+	//КонецЕсли;
 	
 	//http://vetrf.ru/vetrf-forum/posts/list/7130.page#44764
 	//Партия приходуется на сток с той упаковкой, которая была во входящем сертификате.
@@ -609,7 +609,7 @@
 //Параметры:
 // subProductList - список видов продукции (массив)
 // routePointList - список точек маршрута, массив структур Страна, Регион или Предприятие
-Процедура CheckShipmentRegionalization(subProductList, routePointList, пОтказ = Ложь, пОшибка = "")
+Функция CheckShipmentRegionalization(subProductList, routePointList, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_issuerId = Ветис.ТекущийХС();
 	
@@ -651,9 +651,11 @@
 	
 	_Response = ВетисMercuryApplications_2_0.CheckShipmentRegionalization(_cargoType, _shipmentRoute, _issuerId, пОтказ, пОшибка);
 	
-	Если пОтказ = Истина Тогда Возврат; КонецЕсли;
+	//Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-КонецПроцедуры
+	Возврат _Response;
+	
+КонецФункции
 
 
 Процедура WithdrawVetDocumentOperation(пСсылка, пПричина, пОтказ = Ложь, пОшибка = "") Экспорт

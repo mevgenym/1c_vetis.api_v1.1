@@ -19,7 +19,7 @@
 		КонецЕсли;
 		
 		Наименование = firstName + " " + middleName + " " + lastName;
-		organization = СокрЛП(ДанныеЗаполнения.organization.name);
+		organization = ?(ДанныеЗаполнения.organization = Неопределено, "", СокрЛП(ДанныеЗаполнения.organization.name));
 		post         = СокрЛП(ДанныеЗаполнения.post);
 		login        = СокрЛП(ДанныеЗаполнения.login);
 		phone        = ?(ПустаяСтрока(ДанныеЗаполнения.workPhone), СокрЛП(ДанныеЗаполнения.phone), СокрЛП(ДанныеЗаполнения.workPhone));
