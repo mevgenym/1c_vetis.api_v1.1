@@ -582,6 +582,7 @@
 										<InputField name="МаркировкаМаркировка" id="431">
 											<DataPath>Объект.Маркировка.Маркировка</DataPath>
 											<EditMode>EnterOnInput</EditMode>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="МаркировкаМаркировкаКонтекстноеМеню" id="432"/>
 											<ExtendedTooltip name="МаркировкаМаркировкаРасширеннаяПодсказка" id="433"/>
 										</InputField>

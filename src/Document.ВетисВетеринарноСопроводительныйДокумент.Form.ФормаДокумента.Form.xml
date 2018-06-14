@@ -41,6 +41,11 @@
 				<CommandName>Form.Command.КомандаВозврат</CommandName>
 				<ExtendedTooltip name="ФормаКомандаВозвратРасширеннаяПодсказка" id="859"/>
 			</Button>
+			<Button name="ФормаКомандаАннулировать" id="980">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаАннулировать</CommandName>
+				<ExtendedTooltip name="ФормаКомандаАннулироватьРасширеннаяПодсказка" id="981"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -2569,6 +2574,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаВозврат</Action>
+		</Command>
+		<Command name="КомандаАннулировать" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аннулировать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда аннулировать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаАннулировать</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>

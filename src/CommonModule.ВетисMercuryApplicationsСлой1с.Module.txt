@@ -458,18 +458,24 @@
 			
 			_ConsignmentСписок.Добавить(_Consignment);
 			
+			_УсловияПеремещения = Новый Массив;
+			Для каждого _СтрокаУсловияПеремещения Из пДокумент.УсловияПеремещения.НайтиСтроки(Новый Структура("SubProduct", _СтрокаПартии.SubProduct)) Цикл
+				_Условие = ВетисDictionaryСлой1с.RegionalizationCondition(_СтрокаУсловияПеремещения.Условие);
+				_УсловияПеремещения.Добавить(ВетисMercuryVetdocument_2_0.RegionalizationClause(ВетисDictionary_2_0.RegionalizationCondition(_Условие)));
+			КонецЦикла;
+			
 			_authentication = ВетисMercuryVetdocument_2_0.VeterinaryAuthentication(
 				ВетисDictionary_2_0.Purpose(ВетисDictionaryСлой1с.Purpose(_СтрокаВСД.НазначениеГруза)),
 				_СтрокаВСД.КонтрольГосВетврачем,
 				ВетисDictionaryСлой1с.ResearchResult(_СтрокаВСД.Ветсанэкспертиза20),
-				_СтрокаВСД.БлагополучиеМестности
+				_СтрокаВСД.БлагополучиеМестности,
+				,
+				_УсловияПеремещения
 				);
 				
 			_VetDocument = ВетисMercuryVetdocument_2_0.VetDocument();
 			_VetDocument.authentication = _authentication;
 			_VetDocument.for = _Consignment.id;
-			
-			//сделать: добавить условия перемещения
 			
 			_VetDocumentСписок.Добавить(_VetDocument);
 			
@@ -660,45 +666,29 @@
 
 Процедура WithdrawVetDocumentOperation(пСсылка, пПричина, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если НЕ пСсылка.Статус = Перечисления.ВетисVetDocumentStatus.Оформлен Тогда
-		Возврат;
-	КонецЕсли;
-	
-	Если НЕ пСсылка.Тип = Перечисления.ВетисVetDocumentType.Транспортный Тогда
-		Возврат;
-	КонецЕсли;
-	
-	_Отладка = Ветис.РазрешенаОтладка();
-	
 	_vetDocumentId = ВетисMercuryVetdocumentСлой1с.VetDocument(пСсылка);
 	
 	Если Ветис.Версия_2_0() Тогда
 		_Reason = ВетисMercuryVetdocument_2_0.VetDocumentStatusChangeReason(пПричина);
 		
-		_Получатель = ВетисDictionaryСлой1с.BusinessEntity(пСсылка.Получатель);
-		
-		_Response = ВетисMercuryApplications_2_0.withdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), _Получатель, пОтказ, пОшибка);
+		_Response = ВетисMercuryApplications_2_0.withdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), пСсылка.Получатель, пОтказ, пОшибка);
 		
 		Если пОтказ = Истина Тогда Возврат; КонецЕсли;
 		
 		_док = пСсылка.ПолучитьОбъект();
 		
-		ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать_20(_док, _Response.VetDocument);
+		ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать_20(_док, _Response);
 	Иначе
 		_Reason = ВетисMercuryVetdocument.WithdrawReason(пПричина);
 		
-		_Получатель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(пСсылка.Получатель);
-		
-		_Response = ВетисMercuryApplications.withdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), _Получатель, пОтказ, пОшибка);
+		_Response = ВетисMercuryApplications.withdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), пСсылка.Получатель, пОтказ, пОшибка);
 		
 		Если пОтказ = Истина Тогда Возврат; КонецЕсли;
 		
 		_док = пСсылка.ПолучитьОбъект();
 		
-		ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_док, _Response.VetDocument);
+		ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_док, _Response);
 	КонецЕсли;
-	
-	//_док.ДатаОбновления = ТекущаяДата();
 	
 	_док.ДополнительныеСвойства.Вставить("Загрузка");
 	
