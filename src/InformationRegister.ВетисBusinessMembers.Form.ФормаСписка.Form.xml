@@ -98,6 +98,12 @@
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
 			</SearchControlAddition>
 			<ChildItems>
+				<CheckBoxField name="Использовать" id="50">
+					<DataPath>Список.Использовать</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ИспользоватьКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="ИспользоватьРасширеннаяПодсказка" id="52"/>
+				</CheckBoxField>
 				<LabelField name="BusinessEntity" id="16">
 					<DataPath>Список.BusinessEntity</DataPath>
 					<DefaultItem>true</DefaultItem>
@@ -116,6 +122,12 @@
 					<CheckBoxType>Auto</CheckBoxType>
 					<ContextMenu name="ВСервисеКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ВСервисеРасширеннаяПодсказка" id="24"/>
+				</CheckBoxField>
+				<CheckBoxField name="Свой" id="47">
+					<DataPath>Список.Свой</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СвойКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="СвойРасширеннаяПодсказка" id="49"/>
 				</CheckBoxField>
 			</ChildItems>
 		</Table>

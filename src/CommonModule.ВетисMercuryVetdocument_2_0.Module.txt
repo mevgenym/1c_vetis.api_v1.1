@@ -233,7 +233,7 @@
 	_Объект = Создать("DeliveryInspection");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, result, "result");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, responsible, "responsible", , ВетисMercuryVetdocument_2_0.User(ВетисПовтИсп.Настройки_ЛогинПользователя()));
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, responsible, "responsible", , ВетисMercuryVetdocument_2_0.User(ВетисПовтИсп.ТекущийПользователь_Логин()));
 	
 	Возврат _Объект;
 	
@@ -646,7 +646,7 @@
 	_Объект = Создать("VetDocumentStatusChange");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, status, "status", , ВетисКонстанты.VetDocumentStatus_CONFIRMED());
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, user, "specifiedPerson", , ВетисMercuryVetdocument_2_0.User(ВетисПовтИсп.Настройки_ЛогинПользователя()));
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, user, "specifiedPerson", , ВетисMercuryVetdocument_2_0.User(ВетисПовтИсп.ТекущийПользователь_Логин()));
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, date, "actualDateTime", , Ветис.ВремяСервиса());// xs:dateTime
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason", "ВетисMercuryVetdocument_2_0.VetDocumentStatusChangeReason");
 	

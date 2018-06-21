@@ -1,4 +1,19 @@
 ﻿
+Функция getProductItemByGuid(guid, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_ИмяСервиса = ВетисProductService_2_0.ИмяСервиса();
+	_Фабрика = ВетисПовтИсп.ФабрикаWS(_ИмяСервиса);
+	_request = Создать("getProductItemByGuidRequest", _Фабрика);
+	_request.guid = guid;
+	_response = Прокси(_ИмяСервиса, _request, пОтказ, пОшибка);
+	
+	Если НЕ пОтказ = Истина Тогда
+		Возврат ПривестиКТипу(_response, "getProductItemByGuidResponse", "productItem", _Фабрика);
+	КонецЕсли;
+	
+КонецФункции
+
+
 Функция getBusinessEntityByGuid(guid, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_ИмяСервиса = ВетисEnterpriseService_2_0.ИмяСервиса();
@@ -93,6 +108,7 @@
 	Возврат GetListNext(пItem, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
+
 
 Функция getR13nConditionListNext(пЗаболевание = Неопределено, пУсловие, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	

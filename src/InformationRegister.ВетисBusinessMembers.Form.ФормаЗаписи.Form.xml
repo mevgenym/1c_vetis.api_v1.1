@@ -3,6 +3,18 @@
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<ChildItems>
+		<CheckBoxField name="Использовать" id="10">
+			<DataPath>Запись.Использовать</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ИспользоватьКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ИспользоватьРасширеннаяПодсказка" id="12"/>
+		</CheckBoxField>
+		<CheckBoxField name="Свой" id="7">
+			<DataPath>Запись.Свой</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="СвойКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="СвойРасширеннаяПодсказка" id="9"/>
+		</CheckBoxField>
 		<InputField name="ХозяйствующийСубъект" id="1">
 			<DataPath>Запись.BusinessEntity</DataPath>
 			<ContextMenu name="ХозяйствующийСубъектКонтекстноеМеню" id="2"/>

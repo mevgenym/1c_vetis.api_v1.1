@@ -581,7 +581,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Транспортные партии</v8:content>
+							<v8:content>Транзакции</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
@@ -659,6 +659,7 @@
 								</LabelField>
 								<LabelField name="СписокТранспортныеПартииСтатус" id="455">
 									<DataPath>СписокТранспортныеПартии.Статус</DataPath>
+									<Visible>false</Visible>
 									<ContextMenu name="СписокТранспортныеПартииСтатусКонтекстноеМеню" id="456"/>
 									<ExtendedTooltip name="СписокТранспортныеПартииСтатусРасширеннаяПодсказка" id="457"/>
 								</LabelField>

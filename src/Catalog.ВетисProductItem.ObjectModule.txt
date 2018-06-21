@@ -16,7 +16,8 @@
 		
 		producing.Очистить();
 		Для каждого _producing Из ДанныеЗаполнения.producing Цикл
-			ЗаполнитьЗначенияСвойств(producing.Добавить(), ВетисDictionaryСлой1с.Enterprise(_producing.location));
+			_строка = producing.Добавить();
+			_строка.location = ВетисDictionaryСлой1с.Enterprise(_producing.location);
 		КонецЦикла;
 		
 		packaging.Очистить();

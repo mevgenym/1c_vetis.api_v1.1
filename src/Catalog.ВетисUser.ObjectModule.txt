@@ -21,7 +21,7 @@
 		Наименование = firstName + " " + middleName + " " + lastName;
 		organization = ?(ДанныеЗаполнения.organization = Неопределено, "", СокрЛП(ДанныеЗаполнения.organization.name));
 		post         = СокрЛП(ДанныеЗаполнения.post);
-		login        = СокрЛП(ДанныеЗаполнения.login);
+		//login        = СокрЛП(ДанныеЗаполнения.login);
 		phone        = ?(ПустаяСтрока(ДанныеЗаполнения.workPhone), СокрЛП(ДанныеЗаполнения.phone), СокрЛП(ДанныеЗаполнения.workPhone));
 		email        = ?(ПустаяСтрока(ДанныеЗаполнения.workEmail), СокрЛП(ДанныеЗаполнения.email), СокрЛП(ДанныеЗаполнения.workEmail));
 		
@@ -36,6 +36,8 @@
 		Возврат;
 	КонецЕсли;
 	
-	//Наименование = firstName + ?(middleName = "", "", " " + middleName + ?(lastName = "", "", " " + lastName));
+	Если НЕ ПустаяСтрока(firstName) Тогда
+		Наименование = firstName + ?(middleName = "", "", " " + middleName + ?(lastName = "", "", " " + lastName));
+	КонецЕсли;
 	
 КонецПроцедуры

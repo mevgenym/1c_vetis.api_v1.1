@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<ScalingMode>Compact</ScalingMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -22,8 +23,8 @@
 			<Representation>List</Representation>
 			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
+			<HeightInTableRows>2</HeightInTableRows>
 			<ChoiceMode>true</ChoiceMode>
-			<UseAlternationRowColor>true</UseAlternationRowColor>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
 			<DataPath>Список</DataPath>
@@ -78,15 +79,15 @@
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="18"/>
 				</LabelField>
+				<LabelField name="addressView" id="25">
+					<DataPath>Список.addressView</DataPath>
+					<ContextMenu name="addressViewКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="addressViewРасширеннаяПодсказка" id="27"/>
+				</LabelField>
 				<LabelField name="guid" id="22">
 					<DataPath>Список.guid</DataPath>
 					<ContextMenu name="guidКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="guidРасширеннаяПодсказка" id="24"/>
-				</LabelField>
-				<LabelField name="Комментарий" id="25">
-					<DataPath>Список.Комментарий</DataPath>
-					<ContextMenu name="КомментарийКонтекстноеМеню" id="26"/>
-					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="27"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
@@ -108,11 +109,17 @@
 	_Таблица.guid,
 	_Таблица.Наименование,
 	_BusinessMembers.BusinessEntity,
+	_Таблица.addressView,
 	_Таблица.Комментарий
 ИЗ
 	Справочник.ВетисEnterprise КАК _Таблица
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисBusinessMembers КАК _BusinessMembers
-		ПО (_BusinessMembers.Enterprise = _Таблица.Ссылка)</QueryText>
+		ПО (_BusinessMembers.Enterprise = _Таблица.Ссылка)
+			И (_BusinessMembers.Использовать)
+ГДЕ
+	ИСТИНА
+	//И _Таблица.last
+	//И _Таблица.active</QueryText>
 				<MainTable>Catalog.ВетисEnterprise</MainTable>
 				<ListSettings>
 					<dcsset:filter>

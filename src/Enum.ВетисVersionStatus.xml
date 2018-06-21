@@ -96,7 +96,19 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>CREATED</v8:content>
+							<v8:content>Запись создана</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="7123c961-336f-4360-9d15-8c7e9ca2fd79">
+				<Properties>
+					<Name>CREATED_WHEN_QUENCH_VETCERTIFICATE</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Запись создана путем гашения ВС (импорт)</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -104,11 +116,23 @@
 			</EnumValue>
 			<EnumValue uuid="ef5225ce-43cf-4f72-9c94-42329ccd7d92">
 				<Properties>
-					<Name>SENT</Name>
+					<Name>CREATED_WHEN_QUENCH_VETDOCUMENT</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>SENT</v8:content>
+							<v8:content>Запись создана путем гашения ВСД</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="73fa0bc2-14c7-4756-a63d-c5f49558332c">
+				<Properties>
+					<Name>CREATED_BY_OPERATION</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Запись создана в результате производственной операции</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -120,7 +144,19 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>CREATED WHEN MERGE</v8:content>
+							<v8:content>Запись создана в результате объединения двух или более других</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="08506fb4-8bc6-400f-9955-035614223fae">
+				<Properties>
+					<Name>CREATED_WHEN_SPLIT</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Запись создана в результате разделения другой</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -132,7 +168,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>UPDATED</v8:content>
+							<v8:content>В запись были внесены изменения</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -144,7 +180,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>WITHDRAWN</v8:content>
+							<v8:content>Запись журнала аннулирована</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -156,7 +192,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>UPDATED WHEN WRITINGOFF</v8:content>
+							<v8:content>Запись продукции изменена путём списания</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -168,7 +204,19 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>UPDATED WHEN ATTACH</v8:content>
+							<v8:content>Запись была обновлена в результате присоединения другой</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="667a40d6-4dd2-4471-875b-06533bdf5397">
+				<Properties>
+					<Name>UPDATED_WHEN_ATTACH_AUTOMATIC</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Запись была обновлена в результате присоединения другой</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -180,7 +228,19 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>UPDATED WHEN FORK</v8:content>
+							<v8:content>Запись была обновлена в результате отделения от неё другой</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="ac37b751-31a4-418c-9c82-cf952633fa04">
+				<Properties>
+					<Name>RESTORED_AFTER_DELETE</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Запись была восстановлена после удаления</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -192,7 +252,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>MOVED</v8:content>
+							<v8:content>Запись была перемещена в другую группу</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -204,7 +264,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>DELETED</v8:content>
+							<v8:content>Запись была удалена</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -216,7 +276,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>DELETED WHEN MERGE</v8:content>
+							<v8:content>Запись была удалена в результате объединения</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -228,7 +288,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>DELETED WHEN SPLIT</v8:content>
+							<v8:content>Запись была удалена в результате разделения</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -240,7 +300,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>DELETED WHEN ATTACH</v8:content>
+							<v8:content>Запись была удалена в результате присоединения</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>

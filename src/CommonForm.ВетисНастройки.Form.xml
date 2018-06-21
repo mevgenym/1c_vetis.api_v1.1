@@ -177,12 +177,6 @@
 					</ToolTip>
 					<ExtendedTooltip name="ГруппаПользователиРасширеннаяПодсказка" id="120"/>
 					<ChildItems>
-						<InputField name="ОтборХС" id="361">
-							<DataPath>ОтборХС</DataPath>
-							<Visible>false</Visible>
-							<ContextMenu name="ОтборХСКонтекстноеМеню" id="362"/>
-							<ExtendedTooltip name="ОтборХСРасширеннаяПодсказка" id="363"/>
-						</InputField>
 						<Table name="СписокПользователи" id="329">
 							<HeightInTableRows>1</HeightInTableRows>
 							<UseAlternationRowColor>true</UseAlternationRowColor>
@@ -209,12 +203,6 @@
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаОсновнойПользователь</CommandName>
 										<ExtendedTooltip name="СписокПользователиКомандаОсновнойПользовательРасширеннаяПодсказка" id="365"/>
-									</Button>
-									<Button name="СписокПользователиКомандаПользователиЗаполнить" id="380">
-										<Type>CommandBarButton</Type>
-										<Visible>false</Visible>
-										<CommandName>Form.Command.КомандаПользователиЗаполнить</CommandName>
-										<ExtendedTooltip name="СписокПользователиКомандаПользователиЗаполнитьРасширеннаяПодсказка" id="381"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
@@ -244,35 +232,32 @@
 								<ExtendedTooltip name="СписокПользователиУправлениеПоискомРасширеннаяПодсказка" id="341"/>
 							</SearchControlAddition>
 							<ChildItems>
+								<LabelField name="СписокПользователиКод" id="402">
+									<DataPath>СписокПользователи.Code</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Имя</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="СписокПользователиКодКонтекстноеМеню" id="403"/>
+									<ExtendedTooltip name="СписокПользователиКодРасширеннаяПодсказка" id="404"/>
+								</LabelField>
 								<LabelField name="СписокПользователиНаименование" id="354">
 									<DataPath>СписокПользователи.Description</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Полное имя</v8:content>
+										</v8:item>
+									</Title>
 									<ContextMenu name="СписокПользователиНаименованиеКонтекстноеМеню" id="355"/>
 									<ExtendedTooltip name="СписокПользователиНаименованиеРасширеннаяПодсказка" id="356"/>
 								</LabelField>
-								<LabelField name="СписокПользователиemail" id="366">
-									<DataPath>СписокПользователи.email</DataPath>
-									<ContextMenu name="СписокПользователиemailКонтекстноеМеню" id="367"/>
-									<ExtendedTooltip name="СписокПользователиemailРасширеннаяПодсказка" id="368"/>
-								</LabelField>
-								<LabelField name="СписокПользователиorganization" id="369">
-									<DataPath>СписокПользователи.organization</DataPath>
-									<ContextMenu name="СписокПользователиorganizationКонтекстноеМеню" id="370"/>
-									<ExtendedTooltip name="СписокПользователиorganizationРасширеннаяПодсказка" id="371"/>
-								</LabelField>
-								<LabelField name="СписокПользователиphone" id="372">
-									<DataPath>СписокПользователи.phone</DataPath>
-									<ContextMenu name="СписокПользователиphoneКонтекстноеМеню" id="373"/>
-									<ExtendedTooltip name="СписокПользователиphoneРасширеннаяПодсказка" id="374"/>
-								</LabelField>
-								<LabelField name="СписокПользователиpost" id="375">
-									<DataPath>СписокПользователи.post</DataPath>
-									<ContextMenu name="СписокПользователиpostКонтекстноеМеню" id="376"/>
-									<ExtendedTooltip name="СписокПользователиpostРасширеннаяПодсказка" id="377"/>
-								</LabelField>
-								<LabelField name="СписокПользователиlogin" id="348">
-									<DataPath>СписокПользователи.login</DataPath>
-									<ContextMenu name="СписокПользователиloginКонтекстноеМеню" id="349"/>
-									<ExtendedTooltip name="СписокПользователиloginРасширеннаяПодсказка" id="350"/>
+								<LabelField name="СписокПользователиЛогин" id="399">
+									<DataPath>СписокПользователи.Логин</DataPath>
+									<ContextMenu name="СписокПользователиЛогинКонтекстноеМеню" id="400"/>
+									<ExtendedTooltip name="СписокПользователиЛогинРасширеннаяПодсказка" id="401"/>
 								</LabelField>
 							</ChildItems>
 						</Table>
@@ -845,7 +830,7 @@
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>false</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
-				<MainTable>Catalog.ВетисUser</MainTable>
+				<MainTable>Catalog.ВетисПользователи</MainTable>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
@@ -1194,20 +1179,6 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="ОтборХС" id="34">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>ХС</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>cfg:CatalogRef.ВетисBusinessEntity</v8:Type>
-			</Type>
-			<Save>
-				<Field>ОтборХС</Field>
-			</Save>
-		</Attribute>
 		<Attribute name="ВСД_НазначениеГрузаНаВозврат" id="1">
 			<Title>
 				<v8:item>
@@ -1219,11 +1190,31 @@
 				<v8:Type>cfg:CatalogRef.ВетисPurpose</v8:Type>
 			</Type>
 		</Attribute>
+		<Attribute name="ОсновнойПользователь" id="35">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основной пользователь</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВетисПользователи</v8:Type>
+			</Type>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
 					<dcsset:item>
 						<dcsset:field>НастройкиПодключенияНаименование</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>НастройкиПодключенияСервис</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>НастройкиПодключенияВерсияAPI</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>НастройкиПодключенияТестовый</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>НастройкиПодключенияЛогин</dcsset:field>
@@ -1246,45 +1237,13 @@
 			<dcsset:item>
 				<dcsset:selection>
 					<dcsset:item>
-						<dcsset:field>СписокНастройкиХСХозяйствующийСубъект</dcsset:field>
+						<dcsset:field>СписокПользователиКод</dcsset:field>
 					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокНастройкиХСНастройка</dcsset:field>
-					</dcsset:item>
-				</dcsset:selection>
-				<dcsset:filter>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">СписокНастройкиХС.ХозяйствующийСубъект</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="dcscor:Field">ОсновнойХС</dcsset:right>
-					</dcsset:item>
-				</dcsset:filter>
-				<dcsset:appearance>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>Шрифт</dcscor:parameter>
-						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
-					</dcscor:item>
-				</dcsset:appearance>
-			</dcsset:item>
-			<dcsset:item>
-				<dcsset:selection>
 					<dcsset:item>
 						<dcsset:field>СписокПользователиНаименование</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
-						<dcsset:field>СписокПользователиemail</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокПользователиorganization</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокПользователиphone</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокПользователиpost</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокПользователиlogin</dcsset:field>
+						<dcsset:field>СписокПользователиЛогин</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
@@ -1348,36 +1307,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаЗаполнитьXSD</Action>
-		</Command>
-		<Command name="КомандаПользователиЗаполнить" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Заполнить</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда пользователи заполнить</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаПользователиЗаполнить</Action>
-		</Command>
-		<Command name="КомандаОсновнойХС" id="5">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Основной</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда основной ХС</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаОсновнойХС</Action>
 		</Command>
 		<Command name="КомандаОсновнойПользователь" id="6">
 			<Title>

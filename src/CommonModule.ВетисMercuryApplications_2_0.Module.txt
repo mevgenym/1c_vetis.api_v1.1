@@ -33,6 +33,38 @@
 	
 КонецФункции
 
+// Получение записи складского журнала по идентификатору версии.
+Функция GetStockEntryByUuidRequest(uuid, enterpriseGuid) Экспорт
+	
+	_Объект = Создать("GetStockEntryByUuidRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, uuid, "uuid");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetStockEntryByUuidResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetStockEntryByUuidResponse, "GetStockEntryByUuidResponse", URI()).stockEntry;
+	
+КонецФункции
+
+Функция GetStockEntryByUuid(uuid, enterpriseGuid, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = GetStockEntryByUuidRequest(uuid, enterpriseGuid);
+	
+	_Response = Прокси("getStockEntryByUuidRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат GetStockEntryByUuidResponse(_Response);
+	
+КонецФункции
+
 
 // Получение актуального списка записей складского журнала.
 // Параметры:
@@ -1271,7 +1303,7 @@
 
 Функция User()
 	
-	Возврат ВетисMercuryVetdocument_2_0.User(ВетисПовтИсп.Настройки_ЛогинПользователя());
+	Возврат ВетисMercuryVetdocument_2_0.User(ВетисПовтИсп.ТекущийПользователь_Логин());
 	
 КонецФункции
 

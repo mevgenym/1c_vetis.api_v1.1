@@ -243,9 +243,21 @@
 	
 КонецФункции
 
-Функция VersionStatus_SENT() Экспорт
+Функция VersionStatus_CREATED_WHEN_QUENCH_VETCERTIFICATE() Экспорт
+	
+	Возврат 101;
+	
+КонецФункции
+
+Функция VersionStatus_CREATED_WHEN_QUENCH_VETDOCUMENT() Экспорт
 	
 	Возврат 102;
+	
+КонецФункции
+
+Функция VersionStatus_CREATED_BY_OPERATION() Экспорт
+	
+	Возврат 103;
 	
 КонецФункции
 
@@ -285,9 +297,21 @@
 	
 КонецФункции
 
+Функция VersionStatus_UPDATED_WHEN_ATTACH_AUTOMATIC() Экспорт
+	
+	Возврат 231;
+	
+КонецФункции
+
 Функция VersionStatus_UPDATED_WHEN_FORK() Экспорт
 	
 	Возврат 240;
+	
+КонецФункции
+
+Функция VersionStatus_RESTORED_AFTER_DELETE() Экспорт
+	
+	Возврат 250;
 	
 КонецФункции
 

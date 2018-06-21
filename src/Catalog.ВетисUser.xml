@@ -527,7 +527,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Phone</v8:content>
+							<v8:content>Телефон</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -570,7 +570,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Post</v8:content>
+							<v8:content>Должность</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -656,14 +656,14 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Login</v8:content>
+							<v8:content>Логин</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
-							<v8:Length>20</v8:Length>
+							<v8:Length>50</v8:Length>
 							<v8:AllowedLength>Variable</v8:AllowedLength>
 						</v8:StringQualifiers>
 					</Type>
@@ -699,7 +699,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Business entity</v8:content>
+							<v8:content>Хоз. субъект</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -738,7 +738,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Organization</v8:content>
+							<v8:content>Организация</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>

@@ -416,7 +416,6 @@
 									<ExtendedTooltip name="ТоварыКоличествоВСДРасширеннаяПодсказка" id="658"/>
 								</LabelField>
 								<InputField name="ТоварыКоличествоМест" id="399">
-									<DataPath>1/0:72a8fc3e-612a-4fdc-8db5-908ac4d4beaa/0:9a6730a8-f599-42d8-a71e-3b35b0a144f0</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="ТоварыКоличествоМестКонтекстноеМеню" id="400"/>
 									<ExtendedTooltip name="ТоварыКоличествоМестРасширеннаяПодсказка" id="401"/>
@@ -425,7 +424,6 @@
 									</Events>
 								</InputField>
 								<InputField name="ТоварыУпаковка" id="642">
-									<DataPath>1/0:72a8fc3e-612a-4fdc-8db5-908ac4d4beaa/0:c85dd804-506c-430b-9330-07f06e788bc9</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="ТоварыУпаковкаКонтекстноеМеню" id="643"/>
 									<ExtendedTooltip name="ТоварыУпаковкаРасширеннаяПодсказка" id="644"/>
@@ -434,7 +432,6 @@
 									</Events>
 								</InputField>
 								<InputField name="ТоварыМаркировка" id="648">
-									<DataPath>1/0:72a8fc3e-612a-4fdc-8db5-908ac4d4beaa/0:a0648aee-e8b6-4fd5-a05c-2fb53cf45eb4</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="ТоварыМаркировкаКонтекстноеМеню" id="649"/>
 									<ExtendedTooltip name="ТоварыМаркировкаРасширеннаяПодсказка" id="650"/>

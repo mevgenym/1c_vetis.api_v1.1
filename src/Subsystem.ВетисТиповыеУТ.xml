@@ -16,24 +16,24 @@
 			<Picture/>
 			<Content>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Подразделения</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Пользователи</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Склады</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ЗаполнениеДокументов</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.Пользователи</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">d2f83b73-db85-4212-8179-64f97a19c6b4</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">36584f98-f00b-4c1c-a56a-aa70a19b5b06</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ПоступлениеТоваровУслуг</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйОрдерНаТовары</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйОрдерНаТовары</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Document.РеализацияТоваровУслуг</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ЮрФизЛицо</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ОбщегоНазначения</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">6c6a8aec-c389-46d6-806d-f195779ff278</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Организации</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">7bf4aa9c-8191-483c-8dcb-c56b48570ac0</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">SessionParameter.ТекущийПользователь</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.НоменклатурныеГруппы</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Номенклатура</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Контрагенты</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ЕдиницыИзмерения</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.КлассификаторЕдиницИзмерения</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Пользователи</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

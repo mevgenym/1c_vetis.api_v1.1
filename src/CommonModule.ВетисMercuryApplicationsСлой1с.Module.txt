@@ -17,7 +17,7 @@
 	_inventoryDate = ТекущаяДата();
 	
 	//_responsible = _ВетисArgusCommon.User(Ветис.ЛогинХС());
-	_responsible = _ВетисArgusCommon.User(ВетисПовтИсп.Настройки_ЛогинПользователя());
+	_responsible = _ВетисArgusCommon.User(ВетисПовтИсп.ТекущийПользователь_Логин());
 	
 	_stockDiscrepancy = _ВетисMercuryVetdocument.StockDiscrepancy(stockEntry);
 	
@@ -106,8 +106,8 @@
 				ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать_20(_VetDocument, _всд);
 				Если _VetDocument.statusChange.Количество() = 0 Тогда
 					_VetDocument.statusChange.Добавить(ВетисMercuryVetdocument_2_0.VetDocumentStatusChange(
-						ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(ПредопределенноеЗначение("Перечисление.ВетисVetDocumentStatus.Оформлен")),
-						ВетисMercuryVetdocument_2_0.User(, _всд.ОтветственныйВетис.Наименование, _всд.ОтветственныйВетис.post),
+						ВетисКонстанты.VetDocumentStatus_CONFIRMED(),
+						ВетисMercuryVetdocument_2_0.User(, ВетисПовтИсп.ТекущийПользователь_Имя(), ВетисПовтИсп.ТекущийПользователь_Должность()),
 						пОбъект.Дата
 						));
 				КонецЕсли;
@@ -426,6 +426,16 @@
 			_Consignment.volume           = _СтрокаПартии.Количество;
 			_Consignment.unit             = ВетисDictionary_2_0.Unit(ВетисDictionaryСлой1с.Unit(_СтрокаПартии.Unit));
 			_Consignment.sourceStockEntry = ВетисMercuryVetdocument_2_0.StockEntry(_СтрокаПартии.guid);
+			
+			Если ЗначениеЗаполнено(_СтрокаПартии.ProductItemName) Тогда
+				_Consignment.productItem = ВетисDictionary_2_0.ProductItem(, _СтрокаПартии.ProductItemName);
+				Если ЗначениеЗаполнено(_СтрокаПартии.ProductItemGTIN) Тогда
+					_Consignment.productItem.globalID = _СтрокаПартии.ProductItemGTIN;
+				КонецЕсли;
+				Если ЗначениеЗаполнено(_СтрокаПартии.ProductItemCode) Тогда
+					_Consignment.productItem.code = _СтрокаПартии.ProductItemCode;
+				КонецЕсли;
+			КонецЕсли;
 			
 			//Consignment это одна партия, значит несколько партий одной продукции будут упакованы одинаково
 			//наверное, физически это должно быть несколько упаковок
@@ -1075,6 +1085,7 @@
 							Прервать;
 						КонецПопытки;
 					КонецЕсли;
+					
 				Иначе
 					//старая запись, пропускаем
 				КонецЕсли;
@@ -1087,6 +1098,9 @@
 		КонецЕсли;
 		
 	КонецЦикла;
+	
+	//возвращаем последний _Response
+	Возврат _Response;
 	
 КонецФункции
 

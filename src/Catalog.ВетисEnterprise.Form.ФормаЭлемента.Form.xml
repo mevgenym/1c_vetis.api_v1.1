@@ -244,21 +244,62 @@
 					</ToolTip>
 					<ExtendedTooltip name="ГруппаСервисРасширеннаяПодсказка" id="87"/>
 					<ChildItems>
-						<Button name="КомандаЗаполнитьИзСервиса" id="88">
-							<Type>UsualButton</Type>
-							<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
-							<ExtendedTooltip name="КомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="89"/>
-						</Button>
-						<Button name="КомандаСоздатьВСервисе" id="92">
-							<Type>UsualButton</Type>
-							<CommandName>Form.Command.КомандаСоздатьВСервисе</CommandName>
-							<ExtendedTooltip name="КомандаСоздатьВСервисеРасширеннаяПодсказка" id="93"/>
-						</Button>
-						<Button name="КомандаОбновитьВСервисе" id="90">
-							<Type>UsualButton</Type>
-							<CommandName>Form.Command.КомандаОбновитьВСервисе</CommandName>
-							<ExtendedTooltip name="КомандаОбновитьВСервисеРасширеннаяПодсказка" id="91"/>
-						</Button>
+						<UsualGroup name="Группа2" id="97">
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="98"/>
+							<ChildItems>
+								<UsualGroup name="Группа3" id="99">
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="100"/>
+									<ChildItems>
+										<Button name="КомандаЗаполнитьИзСервиса" id="88">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
+											<ExtendedTooltip name="КомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="89"/>
+										</Button>
+										<Button name="КомандаСоздатьВСервисе" id="92">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.КомандаСоздатьВСервисе</CommandName>
+											<ExtendedTooltip name="КомандаСоздатьВСервисеРасширеннаяПодсказка" id="93"/>
+										</Button>
+										<Button name="КомандаОбновитьВСервисе" id="90">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.КомандаОбновитьВСервисе</CommandName>
+											<ExtendedTooltip name="КомандаОбновитьВСервисеРасширеннаяПодсказка" id="91"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа4" id="101">
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="102"/>
+									<ChildItems>
+										<CheckBoxField name="last" id="103">
+											<DataPath>Объект.last</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="lastКонтекстноеМеню" id="104"/>
+											<ExtendedTooltip name="lastРасширеннаяПодсказка" id="105"/>
+										</CheckBoxField>
+										<CheckBoxField name="active" id="109">
+											<DataPath>Объект.active</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="activeКонтекстноеМеню" id="110"/>
+											<ExtendedTooltip name="activeРасширеннаяПодсказка" id="111"/>
+										</CheckBoxField>
+										<InputField name="status" id="106">
+											<DataPath>Объект.status</DataPath>
+											<ContextMenu name="statusКонтекстноеМеню" id="107"/>
+											<ExtendedTooltip name="statusРасширеннаяПодсказка" id="108"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</Page>
 			</ChildItems>

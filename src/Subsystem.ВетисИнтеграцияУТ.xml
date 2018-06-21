@@ -142,6 +142,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">FilterCriterion.ВетисСвязанныеДокументы</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисСервис</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисRegionalizationDecision</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисПользователи</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисОсновнойПользователь</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

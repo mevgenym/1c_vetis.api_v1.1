@@ -13,7 +13,6 @@
 			<Location>Constant.ВетисВидимостьGuid</Location>
 			<PrivilegedGetMode>true</PrivilegedGetMode>
 			<Content>
-				<xr:Object>d528704f-96db-4dc5-9122-729dcda33f30</xr:Object>
 				<xr:Object>Catalog.ВетисAnimalDisease.Attribute.уид</xr:Object>
 				<xr:Object>Catalog.ВетисBusinessEntity.Attribute.уид</xr:Object>
 				<xr:Object>Catalog.ВетисCountry.Attribute.уид</xr:Object>
@@ -32,6 +31,24 @@
 				<xr:Object>Catalog.ВетисUnit.Attribute.уид</xr:Object>
 				<xr:Object>Catalog.ВетисUser.Attribute.уид</xr:Object>
 				<xr:Object>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.уид</xr:Object>
+				<xr:Object>Catalog.ВетисAnimalDisease.Attribute.guid</xr:Object>
+				<xr:Object>Catalog.ВетисBusinessEntity.Attribute.guid</xr:Object>
+				<xr:Object>Catalog.ВетисCountry.Attribute.guid</xr:Object>
+				<xr:Object>Catalog.ВетисDistrict.Attribute.guid</xr:Object>
+				<xr:Object>Catalog.ВетисEnterprise.Attribute.guid</xr:Object>
+				<xr:Object>Catalog.ВетисEnterpriseActivity.Attribute.guid</xr:Object>
+				<xr:Object>Catalog.ВетисIncorporationForm.Attribute.uuid</xr:Object>
+				<xr:Object>Catalog.ВетисLocality.Attribute.guid</xr:Object>
+				<xr:Object>Catalog.ВетисPackingForm.Attribute.guid</xr:Object>
+				<xr:Object>Catalog.ВетисProduct.Attribute.guid</xr:Object>
+				<xr:Object>Catalog.ВетисProductItem.Attribute.guid</xr:Object>
+				<xr:Object>Catalog.ВетисPurpose.Attribute.guid</xr:Object>
+				<xr:Object>Catalog.ВетисRegion.Attribute.guid</xr:Object>
+				<xr:Object>Catalog.ВетисRegionalizationCondition.Attribute.guid</xr:Object>
+				<xr:Object>Catalog.ВетисSubProduct.Attribute.guid</xr:Object>
+				<xr:Object>Catalog.ВетисUnit.Attribute.guid</xr:Object>
+				<xr:Object>Catalog.ВетисUser.Attribute.guid</xr:Object>
+				<xr:Object>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.uuid</xr:Object>
 			</Content>
 		</Properties>
 	</FunctionalOption>

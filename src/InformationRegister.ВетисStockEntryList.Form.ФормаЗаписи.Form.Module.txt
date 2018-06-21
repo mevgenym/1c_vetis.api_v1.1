@@ -1,18 +1,68 @@
 ﻿
+&НаСервере
+Процедура ПриСозданииНаСервере(Отказ, СтандартнаяОбработка)
+	
+КонецПроцедуры
+
+
 &НаКлиенте
 Процедура КомандаПроверитьВСервисе(Команда)
 	КомандаПроверитьВСервисеНаСервере();
 КонецПроцедуры
+
+&НаКлиенте
+Процедура КомандаСледующая(Команда)
+	
+	Если ЗначениеЗаполнено(next) Тогда
+		КомандаСледующаяНаСервере(next);
+	КонецЕсли;
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура КомандаПредыдущая(Команда)
+	
+	Если ЗначениеЗаполнено(previous) Тогда
+		КомандаСледующаяНаСервере(previous);
+	КонецЕсли;
+	
+КонецПроцедуры
+
 
 &НаСервере
 Процедура КомандаПроверитьВСервисеНаСервере()
 	
 	_se = ВетисMercuryApplications_2_0.GetStockEntryByGuid(Запись.guid, ВетисDictionaryСлой1с.Enterprise(Запись.Enterprise));
 	
-	active = _se.active;
 	last   = _se.last;
+	active = _se.active;
 	status = _se.status;
+	Статус = ВетисBaseСлой1с.VersionStatus(_se.status);
+	
 	createDate = _se.createDate;
 	updateDate = _se.updateDate;
+	
+	seuuid     = _se.uuid;
+	next     = _se.next;
+	previous = _se.previous;
+	
+КонецПроцедуры
+
+&НаСервере
+Процедура КомандаСледующаяНаСервере(Знач пUuid)
+	
+	_se = ВетисMercuryApplications_2_0.GetStockEntryByUuid(пUuid, ВетисDictionaryСлой1с.Enterprise(Запись.Enterprise));
+	
+	last   = _se.last;
+	active = _se.active;
+	status = _se.status;
+	Статус = ВетисBaseСлой1с.VersionStatus(_se.status);
+	
+	createDate = _se.createDate;
+	updateDate = _se.updateDate;
+	
+	seuuid     = _se.uuid;
+	next     = _se.next;
+	previous = _se.previous;
 	
 КонецПроцедуры

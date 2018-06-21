@@ -2,19 +2,87 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
-	<AutoCommandBar name="" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<ChildItems>
 		<InputField name="Наименование" id="1">
 			<DataPath>Объект.Description</DataPath>
+			<Visible>false</Visible>
 			<EditMode>EnterOnInput</EditMode>
 			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
 		</InputField>
+		<UsualGroup name="ГруппаФИО" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ФИО</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа ФИО</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаФИОРасширеннаяПодсказка" id="17"/>
+			<ChildItems>
+				<InputField name="firstName" id="7">
+					<DataPath>Объект.firstName</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ФИО</v8:content>
+						</v8:item>
+					</Title>
+					<Width>10</Width>
+					<ContextMenu name="firstNameКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="firstNameРасширеннаяПодсказка" id="9"/>
+				</InputField>
+				<InputField name="middleName" id="10">
+					<DataPath>Объект.middleName</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Width>10</Width>
+					<ContextMenu name="middleNameКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="middleNameРасширеннаяПодсказка" id="12"/>
+				</InputField>
+				<InputField name="lastName" id="13">
+					<DataPath>Объект.lastName</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Width>10</Width>
+					<ContextMenu name="lastNameКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="lastNameРасширеннаяПодсказка" id="15"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
 		<InputField name="login" id="4">
 			<DataPath>Объект.login</DataPath>
+			<Visible>false</Visible>
 			<EditMode>EnterOnInput</EditMode>
 			<ContextMenu name="loginКонтекстноеМеню" id="5"/>
 			<ExtendedTooltip name="loginРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="phone" id="18">
+			<DataPath>Объект.phone</DataPath>
+			<ContextMenu name="phoneКонтекстноеМеню" id="19"/>
+			<ExtendedTooltip name="phoneРасширеннаяПодсказка" id="20"/>
+		</InputField>
+		<InputField name="organization" id="27">
+			<DataPath>Объект.organization</DataPath>
+			<ContextMenu name="organizationКонтекстноеМеню" id="28"/>
+			<ExtendedTooltip name="organizationРасширеннаяПодсказка" id="29"/>
+		</InputField>
+		<InputField name="post" id="21">
+			<DataPath>Объект.post</DataPath>
+			<ContextMenu name="postКонтекстноеМеню" id="22"/>
+			<ExtendedTooltip name="postРасширеннаяПодсказка" id="23"/>
+		</InputField>
+		<InputField name="email" id="24">
+			<DataPath>Объект.email</DataPath>
+			<ContextMenu name="emailКонтекстноеМеню" id="25"/>
+			<ExtendedTooltip name="emailРасширеннаяПодсказка" id="26"/>
 		</InputField>
 	</ChildItems>
 	<Attributes>

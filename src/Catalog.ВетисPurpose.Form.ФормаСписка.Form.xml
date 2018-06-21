@@ -75,6 +75,11 @@
 					<ContextMenu name="guidКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="guidРасширеннаяПодсказка" id="30"/>
 				</LabelField>
+				<LabelField name="status" id="31">
+					<DataPath>Список.status</DataPath>
+					<ContextMenu name="statusКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="statusРасширеннаяПодсказка" id="33"/>
+				</LabelField>
 			</ChildItems>
 		</Table>
 	</ChildItems>

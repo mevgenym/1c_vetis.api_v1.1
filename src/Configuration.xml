@@ -195,9 +195,6 @@
 			<CommonModule>ВетисСинхронизация</CommonModule>
 			<CommonModule>ВетисСинхронизацияВызовСервера</CommonModule>
 			<CommonModule>ВетисХозяйственныеОперации</CommonModule>
-			<CommonModule>ЗаполнениеДокументов</CommonModule>
-			<CommonModule>ОбщегоНазначения</CommonModule>
-			<CommonModule>Пользователи</CommonModule>
 			<HTTPService>trade</HTTPService>
 			<EventSubscription>ВетисПриУстановкеНовогоКода</EventSubscription>
 			<EventSubscription>ВетисПриУстановкеНовогоНомера</EventSubscription>
@@ -239,6 +236,7 @@
 			<Constant>ВетисВидимостьGuid</Constant>
 			<Constant>ВетисНастройки</Constant>
 			<Constant>ВетисОсновнаяНастройка</Constant>
+			<Constant>ВетисОсновнойПользователь</Constant>
 			<CommonForm>ВетисXSD</CommonForm>
 			<CommonForm>ВетисНастройки</CommonForm>
 			<CommonForm>ВетисРабочийСтол</CommonForm>
@@ -263,6 +261,7 @@
 			<Catalog>ВетисUser</Catalog>
 			<Catalog>ВетисНастройкиПодключения</Catalog>
 			<Catalog>ВетисОперации</Catalog>
+			<Catalog>ВетисПользователи</Catalog>
 			<Catalog>ЕдиницыИзмерения</Catalog>
 			<Catalog>КлассификаторЕдиницИзмерения</Catalog>
 			<Catalog>Контрагенты</Catalog>
@@ -276,6 +275,7 @@
 			<Document>ВетисВходящаяПартияПоДокументам</Document>
 			<Document>ВетисИнвентаризация</Document>
 			<Document>ВетисТранспортнаяПартия</Document>
+			<Document>ПеремещениеТоваров</Document>
 			<Document>ПоступлениеТоваровУслуг</Document>
 			<Document>ПриходныйОрдерНаТовары</Document>
 			<Document>РасходныйОрдерНаТовары</Document>

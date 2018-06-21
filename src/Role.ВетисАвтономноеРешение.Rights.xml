@@ -67,7 +67,21 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Пользователи</name>
+		<name>CommonCommand.ВетисГраницыЗапросов</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>Subsystem.ВетисАвтономноеРешение</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.ВетисПользователи</name>
 		<right>
 			<name>Read</name>
 			<value>true</value>
@@ -86,20 +100,6 @@
 		</right>
 		<right>
 			<name>InputByString</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonCommand.ВетисГраницыЗапросов</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>Subsystem.ВетисАвтономноеРешение</name>
-		<right>
-			<name>View</name>
 			<value>true</value>
 		</right>
 	</object>

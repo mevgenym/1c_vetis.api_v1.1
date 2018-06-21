@@ -81,6 +81,7 @@
 				</LabelField>
 				<LabelField name="login" id="28">
 					<DataPath>Список.login</DataPath>
+					<Visible>false</Visible>
 					<ContextMenu name="loginКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="loginРасширеннаяПодсказка" id="30"/>
 				</LabelField>

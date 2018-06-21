@@ -74,11 +74,13 @@
 		</InputField>
 		<InputField name="Пользователь" id="78">
 			<DataPath>Объект.Пользователь</DataPath>
+			<Visible>false</Visible>
 			<ContextMenu name="ПользовательКонтекстноеМеню" id="79"/>
 			<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="80"/>
 		</InputField>
 		<InputField name="ЛогинПользователя" id="75">
 			<DataPath>Объект.ЛогинПользователя</DataPath>
+			<Visible>false</Visible>
 			<ContextMenu name="ЛогинПользователяКонтекстноеМеню" id="76"/>
 			<ExtendedTooltip name="ЛогинПользователяРасширеннаяПодсказка" id="77"/>
 		</InputField>
@@ -95,6 +97,7 @@
 					<v8:content>Группа описание</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Group>Vertical</Group>
 			<Behavior>Collapsible</Behavior>
 			<Collapsed>true</Collapsed>
 			<ExtendedTooltip name="ГруппаОписаниеРасширеннаяПодсказка" id="51"/>

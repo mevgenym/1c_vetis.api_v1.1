@@ -174,7 +174,15 @@
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:TypeSet>cfg:CatalogRef</v8:TypeSet>
+						<v8:Type>cfg:CatalogRef.Склады</v8:Type>
+						<v8:Type>cfg:CatalogRef.ЕдиницыИзмерения</v8:Type>
+						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+						<v8:Type>cfg:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+						<v8:Type>cfg:CatalogRef.НоменклатурныеГруппы</v8:Type>
+						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+						<v8:Type>cfg:CatalogRef.Подразделения</v8:Type>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>
@@ -218,6 +226,7 @@
 						<v8:Type>cfg:CatalogRef.ВетисLocality</v8:Type>
 						<v8:Type>cfg:CatalogRef.ВетисRegion</v8:Type>
 						<v8:Type>cfg:CatalogRef.ВетисSubProduct</v8:Type>
+						<v8:Type>cfg:CatalogRef.ВетисProductType</v8:Type>
 						<v8:Type>cfg:CatalogRef.ВетисProduct</v8:Type>
 						<v8:Type>cfg:CatalogRef.ВетисUnit</v8:Type>
 						<v8:Type>cfg:CatalogRef.ВетисIncorporationForm</v8:Type>

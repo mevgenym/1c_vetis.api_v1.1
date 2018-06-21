@@ -115,6 +115,7 @@
 						</InputField>
 						<InputField name="ФормаВСД" id="382">
 							<DataPath>Объект.Форма</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="ФормаВСДКонтекстноеМеню" id="383"/>
 							<ExtendedTooltip name="ФормаВСДРасширеннаяПодсказка" id="384"/>
 						</InputField>
@@ -493,18 +494,21 @@
 												<InputField name="УпаковкаУровень" id="560">
 													<DataPath>Объект.Упаковка.Уровень</DataPath>
 													<EditMode>EnterOnInput</EditMode>
+													<Width>10</Width>
 													<ContextMenu name="УпаковкаУровеньКонтекстноеМеню" id="561"/>
 													<ExtendedTooltip name="УпаковкаУровеньРасширеннаяПодсказка" id="562"/>
 												</InputField>
 												<InputField name="УпаковкаТипУпаковки" id="563">
 													<DataPath>Объект.Упаковка.Упаковка</DataPath>
 													<EditMode>EnterOnInput</EditMode>
+													<Width>10</Width>
 													<ContextMenu name="УпаковкаТипУпаковкиКонтекстноеМеню" id="564"/>
 													<ExtendedTooltip name="УпаковкаТипУпаковкиРасширеннаяПодсказка" id="565"/>
 												</InputField>
 												<InputField name="УпаковкаКоличество" id="566">
 													<DataPath>Объект.Упаковка.Количество</DataPath>
 													<EditMode>EnterOnInput</EditMode>
+													<Width>10</Width>
 													<ContextMenu name="УпаковкаКоличествоКонтекстноеМеню" id="567"/>
 													<ExtendedTooltip name="УпаковкаКоличествоРасширеннаяПодсказка" id="568"/>
 												</InputField>
@@ -704,12 +708,14 @@
 														<InputField name="МаркировкаТекст" id="765">
 															<DataPath>Объект.Маркировка.Маркировка</DataPath>
 															<EditMode>EnterOnInput</EditMode>
+															<Width>20</Width>
 															<ContextMenu name="МаркировкаТекстКонтекстноеМеню" id="766"/>
 															<ExtendedTooltip name="МаркировкаТекстРасширеннаяПодсказка" id="767"/>
 														</InputField>
 														<InputField name="МаркировкаКлассМаркировки" id="768">
 															<DataPath>Объект.Маркировка.КлассМаркировки</DataPath>
 															<EditMode>EnterOnInput</EditMode>
+															<Width>9</Width>
 															<ContextMenu name="МаркировкаКлассМаркировкиКонтекстноеМеню" id="769"/>
 															<ExtendedTooltip name="МаркировкаКлассМаркировкиРасширеннаяПодсказка" id="770"/>
 														</InputField>
@@ -772,6 +778,7 @@
 													</ChildItems>
 												</Table>
 												<Table name="ИДПартии" id="952">
+													<HeightInTableRows>1</HeightInTableRows>
 													<AutoInsertNewRow>true</AutoInsertNewRow>
 													<EnableStartDrag>true</EnableStartDrag>
 													<EnableDrag>true</EnableDrag>
@@ -815,6 +822,7 @@
 														<InputField name="ИДПартииbatchID" id="971">
 															<DataPath>Объект.ИДПартии.batchID</DataPath>
 															<EditMode>EnterOnInput</EditMode>
+															<Width>10</Width>
 															<ContextMenu name="ИДПартииbatchIDКонтекстноеМеню" id="972"/>
 															<ExtendedTooltip name="ИДПартииbatchIDРасширеннаяПодсказка" id="973"/>
 														</InputField>
@@ -843,143 +851,6 @@
 					</ToolTip>
 					<Group>HorizontalIfPossible</Group>
 					<ExtendedTooltip name="ГруппаУпаковкаРасширеннаяПодсказка" id="543"/>
-				</Page>
-				<Page name="ГруппаРезультатыОсмотра" id="487">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Результаты осмотра</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа результаты осмотра</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ExtendedTooltip name="ГруппаРезультатыОсмотраРасширеннаяПодсказка" id="488"/>
-					<ChildItems>
-						<InputField name="осмНазначениеГруза" id="498">
-							<DataPath>осмНазначениеГруза</DataPath>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<ContextMenu name="осмНазначениеГрузаКонтекстноеМеню" id="499"/>
-							<ExtendedTooltip name="осмНазначениеГрузаРасширеннаяПодсказка" id="500"/>
-						</InputField>
-						<InputField name="осмБлагополучиеМестности" id="489">
-							<DataPath>осмБлагополучиеМестности</DataPath>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<ContextMenu name="осмБлагополучиеМестностиКонтекстноеМеню" id="490"/>
-							<ExtendedTooltip name="осмБлагополучиеМестностиРасширеннаяПодсказка" id="491"/>
-						</InputField>
-						<InputField name="осмВетсанэкспертиза" id="492">
-							<DataPath>осмВетсанэкспертиза</DataPath>
-							<ContextMenu name="осмВетсанэкспертизаКонтекстноеМеню" id="493"/>
-							<ExtendedTooltip name="осмВетсанэкспертизаРасширеннаяПодсказка" id="494"/>
-						</InputField>
-						<CheckBoxField name="осмКонтрольГосВетврачем" id="495">
-							<DataPath>осмКонтрольГосВетврачем</DataPath>
-							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="осмКонтрольГосВетврачемКонтекстноеМеню" id="496"/>
-							<ExtendedTooltip name="осмКонтрольГосВетврачемРасширеннаяПодсказка" id="497"/>
-						</CheckBoxField>
-						<TextDocumentField name="осмОсобыеОтметки" id="501">
-							<DataPath>осмОсобыеОтметки</DataPath>
-							<ContextMenu name="осмОсобыеОтметкиКонтекстноеМеню" id="502"/>
-							<ExtendedTooltip name="осмОсобыеОтметкиРасширеннаяПодсказка" id="503"/>
-						</TextDocumentField>
-					</ChildItems>
-				</Page>
-				<Page name="ГруппаВСД" id="298">
-					<Visible>false</Visible>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ВСД</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа ВСД</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ExtendedTooltip name="ГруппаВСДРасширеннаяПодсказка" id="299"/>
-					<ChildItems>
-						<LabelField name="Тип" id="463">
-							<DataPath>Объект.Тип</DataPath>
-							<ContextMenu name="ТипКонтекстноеМеню" id="464"/>
-							<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="465"/>
-						</LabelField>
-						<InputField name="всдНазначениеГруза" id="415">
-							<DataPath>всдНазначениеГруза</DataPath>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<ContextMenu name="всдНазначениеГрузаКонтекстноеМеню" id="416"/>
-							<ExtendedTooltip name="всдНазначениеГрузаРасширеннаяПодсказка" id="417"/>
-						</InputField>
-						<InputField name="всдЛабораторныеИсследования" id="397">
-							<DataPath>всдЛабораторныеИсследования</DataPath>
-							<ContextMenu name="всдЛабораторныеИсследованияКонтекстноеМеню" id="398"/>
-							<ExtendedTooltip name="всдЛабораторныеИсследованияРасширеннаяПодсказка" id="399"/>
-						</InputField>
-						<InputField name="всдБлагополучиеМестности" id="400">
-							<DataPath>всдБлагополучиеМестности</DataPath>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<ContextMenu name="всдБлагополучиеМестностиКонтекстноеМеню" id="401"/>
-							<ExtendedTooltip name="всдБлагополучиеМестностиРасширеннаяПодсказка" id="402"/>
-						</InputField>
-						<UsualGroup name="ГруппаКарантирование" id="365">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа карантирование</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа карантирование</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>Horizontal</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаКарантированиеРасширеннаяПодсказка" id="366"/>
-							<ChildItems>
-								<InputField name="всдКарантированиеМесто" id="403">
-									<DataPath>всдКарантированиеМесто</DataPath>
-									<ContextMenu name="всдКарантированиеМестоКонтекстноеМеню" id="404"/>
-									<ExtendedTooltip name="всдКарантированиеМестоРасширеннаяПодсказка" id="405"/>
-								</InputField>
-								<InputField name="всдКарантированиеДней" id="406">
-									<DataPath>всдКарантированиеДней</DataPath>
-									<ContextMenu name="всдКарантированиеДнейКонтекстноеМеню" id="407"/>
-									<ExtendedTooltip name="всдКарантированиеДнейРасширеннаяПодсказка" id="408"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<InputField name="всдОсобыеОтметки" id="409">
-							<DataPath>всдОсобыеОтметки</DataPath>
-							<ContextMenu name="всдОсобыеОтметкиКонтекстноеМеню" id="410"/>
-							<ExtendedTooltip name="всдОсобыеОтметкиРасширеннаяПодсказка" id="411"/>
-						</InputField>
-						<InputField name="всдИммунизация" id="412">
-							<DataPath>всдИммунизация</DataPath>
-							<ContextMenu name="всдИммунизацияКонтекстноеМеню" id="413"/>
-							<ExtendedTooltip name="всдИммунизацияРасширеннаяПодсказка" id="414"/>
-						</InputField>
-						<CheckBoxField name="всдВетсанэкспертиза" id="394">
-							<DataPath>всдВетсанэкспертиза</DataPath>
-							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="всдВетсанэкспертизаКонтекстноеМеню" id="395"/>
-							<ExtendedTooltip name="всдВетсанэкспертизаРасширеннаяПодсказка" id="396"/>
-						</CheckBoxField>
-						<CheckBoxField name="всдКонтрольГосВетврачем" id="391">
-							<DataPath>всдКонтрольГосВетврачем</DataPath>
-							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="всдКонтрольГосВетврачемКонтекстноеМеню" id="392"/>
-							<ExtendedTooltip name="всдКонтрольГосВетврачемРасширеннаяПодсказка" id="393"/>
-						</CheckBoxField>
-					</ChildItems>
 				</Page>
 				<Page name="ГруппаТТН" id="119">
 					<Title>
@@ -1103,6 +974,7 @@
 									<ChildItems>
 										<InputField name="ттнТип" id="430">
 											<DataPath>ттнТип</DataPath>
+											<Visible>false</Visible>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="ттнТипКонтекстноеМеню" id="431"/>
 											<ExtendedTooltip name="ттнТипРасширеннаяПодсказка" id="432"/>
@@ -1137,6 +1009,144 @@
 						</UsualGroup>
 					</ChildItems>
 				</Page>
+				<Page name="ГруппаРезультатыОсмотра" id="487">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Результаты осмотра</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа результаты осмотра</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаРезультатыОсмотраРасширеннаяПодсказка" id="488"/>
+					<ChildItems>
+						<InputField name="осмНазначениеГруза" id="498">
+							<DataPath>осмНазначениеГруза</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="осмНазначениеГрузаКонтекстноеМеню" id="499"/>
+							<ExtendedTooltip name="осмНазначениеГрузаРасширеннаяПодсказка" id="500"/>
+						</InputField>
+						<InputField name="осмБлагополучиеМестности" id="489">
+							<DataPath>осмБлагополучиеМестности</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="осмБлагополучиеМестностиКонтекстноеМеню" id="490"/>
+							<ExtendedTooltip name="осмБлагополучиеМестностиРасширеннаяПодсказка" id="491"/>
+						</InputField>
+						<InputField name="осмВетсанэкспертиза" id="492">
+							<DataPath>осмВетсанэкспертиза</DataPath>
+							<ContextMenu name="осмВетсанэкспертизаКонтекстноеМеню" id="493"/>
+							<ExtendedTooltip name="осмВетсанэкспертизаРасширеннаяПодсказка" id="494"/>
+						</InputField>
+						<CheckBoxField name="осмКонтрольГосВетврачем" id="495">
+							<DataPath>осмКонтрольГосВетврачем</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="осмКонтрольГосВетврачемКонтекстноеМеню" id="496"/>
+							<ExtendedTooltip name="осмКонтрольГосВетврачемРасширеннаяПодсказка" id="497"/>
+						</CheckBoxField>
+						<TextDocumentField name="осмОсобыеОтметки" id="501">
+							<DataPath>осмОсобыеОтметки</DataPath>
+							<Height>1</Height>
+							<ContextMenu name="осмОсобыеОтметкиКонтекстноеМеню" id="502"/>
+							<ExtendedTooltip name="осмОсобыеОтметкиРасширеннаяПодсказка" id="503"/>
+						</TextDocumentField>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаВСД" id="298">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ВСД</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа ВСД</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаВСДРасширеннаяПодсказка" id="299"/>
+					<ChildItems>
+						<LabelField name="Тип" id="463">
+							<DataPath>Объект.Тип</DataPath>
+							<ContextMenu name="ТипКонтекстноеМеню" id="464"/>
+							<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="465"/>
+						</LabelField>
+						<InputField name="всдНазначениеГруза" id="415">
+							<DataPath>всдНазначениеГруза</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="всдНазначениеГрузаКонтекстноеМеню" id="416"/>
+							<ExtendedTooltip name="всдНазначениеГрузаРасширеннаяПодсказка" id="417"/>
+						</InputField>
+						<InputField name="всдЛабораторныеИсследования" id="397">
+							<DataPath>всдЛабораторныеИсследования</DataPath>
+							<ContextMenu name="всдЛабораторныеИсследованияКонтекстноеМеню" id="398"/>
+							<ExtendedTooltip name="всдЛабораторныеИсследованияРасширеннаяПодсказка" id="399"/>
+						</InputField>
+						<InputField name="всдБлагополучиеМестности" id="400">
+							<DataPath>всдБлагополучиеМестности</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="всдБлагополучиеМестностиКонтекстноеМеню" id="401"/>
+							<ExtendedTooltip name="всдБлагополучиеМестностиРасширеннаяПодсказка" id="402"/>
+						</InputField>
+						<UsualGroup name="ГруппаКарантирование" id="365">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа карантирование</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа карантирование</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаКарантированиеРасширеннаяПодсказка" id="366"/>
+							<ChildItems>
+								<InputField name="всдКарантированиеМесто" id="403">
+									<DataPath>всдКарантированиеМесто</DataPath>
+									<ContextMenu name="всдКарантированиеМестоКонтекстноеМеню" id="404"/>
+									<ExtendedTooltip name="всдКарантированиеМестоРасширеннаяПодсказка" id="405"/>
+								</InputField>
+								<InputField name="всдКарантированиеДней" id="406">
+									<DataPath>всдКарантированиеДней</DataPath>
+									<ContextMenu name="всдКарантированиеДнейКонтекстноеМеню" id="407"/>
+									<ExtendedTooltip name="всдКарантированиеДнейРасширеннаяПодсказка" id="408"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="всдОсобыеОтметки" id="409">
+							<DataPath>всдОсобыеОтметки</DataPath>
+							<ContextMenu name="всдОсобыеОтметкиКонтекстноеМеню" id="410"/>
+							<ExtendedTooltip name="всдОсобыеОтметкиРасширеннаяПодсказка" id="411"/>
+						</InputField>
+						<InputField name="всдИммунизация" id="412">
+							<DataPath>всдИммунизация</DataPath>
+							<ContextMenu name="всдИммунизацияКонтекстноеМеню" id="413"/>
+							<ExtendedTooltip name="всдИммунизацияРасширеннаяПодсказка" id="414"/>
+						</InputField>
+						<CheckBoxField name="всдВетсанэкспертиза" id="394">
+							<DataPath>всдВетсанэкспертиза</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="всдВетсанэкспертизаКонтекстноеМеню" id="395"/>
+							<ExtendedTooltip name="всдВетсанэкспертизаРасширеннаяПодсказка" id="396"/>
+						</CheckBoxField>
+						<CheckBoxField name="всдКонтрольГосВетврачем" id="391">
+							<DataPath>всдКонтрольГосВетврачем</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="всдКонтрольГосВетврачемКонтекстноеМеню" id="392"/>
+							<ExtendedTooltip name="всдКонтрольГосВетврачемРасширеннаяПодсказка" id="393"/>
+						</CheckBoxField>
+					</ChildItems>
+				</Page>
 				<Page name="ГруппаМаршрутСледования" id="512">
 					<Title>
 						<v8:item>
@@ -1153,6 +1163,7 @@
 					<ExtendedTooltip name="ГруппаМаршрутСледованияРасширеннаяПодсказка" id="513"/>
 					<ChildItems>
 						<Table name="МаршрутСледования" id="514">
+							<HeightInTableRows>1</HeightInTableRows>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<DataPath>Объект.МаршрутСледования</DataPath>
@@ -1278,6 +1289,7 @@
 					<ExtendedTooltip name="ГруппаЛабораторныеИсследованияРасширеннаяПодсказка" id="579"/>
 					<ChildItems>
 						<Table name="ЛабораторныеИсследования" id="580">
+							<HeightInTableRows>1</HeightInTableRows>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -1379,6 +1391,7 @@
 					<ExtendedTooltip name="ГруппаМероприятияРасширеннаяПодсказка" id="618"/>
 					<ChildItems>
 						<Table name="Мероприятия" id="619">
+							<HeightInTableRows>1</HeightInTableRows>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -1468,6 +1481,7 @@
 					<ExtendedTooltip name="ГруппаУсловияПеремещенияРасширеннаяПодсказка" id="651"/>
 					<ChildItems>
 						<Table name="УсловияПеремещения" id="652">
+							<HeightInTableRows>1</HeightInTableRows>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -1539,6 +1553,7 @@
 					<ExtendedTooltip name="ГруппаСвязанныеДокументыРасширеннаяПодсказка" id="675"/>
 					<ChildItems>
 						<Table name="СвязанныеДокументы" id="676">
+							<HeightInTableRows>1</HeightInTableRows>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -1668,7 +1683,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>statusChange</v8:content>
+							<v8:content>Ответственные</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
@@ -1680,8 +1695,7 @@
 					<ExtendedTooltip name="ГруппаStatusChangeРасширеннаяПодсказка" id="864"/>
 					<ChildItems>
 						<Table name="statusChange" id="865">
-							<ChangeRowSet>false</ChangeRowSet>
-							<ChangeRowOrder>false</ChangeRowOrder>
+							<HeightInTableRows>1</HeightInTableRows>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -1714,6 +1728,9 @@
 								<ContextMenu name="statusChangeУправлениеПоискомКонтекстноеМеню" id="876"/>
 								<ExtendedTooltip name="statusChangeУправлениеПоискомРасширеннаяПодсказка" id="877"/>
 							</SearchControlAddition>
+							<Events>
+								<Event name="OnStartEdit">statusChangeПриНачалеРедактирования</Event>
+							</Events>
 							<ChildItems>
 								<LabelField name="statusChangeНомерСтроки" id="878">
 									<DataPath>Объект.statusChange.LineNumber</DataPath>
@@ -1721,36 +1738,39 @@
 									<ContextMenu name="statusChangeНомерСтрокиКонтекстноеМеню" id="879"/>
 									<ExtendedTooltip name="statusChangeНомерСтрокиРасширеннаяПодсказка" id="880"/>
 								</LabelField>
-								<LabelField name="statusChangestatus" id="881">
-									<DataPath>Объект.statusChange.status</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="statusChangestatusКонтекстноеМеню" id="882"/>
-									<ExtendedTooltip name="statusChangestatusРасширеннаяПодсказка" id="883"/>
-								</LabelField>
-								<LabelField name="statusChangepost" id="893">
-									<DataPath>Объект.statusChange.post</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="statusChangepostКонтекстноеМеню" id="894"/>
-									<ExtendedTooltip name="statusChangepostРасширеннаяПодсказка" id="895"/>
-								</LabelField>
-								<LabelField name="statusChangespecifiedPerson" id="884">
+								<InputField name="statusChangespecifiedPerson" id="884">
 									<DataPath>Объект.statusChange.specifiedPerson</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="statusChangespecifiedPersonКонтекстноеМеню" id="885"/>
 									<ExtendedTooltip name="statusChangespecifiedPersonРасширеннаяПодсказка" id="886"/>
-								</LabelField>
-								<LabelField name="statusChangeactualDateTime" id="887">
-									<DataPath>Объект.statusChange.actualDateTime</DataPath>
+									<Events>
+										<Event name="OnChange">statusChangespecifiedPersonПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="statusChangepost" id="893">
+									<DataPath>Объект.statusChange.post</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="statusChangeactualDateTimeКонтекстноеМеню" id="888"/>
-									<ExtendedTooltip name="statusChangeactualDateTimeРасширеннаяПодсказка" id="889"/>
-								</LabelField>
-								<LabelField name="statusChangereason" id="890">
+									<ContextMenu name="statusChangepostКонтекстноеМеню" id="894"/>
+									<ExtendedTooltip name="statusChangepostРасширеннаяПодсказка" id="895"/>
+								</InputField>
+								<InputField name="statusChangereason" id="890">
 									<DataPath>Объект.statusChange.reason</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="statusChangereasonКонтекстноеМеню" id="891"/>
 									<ExtendedTooltip name="statusChangereasonРасширеннаяПодсказка" id="892"/>
-								</LabelField>
+								</InputField>
+								<InputField name="statusChangestatus" id="881">
+									<DataPath>Объект.statusChange.status</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="statusChangestatusКонтекстноеМеню" id="882"/>
+									<ExtendedTooltip name="statusChangestatusРасширеннаяПодсказка" id="883"/>
+								</InputField>
+								<InputField name="statusChangeactualDateTime" id="887">
+									<DataPath>Объект.statusChange.actualDateTime</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="statusChangeactualDateTimeКонтекстноеМеню" id="888"/>
+									<ExtendedTooltip name="statusChangeactualDateTimeРасширеннаяПодсказка" id="889"/>
+								</InputField>
 							</ChildItems>
 						</Table>
 					</ChildItems>
