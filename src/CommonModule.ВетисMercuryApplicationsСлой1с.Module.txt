@@ -304,6 +304,18 @@
 				
 				_всд.uuid = _vetDocument.uuid;
 				_всд.Статус = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(?(_Версия20, _vetDocument.vetDStatus, _vetDocument.status));
+				
+				_всд.statusChange.Очистить();
+				Для каждого _statusChange Из _vetDocument.statusChange Цикл
+					_строка = Новый Структура;
+					_строка.Вставить("status",          ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_statusChange.status));
+					_строка.Вставить("specifiedPerson", ВетисMercuryVetdocumentСлой1с.User(_statusChange.specifiedPerson));
+					_строка.Вставить("post",            ?(_statusChange.specifiedPerson = Неопределено, "", _statusChange.specifiedPerson.post));
+					_строка.Вставить("fio",             Строка(_строка.specifiedPerson));
+					_строка.Вставить("actualDateTime",  Ветис.ВремяМестное(_statusChange.actualDateTime));
+					_строка.Вставить("reason",          _statusChange.reason);
+					_всд.statusChange.Добавить(_строка);
+				КонецЦикла;
 				//_всдОбъект = _всд.Ссылка.ПолучитьОбъект();
 				//
 				//Если _Версия20 Тогда
@@ -331,6 +343,18 @@
 				Если _всд.uuid = _vetDocument.uuid Тогда
 					
 					_всд.Статус = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(?(_Версия20, _vetDocument.vetDStatus, _vetDocument.status));
+					
+					_всд.statusChange.Очистить();
+					Для каждого _statusChange Из _vetDocument.statusChange Цикл
+						_строка = Новый Структура;
+						_строка.Вставить("status",          ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_statusChange.status));
+						_строка.Вставить("specifiedPerson", ВетисMercuryVetdocumentСлой1с.User(_statusChange.specifiedPerson));
+						_строка.Вставить("post",            ?(_statusChange.specifiedPerson = Неопределено, "", _statusChange.specifiedPerson.post));
+						_строка.Вставить("fio",             Строка(_строка.specifiedPerson));
+						_строка.Вставить("actualDateTime",  Ветис.ВремяМестное(_statusChange.actualDateTime));
+						_строка.Вставить("reason",          _statusChange.reason);
+						_всд.statusChange.Добавить(_строка);
+					КонецЦикла;
 					//_всдОбъект = _всд.Ссылка.ПолучитьОбъект();
 					//
 					//Если _Версия20 Тогда
@@ -681,7 +705,7 @@
 	Если Ветис.Версия_2_0() Тогда
 		_Reason = ВетисMercuryVetdocument_2_0.VetDocumentStatusChangeReason(пПричина);
 		
-		_Response = ВетисMercuryApplications_2_0.withdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), пСсылка.Получатель, пОтказ, пОшибка);
+		_Response = ВетисMercuryApplications_2_0.withdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), пСсылка.Отправитель, пОтказ, пОшибка);
 		
 		Если пОтказ = Истина Тогда Возврат; КонецЕсли;
 		
@@ -691,7 +715,7 @@
 	Иначе
 		_Reason = ВетисMercuryVetdocument.WithdrawReason(пПричина);
 		
-		_Response = ВетисMercuryApplications.withdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), пСсылка.Получатель, пОтказ, пОшибка);
+		_Response = ВетисMercuryApplications.withdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), пСсылка.Отправитель, пОтказ, пОшибка);
 		
 		Если пОтказ = Истина Тогда Возврат; КонецЕсли;
 		

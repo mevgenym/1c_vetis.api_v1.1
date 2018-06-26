@@ -72,6 +72,11 @@
 									<ContextMenu name="ProductItemNameКонтекстноеМеню" id="35"/>
 									<ExtendedTooltip name="ProductItemNameРасширеннаяПодсказка" id="36"/>
 								</InputField>
+								<InputField name="Номенклатура" id="130">
+									<DataPath>Запись.Номенклатура</DataPath>
+									<ContextMenu name="НоменклатураКонтекстноеМеню" id="131"/>
+									<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="132"/>
+								</InputField>
 								<InputField name="volume" id="7">
 									<DataPath>Запись.volume</DataPath>
 									<ContextMenu name="volumeКонтекстноеМеню" id="8"/>

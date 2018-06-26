@@ -176,8 +176,8 @@
 					<Type>
 						<v8:Type>cfg:CatalogRef.Склады</v8:Type>
 						<v8:Type>cfg:CatalogRef.ЕдиницыИзмерения</v8:Type>
-						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
 						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
 						<v8:Type>cfg:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
 						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
 						<v8:Type>cfg:CatalogRef.НоменклатурныеГруппы</v8:Type>

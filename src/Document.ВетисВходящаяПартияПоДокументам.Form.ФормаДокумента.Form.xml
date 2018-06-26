@@ -341,12 +341,12 @@
 									<ContextMenu name="ТоварыНомерСтрокиКонтекстноеМеню" id="598"/>
 									<ExtendedTooltip name="ТоварыНомерСтрокиРасширеннаяПодсказка" id="599"/>
 								</LabelField>
-								<LabelField name="ТоварыСтатус" id="645">
-									<DataPath>Объект.Товары.Статус</DataPath>
+								<InputField name="ТоварыНоменклатура" id="745">
+									<DataPath>Объект.Товары.Номенклатура</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ТоварыСтатусКонтекстноеМеню" id="646"/>
-									<ExtendedTooltip name="ТоварыСтатусРасширеннаяПодсказка" id="647"/>
-								</LabelField>
+									<ContextMenu name="ТоварыНоменклатураКонтекстноеМеню" id="746"/>
+									<ExtendedTooltip name="ТоварыНоменклатураРасширеннаяПодсказка" id="747"/>
+								</InputField>
 								<ColumnGroup name="ТоварыГруппа1" id="737">
 									<Group>InCell</Group>
 									<ExtendedTooltip name="ТоварыГруппа1РасширеннаяПодсказка" id="738"/>
@@ -449,6 +449,12 @@
 										<Event name="OnChange">ТоварыНуженВозвратПриИзменении</Event>
 									</Events>
 								</CheckBoxField>
+								<LabelField name="ТоварыСтатус" id="645">
+									<DataPath>Объект.Товары.Статус</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТоварыСтатусКонтекстноеМеню" id="646"/>
+									<ExtendedTooltip name="ТоварыСтатусРасширеннаяПодсказка" id="647"/>
+								</LabelField>
 							</ChildItems>
 						</Table>
 						<UsualGroup name="Группа1" id="689">

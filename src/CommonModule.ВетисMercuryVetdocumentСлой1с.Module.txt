@@ -1021,11 +1021,13 @@
 				_СтрокаУпаковка.Вставить("Количество", _package.quantity);
 				_Упаковка.Добавить(_СтрокаУпаковка);
 				Для каждого _productMarks Из _package.productMarks Цикл
-					_СтрокаМаркировка = Новый Структура;
-					_СтрокаМаркировка.Вставить("КлючСвязи", _СтрокаУпаковка.КлючСтроки);
-					_СтрокаМаркировка.Вставить("Маркировка", _productMarks.__content);
-					_СтрокаМаркировка.Вставить("КлассМаркировки", ВетисDictionaryСлой1с.ProductMarkingClass(_productMarks.class));
-					_Маркировка.Добавить(_СтрокаМаркировка);
+					Если ЗначениеЗаполнено(_productMarks.__content) Тогда
+						_СтрокаМаркировка = Новый Структура;
+						_СтрокаМаркировка.Вставить("КлючСвязи", _СтрокаУпаковка.КлючСтроки);
+						_СтрокаМаркировка.Вставить("Маркировка", _productMarks.__content);
+						_СтрокаМаркировка.Вставить("КлассМаркировки", ВетисDictionaryСлой1с.ProductMarkingClass(_productMarks.class));
+						_Маркировка.Добавить(_СтрокаМаркировка);
+					КонецЕсли;
 				КонецЦикла;
 				_СтрокаУпаковкаКлючСтроки = _СтрокаУпаковкаКлючСтроки + 1;
 			КонецЦикла;
@@ -1075,7 +1077,12 @@
 		_batch.productType = ВетисDictionaryСлой1с.ProductType(_СтрокаСЖ.productType);
 		_batch.product     = ВетисDictionary_2_0.Product(ВетисDictionaryСлой1с.Product(_СтрокаСЖ.product));
 		_batch.subProduct  = ВетисDictionary_2_0.SubProduct(ВетисDictionaryСлой1с.SubProduct(_СтрокаСЖ.SubProduct));
-		_batch.productItem = ВетисDictionary_2_0.ProductItem(ВетисDictionaryСлой1с.ProductItem(_СтрокаСЖ.ProductItem), ?(_строкаСЖ.ProductItemName="", Неопределено, _строкаСЖ.ProductItemName));
+		//_batch.productItem = ВетисDictionary_2_0.ProductItem(ВетисDictionaryСлой1с.ProductItem(_СтрокаСЖ.ProductItem), ?(_строкаСЖ.ProductItemName="", Неопределено, _строкаСЖ.ProductItemName));
+		Если _строкаСЖ.ProductItemName="" Тогда
+			_batch.productItem = ВетисDictionary_2_0.ProductItem(ВетисDictionaryСлой1с.ProductItem(_СтрокаСЖ.ProductItem));
+		Иначе
+			_batch.productItem = ВетисDictionary_2_0.ProductItem(, _строкаСЖ.ProductItemName);
+		КонецЕсли;
 		
 		////если нет всего блока то:
 		////MERC13139 - Наименование продукции в ветеринарно-сопроводительном документе обязательно для заполнения

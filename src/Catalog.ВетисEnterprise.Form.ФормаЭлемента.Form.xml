@@ -296,6 +296,16 @@
 											<ContextMenu name="statusКонтекстноеМеню" id="107"/>
 											<ExtendedTooltip name="statusРасширеннаяПодсказка" id="108"/>
 										</InputField>
+										<InputField name="next" id="118">
+											<DataPath>Объект.next</DataPath>
+											<ContextMenu name="nextКонтекстноеМеню" id="119"/>
+											<ExtendedTooltip name="nextРасширеннаяПодсказка" id="120"/>
+										</InputField>
+										<InputField name="previous" id="115">
+											<DataPath>previous</DataPath>
+											<ContextMenu name="previousКонтекстноеМеню" id="116"/>
+											<ExtendedTooltip name="previousРасширеннаяПодсказка" id="117"/>
+										</InputField>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -312,6 +322,22 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="previous" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Previous</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВетисEnterprise</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="next" id="3">
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВетисEnterprise</v8:Type>
+			</Type>
 		</Attribute>
 	</Attributes>
 	<Commands>

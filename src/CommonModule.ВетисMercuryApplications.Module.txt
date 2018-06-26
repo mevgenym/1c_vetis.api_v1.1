@@ -166,6 +166,67 @@
 	
 КонецФункции
 
+
+Функция getStockEntryVersionListRequest(enterpriseGuid, stockEntryGuid, listOptions = Неопределено) Экспорт
+	
+	_Объект = Создать("getStockEntryVersionListRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, listOptions, "listOptions", , ВетисBase.ListOptions());
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, stockEntryGuid, "guid");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция getStockEntryVersionListResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.getStockEntryVersionListResponse, "getStockEntryVersionListResponse", URI()).stockEntryList;
+	
+КонецФункции
+
+Функция getStockEntryVersionListNext(enterpriseGuid, stockEntryGuid, issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		пПараметры.Вставить("Индекс", 0);
+		пПараметры.Вставить("ListRequest", getStockEntryVersionListRequest(enterpriseGuid, stockEntryGuid));
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListRequest.ListOptions.offset = пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.stockEntry[пПараметры.Индекс];
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	_Response = Прокси("getStockEntryVersionListRequest", пПараметры.ListRequest, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
+	
+	_ListResponse = getStockEntryVersionListResponse(_Response);
+	
+	пПараметры.Вставить("ListResponse", _ListResponse);
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		пItem = пПараметры.ListResponse.stockEntry[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
+	
+	Возврат Истина;
+	
+КонецФункции
+
 #КонецОбласти
 
 #Область VetDocument

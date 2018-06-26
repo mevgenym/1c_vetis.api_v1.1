@@ -165,6 +165,123 @@
 					<FullTextSearch>Use</FullTextSearch>
 				</Properties>
 			</Attribute>
+			<Attribute uuid="74fff228-20a9-4a21-9b38-030ca32eb2e7">
+				<Properties>
+					<Name>last</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Last</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>false</FillFromFillingValue>
+					<FillValue xsi:nil="true"/>
+					<FillChecking>DontCheck</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Use>ForItem</Use>
+					<Indexing>DontIndex</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+				</Properties>
+			</Attribute>
+			<Attribute uuid="f1e84917-4820-444e-8a50-efd46a574a43">
+				<Properties>
+					<Name>active</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Active</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>false</FillFromFillingValue>
+					<FillValue xsi:nil="true"/>
+					<FillChecking>DontCheck</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Use>ForItem</Use>
+					<Indexing>DontIndex</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+				</Properties>
+			</Attribute>
+			<Attribute uuid="214ffeab-c2e2-45b0-b0a1-725f916dc013">
+				<Properties>
+					<Name>status</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Status</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Type>
+						<v8:Type>cfg:EnumRef.ВетисVersionStatus</v8:Type>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>false</FillFromFillingValue>
+					<FillValue xsi:nil="true"/>
+					<FillChecking>DontCheck</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Use>ForItem</Use>
+					<Indexing>DontIndex</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+				</Properties>
+			</Attribute>
 			<Attribute uuid="6a326d5b-ffa5-4a9a-80ab-730e71008613">
 				<Properties>
 					<Name>fullName</Name>
@@ -526,8 +643,8 @@
 					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 					<ChoiceParameterLinks>
 						<xr:Link>
-							<xr:Name>Отбор.Страна</xr:Name>
-							<xr:DataPath xsi:type="xs:string">0:310392e5-a29d-4f12-bf25-fc6828cc5068</xr:DataPath>
+							<xr:Name>Отбор.Country</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Catalog.ВетисBusinessEntity.Attribute.Country</xr:DataPath>
 							<xr:ValueChange>Clear</xr:ValueChange>
 						</xr:Link>
 					</ChoiceParameterLinks>
@@ -571,13 +688,13 @@
 					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 					<ChoiceParameterLinks>
 						<xr:Link>
-							<xr:Name>Отбор.Регион</xr:Name>
-							<xr:DataPath xsi:type="xs:string">0:8ab8296c-f916-4089-9867-ce507e3bc2cd</xr:DataPath>
+							<xr:Name>Отбор.Country</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Catalog.ВетисBusinessEntity.Attribute.Country</xr:DataPath>
 							<xr:ValueChange>Clear</xr:ValueChange>
 						</xr:Link>
 						<xr:Link>
-							<xr:Name>Отбор.Страна</xr:Name>
-							<xr:DataPath xsi:type="xs:string">0:310392e5-a29d-4f12-bf25-fc6828cc5068</xr:DataPath>
+							<xr:Name>Отбор.Region</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Catalog.ВетисBusinessEntity.Attribute.Region</xr:DataPath>
 							<xr:ValueChange>Clear</xr:ValueChange>
 						</xr:Link>
 					</ChoiceParameterLinks>
@@ -621,18 +738,18 @@
 					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 					<ChoiceParameterLinks>
 						<xr:Link>
-							<xr:Name>Отбор.Район</xr:Name>
-							<xr:DataPath xsi:type="xs:string">0:f688b88a-52e3-497c-8d17-24f538d8f342</xr:DataPath>
+							<xr:Name>Отбор.Country</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Catalog.ВетисBusinessEntity.Attribute.Country</xr:DataPath>
 							<xr:ValueChange>Clear</xr:ValueChange>
 						</xr:Link>
 						<xr:Link>
-							<xr:Name>Отбор.Регион</xr:Name>
-							<xr:DataPath xsi:type="xs:string">0:8ab8296c-f916-4089-9867-ce507e3bc2cd</xr:DataPath>
+							<xr:Name>Отбор.District</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Catalog.ВетисBusinessEntity.Attribute.District</xr:DataPath>
 							<xr:ValueChange>Clear</xr:ValueChange>
 						</xr:Link>
 						<xr:Link>
-							<xr:Name>Отбор.Страна</xr:Name>
-							<xr:DataPath xsi:type="xs:string">0:310392e5-a29d-4f12-bf25-fc6828cc5068</xr:DataPath>
+							<xr:Name>Отбор.Region</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Catalog.ВетисBusinessEntity.Attribute.Region</xr:DataPath>
 							<xr:ValueChange>Clear</xr:ValueChange>
 						</xr:Link>
 					</ChoiceParameterLinks>

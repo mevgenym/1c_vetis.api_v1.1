@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
-	<Catalog uuid="5ea6a4d5-a340-4148-a140-08284a74b14f">
+	<Catalog uuid="fe53fd08-c7eb-4942-b920-35a079f8bf97">
 		<InternalInfo>
 			<xr:GeneratedType name="CatalogObject.Пользователи" category="Object">
-				<xr:TypeId>576fc6a4-8595-4c5e-a235-fb45cf501cb2</xr:TypeId>
-				<xr:ValueId>a8600819-0afd-4440-9d15-c94cbd6348b8</xr:ValueId>
+				<xr:TypeId>c7c4e2e9-ea1d-4d4d-a5b5-e62bc412c8c7</xr:TypeId>
+				<xr:ValueId>8b23443b-1577-46cd-afd1-25fcbb002b1c</xr:ValueId>
 			</xr:GeneratedType>
 			<xr:GeneratedType name="CatalogRef.Пользователи" category="Ref">
-				<xr:TypeId>2ed993c7-fb0a-4db4-b4f8-010937db617c</xr:TypeId>
-				<xr:ValueId>cb8a2b43-fdb3-4937-a866-7f0742bfdfeb</xr:ValueId>
+				<xr:TypeId>43565f5e-1496-4e8f-a6dc-fced33c42195</xr:TypeId>
+				<xr:ValueId>511cf2a1-84f7-46e4-8072-40d1f2a40e46</xr:ValueId>
 			</xr:GeneratedType>
 			<xr:GeneratedType name="CatalogSelection.Пользователи" category="Selection">
-				<xr:TypeId>22b147ce-fba3-4715-a643-3a9a9e5c6fd2</xr:TypeId>
-				<xr:ValueId>ca6f005e-4e13-4a0a-8c7b-04c802c72312</xr:ValueId>
+				<xr:TypeId>c6138f91-f19a-42a0-9b17-95c3f17ca0f7</xr:TypeId>
+				<xr:ValueId>446f313a-df9f-46e1-b844-e417210406b0</xr:ValueId>
 			</xr:GeneratedType>
 			<xr:GeneratedType name="CatalogList.Пользователи" category="List">
-				<xr:TypeId>14282b2b-7e8e-492c-9963-250f2d42c155</xr:TypeId>
-				<xr:ValueId>7cb35a92-fa5c-4a8a-abc3-eee721cdcf41</xr:ValueId>
+				<xr:TypeId>7984d421-95f9-4c58-b913-0b364333ccb2</xr:TypeId>
+				<xr:ValueId>44efa1a5-ac81-40b4-9df4-a5967442711d</xr:ValueId>
 			</xr:GeneratedType>
 			<xr:GeneratedType name="CatalogManager.Пользователи" category="Manager">
-				<xr:TypeId>5cc849aa-3950-45e7-acd9-40f48d2d2ad2</xr:TypeId>
-				<xr:ValueId>2e2de52d-d196-4b66-9e09-819bd52f15cb</xr:ValueId>
+				<xr:TypeId>9b48b09d-666f-4fc5-8a2f-12c3f17e91b8</xr:TypeId>
+				<xr:ValueId>e2eef46c-05f2-412b-9aad-e58bf089a3a0</xr:ValueId>
 			</xr:GeneratedType>
 		</InternalInfo>
 		<Properties>

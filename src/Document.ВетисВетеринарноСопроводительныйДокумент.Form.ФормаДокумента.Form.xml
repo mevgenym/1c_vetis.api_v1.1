@@ -136,12 +136,6 @@
 					<ContextMenu name="СтатусКонтекстноеМеню" id="380"/>
 					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="381"/>
 				</InputField>
-				<InputField name="uuid" id="482">
-					<DataPath>Объект.uuid</DataPath>
-					<TextEdit>false</TextEdit>
-					<ContextMenu name="uuidКонтекстноеМеню" id="483"/>
-					<ExtendedTooltip name="uuidРасширеннаяПодсказка" id="484"/>
-				</InputField>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаЗаголовок" id="127">
@@ -709,6 +703,7 @@
 															<DataPath>Объект.Маркировка.Маркировка</DataPath>
 															<EditMode>EnterOnInput</EditMode>
 															<Width>20</Width>
+															<AutoMarkIncomplete>true</AutoMarkIncomplete>
 															<ContextMenu name="МаркировкаТекстКонтекстноеМеню" id="766"/>
 															<ExtendedTooltip name="МаркировкаТекстРасширеннаяПодсказка" id="767"/>
 														</InputField>
@@ -1642,6 +1637,12 @@
 					</ToolTip>
 					<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="467"/>
 					<ChildItems>
+						<InputField name="uuid" id="482">
+							<DataPath>Объект.uuid</DataPath>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="uuidКонтекстноеМеню" id="483"/>
+							<ExtendedTooltip name="uuidРасширеннаяПодсказка" id="484"/>
+						</InputField>
 						<LabelField name="Тип1" id="506">
 							<DataPath>Объект.Тип</DataPath>
 							<Visible>false</Visible>

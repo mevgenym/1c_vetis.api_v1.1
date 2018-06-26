@@ -206,7 +206,6 @@
 			<CommonCommand>ВетисCountry</CommonCommand>
 			<CommonCommand>ВетисDistrict</CommonCommand>
 			<CommonCommand>ВетисEnterprise</CommonCommand>
-			<CommonCommand>ВетисEnterpriseAlter</CommonCommand>
 			<CommonCommand>ВетисIncorporationForm</CommonCommand>
 			<CommonCommand>ВетисLocality</CommonCommand>
 			<CommonCommand>ВетисPackageList</CommonCommand>
@@ -226,13 +225,13 @@
 			<CommonCommand>ВетисВетеринарноСопроводительныйДокумент</CommonCommand>
 			<CommonCommand>ВетисВходящаяПартияПоДокументам</CommonCommand>
 			<CommonCommand>ВетисГраницыЗапросов</CommonCommand>
-			<CommonCommand>ВетисЖурнал</CommonCommand>
-			<CommonCommand>ВетисНастройки</CommonCommand>
 			<CommonCommand>ВетисПредприятияХС</CommonCommand>
 			<CommonCommand>ВетисСоответствие</CommonCommand>
 			<CommandGroup>ВетисДокументы</CommandGroup>
 			<CommandGroup>ВетисСправочники</CommandGroup>
 			<CommandGroup>ВетисСервис</CommandGroup>
+			<CommandGroup>ВетисАдресныйКлассификатор</CommandGroup>
+			<CommandGroup>ВетисСправочникПродукции</CommandGroup>
 			<Constant>ВетисВидимостьGuid</Constant>
 			<Constant>ВетисНастройки</Constant>
 			<Constant>ВетисОсновнаяНастройка</Constant>
@@ -308,7 +307,6 @@
 			<Enum>ЮрФизЛицо</Enum>
 			<DataProcessor>ВетисУстановкаСоответствияСправочников</DataProcessor>
 			<InformationRegister>ВетисBusinessMembers</InformationRegister>
-			<InformationRegister>ВетисEnterpriseAlter</InformationRegister>
 			<InformationRegister>ВетисPackageList</InformationRegister>
 			<InformationRegister>ВетисProductMarks</InformationRegister>
 			<InformationRegister>ВетисStockEntryList</InformationRegister>

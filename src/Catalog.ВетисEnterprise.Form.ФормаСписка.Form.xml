@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
-	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
-	<ScalingMode>Compact</ScalingMode>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="КомандаЗаполнитьИзСервиса" id="43">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
+				<ExtendedTooltip name="КомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="44"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -23,8 +29,7 @@
 			<Representation>List</Representation>
 			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
-			<HeightInTableRows>2</HeightInTableRows>
-			<ChoiceMode>true</ChoiceMode>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
 			<DataPath>Список</DataPath>
@@ -79,21 +84,55 @@
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="18"/>
 				</LabelField>
-				<LabelField name="enterpriseNumber" id="28">
-					<DataPath>Список.enterpriseNumber</DataPath>
-					<Width>20</Width>
-					<ContextMenu name="enterpriseNumberКонтекстноеМеню" id="29"/>
-					<ExtendedTooltip name="enterpriseNumberРасширеннаяПодсказка" id="30"/>
+				<CheckBoxField name="last" id="22">
+					<DataPath>Список.last</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="lastКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="lastРасширеннаяПодсказка" id="24"/>
+				</CheckBoxField>
+				<CheckBoxField name="active" id="25">
+					<DataPath>Список.active</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="activeКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="activeРасширеннаяПодсказка" id="27"/>
+				</CheckBoxField>
+				<LabelField name="status" id="28">
+					<DataPath>Список.status</DataPath>
+					<ContextMenu name="statusКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="statusРасширеннаяПодсказка" id="30"/>
 				</LabelField>
-				<LabelField name="addressView" id="25">
+				<LabelField name="next" id="45">
+					<DataPath>Список.next</DataPath>
+					<ContextMenu name="nextКонтекстноеМеню" id="46"/>
+					<ExtendedTooltip name="nextРасширеннаяПодсказка" id="47"/>
+				</LabelField>
+				<LabelField name="eOwner" id="31">
+					<DataPath>Список.eOwner</DataPath>
+					<ContextMenu name="eOwnerКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="eOwnerРасширеннаяПодсказка" id="33"/>
+				</LabelField>
+				<LabelField name="Country" id="34">
+					<DataPath>Список.Country</DataPath>
+					<ContextMenu name="CountryКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="CountryРасширеннаяПодсказка" id="36"/>
+				</LabelField>
+				<LabelField name="addressView" id="37">
 					<DataPath>Список.addressView</DataPath>
-					<ContextMenu name="addressViewКонтекстноеМеню" id="26"/>
-					<ExtendedTooltip name="addressViewРасширеннаяПодсказка" id="27"/>
+					<Width>10</Width>
+					<ContextMenu name="addressViewКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="addressViewРасширеннаяПодсказка" id="39"/>
 				</LabelField>
-				<LabelField name="guid" id="22">
+				<LabelField name="enterpriseNumber" id="40">
+					<DataPath>Список.enterpriseNumber</DataPath>
+					<Width>10</Width>
+					<ContextMenu name="enterpriseNumberКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="enterpriseNumberРасширеннаяПодсказка" id="42"/>
+				</LabelField>
+				<LabelField name="guid" id="19">
 					<DataPath>Список.guid</DataPath>
-					<ContextMenu name="guidКонтекстноеМеню" id="23"/>
-					<ExtendedTooltip name="guidРасширеннаяПодсказка" id="24"/>
+					<Width>5</Width>
+					<ContextMenu name="guidКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="guidРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
@@ -104,29 +143,9 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<MainAttribute>true</MainAttribute>
-			<UseAlways>
-				<Field>Список.BusinessEntity</Field>
-			</UseAlways>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>true</ManualQuery>
+				<ManualQuery>false</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
-				<QueryText>ВЫБРАТЬ
-	_Таблица.Ссылка,
-	_Таблица.guid,
-	_Таблица.Наименование,
-	_Таблица.enterpriseNumber,
-	_BusinessMembers.BusinessEntity,
-	_Таблица.addressView,
-	_Таблица.Комментарий
-ИЗ
-	Справочник.ВетисEnterprise КАК _Таблица
-		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисBusinessMembers КАК _BusinessMembers
-		ПО (_BusinessMembers.Enterprise = _Таблица.Ссылка)
-			И (_BusinessMembers.Использовать)
-ГДЕ
-	ИСТИНА
-	//И _Таблица.last
-	//И _Таблица.active</QueryText>
 				<MainTable>Catalog.ВетисEnterprise</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -147,4 +166,21 @@
 			</Settings>
 		</Attribute>
 	</Attributes>
+	<Commands>
+		<Command name="КомандаЗаполнитьИзСервиса" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить из сервиса</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда заполнить из сервиса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаЗаполнитьИзСервиса</Action>
+		</Command>
+	</Commands>
 </Form>

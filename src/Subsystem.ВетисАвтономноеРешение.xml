@@ -25,8 +25,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисXSD</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисВетеринарноСопроводительныйДокумент</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисВходящаяПартияПоДокументам</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисЖурнал</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисНастройки</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">e94963f3-26fc-482b-8f92-76810c6d39b2</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">98d2db0e-b545-4044-a6b4-1cb7a816b417</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисEnterprise</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисПредприятияХС</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисStockEntryList</xr:Item>
@@ -40,8 +40,6 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommandGroup.ВетисСправочники</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommandGroup.ВетисСервис</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисАвтономноеРешение</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">d2f83b73-db85-4212-8179-64f97a19c6b4</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">36584f98-f00b-4c1c-a56a-aa70a19b5b06</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисВетеринарноСопроводительныйДокумент</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисВходящаяПартияПоДокументам</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисТранспортнаяПартия</xr:Item>
@@ -150,7 +148,6 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисUser</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">EventSubscription.ВетисПриУстановкеНовогоКода</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">EventSubscription.ВетисПриУстановкеНовогоНомера</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">6c6a8aec-c389-46d6-806d-f195779ff278</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисProduct</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисTransport</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисProductType</xr:Item>
@@ -168,9 +165,9 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисSubProduct</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисLocality</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисИнвентаризация</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисEnterpriseAlter</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">2bef9589-b524-47e8-af1c-b376036120e0</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисГраницыЗапросов</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисEnterpriseAlter</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">7ac2a140-d1bd-4baa-98ed-35a30ad60fd9</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисEnterpriseRole</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисPackageList</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисProductMarks</xr:Item>
@@ -187,6 +184,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.КлассификаторЕдиницИзмерения</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ЕдиницыИзмерения</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисОсновнойПользователь</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommandGroup.ВетисАдресныйКлассификатор</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

@@ -5,11 +5,16 @@
 		ПометкаУдаления = Ложь;
 		last         = ДанныеЗаполнения.last;
 		active       = ДанныеЗаполнения.active;
-		status       = ДанныеЗаполнения.Status;
+		status       = ВетисBaseСлой1с.VersionStatus(ДанныеЗаполнения.Status);
 		guid         = ДанныеЗаполнения.guid;
 		уид          = Новый УникальныйИдентификатор(ДанныеЗаполнения.guid);
 		Наименование = СокрЛП(ДанныеЗаполнения.name);
 		//GLN          = СокрЛП(ДанныеЗаполнения.GLN);
+		Если status = Перечисления.ВетисVersionStatus.DELETED_WHEN_MERGE
+			ИЛИ status = Перечисления.ВетисVersionStatus.DELETED_WHEN_ATTACH
+			ИЛИ status = Перечисления.ВетисVersionStatus.DELETED_WHEN_SPLIT Тогда
+			next = ВетисDictionaryСлой1с.Enterprise(Новый Структура("uuid", ДанныеЗаполнения.next));
+		КонецЕсли;
 		eOwner       = ВетисDictionaryСлой1с.BusinessEntity(ДанныеЗаполнения.Owner);
 		type         = ВетисDictionaryСлой1с.EnterpriseType(ДанныеЗаполнения.type);
 		Если НЕ ДанныеЗаполнения.address = Неопределено Тогда
@@ -26,5 +31,19 @@
 			КонецЦикла;
 		КонецЕсли;
 	КонецЕсли;
+	
+КонецПроцедуры
+
+Процедура ПередЗаписью(Отказ)
+	
+	Если ОбменДанными.Загрузка Тогда
+		Возврат;
+	КонецЕсли;
+	
+	enterpriseNumber = "";
+	
+	Для каждого _enterpriseNumber Из numberList Цикл
+		enterpriseNumber = enterpriseNumber + ?(enterpriseNumber="","","; ") + _enterpriseNumber.enterpriseNumber;
+	КонецЦикла;
 	
 КонецПроцедуры

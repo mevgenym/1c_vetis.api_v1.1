@@ -90,6 +90,9 @@
 		
 	КонецЕсли;
 	
+	//next = ВетисDictionaryСлой1с.Enterprise(Новый Структура("uuid", _Enterprise.next));
+	previous = ВетисDictionaryСлой1с.Enterprise(Новый Структура("uuid", _Enterprise.previous));
+	
 	_Объект = РеквизитФормыВЗначение("Объект");
 	
 	_Объект.Заполнить(_Enterprise);

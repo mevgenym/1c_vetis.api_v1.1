@@ -81,29 +81,6 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.ВетисПользователи</name>
-		<right>
-			<name>Read</name>
-			<value>true</value>
-		</right>
-		<right>
-			<name>Insert</name>
-			<value>true</value>
-		</right>
-		<right>
-			<name>Update</name>
-			<value>true</value>
-		</right>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-		<right>
-			<name>InputByString</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>Configuration.ВетеринарияМеркурийГИС</name>
 		<right>
 			<name>ThinClient</name>

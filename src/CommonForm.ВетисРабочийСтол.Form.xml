@@ -62,6 +62,7 @@
 					<DataPath>ОтборХС</DataPath>
 					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<BackColor>#FFF3D6</BackColor>
 					<InputHint>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -132,7 +133,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ВСД</v8:content>
+							<v8:content>Входящие ВСД</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
@@ -170,11 +171,6 @@
 										<CommandName>Form.Command.КомандаСинхронизироватьВСД</CommandName>
 										<ExtendedTooltip name="СписокВСДКомандаСинхронизироватьВСДРасширеннаяПодсказка" id="600"/>
 									</Button>
-									<Button name="СписокВСДАннулировать" id="71">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.КомандаАннулироватьВСД</CommandName>
-										<ExtendedTooltip name="СписокВСДАннулироватьРасширеннаяПодсказка" id="72"/>
-									</Button>
 									<Button name="СписокВСДОтборТип" id="307">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаОтборСписокВСДТип</CommandName>
@@ -187,8 +183,19 @@
 									</Button>
 									<Button name="СписокВСДКомандаНаправление" id="443">
 										<Type>CommandBarButton</Type>
+										<Visible>false</Visible>
 										<CommandName>Form.Command.КомандаНаправление</CommandName>
 										<ExtendedTooltip name="СписокВСДКомандаНаправлениеРасширеннаяПодсказка" id="444"/>
+									</Button>
+									<Button name="СписокВСДКомандаПогасить" id="729">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаПогасить</CommandName>
+										<ExtendedTooltip name="СписокВСДКомандаПогаситьРасширеннаяПодсказка" id="730"/>
+									</Button>
+									<Button name="СписокВСДКомандаЗаполнитьИзСервиса" id="731">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
+										<ExtendedTooltip name="СписокВСДКомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="732"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
@@ -304,6 +311,7 @@
 									</ChildItems>
 								</ColumnGroup>
 								<ColumnGroup name="СписокВСДГруппаПолучатель" id="467">
+									<Visible>false</Visible>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -419,6 +427,7 @@
 									<ChildItems>
 										<LabelField name="СписокВСДuuid" id="343">
 											<DataPath>СписокВСД.uuid</DataPath>
+											<Width>10</Width>
 											<ContextMenu name="СписокВСДuuidКонтекстноеМеню" id="344"/>
 											<ExtendedTooltip name="СписокВСДuuidРасширеннаяПодсказка" id="345"/>
 										</LabelField>
@@ -684,15 +693,169 @@
 									<ContextMenu name="СписокТранспортныеПартииПолучательПредприятиеКонтекстноеМеню" id="347"/>
 									<ExtendedTooltip name="СписокТранспортныеПартииПолучательПредприятиеРасширеннаяПодсказка" id="348"/>
 								</LabelField>
+								<LabelField name="СписокТранспортныеПартииКоличество" id="627">
+									<DataPath>СписокТранспортныеПартии.Количество</DataPath>
+									<ContextMenu name="СписокТранспортныеПартииКоличествоКонтекстноеМеню" id="628"/>
+									<ExtendedTooltip name="СписокТранспортныеПартииКоличествоРасширеннаяПодсказка" id="629"/>
+								</LabelField>
+								<LabelField name="СписокТранспортныеПартииКоличествоМест" id="630">
+									<DataPath>СписокТранспортныеПартии.КоличествоМест</DataPath>
+									<ContextMenu name="СписокТранспортныеПартииКоличествоМестКонтекстноеМеню" id="631"/>
+									<ExtendedTooltip name="СписокТранспортныеПартииКоличествоМестРасширеннаяПодсказка" id="632"/>
+								</LabelField>
 								<LabelField name="СписокТранспортныеПартииОтветственный" id="118">
 									<DataPath>СписокТранспортныеПартии.Ответственный</DataPath>
 									<ContextMenu name="СписокТранспортныеПартииОтветственныйКонтекстноеМеню" id="119"/>
 									<ExtendedTooltip name="СписокТранспортныеПартииОтветственныйРасширеннаяПодсказка" id="120"/>
 								</LabelField>
-								<LabelField name="СписокТранспортныеПартииКомментарий" id="121">
-									<DataPath>СписокТранспортныеПартии.Комментарий</DataPath>
-									<ContextMenu name="СписокТранспортныеПартииКомментарийКонтекстноеМеню" id="122"/>
-									<ExtendedTooltip name="СписокТранспортныеПартииКомментарийРасширеннаяПодсказка" id="123"/>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаВСДИсходящие" id="633">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исходящие ВСД</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница ВСДИсходящие</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаВСДИсходящиеРасширеннаяПодсказка" id="634"/>
+					<ChildItems>
+						<Table name="СписокИсходящихВСД" id="635">
+							<HeightInTableRows>1</HeightInTableRows>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>СписокИсходящихВСД</DataPath>
+							<RowPictureDataPath>СписокИсходящихВСД.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="СписокИсходящихВСДКонтекстноеМеню" id="636"/>
+							<AutoCommandBar name="СписокИсходящихВСДКоманднаяПанель" id="637">
+								<ChildItems>
+									<Button name="СписокИсходящихВСДКомандаАннулироватьВСД" id="723">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаАннулироватьВСД</CommandName>
+										<ExtendedTooltip name="СписокИсходящихВСДКомандаАннулироватьВСДРасширеннаяПодсказка" id="724"/>
+									</Button>
+									<Button name="СписокВСДОтборТипИсх" id="725">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаОтборСписокВСДТип</CommandName>
+										<ExtendedTooltip name="СписокВСДОтборТипИсхРасширеннаяПодсказка" id="726"/>
+									</Button>
+									<Button name="СписокВСДОтборСтатусИсх" id="727">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаОтборСписокВСДСтатус</CommandName>
+										<ExtendedTooltip name="СписокВСДОтборСтатусИсхРасширеннаяПодсказка" id="728"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокИсходящихВСДРасширеннаяПодсказка" id="638"/>
+							<SearchStringAddition name="СписокИсходящихВСДСтрокаПоиска" id="639">
+								<AdditionSource>
+									<Item>СписокИсходящихВСД</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокИсходящихВСДСтрокаПоискаКонтекстноеМеню" id="640"/>
+								<ExtendedTooltip name="СписокИсходящихВСДСтрокаПоискаРасширеннаяПодсказка" id="641"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокИсходящихВСДСостояниеПросмотра" id="642">
+								<AdditionSource>
+									<Item>СписокИсходящихВСД</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокИсходящихВСДСостояниеПросмотраКонтекстноеМеню" id="643"/>
+								<ExtendedTooltip name="СписокИсходящихВСДСостояниеПросмотраРасширеннаяПодсказка" id="644"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокИсходящихВСДУправлениеПоиском" id="645">
+								<AdditionSource>
+									<Item>СписокИсходящихВСД</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокИсходящихВСДУправлениеПоискомКонтекстноеМеню" id="646"/>
+								<ExtendedTooltip name="СписокИсходящихВСДУправлениеПоискомРасширеннаяПодсказка" id="647"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СписокИсходящихВСДДата" id="648">
+									<DataPath>СписокИсходящихВСД.Date</DataPath>
+									<Width>5</Width>
+									<ContextMenu name="СписокИсходящихВСДДатаКонтекстноеМеню" id="649"/>
+									<ExtendedTooltip name="СписокИсходящихВСДДатаРасширеннаяПодсказка" id="650"/>
+								</LabelField>
+								<LabelField name="СписокИсходящихВСДНомер" id="651">
+									<DataPath>СписокИсходящихВСД.Number</DataPath>
+									<ContextMenu name="СписокИсходящихВСДНомерКонтекстноеМеню" id="652"/>
+									<ExtendedTooltip name="СписокИсходящихВСДНомерРасширеннаяПодсказка" id="653"/>
+								</LabelField>
+								<LabelField name="СписокИсходящихВСДПолучатель" id="681">
+									<DataPath>СписокИсходящихВСД.Получатель</DataPath>
+									<ContextMenu name="СписокИсходящихВСДПолучательКонтекстноеМеню" id="682"/>
+									<ExtendedTooltip name="СписокИсходящихВСДПолучательРасширеннаяПодсказка" id="683"/>
+								</LabelField>
+								<LabelField name="СписокИсходящихВСДПолучательПредприятие" id="684">
+									<DataPath>СписокИсходящихВСД.ПолучательПредприятие</DataPath>
+									<ContextMenu name="СписокИсходящихВСДПолучательПредприятиеКонтекстноеМеню" id="685"/>
+									<ExtendedTooltip name="СписокИсходящихВСДПолучательПредприятиеРасширеннаяПодсказка" id="686"/>
+								</LabelField>
+								<LabelField name="СписокИсходящихВСДProductItemName" id="699">
+									<DataPath>СписокИсходящихВСД.ProductItemName</DataPath>
+									<Width>15</Width>
+									<ContextMenu name="СписокИсходящихВСДProductItemNameКонтекстноеМеню" id="700"/>
+									<ExtendedTooltip name="СписокИсходящихВСДProductItemNameРасширеннаяПодсказка" id="701"/>
+								</LabelField>
+								<LabelField name="СписокИсходящихВСДДатаВыработки" id="702">
+									<DataPath>СписокИсходящихВСД.ДатаВыработки</DataPath>
+									<Width>15</Width>
+									<ContextMenu name="СписокИсходящихВСДДатаВыработкиКонтекстноеМеню" id="703"/>
+									<ExtendedTooltip name="СписокИсходящихВСДДатаВыработкиРасширеннаяПодсказка" id="704"/>
+								</LabelField>
+								<LabelField name="СписокИсходящихВСДСрокГодности" id="705">
+									<DataPath>СписокИсходящихВСД.СрокГодности</DataPath>
+									<Width>15</Width>
+									<ContextMenu name="СписокИсходящихВСДСрокГодностиКонтекстноеМеню" id="706"/>
+									<ExtendedTooltip name="СписокИсходящихВСДСрокГодностиРасширеннаяПодсказка" id="707"/>
+								</LabelField>
+								<LabelField name="СписокИсходящихВСДСтранаПроисхождения" id="708">
+									<DataPath>СписокИсходящихВСД.СтранаПроисхождения</DataPath>
+									<ContextMenu name="СписокИсходящихВСДСтранаПроисхожденияКонтекстноеМеню" id="709"/>
+									<ExtendedTooltip name="СписокИсходящихВСДСтранаПроисхожденияРасширеннаяПодсказка" id="710"/>
+								</LabelField>
+								<LabelField name="СписокИсходящихВСДПроизводитель" id="711">
+									<DataPath>СписокИсходящихВСД.Производитель</DataPath>
+									<ContextMenu name="СписокИсходящихВСДПроизводительКонтекстноеМеню" id="712"/>
+									<ExtendedTooltip name="СписокИсходящихВСДПроизводительРасширеннаяПодсказка" id="713"/>
+								</LabelField>
+								<LabelField name="СписокИсходящихВСДКоличество" id="714">
+									<DataPath>СписокИсходящихВСД.Количество</DataPath>
+									<ContextMenu name="СписокИсходящихВСДКоличествоКонтекстноеМеню" id="715"/>
+									<ExtendedTooltip name="СписокИсходящихВСДКоличествоРасширеннаяПодсказка" id="716"/>
+								</LabelField>
+								<LabelField name="СписокИсходящихВСДОтветственныйВетис" id="720">
+									<DataPath>СписокИсходящихВСД.ОтветственныйВетис</DataPath>
+									<ContextMenu name="СписокИсходящихВСДОтветственныйВетисКонтекстноеМеню" id="721"/>
+									<ExtendedTooltip name="СписокИсходящихВСДОтветственныйВетисРасширеннаяПодсказка" id="722"/>
+								</LabelField>
+								<LabelField name="СписокИсходящихВСДuuid" id="654">
+									<DataPath>СписокИсходящихВСД.uuid</DataPath>
+									<Width>10</Width>
+									<ContextMenu name="СписокИсходящихВСДuuidКонтекстноеМеню" id="655"/>
+									<ExtendedTooltip name="СписокИсходящихВСДuuidРасширеннаяПодсказка" id="656"/>
 								</LabelField>
 							</ChildItems>
 						</Table>
@@ -1655,6 +1818,60 @@
 				</ListSettings>
 			</Settings>
 		</Attribute>
+		<Attribute name="СписокИсходящихВСД" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список исходящих ВСД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>Document.ВетисВетеринарноСопроводительныйДокумент</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ОтборСписокВСДСтатусИсх" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор список ВСДСтатус</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборСписокВСДТипИсх" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор список ВСДТип</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -1988,6 +2205,36 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаПоискХС</Action>
+		</Command>
+		<Command name="КомандаПогасить" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Погасить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда погасить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПогасить</Action>
+		</Command>
+		<Command name="КомандаЗаполнитьИзСервиса" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить из сервиса</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда заполнить из сервиса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаЗаполнитьИзСервиса</Action>
 		</Command>
 	</Commands>
 </Form>

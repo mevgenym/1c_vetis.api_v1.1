@@ -41,25 +41,25 @@
 
 Функция BusinessEntity(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат conv(value, "ВетисBusinessEntity", "ВетисEnterpriseService_2_0.GetBusinessEntityByGuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисBusinessEntity", "ВетисEnterpriseService_2_0", "GetBusinessEntityByGuid", "GetBusinessEntityByUuid", ПоУмолчанию);
 	
 КонецФункции
 
 Функция District(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат conv(value, "ВетисDistrict", "ВетисIkarService_2_0.GetDistrictByGuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисDistrict", "ВетисIkarService_2_0", "GetDistrictByGuid", "GetDistrictByUuid", ПоУмолчанию);
 	
 КонецФункции
 
 Функция Country(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат conv(value, "ВетисCountry", "ВетисIkarService_2_0.GetCountryByGuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисCountry", "ВетисIkarService_2_0", "GetCountryByGuid", "GetCountryByUuid", ПоУмолчанию);
 	
 КонецФункции
 
 Функция Enterprise(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат conv(value, "ВетисEnterprise", "ВетисEnterpriseService_2_0.GetEnterpriseByGuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисEnterprise", "ВетисEnterpriseService_2_0", "GetEnterpriseByGuid", "GetEnterpriseByUuid", ПоУмолчанию);
 	
 КонецФункции
 
@@ -202,7 +202,7 @@
 
 Функция Product(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат conv(value, "ВетисProduct", "ВетисProductService_2_0.GetProductByGuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисProduct", "ВетисProductService_2_0", "GetProductByGuid", "GetProductByUuid", ПоУмолчанию);
 	
 КонецФункции
 
@@ -224,24 +224,13 @@
 
 Функция Purpose(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат conv(value, "ВетисPurpose", "ВетисDictionaryService_2_0.GetPurposeByGuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисPurpose", "ВетисDictionaryService_2_0", "GetPurposeByGuid", "GetPurposeByUuid", ПоУмолчанию);
 	
 КонецФункции
 
 Функция ProductItem(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	//Если ТипЗнч(value) = Тип("СправочникСсылка.ВетисProductItem") Тогда
-	//	Возврат Ветис.Соответствие_ПолучитьGuid(value, ПоУмолчанию);
-	//ИначеЕсли ТипЗнч(value) = Тип("ОбъектXDTO") Тогда
-	//	Если ЗначениеЗаполнено(value.guid) Тогда
-	//		Возврат Ветис.Соответствие_ПолучитьСсылку(value, "Справочник.ВетисProductItem", ПоУмолчанию);
-	//	Иначе
-	//		Возврат ПоУмолчанию;
-	//	КонецЕсли;
-	//Иначе
-	//	Возврат Ветис.Соответствие_ПолучитьСсылку(value, "Справочник.ВетисProductItem", ПоУмолчанию);
-	//КонецЕсли;
-	Возврат conv(value, "ВетисProductItem", "ВетисProductService_2_0.GetProductItemByGuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисProductItem", "ВетисProductService_2_0", "GetProductItemByGuid", "GetProductItemByUuid", ПоУмолчанию);
 	
 КонецФункции
 
@@ -261,7 +250,7 @@
 
 Функция Region(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат conv(value, "ВетисRegion", "ВетисIkarService_2_0.GetRegionByGuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисRegion", "ВетисIkarService_2_0", "GetRegionByGuid", "GetRegionByUuid", ПоУмолчанию);
 	
 КонецФункции
 
@@ -279,13 +268,13 @@
 
 Функция SubProduct(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат conv(value, "ВетисSubProduct", "ВетисProductService_2_0.GetSubProductByGuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисSubProduct", "ВетисProductService_2_0", "GetSubProductByGuid", "GetSubProductByUuid", ПоУмолчанию);
 	
 КонецФункции
 
 Функция Unit(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат conv(value, "ВетисUnit", "ВетисDictionaryService_2_0.GetUnitByGuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисUnit", "ВетисDictionaryService_2_0", "GetUnitByGuid", "GetUnitByUuid", ПоУмолчанию);
 	
 КонецФункции
 
@@ -745,20 +734,42 @@
 КонецФункции
 
 
-Функция conv(value, пТаблица, пИмяОперации, ПоУмолчанию = Неопределено, пИмя = "guid")
+Функция conv(value, пТаблица, пИмяМодуля, пИмяОперации, пИмяОперацииВерсии, ПоУмолчанию = Неопределено)
 	
 	Если value = Неопределено Тогда
-		Возврат Неопределено;
+		Возврат ПоУмолчанию;
 	ИначеЕсли ТипЗнч(value) = Тип("СправочникСсылка."+пТаблица) Тогда
 		Возврат Ветис.Соответствие_ПолучитьGuid(value, ПоУмолчанию);
 	Иначе
-		_guid = ?(ТипЗнч(value) = Тип("ОбъектXDTO"), value.guid, value);
+		Если ТипЗнч(value) = Тип("ОбъектXDTO") Тогда
+			Если НЕ value.Свойства().Получить("guid") = Неопределено И ЗначениеЗаполнено(value.guid) Тогда
+				_guid = value.guid;
+			ИначеЕсли НЕ value.Свойства().Получить("uuid") = Неопределено И ЗначениеЗаполнено(value.uuid) Тогда
+				_объект = Вычислить(пИмяМодуля+"."+пИмяОперацииВерсии+"(value.uuid)");
+				_Значение = Ветис.Соответствие_ПолучитьСсылку(_объект, "Справочник."+пТаблица, Неопределено);
+				Возврат _Значение;
+			Иначе
+				Возврат ПоУмолчанию;
+			КонецЕсли;
+		ИначеЕсли ТипЗнч(value) = Тип("Структура") Тогда
+			Если value.Свойство("guid") И ЗначениеЗаполнено(value.guid) Тогда
+				_guid = value.guid;
+			ИначеЕсли value.Свойство("uuid") И ЗначениеЗаполнено(value.uuid) Тогда
+				_объект = Вычислить(пИмяМодуля+"."+пИмяОперацииВерсии+"(value.uuid)");
+				_Значение = Ветис.Соответствие_ПолучитьСсылку(_объект, "Справочник."+пТаблица, Неопределено);
+				Возврат _Значение;
+			Иначе
+				Возврат ПоУмолчанию;
+			КонецЕсли;
+		Иначе
+			_guid = value;
+		КонецЕсли;
 		Если ПустаяСтрока(_guid) Тогда
 			Возврат ПоУмолчанию;
 		КонецЕсли;
 		_Значение = Ветис.Соответствие_ПолучитьСсылку(_guid, "Справочник."+пТаблица, Неопределено);
 		Если _Значение = Неопределено Тогда
-			_объект = Вычислить(пИмяОперации+"("""+_guid+""")");
+			_объект = Вычислить(пИмяМодуля+"."+пИмяОперации+"(_guid)");
 			_Значение = Ветис.Соответствие_ПолучитьСсылку(_объект, "Справочник."+пТаблица, Неопределено);
 			Если _Значение = Неопределено Тогда
 				Возврат ПоУмолчанию;

@@ -3,6 +3,9 @@
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
 		<InputField name="Наименование" id="1">
 			<DataPath>Объект.Description</DataPath>
@@ -21,6 +24,13 @@
 			<EditMode>EnterOnInput</EditMode>
 			<ContextMenu name="fioКонтекстноеМеню" id="14"/>
 			<ExtendedTooltip name="fioРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="guid" id="7">
+			<DataPath>Объект.guid</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="guidКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="guidРасширеннаяПодсказка" id="9"/>
 		</InputField>
 		<Pages name="Страницы" id="49">
 			<Title>
@@ -131,33 +141,67 @@
 						</InputField>
 					</ChildItems>
 				</Page>
-				<Page name="СтраницаДополнительно" id="55">
+				<Page name="СтраницаСервис" id="55">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Дополнительно</v8:content>
+							<v8:content>Сервис</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Страница дополнительно</v8:content>
+							<v8:content>Страница сервис</v8:content>
 						</v8:item>
 					</ToolTip>
-					<ExtendedTooltip name="СтраницаДополнительноРасширеннаяПодсказка" id="56"/>
+					<ExtendedTooltip name="СтраницаСервисРасширеннаяПодсказка" id="56"/>
 					<ChildItems>
-						<InputField name="guid" id="7">
-							<DataPath>Объект.guid</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<ContextMenu name="guidКонтекстноеМеню" id="8"/>
-							<ExtendedTooltip name="guidРасширеннаяПодсказка" id="9"/>
-						</InputField>
-						<LabelField name="уид" id="4">
-							<DataPath>Объект.уид</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<ContextMenu name="уидКонтекстноеМеню" id="5"/>
-							<ExtendedTooltip name="уидРасширеннаяПодсказка" id="6"/>
-						</LabelField>
+						<UsualGroup name="Группа1" id="62">
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="63"/>
+							<ChildItems>
+								<UsualGroup name="Группа2" id="64">
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="65"/>
+									<ChildItems>
+										<Button name="КомандаЗаполнитьИзСервиса" id="57">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
+											<ExtendedTooltip name="КомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="58"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа3" id="66">
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="67"/>
+									<ChildItems>
+										<CheckBoxField name="last" id="59">
+											<DataPath>Объект.last</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="lastКонтекстноеМеню" id="60"/>
+											<ExtendedTooltip name="lastРасширеннаяПодсказка" id="61"/>
+										</CheckBoxField>
+										<CheckBoxField name="active" id="68">
+											<DataPath>Объект.active</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="activeКонтекстноеМеню" id="69"/>
+											<ExtendedTooltip name="activeРасширеннаяПодсказка" id="70"/>
+										</CheckBoxField>
+										<InputField name="status" id="71">
+											<DataPath>Объект.status</DataPath>
+											<ContextMenu name="statusКонтекстноеМеню" id="72"/>
+											<ExtendedTooltip name="statusРасширеннаяПодсказка" id="73"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -178,4 +222,21 @@
 			<SavedData>true</SavedData>
 		</Attribute>
 	</Attributes>
+	<Commands>
+		<Command name="КомандаЗаполнитьИзСервиса" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить из сервиса</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда заполнить из сервиса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаЗаполнитьИзСервиса</Action>
+		</Command>
+	</Commands>
 </Form>
