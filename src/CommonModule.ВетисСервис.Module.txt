@@ -32,6 +32,11 @@
 			Возврат ОтветСервер(_Ошибка, Истина);
 		КонецЕсли;
 		
+	ИначеЕсли _Запрос.Свойство("StockEntry") Тогда
+		Если НЕ ОбработатьStockEntry(_Запрос.StockEntry, _Ответ, _Ошибка) Тогда
+			Возврат ОтветСервер(_Ошибка, Истина);
+		КонецЕсли;
+		
 	ИначеЕсли _Запрос.Свойство("BusinessEntity") Тогда
 		Если НЕ ОбработатьBusinessEntity(_Запрос.BusinessEntity, _Ответ, _Ошибка) Тогда
 			Возврат ОтветСервер(_Ошибка, Истина);
@@ -285,12 +290,18 @@
 	|ГДЕ
 	|	ИСТИНА
 	|	И _Таблица.Проведен
+	|//о1	И _Таблица.Ссылка = &Ссылка
 	|//ос	И _Таблица.Статус = &Статус
 	|//оо1	И _Таблица.Отправитель.guid = &Отправитель
 	|//оо2	И _Таблица.ОтправительПредприятие.guid = &ОтправительПредприятие
 	|//оп1	И _Таблица.Получатель.guid = &Получатель
 	|//оп2	И _Таблица.ПолучательПредприятие.guid = &ПолучательПредприятие
 	|	И ИСТИНА");
+	
+	Если пПараметры.Свойство("Ссылка") Тогда
+		Запрос.Текст = СтрЗаменить(Запрос.Текст, "//о1", "");
+		Запрос.УстановитьПараметр("Ссылка", пПараметры.Ссылка);
+	КонецЕсли;
 	
 	Если пПараметры.Свойство("Статус") Тогда
 		Запрос.Текст = СтрЗаменить(Запрос.Текст, "//ос", "");
@@ -343,6 +354,107 @@
 		_Объект.Вставить("ProductItemName", Выборка.ProductItemName);
 		_Объект.Вставить("Количество", Выборка.Количество);
 		пОтвет.VetDocument.Добавить(_Объект);
+	КонецЦикла;
+	
+	Возврат Истина;
+	
+КонецФункции
+
+Функция ОбработатьStockEntry(пПараметры, пОтвет, пОшибка)
+	
+	Если НЕ (ТипЗнч(пПараметры) = Тип("Структура")) Тогда
+		пОшибка = "Некорректные входные данные";
+		Возврат Ложь;
+	КонецЕсли;
+	
+	Запрос = Новый Запрос(
+	"ВЫБРАТЬ
+	|	_Таблица.guid,
+	|	_Таблица.entryNumber,
+	|	_Таблица.createDate,
+	|	_Таблица.updateDate,
+	|	_Таблица.BusinessEntity,
+	|	_Таблица.BusinessEntity.guid КАК BusinessEntityGuid,
+	|	_Таблица.BusinessEntity.Наименование КАК BusinessEntityName,
+	|	_Таблица.Enterprise,
+	|	_Таблица.Enterprise.guid КАК EnterpriseGuid,
+	|	_Таблица.Enterprise.Наименование КАК EnterpriseName,
+	|	_Таблица.Enterprise.addressView КАК EnterpriseAddress,
+	|	_Таблица.Enterprise.enterpriseNumber КАК EnterpriseNumber,
+	|	_Таблица.volume,
+	|	_Таблица.ProductItemName,
+	|	_Таблица.producer,
+	|	_Таблица.producer.guid КАК producerGuid,
+	|	_Таблица.producer.Наименование КАК producerName,
+	|	_Таблица.producer.addressView КАК producerAddress,
+	|	_Таблица.producer.enterpriseNumber КАК producerNumber,
+	|	_Таблица.country,
+	|	_Таблица.country.guid КАК countryGuid,
+	|	_Таблица.country.Наименование КАК countryName,
+	|	_Таблица.vetDocument,
+	|	_Таблица.vetDocument.uuid КАК vetDocumentUuid,
+	|	_Таблица.dateOfProductionFirst,
+	|	_Таблица.dateOfProductionSecond,
+	|	_Таблица.dateOfProductionInformal,
+	|	_Таблица.expiryDateFirst,
+	|	_Таблица.expiryDateSecond,
+	|	_Таблица.expiryDateInformal
+	|ИЗ
+	|	РегистрСведений.ВетисStockEntryList КАК _Таблица
+	|ГДЕ
+	|	ИСТИНА
+	|//о1	И _Таблица.BusinessEntity.guid = &BusinessEntity
+	|//о2	И _Таблица.Enterprise.guid = &Enterprise
+	|	И ИСТИНА");
+	
+	Если пПараметры.Свойство("ХС") Тогда
+		Запрос.Текст = СтрЗаменить(Запрос.Текст, "//о1", "");
+		Запрос.УстановитьПараметр("BusinessEntity", пПараметры.ХС);
+	КонецЕсли;
+	
+	Если пПараметры.Свойство("Предприятие") Тогда
+		Запрос.Текст = СтрЗаменить(Запрос.Текст, "//о2", "");
+		Запрос.УстановитьПараметр("Enterprise", пПараметры.Предприятие);
+	КонецЕсли;
+	
+	Результат = Запрос.Выполнить();
+	Выборка = Результат.Выбрать();
+	
+	пОтвет.Вставить("StockEntry", Новый Массив);
+	
+	Пока Выборка.Следующий() Цикл
+		_Объект = Новый Структура;
+		_Объект.Вставить("guid", Выборка.guid);
+		_Объект.Вставить("entryNumber", Выборка.entryNumber);
+		_Объект.Вставить("createDate", Выборка.createDate);
+		_Объект.Вставить("updateDate", Выборка.updateDate);
+		_Объект.Вставить("BusinessEntity", Новый Структура("guid, Наименование", Выборка.BusinessEntityGuid, Выборка.BusinessEntityName));
+		_Объект.Вставить("Enterprise", Новый Структура("guid, Наименование, addressView, enterpriseNumber", Выборка.EnterpriseGuid, Выборка.EnterpriseName, Выборка.EnterpriseAddress, Выборка.EnterpriseNumber));
+		_Объект.Вставить("ProductItemName", Выборка.ProductItemName);
+		_Объект.Вставить("volume", Выборка.volume);
+		Если ЗначениеЗаполнено(Выборка.producer) Тогда
+			_Объект.Вставить("producer", Новый Структура("guid, Наименование, addressView, enterpriseNumber", Выборка.producerGuid, Выборка.producerName, Выборка.producerAddress, Выборка.producerNumber));
+		КонецЕсли;
+		Если ЗначениеЗаполнено(Выборка.country) Тогда
+			_Объект.Вставить("country", Новый Структура("guid, Наименование", Выборка.countryGuid, Выборка.countryName));
+		КонецЕсли;
+		Если ЗначениеЗаполнено(Выборка.vetDocument) Тогда
+			_Объект.Вставить("vetDocument", Новый Структура("uuid", Выборка.vetDocumentUuid));
+		КонецЕсли;
+		
+		Если ЗначениеЗаполнено(Выборка.dateOfProductionInformal) Тогда
+			_Объект.Вставить("dateOfProductionInformal", Выборка.dateOfProductionInformal);
+		Иначе
+			_Объект.Вставить("dateOfProductionInformal", формат(Выборка.dateOfProductionFirst, "ДЛФ=D") + " - " + формат(Выборка.dateOfProductionSecond, "ДЛФ=D"));
+		КонецЕсли;
+		
+		Если ЗначениеЗаполнено(Выборка.expiryDateInformal) Тогда
+			_Объект.Вставить("expiryDateInformal", Выборка.expiryDateInformal);
+		Иначе
+			_Объект.Вставить("expiryDateInformal", формат(Выборка.expiryDateFirst, "ДЛФ=D") + " - " + формат(Выборка.expiryDateSecond, "ДЛФ=D"));
+		КонецЕсли;
+		
+		пОтвет.StockEntry.Добавить(_Объект);
 	КонецЦикла;
 	
 	Возврат Истина;

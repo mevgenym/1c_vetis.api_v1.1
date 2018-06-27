@@ -41,13 +41,6 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.entryNumber</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
 		<name>Constant.ВетисОсновнойПользователь</name>
 		<right>
 			<name>Read</name>
@@ -248,13 +241,6 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.country</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
 		<name>CommonCommand.ВетисEnterprise</name>
 		<right>
 			<name>View</name>
@@ -276,36 +262,12 @@
 			<value>true</value>
 		</right>
 		<right>
-			<name>TotalsControl</name>
+			<name>Edit</name>
 			<value>true</value>
 		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисStockEntryList.StandardAttribute.Active</name>
 		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисStockEntryList.StandardAttribute.LineNumber</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисStockEntryList.StandardAttribute.Recorder</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисStockEntryList.StandardAttribute.Period</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
+			<name>TotalsControl</name>
+			<value>true</value>
 		</right>
 	</object>
 	<object>
@@ -354,13 +316,6 @@
 	</object>
 	<object>
 		<name>InformationRegister.ВетисОчередьЗапросов.Dimension.TransactionId</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисStockEntryList.Resource.volume</name>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -429,6 +384,10 @@
 		</right>
 		<right>
 			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
 			<value>true</value>
 		</right>
 	</object>
@@ -543,20 +502,6 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.owner</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.expiryDateFirst</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
 		<name>Document.ВетисИнвентаризация</name>
 		<right>
 			<name>Read</name>
@@ -667,24 +612,10 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.producerProductItem</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
 		<name>CommonCommand.ВетисAnimalDisease</name>
 		<right>
 			<name>View</name>
 			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.dateOfProductionInformal</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -817,20 +748,6 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.ProductItem</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисСоответствие.Dimension.ОбъектУС</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
 		<name>InformationRegister.ВетисСоответствие</name>
 		<right>
 			<name>Read</name>
@@ -845,36 +762,12 @@
 			<value>true</value>
 		</right>
 		<right>
-			<name>TotalsControl</name>
+			<name>Edit</name>
 			<value>true</value>
 		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисСоответствие.StandardAttribute.Active</name>
 		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисСоответствие.StandardAttribute.LineNumber</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисСоответствие.StandardAttribute.Recorder</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисСоответствие.StandardAttribute.Period</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
+			<name>TotalsControl</name>
+			<value>true</value>
 		</right>
 	</object>
 	<object>
@@ -976,20 +869,6 @@
 		<right>
 			<name>InteractiveClearDeletionMarkPredefinedData</name>
 			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.dateOfProductionSecond</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.updateDate</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -1117,13 +996,6 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.producer</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
 		<name>CommonCommand.ВетисRegionalizationCondition</name>
 		<right>
 			<name>View</name>
@@ -1182,20 +1054,6 @@
 		<right>
 			<name>InteractiveClearDeletionMarkPredefinedData</name>
 			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.expiryDateSecond</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.createDate</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -1404,13 +1262,6 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.vetDocument</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
 		<name>Catalog.ВетисUser</name>
 		<right>
 			<name>Read</name>
@@ -1568,13 +1419,6 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.dateOfProductionFirst</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
 		<name>Catalog.ВетисPackingForm</name>
 		<right>
 			<name>Read</name>
@@ -1619,20 +1463,6 @@
 		<right>
 			<name>InteractiveClearDeletionMarkPredefinedData</name>
 			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисStockEntryList.Dimension.Enterprise</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.Product</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -1961,20 +1791,6 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.expiryDateInformal</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.ProductType</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
 		<name>Constant.ВетисНастройки</name>
 		<right>
 			<name>Read</name>
@@ -2008,21 +1824,7 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.SubProduct</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
 		<name>InformationRegister.ВетисОчередьЗапросов.Resource.ТекстЗапроса</name>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисStockEntryList.Attribute.Unit</name>
 		<right>
 			<name>Edit</name>
 			<value>false</value>

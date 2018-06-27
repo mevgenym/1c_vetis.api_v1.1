@@ -1060,7 +1060,7 @@
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Список складской журнал группа номенклатура</v8:content>
+											<v8:content>Номенклатура</v8:content>
 										</v8:item>
 									</Title>
 									<ToolTip>
@@ -1069,15 +1069,20 @@
 											<v8:content>Список складской журнал группа номенклатура</v8:content>
 										</v8:item>
 									</ToolTip>
+									<ShowInHeader>true</ShowInHeader>
 									<ExtendedTooltip name="СписокСкладскойЖурналГруппаНоменклатураРасширеннаяПодсказка" id="183"/>
 									<ChildItems>
 										<LabelField name="СписокСкладскойЖурналProductItem" id="190">
 											<DataPath>СписокСкладскойЖурнал.ProductItem</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>15</Width>
 											<ContextMenu name="СписокСкладскойЖурналProductItemКонтекстноеМеню" id="191"/>
 											<ExtendedTooltip name="СписокСкладскойЖурналProductItemРасширеннаяПодсказка" id="192"/>
 										</LabelField>
 										<LabelField name="СписокСкладскойЖурналProductItemName" id="509">
 											<DataPath>СписокСкладскойЖурнал.ProductItemName</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>15</Width>
 											<ContextMenu name="СписокСкладскойЖурналProductItemNameКонтекстноеМеню" id="510"/>
 											<ExtendedTooltip name="СписокСкладскойЖурналProductItemNameРасширеннаяПодсказка" id="511"/>
 										</LabelField>
@@ -1127,13 +1132,27 @@
 									<ChildItems>
 										<LabelField name="СписокСкладскойЖурналUnit" id="202">
 											<DataPath>СписокСкладскойЖурнал.Unit</DataPath>
+											<Width>5</Width>
 											<ContextMenu name="СписокСкладскойЖурналUnitКонтекстноеМеню" id="203"/>
 											<ExtendedTooltip name="СписокСкладскойЖурналUnitРасширеннаяПодсказка" id="204"/>
 										</LabelField>
 									</ChildItems>
 								</ColumnGroup>
-								<ColumnGroup name="СписокСкладскойЖурналГруппа1" id="512">
-									<ExtendedTooltip name="СписокСкладскойЖурналГруппа1РасширеннаяПодсказка" id="513"/>
+								<ColumnGroup name="СписокСкладскойЖурналГруппаДатаВыработки" id="512">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата выработки</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список складской журнал группа дата выработки</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="СписокСкладскойЖурналГруппаДатаВыработкиРасширеннаяПодсказка" id="513"/>
 									<ChildItems>
 										<ColumnGroup name="СписокСкладскойЖурналГруппа2" id="514">
 											<Group>InCell</Group>
@@ -1141,6 +1160,7 @@
 											<ChildItems>
 												<LabelField name="СписокСкладскойЖурналdateOfProductionFirst" id="516">
 													<DataPath>СписокСкладскойЖурнал.dateOfProductionFirst</DataPath>
+													<ShowInHeader>false</ShowInHeader>
 													<Width>7</Width>
 													<Format>
 														<v8:item>
@@ -1153,6 +1173,7 @@
 												</LabelField>
 												<LabelField name="СписокСкладскойЖурналdateOfProductionSecond" id="522">
 													<DataPath>СписокСкладскойЖурнал.dateOfProductionSecond</DataPath>
+													<ShowInHeader>false</ShowInHeader>
 													<Width>7</Width>
 													<Format>
 														<v8:item>
@@ -1167,14 +1188,28 @@
 										</ColumnGroup>
 										<LabelField name="СписокСкладскойЖурналdateOfProductionInformal" id="519">
 											<DataPath>СписокСкладскойЖурнал.dateOfProductionInformal</DataPath>
+											<ShowInHeader>false</ShowInHeader>
 											<Width>15</Width>
 											<ContextMenu name="СписокСкладскойЖурналdateOfProductionInformalКонтекстноеМеню" id="520"/>
 											<ExtendedTooltip name="СписокСкладскойЖурналdateOfProductionInformalРасширеннаяПодсказка" id="521"/>
 										</LabelField>
 									</ChildItems>
 								</ColumnGroup>
-								<ColumnGroup name="СписокСкладскойЖурналГруппа3" id="525">
-									<ExtendedTooltip name="СписокСкладскойЖурналГруппа3РасширеннаяПодсказка" id="526"/>
+								<ColumnGroup name="СписокСкладскойЖурналГруппаСрокГодности" id="525">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Срок годности</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список складской журнал группа срок годности</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="СписокСкладскойЖурналГруппаСрокГодностиРасширеннаяПодсказка" id="526"/>
 									<ChildItems>
 										<ColumnGroup name="СписокСкладскойЖурналГруппа4" id="527">
 											<Group>InCell</Group>
@@ -1182,6 +1217,8 @@
 											<ChildItems>
 												<LabelField name="СписокСкладскойЖурналexpiryDateFirst" id="529">
 													<DataPath>СписокСкладскойЖурнал.expiryDateFirst</DataPath>
+													<ShowInHeader>false</ShowInHeader>
+													<Width>7</Width>
 													<Format>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -1193,6 +1230,8 @@
 												</LabelField>
 												<LabelField name="СписокСкладскойЖурналexpiryDateSecond" id="535">
 													<DataPath>СписокСкладскойЖурнал.expiryDateSecond</DataPath>
+													<ShowInHeader>false</ShowInHeader>
+													<Width>7</Width>
 													<Format>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -1206,6 +1245,8 @@
 										</ColumnGroup>
 										<LabelField name="СписокСкладскойЖурналexpiryDateInformal" id="532">
 											<DataPath>СписокСкладскойЖурнал.expiryDateInformal</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>15</Width>
 											<ContextMenu name="СписокСкладскойЖурналexpiryDateInformalКонтекстноеМеню" id="533"/>
 											<ExtendedTooltip name="СписокСкладскойЖурналexpiryDateInformalРасширеннаяПодсказка" id="534"/>
 										</LabelField>
@@ -1227,11 +1268,6 @@
 										</LabelField>
 									</ChildItems>
 								</ColumnGroup>
-								<LabelField name="СписокСкладскойЖурналvetDocument" id="606">
-									<DataPath>СписокСкладскойЖурнал.vetDocument</DataPath>
-									<ContextMenu name="СписокСкладскойЖурналvetDocumentКонтекстноеМеню" id="607"/>
-									<ExtendedTooltip name="СписокСкладскойЖурналvetDocumentРасширеннаяПодсказка" id="608"/>
-								</LabelField>
 								<LabelField name="СписокСкладскойЖурналcreateDate" id="603">
 									<DataPath>СписокСкладскойЖурнал.createDate</DataPath>
 									<ContextMenu name="СписокСкладскойЖурналcreateDateКонтекстноеМеню" id="604"/>
@@ -1255,11 +1291,13 @@
 									<ChildItems>
 										<LabelField name="СписокСкладскойЖурналentryNumber" id="262">
 											<DataPath>СписокСкладскойЖурнал.entryNumber</DataPath>
+											<Width>15</Width>
 											<ContextMenu name="СписокСкладскойЖурналentryNumberКонтекстноеМеню" id="263"/>
 											<ExtendedTooltip name="СписокСкладскойЖурналentryNumberРасширеннаяПодсказка" id="264"/>
 										</LabelField>
 										<LabelField name="СписокСкладскойЖурналguid" id="145">
 											<DataPath>СписокСкладскойЖурнал.guid</DataPath>
+											<Visible>false</Visible>
 											<Width>1</Width>
 											<ContextMenu name="СписокСкладскойЖурналguidКонтекстноеМеню" id="146"/>
 											<ExtendedTooltip name="СписокСкладскойЖурналguidРасширеннаяПодсказка" id="147"/>

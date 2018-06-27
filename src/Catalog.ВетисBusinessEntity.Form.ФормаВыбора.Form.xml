@@ -20,7 +20,6 @@
 			<Representation>List</Representation>
 			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
-			<HeightInTableRows>2</HeightInTableRows>
 			<ChoiceMode>true</ChoiceMode>
 			<UseAlternationRowColor>true</UseAlternationRowColor>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
