@@ -224,50 +224,6 @@
 				//	Продолжить;
 				//КонецЕсли;
 				
-				//объединенные предприятия, надо определить отправитель или получатель наш
-				//Если НЕ _certifiedConsignment = Неопределено
-				//	И НЕ _certifiedConsignment.consignee = Неопределено
-				//	И НЕ _certifiedConsignment.consignor = Неопределено
-				//	И НЕ _certifiedConsignment.consignee.enterprise = Неопределено
-				//	И НЕ _certifiedConsignment.consignor.enterprise = Неопределено Тогда
-				//	
-				//	Если НЕ _certifiedConsignment.consignee.enterprise.guid = _enterpriseGuid
-				//		И НЕ _certifiedConsignment.consignor.enterprise.guid = _enterpriseGuid Тогда
-				//		
-				//		Если НЕ _certifiedConsignment.consignee.enterprise.guid = _enterpriseGuid Тогда
-				//			_enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByGuid(_certifiedConsignment.consignee.enterprise.guid);
-				//			Пока НЕ ЗаписьАктуальна(_enterprise) И ЗначениеЗаполнено(_enterprise.next) Цикл
-				//				_enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByUuid(_enterprise.next);
-				//				Если _enterprise.guid = _enterpriseGuid Тогда
-				//					Прервать;
-				//				КонецЕсли;
-				//			КонецЦикла;
-				//			Если _enterprise.guid = _enterpriseGuid Тогда
-				//				_мз = РегистрыСведений.ВетисEnterpriseAlter.СоздатьМенеджерЗаписи();
-				//				_мз.enterprise = Выборка.Enterprise;
-				//				_мз.enterpriseAlter = ВетисDictionaryСлой1с.Enterprise(_certifiedConsignment.consignee.enterprise.guid);
-				//				_мз.Записать();
-				//			КонецЕсли;
-				//		КонецЕсли;
-				//		
-				//		Если НЕ _certifiedConsignment.consignor.enterprise.guid = _enterpriseGuid Тогда
-				//			_enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByGuid(_certifiedConsignment.consignor.enterprise.guid);
-				//			Пока НЕ ЗаписьАктуальна(_enterprise) И ЗначениеЗаполнено(_enterprise.next) Цикл
-				//				_enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByUuid(_enterprise.next);
-				//				Если _enterprise.guid = _enterpriseGuid Тогда
-				//					Прервать;
-				//				КонецЕсли;
-				//			КонецЦикла;
-				//			Если _enterprise.guid = _enterpriseGuid Тогда
-				//				_мз = РегистрыСведений.ВетисEnterpriseAlter.СоздатьМенеджерЗаписи();
-				//				_мз.enterprise = Выборка.Enterprise;
-				//				_мз.enterpriseAlter = ВетисDictionaryСлой1с.Enterprise(_certifiedConsignment.consignor.enterprise.guid);
-				//				_мз.Записать();
-				//			КонецЕсли;
-				//		КонецЕсли;
-				//	КонецЕсли;
-				//КонецЕсли;
-				
 				_Строка = Документы.ВетисВетеринарноСопроводительныйДокумент.НайтиПоРеквизиту("уид", Новый УникальныйИдентификатор(_vetDocument.uuid));
 				//_Строка = Документы.ВетисВетеринарноСопроводительныйДокумент.НайтиПоРеквизиту("uuid", _vetDocument.uuid);
 				

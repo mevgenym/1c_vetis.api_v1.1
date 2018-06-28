@@ -485,8 +485,7 @@
 		_строкаТТН.Тип            = ВетисArgusShipmentСлой1с.WaybillType(_всд.waybillType);
 		_строкаТТН.Посредник      = ?(_всд.broker = Неопределено, _строкаТТН.Посредник, ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.broker));
 		_строкаТТН.СпособХранения = ВетисArgusShipmentСлой1с.TransportationStorageType(_всд.transportStorageType);
-		//_строкаТТН.Транспорт      = ВетисArgusShipmentСлой1с.TransportInfo(_всд.transportInfo);
-		_СтрокаТТН.НомерТранспорта = ВетисArgusShipmentСлой1с.TransportNumber(_всд.transportInfo, , _СтрокаТТН.НомерПрицепа, _СтрокаТТН.ТипТранспорта);
+		_СтрокаТТН.НомерТранспорта = ВетисArgusShipmentСлой1с.TransportNumber(_всд.transportInfo, _СтрокаТТН.НомерТранспорта, _СтрокаТТН.НомерПрицепа, _СтрокаТТН.НомерКонтейнера, _СтрокаТТН.ТипТранспорта);
 		
 		_строкаСЖ = ?(_док.Товары.Количество() = 0, _док.Товары.Добавить(), _док.Товары[0]);
 		
@@ -543,8 +542,7 @@
 		_всд.consignee          = ВетисCerberusEnterprise.BusinessMember(_consigneeBusinessEntity, _consigneeEnterprise);
 		_всд.purpose            = ВетисArgusCommon.Purpose(ВетисArgusCommonСлой1с.Purpose(_СтрокаВСД.НазначениеГруза));
 		_всд.broker             = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_СтрокаТТН.Посредник));
-		//_всд.transportInfo      = ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
-		_всд.transportInfo      = ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.ТипТранспорта, _СтрокаТТН.НомерТранспорта, _СтрокаТТН.НомерПрицепа);
+		_всд.transportInfo      = ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.ТипТранспорта, _СтрокаТТН.НомерТранспорта, _СтрокаТТН.НомерПрицепа, _СтрокаТТН.НомерКонтейнера);
 		_всд.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
 		_всд.cargoInspected     = _СтрокаВСД.КонтрольГосВетврачем;
 		_всд.cargoExpertized    = _СтрокаВСД.Ветсанэкспертиза;
@@ -666,7 +664,6 @@
 			_СтрокаТТН = ?(_док.ТТН.Количество() = 0, _док.ТТН.Добавить(), _док.ТТН[0]);
 			_СтрокаТТН.Посредник      = ВетисDictionaryСлой1с.BusinessEntity(_всд.certifiedConsignment.broker);
 			_СтрокаТТН.СпособХранения = ВетисDictionaryСлой1с.TransportationStorageType(_всд.certifiedConsignment.transportStorageType);
-			//_СтрокаТТН.Транспорт      = TransportInfo(_всд.certifiedConsignment.transportInfo);
 			_СтрокаТТН.НомерТранспорта = TransportNumber(_всд.certifiedConsignment.transportInfo, , _СтрокаТТН.НомерПрицепа, _СтрокаТТН.НомерКонтейнера, _СтрокаТТН.ТипТранспорта);
 		КонецЕсли;
 		
@@ -678,7 +675,6 @@
 					_Строка.ПунктПерегрузки = ?(_point.location = Неопределено, "", _point.location.name);
 					_Строка.Предприятие     = ВетисDictionaryСлой1с.Enterprise(_point.enterprise);
 					_Строка.ЕстьПерегрузка  = _point.transshipment;
-					//_Строка.Транспорт       = TransportInfo(_point.nextTransport);
 					_Строка.НомерТранспорта = TransportNumber(_point.nextTransport,, _Строка.НомерПрицепа, _СтрокаТТН.НомерКонтейнера, _Строка.ТипТранспорта);
 					Если НЕ _point.location = Неопределено И НЕ _point.location.address = Неопределено Тогда
 						_Строка.Адрес           = _point.location.address.addressView;
@@ -806,7 +802,7 @@
 			ВетисDictionary_2_0.BusinessMember(_consigneeBusinessEntity, _consigneeEnterprise),
 			_batch,
 			ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_СтрокаТТН.Посредник)),
-			TransportInfo(_СтрокаТТН.ТипТранспорта, _СтрокаТТН.НомерТранспорта, _СтрокаТТН.НомерПрицепа, _Строка.НомерКонтейнера),
+			TransportInfo(_СтрокаТТН.ТипТранспорта, _СтрокаТТН.НомерТранспорта, _СтрокаТТН.НомерПрицепа, _СтрокаТТН.НомерКонтейнера),
 			ВетисDictionaryСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения),
 			_ShipmentRoute
 			);

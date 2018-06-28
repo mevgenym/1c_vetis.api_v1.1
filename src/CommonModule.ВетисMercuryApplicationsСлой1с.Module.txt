@@ -239,9 +239,6 @@
 				_waybill = ВетисMercuryVetdocument_2_0.Waybill();
 				_waybill.issueDate     = _ВозвратДата;
 				_waybill.type          = ВетисArgusShipmentСлой1с.WaybillType(_ттн.Тип);
-				//_waybill.broker        = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_ттн.Посредник));
-				//_waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(_ттн.ТипТранспорта, _ттн.НомерТранспорта, _ттн.НомерПрицепа);
-				//_waybill.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_ттн.СпособХранения);
 				
 				//сделать: дополнить количеством коробок на возврат, пока из входящей просто копия
 				_Consignment = ВетисMercuryVetdocumentСлой1с.BatchКонвертировать(_пар, ВетисMercuryVetdocument_2_0.Consignment());
@@ -253,7 +250,7 @@
 					_Consignment,
 					ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(_waybill, _vetDocument),
 					ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_ттн.Посредник)),//пока тот же который привез
-					ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.ТипТранспорта, _ттн.НомерТранспорта, _ттн.НомерПрицепа),//пока тот же который привез
+					ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.ТипТранспорта, _ттн.НомерТранспорта, _ттн.НомерПрицепа, _ттн.НомерКонтейнера),//пока тот же который привез
 					ВетисDictionaryСлой1с.TransportationStorageType(_ттн.СпособХранения)//пока тот же который привез
 					);
 			Иначе
@@ -270,7 +267,7 @@
 				_waybill.issueDate     = _ВозвратДата;
 				_waybill.type          = ВетисArgusShipmentСлой1с.WaybillType(_ттн.Тип);
 				_waybill.broker        = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_ттн.Посредник));
-				_waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(_ттн.ТипТранспорта, _ттн.НомерТранспорта, _ттн.НомерПрицепа);
+				_waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(_ттн.ТипТранспорта, _ттн.НомерТранспорта, _ттн.НомерПрицепа, _ттн.НомерКонтейнера);
 				_waybill.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_ттн.СпособХранения);
 				
 				//сделать: дополнить количеством коробок на возврат, пока из входящей просто копия
@@ -527,7 +524,7 @@
 			_ConsignmentСписок,
 			ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(_waybill, _VetDocumentСписок),
 			ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_ттн.Посредник)),
-			ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.ТипТранспорта, _ттн.НомерТранспорта, _ттн.НомерПрицепа),
+			ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.ТипТранспорта, _ттн.НомерТранспорта, _ттн.НомерПрицепа, _ттн.НомерКонтейнера),
 			ВетисDictionaryСлой1с.TransportationStorageType(_ттн.СпособХранения)
 			);
 		
@@ -545,7 +542,7 @@
 		
 		_VetDocument = ВетисMercuryVetdocument.VetDocument();
 		_VetDocument.purpose            = ВетисArgusCommon.Purpose(ВетисArgusCommonСлой1с.Purpose(_СтрокаВСД.НазначениеГруза));
-		_VetDocument.transportInfo      = ВетисArgusShipmentСлой1с.TransportInfo(_ттн.ТипТранспорта, _ттн.НомерТранспорта, _ттн.НомерПрицепа);
+		_VetDocument.transportInfo      = ВетисArgusShipmentСлой1с.TransportInfo(_ттн.ТипТранспорта, _ттн.НомерТранспорта, _ттн.НомерПрицепа, _ттн.НомерКонтейнера);
 		_VetDocument.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_ттн.СпособХранения);
 		_VetDocument.cargoInspected     = _СтрокаВСД.КонтрольГосВетврачем;
 		_VetDocument.cargoExpertized    = _СтрокаВСД.Ветсанэкспертиза;
@@ -560,7 +557,7 @@
 		_waybill.issueDate     = _ттн.Дата;
 		_waybill.type          = ВетисArgusShipmentСлой1с.WaybillType(_ттн.Тип);
 		_waybill.broker        = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_ттн.Посредник));
-		_waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(_ттн.ТипТранспорта, _ттн.НомерТранспорта, _ттн.НомерПрицепа);
+		_waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(_ттн.ТипТранспорта, _ттн.НомерТранспорта, _ттн.НомерПрицепа, _ттн.НомерКонтейнера);
 		_waybill.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_ттн.СпособХранения);
 		
 		_delivery = ВетисMercuryVetdocument.Delivery(

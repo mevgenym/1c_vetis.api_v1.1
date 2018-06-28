@@ -690,7 +690,6 @@
 											<ChildItems>
 												<Table name="Маркировка" id="746">
 													<HeightInTableRows>1</HeightInTableRows>
-													<AutoInsertNewRow>true</AutoInsertNewRow>
 													<EnableStartDrag>true</EnableStartDrag>
 													<EnableDrag>true</EnableDrag>
 													<DataPath>Объект.Маркировка</DataPath>
@@ -753,7 +752,6 @@
 												</Table>
 												<Table name="Производители" id="930">
 													<HeightInTableRows>1</HeightInTableRows>
-													<AutoInsertNewRow>true</AutoInsertNewRow>
 													<EnableStartDrag>true</EnableStartDrag>
 													<EnableDrag>true</EnableDrag>
 													<DataPath>Объект.Производители</DataPath>
@@ -809,7 +807,6 @@
 												</Table>
 												<Table name="ИДПартии" id="952">
 													<HeightInTableRows>1</HeightInTableRows>
-													<AutoInsertNewRow>true</AutoInsertNewRow>
 													<EnableStartDrag>true</EnableStartDrag>
 													<EnableDrag>true</EnableDrag>
 													<DataPath>Объект.ИДПартии</DataPath>
@@ -1427,7 +1424,6 @@
 					<ChildItems>
 						<Table name="Мероприятия" id="619">
 							<HeightInTableRows>1</HeightInTableRows>
-							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<DataPath>Объект.Мероприятия</DataPath>
@@ -1517,7 +1513,6 @@
 					<ChildItems>
 						<Table name="УсловияПеремещения" id="652">
 							<HeightInTableRows>1</HeightInTableRows>
-							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<DataPath>Объект.УсловияПеремещения</DataPath>
@@ -1589,7 +1584,6 @@
 					<ChildItems>
 						<Table name="СвязанныеДокументы" id="676">
 							<HeightInTableRows>1</HeightInTableRows>
-							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<DataPath>Объект.СвязанныеДокументы</DataPath>
@@ -1737,7 +1731,6 @@
 					<ChildItems>
 						<Table name="statusChange" id="865">
 							<HeightInTableRows>1</HeightInTableRows>
-							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<DataPath>Объект.statusChange</DataPath>
