@@ -135,7 +135,7 @@
 			Если ЗначениеЗаполнено(_всд.uuid) Тогда
 				_VetDocument.uuid = _всд.uuid;
 			Иначе
-				ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать_20(_VetDocument, _всд);
+				ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_VetDocument, _всд);
 			КонецЕсли;
 			
 			_waybill = ВетисArgusShipment.Waybill();
@@ -150,7 +150,7 @@
 			_delivery = ВетисMercuryVetdocument.Delivery(
 				ВетисCerberusEnterprise.BusinessMember(_Отправитель, _ОтправительПредприятие),
 				ВетисCerberusEnterprise.BusinessMember(_Получатель, _ПолучательПредприятие),
-				ВетисMercuryVetdocumentСлой1с.BatchКонвертировать(_пар, ВетисMercuryVetdocument_2_0.Consignment()),
+				ВетисMercuryVetdocumentСлой1с.BatchКонвертировать(_пар, ВетисMercuryVetdocument.Consignment()),
 				ВетисMercuryVetdocument.ConsignmentDocumentList(_waybill, _vetDocument));
 		КонецЕсли;
 		
@@ -302,16 +302,18 @@
 				_всд.Статус = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(?(_Версия20, _vetDocument.vetDStatus, _vetDocument.status));
 				
 				_всд.statusChange.Очистить();
-				Для каждого _statusChange Из _vetDocument.statusChange Цикл
-					_строка = Новый Структура;
-					_строка.Вставить("status",          ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_statusChange.status));
-					_строка.Вставить("specifiedPerson", ВетисMercuryVetdocumentСлой1с.User(_statusChange.specifiedPerson));
-					_строка.Вставить("post",            ?(_statusChange.specifiedPerson = Неопределено, "", _statusChange.specifiedPerson.post));
-					_строка.Вставить("fio",             Строка(_строка.specifiedPerson));
-					_строка.Вставить("actualDateTime",  Ветис.ВремяМестное(_statusChange.actualDateTime));
-					_строка.Вставить("reason",          _statusChange.reason);
-					_всд.statusChange.Добавить(_строка);
-				КонецЦикла;
+				Если _Версия20 Тогда
+					Для каждого _statusChange Из _vetDocument.statusChange Цикл
+						_строка = Новый Структура;
+						_строка.Вставить("status",          ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_statusChange.status));
+						_строка.Вставить("specifiedPerson", ВетисMercuryVetdocumentСлой1с.User(_statusChange.specifiedPerson));
+						_строка.Вставить("post",            ?(_statusChange.specifiedPerson = Неопределено, "", _statusChange.specifiedPerson.post));
+						_строка.Вставить("fio",             Строка(_строка.specifiedPerson));
+						_строка.Вставить("actualDateTime",  Ветис.ВремяМестное(_statusChange.actualDateTime));
+						_строка.Вставить("reason",          _statusChange.reason);
+						_всд.statusChange.Добавить(_строка);
+					КонецЦикла;
+				КонецЕсли;
 				//_всдОбъект = _всд.Ссылка.ПолучитьОбъект();
 				//
 				//Если _Версия20 Тогда
@@ -341,16 +343,18 @@
 					_всд.Статус = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(?(_Версия20, _vetDocument.vetDStatus, _vetDocument.status));
 					
 					_всд.statusChange.Очистить();
-					Для каждого _statusChange Из _vetDocument.statusChange Цикл
-						_строка = Новый Структура;
-						_строка.Вставить("status",          ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_statusChange.status));
-						_строка.Вставить("specifiedPerson", ВетисMercuryVetdocumentСлой1с.User(_statusChange.specifiedPerson));
-						_строка.Вставить("post",            ?(_statusChange.specifiedPerson = Неопределено, "", _statusChange.specifiedPerson.post));
-						_строка.Вставить("fio",             Строка(_строка.specifiedPerson));
-						_строка.Вставить("actualDateTime",  Ветис.ВремяМестное(_statusChange.actualDateTime));
-						_строка.Вставить("reason",          _statusChange.reason);
-						_всд.statusChange.Добавить(_строка);
-					КонецЦикла;
+					Если _Версия20 Тогда
+						Для каждого _statusChange Из _vetDocument.statusChange Цикл
+							_строка = Новый Структура;
+							_строка.Вставить("status",          ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_statusChange.status));
+							_строка.Вставить("specifiedPerson", ВетисMercuryVetdocumentСлой1с.User(_statusChange.specifiedPerson));
+							_строка.Вставить("post",            ?(_statusChange.specifiedPerson = Неопределено, "", _statusChange.specifiedPerson.post));
+							_строка.Вставить("fio",             Строка(_строка.specifiedPerson));
+							_строка.Вставить("actualDateTime",  Ветис.ВремяМестное(_statusChange.actualDateTime));
+							_строка.Вставить("reason",          _statusChange.reason);
+							_всд.statusChange.Добавить(_строка);
+						КонецЦикла;
+					КонецЕсли;
 					//_всдОбъект = _всд.Ссылка.ПолучитьОбъект();
 					//
 					//Если _Версия20 Тогда

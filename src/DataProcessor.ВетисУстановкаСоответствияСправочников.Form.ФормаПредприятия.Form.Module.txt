@@ -413,6 +413,9 @@
 	
 	_СписокВетисСтрока = СписокВетис.Добавить();
 	
+	_СписокВетисСтрока.last = пEnterprise.last;
+	_СписокВетисСтрока.active = пEnterprise.active;
+	
 	_СписокВетисСтрока.guid = пEnterprise.guid;
 	_СписокВетисСтрока.name = пEnterprise.name;
 	_СписокВетисСтрока.type = пEnterprise.type;

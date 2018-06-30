@@ -1,15 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
 	<ScalingMode>Compact</ScalingMode>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаАннулировать" id="65">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаАннулировать</CommandName>
-				<ExtendedTooltip name="ФормаАннулироватьРасширеннаяПодсказка" id="66"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -18,7 +10,6 @@
 			<Representation>List</Representation>
 			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
-			<HeightInTableRows>1</HeightInTableRows>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
 			<DataPath>Список</DataPath>
@@ -65,9 +56,6 @@
 				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="12"/>
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
 			</SearchControlAddition>
-			<Events>
-				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
-			</Events>
 			<ChildItems>
 				<LabelField name="Номер" id="17">
 					<DataPath>Список.Number</DataPath>
@@ -144,11 +132,6 @@
 					<ContextMenu name="КоличествоКонтекстноеМеню" id="71"/>
 					<ExtendedTooltip name="КоличествоРасширеннаяПодсказка" id="72"/>
 				</LabelField>
-				<LabelField name="Тип" id="81">
-					<DataPath>Список.Тип</DataPath>
-					<ContextMenu name="ТипКонтекстноеМеню" id="82"/>
-					<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="83"/>
-				</LabelField>
 				<LabelField name="uuid" id="78">
 					<DataPath>Список.uuid</DataPath>
 					<ContextMenu name="uuidКонтекстноеМеню" id="79"/>
@@ -192,21 +175,4 @@
 			</Settings>
 		</Attribute>
 	</Attributes>
-	<Commands>
-		<Command name="КомандаАннулировать" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Аннулировать</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда аннулировать</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаАннулировать</Action>
-		</Command>
-	</Commands>
 </Form>

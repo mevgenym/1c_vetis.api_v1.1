@@ -475,6 +475,7 @@
 											<ChildItems>
 												<InputField name="СписокВетисowner" id="270">
 													<DataPath>СписокВетис.owner</DataPath>
+													<Visible>false</Visible>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="СписокВетисownerКонтекстноеМеню" id="271"/>
 													<ExtendedTooltip name="СписокВетисownerРасширеннаяПодсказка" id="272"/>
@@ -488,6 +489,20 @@
 												</InputField>
 											</ChildItems>
 										</ColumnGroup>
+										<CheckBoxField name="СписокВетисlast" id="284">
+											<DataPath>СписокВетис.last</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="СписокВетисlastКонтекстноеМеню" id="285"/>
+											<ExtendedTooltip name="СписокВетисlastРасширеннаяПодсказка" id="286"/>
+										</CheckBoxField>
+										<CheckBoxField name="СписокВетисactive" id="287">
+											<DataPath>СписокВетис.active</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="СписокВетисactiveКонтекстноеМеню" id="288"/>
+											<ExtendedTooltip name="СписокВетисactiveРасширеннаяПодсказка" id="289"/>
+										</CheckBoxField>
 									</ChildItems>
 								</ColumnGroup>
 							</ChildItems>
@@ -784,6 +799,28 @@
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Link</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="last" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Last</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="active" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Active</v8:content>
 						</v8:item>
 					</Title>
 					<Type>

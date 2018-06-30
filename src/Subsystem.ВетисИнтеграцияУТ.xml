@@ -131,9 +131,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">FunctionalOption.ВетисВидимостьGuid</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисВидимостьGuid</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисИнвентаризация</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">2bef9589-b524-47e8-af1c-b376036120e0</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисГраницыЗапросов</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">7ac2a140-d1bd-4baa-98ed-35a30ad60fd9</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисEnterpriseRole</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисPackageList</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисProductMarks</xr:Item>
@@ -145,6 +143,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисПользователи</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисОсновнойПользователь</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommandGroup.ВетисАдресныйКлассификатор</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисStreet</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>
