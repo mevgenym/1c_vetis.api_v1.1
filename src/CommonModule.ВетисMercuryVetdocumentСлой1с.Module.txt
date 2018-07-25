@@ -423,10 +423,8 @@
 	
 	Если ТипЗнч(value) = Тип("ДокументСсылка.ВетисВетеринарноСопроводительныйДокумент") Тогда
 		Возврат value.uuid;
-	ИначеЕсли ТипЗнч(value) = Тип("ОбъектXDTO") Тогда
-		Возврат Документы.ВетисВетеринарноСопроводительныйДокумент.НайтиПоРеквизиту("uuid", value.uuid);
 	Иначе
-		Возврат Документы.ВетисВетеринарноСопроводительныйДокумент.НайтиПоРеквизиту("uuid", value);
+		Возврат Ветис.Соответствие_ПолучитьСсылку(value, "Документ.ВетисВетеринарноСопроводительныйДокумент");
 	КонецЕсли;
 	
 КонецФункции
@@ -443,7 +441,6 @@
 		_док.ПометкаУдаления = Ложь;
 		
 		_док.uuid = _всд.uuid;
-		_док.уид  = Новый УникальныйИдентификатор(_всд.uuid);
 		
 		_док.СерияВСД = _всд.issueSeries;
 		_док.НомерВСД = _всд.issueNumber;
@@ -451,6 +448,8 @@
 		_док.Тип      = VetDocumentType(_всд.type);
 		_док.Статус   = VetDocumentStatus(_всд.status);
 		_док.Форма    = VetDocumentForm(_всд.form);
+		
+		//_док.ДатаВСД  = ?(_док.Статус = Перечисления.ВетисVetDocumentStatus.Оформлен, _всд.lastUpdateDate, _всд.issueDate);
 		
 		Если НЕ _всд.consignor = Неопределено Тогда
 			_док.Отправитель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.consignor.businessEntity);
@@ -606,7 +605,6 @@
 		_док.ПометкаУдаления = Ложь;
 		
 		_док.uuid = _всд.uuid;
-		_док.уид  = Новый УникальныйИдентификатор(_всд.uuid);
 		
 		_док.СерияВСД = _всд.issueSeries;
 		_док.НомерВСД = _всд.issueNumber;
@@ -698,9 +696,9 @@
 				_Строка.Тип = ВетисDictionaryСлой1с.DocumentType(_document.type);
 				_Строка.ТипОтношения = ВетисDictionaryСлой1с.ReferenceType(_document.relationshipType);
 				
-				//пробую так сделать, возможно здесь есть недостающие сведения о ТТН
-				//проверено на ВСД с типом Транспортная накладная, т.е. ттн ищем по типу отношения сопроводительный документ
-				Если _Строка.ТипОтношения = Перечисления.ВетисReferenceType.ComplementaryDocument Тогда
+				Если _Строка.ТипОтношения = Перечисления.ВетисReferenceType.ComplementaryDocument 
+					И (_Строка.Тип = Перечисления.ВетисDocumentType.ТовароТранспортнаяНакладная
+					ИЛИ _Строка.Тип = Перечисления.ВетисDocumentType.ТранспортнаяНакладная) Тогда
 					_СтрокаТТН.Серия = _Строка.Серия;
 					_СтрокаТТН.Номер = _Строка.Номер;
 					_СтрокаТТН.Дата = _Строка.Дата;
@@ -779,32 +777,40 @@
 		_всд.issueDate            = _док.ДатаВСД;
 		_всд.vetDForm             = VetDocumentForm(_док.Форма);
 		
-		_Номер = 0;
-		_ShipmentRoute = Новый Массив;
-		
-		Для каждого _Строка Из _док.МаршрутСледования Цикл
-			_Номер = _Номер + 1;
-			_ShipmentRoute.Добавить(ВетисMercuryVetdocument_2_0.ShipmentRoutePoint(
-				_Номер,
-				ВетисDictionary_2_0.Location(_Строка.ПунктПерегрузки,
-					ВетисDictionary_2_0.Address(_Строка.Адрес,
-						ВетисDictionaryСлой1с.Country(_Строка.Страна),
-						ВетисDictionaryСлой1с.Region(_Строка.Регион),
-						ВетисDictionaryСлой1с.District(_Строка.Район),
-						ВетисDictionaryСлой1с.Locality(_Строка.НаселенныйПункт))),
-				ВетисDictionaryСлой1с.Enterprise(_Строка.Предприятие),
-				_Строка.ЕстьПерегрузка,
-				TransportInfo(_Строка.ТипТранспорта, _Строка.НомерТранспорта, _Строка.НомерПрицепа, _Строка.НомерКонтейнера)
-			));
-		КонецЦикла;
+		_ShipmentRoute = Неопределено;
+		_brocker = Неопределено;
+		_TransportInfo = Неопределено;
+		_TransportationStorageType = Неопределено;
+		Если НЕ _consignorEnterprise = _consigneeEnterprise Тогда
+			_Номер = 0;
+			_ShipmentRoute = Новый Массив;
+			Для каждого _Строка Из _док.МаршрутСледования Цикл
+				_Номер = _Номер + 1;
+				_ShipmentRoute.Добавить(ВетисMercuryVetdocument_2_0.ShipmentRoutePoint(
+					_Номер,
+					ВетисDictionary_2_0.Location(_Строка.ПунктПерегрузки,
+						ВетисDictionary_2_0.Address(_Строка.Адрес,
+							ВетисDictionaryСлой1с.Country(_Строка.Страна),
+							ВетисDictionaryСлой1с.Region(_Строка.Регион),
+							ВетисDictionaryСлой1с.District(_Строка.Район),
+							ВетисDictionaryСлой1с.Locality(_Строка.НаселенныйПункт))),
+					ВетисDictionaryСлой1с.Enterprise(_Строка.Предприятие),
+					_Строка.ЕстьПерегрузка,
+					TransportInfo(_Строка.ТипТранспорта, _Строка.НомерТранспорта, _Строка.НомерПрицепа, _Строка.НомерКонтейнера)
+				));
+			КонецЦикла;
+			_brocker = ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_СтрокаТТН.Посредник));
+			_TransportInfo = TransportInfo(_СтрокаТТН.ТипТранспорта, _СтрокаТТН.НомерТранспорта, _СтрокаТТН.НомерПрицепа, _СтрокаТТН.НомерКонтейнера);
+			_TransportationStorageType = ВетисDictionaryСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
+		КонецЕсли;
 		
 		_всд.certifiedConsignment = ВетисMercuryVetdocument_2_0.CertifiedConsignment(
 			ВетисDictionary_2_0.BusinessMember(_consignorBusinessEntity, _consignorEnterprise),
 			ВетисDictionary_2_0.BusinessMember(_consigneeBusinessEntity, _consigneeEnterprise),
 			_batch,
-			ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_СтрокаТТН.Посредник)),
-			TransportInfo(_СтрокаТТН.ТипТранспорта, _СтрокаТТН.НомерТранспорта, _СтрокаТТН.НомерПрицепа, _СтрокаТТН.НомерКонтейнера),
-			ВетисDictionaryСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения),
+			_brocker,
+			_TransportInfo,
+			_TransportationStorageType,
 			_ShipmentRoute
 			);
 		
@@ -1189,7 +1195,12 @@
 			КонецЕсли;
 		КонецЦикла;
 		
-		Если ЗначениеЗаполнено(_СтрокаСЖ.ProductItem) Тогда
+		//Если ЗначениеЗаполнено(_СтрокаСЖ.ProductItem) Тогда
+		//	_productItem = ВетисDictionary_2_0.ProductItem(ВетисDictionaryСлой1с.ProductItem(_СтрокаСЖ.ProductItem));
+		//Иначе
+		//	_productItem = ВетисDictionary_2_0.ProductItem(, _строкаСЖ.ProductItemName);
+		//КонецЕсли;
+		Если _строкаСЖ.ProductItemName="" Тогда
 			_productItem = ВетисDictionary_2_0.ProductItem(ВетисDictionaryСлой1с.ProductItem(_СтрокаСЖ.ProductItem));
 		Иначе
 			_productItem = ВетисDictionary_2_0.ProductItem(, _строкаСЖ.ProductItemName);

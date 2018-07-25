@@ -71,7 +71,7 @@
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="16"/>
 				</LabelField>
 				<LabelField name="guid" id="28">
-					<DataPath>Список.уид</DataPath>
+					<DataPath>Список.guid</DataPath>
 					<ContextMenu name="guidКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="guidРасширеннаяПодсказка" id="30"/>
 				</LabelField>

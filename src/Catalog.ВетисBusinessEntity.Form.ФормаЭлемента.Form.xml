@@ -198,6 +198,31 @@
 											<ContextMenu name="statusКонтекстноеМеню" id="72"/>
 											<ExtendedTooltip name="statusРасширеннаяПодсказка" id="73"/>
 										</InputField>
+										<InputField name="createDate" id="86">
+											<DataPath>createDate</DataPath>
+											<ContextMenu name="createDateКонтекстноеМеню" id="87"/>
+											<ExtendedTooltip name="createDateРасширеннаяПодсказка" id="88"/>
+										</InputField>
+										<InputField name="updateDate" id="83">
+											<DataPath>updateDate</DataPath>
+											<ContextMenu name="updateDateКонтекстноеМеню" id="84"/>
+											<ExtendedTooltip name="updateDateРасширеннаяПодсказка" id="85"/>
+										</InputField>
+										<InputField name="previous" id="77">
+											<DataPath>previous</DataPath>
+											<ContextMenu name="previousКонтекстноеМеню" id="78"/>
+											<ExtendedTooltip name="previousРасширеннаяПодсказка" id="79"/>
+										</InputField>
+										<InputField name="next" id="80">
+											<DataPath>next</DataPath>
+											<ContextMenu name="nextКонтекстноеМеню" id="81"/>
+											<ExtendedTooltip name="nextРасширеннаяПодсказка" id="82"/>
+										</InputField>
+										<LabelField name="уид" id="74">
+											<DataPath>уид</DataPath>
+											<ContextMenu name="уидКонтекстноеМеню" id="75"/>
+											<ExtendedTooltip name="уидРасширеннаяПодсказка" id="76"/>
+										</LabelField>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -206,12 +231,6 @@
 				</Page>
 			</ChildItems>
 		</Pages>
-		<InputField name="Комментарий" id="46">
-			<DataPath>Объект.Комментарий</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<ContextMenu name="КомментарийКонтекстноеМеню" id="47"/>
-			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="48"/>
-		</InputField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -220,6 +239,61 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="уид" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Уид</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:UUID</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="next" id="3">
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВетисEnterprise</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="previous" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Previous</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВетисEnterprise</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="createDate" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Create date</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="updateDate" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Update date</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
 		</Attribute>
 	</Attributes>
 	<Commands>

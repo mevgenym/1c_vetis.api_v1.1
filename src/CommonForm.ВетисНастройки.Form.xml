@@ -259,6 +259,11 @@
 									<ContextMenu name="СписокПользователиЛогинКонтекстноеМеню" id="400"/>
 									<ExtendedTooltip name="СписокПользователиЛогинРасширеннаяПодсказка" id="401"/>
 								</LabelField>
+								<LabelField name="СписокПользователиНастройка" id="405">
+									<DataPath>СписокПользователи.Настройка</DataPath>
+									<ContextMenu name="СписокПользователиНастройкаКонтекстноеМеню" id="406"/>
+									<ExtendedTooltip name="СписокПользователиНастройкаРасширеннаяПодсказка" id="407"/>
+								</LabelField>
 							</ChildItems>
 						</Table>
 					</ChildItems>

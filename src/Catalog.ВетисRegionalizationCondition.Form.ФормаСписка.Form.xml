@@ -161,7 +161,7 @@
 							<ExtendedTooltip name="ЗаболеваниеРасширеннаяПодсказка" id="30"/>
 						</LabelField>
 						<LabelField name="guid" id="36">
-							<DataPath>Список.уид</DataPath>
+							<DataPath>Список.guid</DataPath>
 							<ContextMenu name="guidКонтекстноеМеню" id="37"/>
 							<ExtendedTooltip name="guidРасширеннаяПодсказка" id="38"/>
 						</LabelField>

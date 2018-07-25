@@ -302,12 +302,16 @@
 // пПараметры     - для внутреннего использования, начальное значение - Неопределено
 //Возвращаемое значение:
 // Булево         - Ложь значит список пройден весь
-Функция getVetDocumentListNext(enterpriseGuid, issuerId = Неопределено, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция getVetDocumentListNext(enterpriseGuid, issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
 		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
 		пПараметры.Вставить("Индекс", 0);
-		пПараметры.Вставить("ListRequest", getVetDocumentListRequest(enterpriseGuid, vetDocumentType, vetDocumentStatus));
+		//пПараметры.Вставить("ListRequest", getVetDocumentListRequest(enterpriseGuid, vetDocumentType, vetDocumentStatus));
+		пПараметры.Вставить("ListRequest", getVetDocumentListRequest(enterpriseGuid,
+			?(пПараметры.Свойство("vetDocumentType"), пПараметры.vetDocumentType, Неопределено),
+			?(пПараметры.Свойство("vetDocumentStatus"), пПараметры.vetDocumentStatus, Неопределено),
+			ВетисBase.ListOptions(?(пПараметры.Свойство("count"), пПараметры.count, Неопределено))));
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
 		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
@@ -319,11 +323,11 @@
 			КонецЕсли;
 		Иначе
 			пItem = пПараметры.ListResponse.vetDocument[пПараметры.Индекс];
-			//по отбору приходят ВСД с другим типом, пока ставлю ограничение здесь
-			Если НЕ vetDocumentType = Неопределено И НЕ пItem.type = vetDocumentType
-				ИЛИ НЕ vetDocumentStatus = Неопределено И НЕ пItem.status = vetDocumentStatus Тогда
-				Возврат getVetDocumentListNext(enterpriseGuid, issuerId, vetDocumentType, vetDocumentStatus, пItem, пПараметры);
-			КонецЕсли;
+			////по отбору приходят ВСД с другим типом, пока ставлю ограничение здесь
+			//Если НЕ vetDocumentType = Неопределено И НЕ пItem.type = vetDocumentType
+			//	ИЛИ НЕ vetDocumentStatus = Неопределено И НЕ пItem.status = vetDocumentStatus Тогда
+			//	Возврат getVetDocumentListNext(enterpriseGuid, issuerId, vetDocumentType, vetDocumentStatus, пItem, пПараметры);
+			//КонецЕсли;
 			Возврат Истина;
 		КонецЕсли;
 	КонецЕсли;
@@ -340,11 +344,11 @@
 		Возврат Ложь;
 	Иначе
 		пItem = пПараметры.ListResponse.vetDocument[пПараметры.Индекс];
-		//по отбору приходят ВСД с другим типом, пока ставлю ограничение здесь
-		Если НЕ vetDocumentType = Неопределено И НЕ пItem.type = vetDocumentType
-			ИЛИ НЕ vetDocumentStatus = Неопределено И НЕ пItem.status = vetDocumentStatus Тогда
-			Возврат getVetDocumentListNext(enterpriseGuid, issuerId, vetDocumentType, vetDocumentStatus, пItem, пПараметры);
-		КонецЕсли;
+		////по отбору приходят ВСД с другим типом, пока ставлю ограничение здесь
+		//Если НЕ vetDocumentType = Неопределено И НЕ пItem.type = vetDocumentType
+		//	ИЛИ НЕ vetDocumentStatus = Неопределено И НЕ пItem.status = vetDocumentStatus Тогда
+		//	Возврат getVetDocumentListNext(enterpriseGuid, issuerId, vetDocumentType, vetDocumentStatus, пItem, пПараметры);
+		//КонецЕсли;
 		Возврат Истина;
 	КонецЕсли;
 	
@@ -816,6 +820,24 @@
 
 Функция Прокси(пИмяОперации, пRequest, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "")
 	
-	Возврат Ветис.ВыполнитьЗапрос(Перечисления.ВетисСервис.amsMercuryService, пИмяОперации, ФабрикаWS(), пRequest, issuerId, пОтказ, пОшибка);
+	_Параметры = Новый Структура;
+	_Параметры.Вставить("Сервис", Перечисления.ВетисСервис.amsMercuryService);
+	_Параметры.Вставить("ИмяОперации", пИмяОперации);
+	_Параметры.Вставить("Фабрика", ФабрикаWS());
+	_Параметры.Вставить("Настройка", issuerId);
+	
+	_Ответ = Ветис.ВыполнитьЗапрос(пRequest, _Параметры);
+	
+	Если _Ответ.Отказ = Истина Тогда
+		пОтказ = _Ответ.Отказ;
+		пОшибка = _Ответ.ТекстОшибки;
+		Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстОшибки, пИмяОперации, "Запрос");
+		Возврат Неопределено;
+	Иначе
+		Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстЗапроса, пИмяОперации, "Запрос");
+		Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстОтветаЗаявки, пИмяОперации, "Запрос");
+		Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстОтвета, пИмяОперации, "Ответ");
+		Возврат _Ответ.Объект;
+	КонецЕсли;
 	
 КонецФункции

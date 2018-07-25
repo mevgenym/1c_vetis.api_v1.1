@@ -273,6 +273,44 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаОтборАдресРасширеннаяПодсказка" id="261"/>
 							<ChildItems>
+								<UsualGroup name="ГруппаОтборСтрана" id="290">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа отбор страна</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа отбор страна</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОтборСтранаРасширеннаяПодсказка" id="291"/>
+									<ChildItems>
+										<CheckBoxField name="ОтборСтранаИспользование" id="292">
+											<DataPath>ОтборСтранаИспользование</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ОтборСтранаИспользованиеКонтекстноеМеню" id="293"/>
+											<ExtendedTooltip name="ОтборСтранаИспользованиеРасширеннаяПодсказка" id="294"/>
+											<Events>
+												<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<InputField name="ОтборСтрана" id="295">
+											<DataPath>ОтборСтрана</DataPath>
+											<ContextMenu name="ОтборСтранаКонтекстноеМеню" id="296"/>
+											<ExtendedTooltip name="ОтборСтранаРасширеннаяПодсказка" id="297"/>
+											<Events>
+												<Event name="OnChange">ОтборСтранаПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
 								<UsualGroup name="ГруппаОтборРегион" id="230">
 									<Title>
 										<v8:item>
@@ -303,6 +341,13 @@
 										</CheckBoxField>
 										<InputField name="ОтборРегион" id="156">
 											<DataPath>ОтборРегион</DataPath>
+											<ChoiceParameterLinks>
+												<xr:Link>
+													<xr:Name>Отбор.Country</xr:Name>
+													<xr:DataPath xsi:type="xs:string">ОтборСтрана</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+											</ChoiceParameterLinks>
 											<InputHint>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -349,8 +394,13 @@
 											<DataPath>ОтборРайон</DataPath>
 											<ChoiceParameterLinks>
 												<xr:Link>
-													<xr:Name>Отбор.Регион</xr:Name>
+													<xr:Name>Отбор.Region</xr:Name>
 													<xr:DataPath xsi:type="xs:string">ОтборРегион</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+												<xr:Link>
+													<xr:Name>Отбор.Country</xr:Name>
+													<xr:DataPath xsi:type="xs:string">ОтборСтрана</xr:DataPath>
 													<xr:ValueChange>Clear</xr:ValueChange>
 												</xr:Link>
 											</ChoiceParameterLinks>
@@ -574,13 +624,20 @@
 							<ChildItems>
 								<LabelField name="СправочникСписокНаименование" id="201">
 									<DataPath>СправочникСписок.Description</DataPath>
+									<Width>10</Width>
 									<ContextMenu name="СправочникСписокНаименованиеКонтекстноеМеню" id="202"/>
 									<ExtendedTooltip name="СправочникСписокНаименованиеРасширеннаяПодсказка" id="203"/>
 								</LabelField>
-								<LabelField name="СправочникСписокguid" id="275">
-									<DataPath>СправочникСписок.guid</DataPath>
-									<ContextMenu name="СправочникСписокguidКонтекстноеМеню" id="276"/>
-									<ExtendedTooltip name="СправочникСписокguidРасширеннаяПодсказка" id="277"/>
+								<LabelField name="СправочникСписокaddressView" id="298">
+									<DataPath>СправочникСписок.addressView</DataPath>
+									<Width>10</Width>
+									<ContextMenu name="СправочникСписокaddressViewКонтекстноеМеню" id="299"/>
+									<ExtendedTooltip name="СправочникСписокaddressViewРасширеннаяПодсказка" id="300"/>
+								</LabelField>
+								<LabelField name="СправочникСписокeOwner" id="301">
+									<DataPath>СправочникСписок.eOwner</DataPath>
+									<ContextMenu name="СправочникСписокeOwnerКонтекстноеМеню" id="302"/>
+									<ExtendedTooltip name="СправочникСписокeOwnerРасширеннаяПодсказка" id="303"/>
 								</LabelField>
 								<LabelField name="СправочникСписокBusinessEntity" id="278">
 									<DataPath>СправочникСписок.BusinessEntity</DataPath>
@@ -850,15 +907,17 @@
 	_Таблица.Ссылка,
 	_Таблица.Наименование,
 	_Таблица.guid,
+	_Таблица.eOwner,
+	_Таблица.addressView,
 	ВетисBusinessMembers.BusinessEntity,
 	ВетисBusinessMembers.ВСервисе
 ИЗ
 	Справочник.ВетисEnterprise КАК _Таблица
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисBusinessMembers КАК ВетисBusinessMembers
 		ПО (ВетисBusinessMembers.Enterprise = _Таблица.Ссылка)
-		И ВетисBusinessMembers.BusinessEntity = &amp;BusinessEntity
+			И (ВетисBusinessMembers.BusinessEntity = &amp;BusinessEntity)
 ГДЕ
-	Истина</QueryText>
+	ИСТИНА</QueryText>
 				<MainTable>Catalog.ВетисEnterprise</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -1063,6 +1122,34 @@
 			</Type>
 			<Save>
 				<Field>ОтборНомерИспользование</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборСтрана" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страна</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВетисCountry</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборСтрана</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборСтранаИспользование" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор страна использование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборСтранаИспользование</Field>
 			</Save>
 		</Attribute>
 		<ConditionalAppearance>

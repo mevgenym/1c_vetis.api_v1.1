@@ -147,11 +147,27 @@
 							<ContextMenu name="ТоварыКонтекстноеМеню" id="15"/>
 							<AutoCommandBar name="ТоварыКоманднаяПанель" id="16">
 								<ChildItems>
-									<Button name="ТоварыКомандаЗаполнитьПоОстаткам" id="171">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.КомандаЗаполнитьПоОстаткам</CommandName>
-										<ExtendedTooltip name="ТоварыКомандаЗаполнитьПоОстаткамРасширеннаяПодсказка" id="172"/>
-									</Button>
+									<Popup name="ТоварыГруппа11" id="249">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Заполнить</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ТоварыГруппа11РасширеннаяПодсказка" id="250"/>
+										<ChildItems>
+											<Button name="ТоварыКомандаЗаполнитьПоОстаткам" id="171">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.КомандаЗаполнитьПоОстаткам</CommandName>
+												<ExtendedTooltip name="ТоварыКомандаЗаполнитьПоОстаткамРасширеннаяПодсказка" id="172"/>
+											</Button>
+											<Button name="ТоварыКомандаЗаполнитьПоМакету" id="247">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.КомандаЗаполнитьПоМакету</CommandName>
+												<ExtendedTooltip name="ТоварыКомандаЗаполнитьПоМакетуРасширеннаяПодсказка" id="248"/>
+											</Button>
+										</ChildItems>
+									</Popup>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="ТоварыРасширеннаяПодсказка" id="17"/>
@@ -371,6 +387,7 @@
 										<InputField name="ТоварыПроизводительПредприятие" id="196">
 											<DataPath>Объект.Товары.ПроизводительПредприятие</DataPath>
 											<EditMode>EnterOnInput</EditMode>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="ТоварыПроизводительПредприятиеКонтекстноеМеню" id="197"/>
 											<ExtendedTooltip name="ТоварыПроизводительПредприятиеРасширеннаяПодсказка" id="198"/>
 										</InputField>
@@ -623,6 +640,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаОтправить</Action>
+		</Command>
+		<Command name="КомандаЗаполнитьПоМакету" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по таблице</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда заполнить по макету</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаЗаполнитьПоМакету</Action>
 		</Command>
 	</Commands>
 </Form>

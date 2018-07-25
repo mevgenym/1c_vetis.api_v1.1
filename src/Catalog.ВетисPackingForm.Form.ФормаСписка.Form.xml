@@ -11,6 +11,11 @@
 				<CommandName>Form.Command.Заполнить</CommandName>
 				<ExtendedTooltip name="ФормаЗаполнитьРасширеннаяПодсказка" id="18"/>
 			</Button>
+			<Button name="ФормаКоманда1" id="28">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Команда1</CommandName>
+				<ExtendedTooltip name="ФормаКоманда1РасширеннаяПодсказка" id="29"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -79,7 +84,7 @@
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="guid" id="25">
-					<DataPath>Список.уид</DataPath>
+					<DataPath>~Список.уид</DataPath>
 					<ContextMenu name="guidКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="guidРасширеннаяПодсказка" id="27"/>
 				</LabelField>
@@ -130,6 +135,9 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Заполнить</Action>
+		</Command>
+		<Command name="Команда1" id="2">
+			<Action>Команда1</Action>
 		</Command>
 	</Commands>
 </Form>

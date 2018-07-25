@@ -1,0 +1,174 @@
+﻿
+Процедура ОбработкаЗаполнения(ДанныеЗаполнения, ТекстЗаполнения, СтандартнаяОбработка)
+	
+	Если ТипЗнч(ДанныеЗаполнения) = Тип("ОбъектXDTO") Тогда
+		_Версия20 = Ветис.Версия_2_0();
+		_ВетисIkarСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисIkarСлой1с);
+		_ВетисArgusCommonСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
+		_ВетисMercuryApplications = ?(_Версия20, ВетисMercuryApplications_2_0, ВетисMercuryApplications);
+		_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
+		_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+		
+		_stockEntry = ДанныеЗаполнения;
+		
+		ПометкаУдаления = Ложь;
+		guid = _stockEntry.guid;
+		last = _stockEntry.last;
+		active = _stockEntry.active;
+		status = ВетисBaseСлой1с.VersionStatus(_stockEntry.Status);
+		
+		Код = _stockEntry.entryNumber;
+		
+		updateDate = Ветис.ВремяМестное(_stockEntry.updateDate);// xs:dateTime
+		
+		ProductType = _ВетисArgusProductionСлой1с.productType(_stockEntry.batch.productType);
+		Product     = _ВетисArgusProductionСлой1с.Product(_stockEntry.batch.product);
+		SubProduct  = _ВетисArgusProductionСлой1с.SubProduct(_stockEntry.batch.subProduct);
+		ProductItem = _ВетисArgusProductionСлой1с.ProductItem(_stockEntry.batch.productItem);
+		ProductItemName = _stockEntry.batch.productItem.name;
+		
+		Unit        = _ВетисArgusCommonСлой1с.Unit(_stockEntry.batch.unit);
+		volume      = _stockEntry.batch.volume;
+		
+		Если НЕ ЗначениеЗаполнено(_stockEntry.previous) Тогда
+			//createDate меняется в каждой версии, поэтому надо брать только из первой
+			//будем считать, что первая это та в которой previous не заполнен
+			createDate = Ветис.ВремяМестное(_stockEntry.createDate);// xs:dateTime
+			//начальный объем тоже сохраняем, в веб он отображается
+			volume1 = _stockEntry.batch.volume;
+		КонецЕсли;
+		
+		Если _Версия20 Тогда
+			
+			seOwner = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_stockEntry.batch.owner);
+			
+			Если НЕ _stockEntry.batch.packageList = Неопределено Тогда
+				_pl = PackageList;
+				_pl.Очистить();
+				_pm = ProductMarks;
+				_pm.Очистить();
+				_plКлючСтроки = 1;
+				Для каждого _package Из _stockEntry.batch.packageList.package Цикл
+					_plСтрока = _pl.Добавить();
+					_plСтрока.level = ВетисDictionaryСлой1с.PackageLevelType(_package.level);
+					_plСтрока.packingType = ВетисDictionaryСлой1с.PackingType(_package.packingType);
+					_plСтрока.packingAmount = _package.quantity;
+					_plСтрока.КлючСтроки = _plКлючСтроки;
+					Для каждого _productMarks Из _package.productMarks Цикл
+						_pmСтрока = _pm.Добавить();
+						_pmСтрока.КлючСвязи = _plКлючСтроки;
+						_pmСтрока.value = _productMarks.__content;
+						_pmСтрока.class = ВетисDictionaryСлой1с.ProductMarkingClass(_productMarks.class);
+					КонецЦикла;
+					_plКлючСтроки = _plКлючСтроки + 1;
+				КонецЦикла;
+			КонецЕсли;
+			
+			Если НЕ _stockEntry.batch.origin = Неопределено Тогда
+				Если НЕ _stockEntry.batch.origin.producer = Неопределено И ProducerList.Количество() = 0 Тогда
+					__stockEntry = Неопределено;
+					//ProducerList.Очистить();
+					Для каждого _producer Из _stockEntry.batch.origin.producer Цикл
+						_Строка = ProducerList.Добавить();
+						_Строка.producer = _ВетисCerberusEnterpriseСлой1с.Enterprise(_producer.enterprise);
+						Если ЗначениеЗаполнено(_Строка.producer) Тогда
+							_Строка.producerName = _Строка.producer.Наименование;
+						ИначеЕсли ЗначениеЗаполнено(_producer.enterprise.name) Тогда
+							_Строка.producerName = _producer.enterprise.name;
+						//ИначеЕсли ЗначениеЗаполнено(_Строка.producerName) Тогда
+						//	//упрощенный вариант
+						//	//если уже есть, через костыль обновлять не будем
+						Иначе
+							//2018-07-11
+							//костыль
+							//сделать: проверить, возможно исправили
+							//операции getStockEntryList, getStockEntryChangesList
+							//возращают пустые значения producer.enterprise.guid И producer.enterprise.name
+							//операция getStockEntryByGuid возращает с заполненными полями
+							_Отказ = Ложь;
+							__stockEntry = _ВетисMercuryApplications.getStockEntryByGuid(_stockEntry.guid, Enterprise.guid, BusinessEntity, _Отказ);
+							Если НЕ _Отказ Тогда
+								Прервать;
+							КонецЕсли;
+						КонецЕсли;
+					КонецЦикла;
+					//костыль
+					Если НЕ __stockEntry = Неопределено Тогда
+						ProducerList.Очистить();
+						Для каждого _producer Из __stockEntry.batch.origin.producer Цикл
+							_Строка = ProducerList.Добавить();
+							_Строка.producer = _ВетисCerberusEnterpriseСлой1с.Enterprise(_producer.enterprise);
+							Если ЗначениеЗаполнено(_Строка.producer) Тогда
+								_Строка.producerName = _Строка.producer.Наименование;
+							ИначеЕсли ЗначениеЗаполнено(_producer.enterprise.name) Тогда
+								_Строка.producerName = _producer.enterprise.name;
+							Иначе
+								//сюда не должны попасть
+							КонецЕсли;
+						КонецЦикла;
+					КонецЕсли;
+				КонецЕсли;
+				//Если НЕ _stockEntry.batch.origin.productItem = Неопределено Тогда
+				//	producerProductItem = _ВетисArgusProductionСлой1с.ProductItem(_stockEntry.batch.origin.productItem);
+				//КонецЕсли;
+				country = _ВетисIkarСлой1с.Country(_stockEntry.batch.origin.country);
+			КонецЕсли;
+			
+			//VetDocumentList.Очистить();
+			//Для каждого _vetDocument Из _stockEntry.vetDocument Цикл
+			//	_Строка = VetDocumentList.Добавить();
+			//	_Строка.vetDocument = ВетисMercuryVetdocumentСлой1с.VetDocument(_vetDocument);
+			//КонецЦикла;
+			
+			dateOfProductionFirst = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.dateOfProduction.firstDate, Истина);
+			dateOfProductionSecond = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.dateOfProduction.secondDate, Истина);
+			dateOfProductionInformal = _stockEntry.batch.dateOfProduction.informalDate;
+			
+			expiryDateFirst = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.expiryDate.firstDate, Истина);
+			expiryDateSecond = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.expiryDate.secondDate, Истина);
+			expiryDateInformal = _stockEntry.batch.expiryDate.informalDate;
+			
+		КонецЕсли;
+		
+	КонецЕсли;
+	
+КонецПроцедуры
+
+Процедура ПередЗаписью(Отказ)
+	
+	Если ОбменДанными.Загрузка Тогда
+		Возврат;
+	КонецЕсли;
+	
+	productMarking = "";
+	Для каждого _Строка Из ProductMarks Цикл
+		productMarking = productMarking + ?(productMarking="","",",") + _Строка.value;
+	КонецЦикла;
+	
+	producerName = "";
+	Для каждого _Строка Из ProducerList Цикл
+		producer = _Строка.producer;
+		producerName = producerName + ?(producerName="","",",") + _Строка.producerName;
+	КонецЦикла;
+	
+	packingAmount = 0;
+	Для каждого _Строка Из PackageList Цикл
+		packingAmount = packingAmount + _Строка.packingAmount;
+	КонецЦикла;
+	
+	Если ЗначениеЗаполнено(dateOfProductionInformal) Тогда
+		dateOfProduction = dateOfProductionInformal;
+	Иначе
+		dateOfProduction = формат(dateOfProductionFirst, "ДЛФ=D") + ?(ЗначениеЗаполнено(dateOfProductionSecond), " - " + формат(dateOfProductionSecond, "ДЛФ=D"), "");
+	КонецЕсли;
+	
+	Если ЗначениеЗаполнено(expiryDateInformal) Тогда
+		expiryDate = expiryDateInformal;
+	Иначе
+		expiryDate = формат(expiryDateFirst, "ДЛФ=D") + ?(ЗначениеЗаполнено(expiryDateSecond), " - " + формат(expiryDateSecond, "ДЛФ=D"), "");
+	КонецЕсли;
+	
+	Наименование = ProductItemName;
+	Представление = ProductItemName;
+	
+КонецПроцедуры

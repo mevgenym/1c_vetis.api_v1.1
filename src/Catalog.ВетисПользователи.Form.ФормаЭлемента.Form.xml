@@ -169,6 +169,11 @@
 					</ToolTip>
 					<ExtendedTooltip name="ГруппаВетисРасширеннаяПодсказка" id="51"/>
 					<ChildItems>
+						<InputField name="Настройка" id="52">
+							<DataPath>Объект.Настройка</DataPath>
+							<ContextMenu name="НастройкаКонтекстноеМеню" id="53"/>
+							<ExtendedTooltip name="НастройкаРасширеннаяПодсказка" id="54"/>
+						</InputField>
 						<InputField name="Логин" id="10">
 							<DataPath>Объект.Логин</DataPath>
 							<EditMode>EnterOnInput</EditMode>

@@ -41,37 +41,60 @@
 				<xr:Common>false</xr:Common>
 			</Visibility>
 		</Command>
-		<Command name="CommonCommand.ВетисProductMarks">
+		<Command name="CommonCommand.ВетисXSD">
 			<Visibility>
 				<xr:Common>false</xr:Common>
 			</Visibility>
 		</Command>
-		<Command name="CommonCommand.ВетисPackageList">
+		<Command name="CommonCommand.ВетисStockEntryList">
+			<Visibility>
+				<xr:Common>false</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="0:0d4d295b-6f1c-48cf-8592-65777609b980">
+			<Visibility>
+				<xr:Common>false</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="0:f12a81fb-1c99-4f28-a19d-fae180331562">
+			<Visibility>
+				<xr:Common>false</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисСоответствие">
 			<Visibility>
 				<xr:Common>false</xr:Common>
 			</Visibility>
 		</Command>
 	</CommandsVisibility>
 	<CommandsOrder>
-		<Command name="Catalog.ЕдиницыИзмерения.StandardCommand.OpenList">
-			<CommandGroup>NavigationPanelOrdinary</CommandGroup>
+		<Command name="CommonCommand.ВетисCountry">
+			<CommandGroup>CommandGroup.ВетисАдресныйКлассификатор</CommandGroup>
 		</Command>
-		<Command name="Catalog.КлассификаторЕдиницИзмерения.StandardCommand.OpenList">
-			<CommandGroup>NavigationPanelOrdinary</CommandGroup>
+		<Command name="CommonCommand.ВетисRegion">
+			<CommandGroup>CommandGroup.ВетисАдресныйКлассификатор</CommandGroup>
 		</Command>
-		<Command name="Catalog.Контрагенты.StandardCommand.OpenList">
-			<CommandGroup>NavigationPanelOrdinary</CommandGroup>
+		<Command name="CommonCommand.ВетисDistrict">
+			<CommandGroup>CommandGroup.ВетисАдресныйКлассификатор</CommandGroup>
 		</Command>
-		<Command name="Catalog.Номенклатура.StandardCommand.OpenList">
-			<CommandGroup>NavigationPanelOrdinary</CommandGroup>
+		<Command name="CommonCommand.ВетисLocality">
+			<CommandGroup>CommandGroup.ВетисАдресныйКлассификатор</CommandGroup>
 		</Command>
-		<Command name="Catalog.НоменклатурныеГруппы.StandardCommand.OpenList">
-			<CommandGroup>NavigationPanelOrdinary</CommandGroup>
+		<Command name="CommonCommand.ВетисProduct">
+			<CommandGroup>CommandGroup.ВетисСправочникПродукции</CommandGroup>
+		</Command>
+		<Command name="CommonCommand.ВетисSubProduct">
+			<CommandGroup>CommandGroup.ВетисСправочникПродукции</CommandGroup>
+		</Command>
+		<Command name="CommonCommand.ВетисProductItem">
+			<CommandGroup>CommandGroup.ВетисСправочникПродукции</CommandGroup>
 		</Command>
 	</CommandsOrder>
 	<GroupsOrder>
 		<Group>NavigationPanelOrdinary</Group>
 		<Group>NavigationPanelSeeAlso</Group>
 		<Group>ActionsPanelTools</Group>
+		<Group>CommandGroup.ВетисАдресныйКлассификатор</Group>
+		<Group>CommandGroup.ВетисСправочникПродукции</Group>
 	</GroupsOrder>
 </CommandInterface>

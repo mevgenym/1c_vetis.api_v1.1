@@ -115,25 +115,11 @@
 					<ContextMenu name="ПолучательПредприятиеКонтекстноеМеню" id="66"/>
 					<ExtendedTooltip name="ПолучательПредприятиеРасширеннаяПодсказка" id="67"/>
 				</LabelField>
-				<LabelField name="ProductType" id="71">
-					<DataPath>Список.ProductType</DataPath>
-					<ContextMenu name="ProductTypeКонтекстноеМеню" id="72"/>
-					<ExtendedTooltip name="ProductTypeРасширеннаяПодсказка" id="73"/>
-				</LabelField>
-				<LabelField name="Product" id="74">
-					<DataPath>Список.Product</DataPath>
-					<ContextMenu name="ProductКонтекстноеМеню" id="75"/>
-					<ExtendedTooltip name="ProductРасширеннаяПодсказка" id="76"/>
-				</LabelField>
-				<LabelField name="SubProduct" id="80">
-					<DataPath>Список.SubProduct</DataPath>
-					<ContextMenu name="SubProductКонтекстноеМеню" id="81"/>
-					<ExtendedTooltip name="SubProductРасширеннаяПодсказка" id="82"/>
-				</LabelField>
-				<LabelField name="ProductItem" id="77">
-					<DataPath>Список.ProductItem</DataPath>
-					<ContextMenu name="ProductItemКонтекстноеМеню" id="78"/>
-					<ExtendedTooltip name="ProductItemРасширеннаяПодсказка" id="79"/>
+				<LabelField name="ProductItemName" id="95">
+					<DataPath>Список.ProductItemName</DataPath>
+					<Width>10</Width>
+					<ContextMenu name="ProductItemNameКонтекстноеМеню" id="96"/>
+					<ExtendedTooltip name="ProductItemNameРасширеннаяПодсказка" id="97"/>
 				</LabelField>
 				<LabelField name="Количество" id="53">
 					<DataPath>Список.Количество</DataPath>
@@ -152,11 +138,20 @@
 					<ContextMenu name="СрокГодностиКонтекстноеМеню" id="87"/>
 					<ExtendedTooltip name="СрокГодностиРасширеннаяПодсказка" id="88"/>
 				</LabelField>
-				<LabelField name="uuid" id="68">
-					<DataPath>Список.uuid</DataPath>
-					<Width>15</Width>
-					<ContextMenu name="uuidКонтекстноеМеню" id="69"/>
-					<ExtendedTooltip name="uuidРасширеннаяПодсказка" id="70"/>
+				<LabelField name="Производитель" id="98">
+					<DataPath>Список.Производитель</DataPath>
+					<ContextMenu name="ПроизводительКонтекстноеМеню" id="99"/>
+					<ExtendedTooltip name="ПроизводительРасширеннаяПодсказка" id="100"/>
+				</LabelField>
+				<LabelField name="НомерТТН" id="92">
+					<DataPath>Список.НомерТТН</DataPath>
+					<ContextMenu name="НомерТТНКонтекстноеМеню" id="93"/>
+					<ExtendedTooltip name="НомерТТНРасширеннаяПодсказка" id="94"/>
+				</LabelField>
+				<LabelField name="ДатаТТН" id="89">
+					<DataPath>Список.ДатаТТН</DataPath>
+					<ContextMenu name="ДатаТТНКонтекстноеМеню" id="90"/>
+					<ExtendedTooltip name="ДатаТТНРасширеннаяПодсказка" id="91"/>
 				</LabelField>
 			</ChildItems>
 		</Table>

@@ -2,10 +2,22 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
+			<Button name="ФормаОбновить" id="33">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<OnlyInAllActions>true</OnlyInAllActions>
+				<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
+				<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="34"/>
+			</Button>
 			<Button name="ФормаКомандаУстановить" id="25">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.КомандаУстановить</CommandName>
 				<ExtendedTooltip name="ФормаКомандаУстановитьРасширеннаяПодсказка" id="26"/>
+			</Button>
+			<Button name="ФормаКомандаНастроитьСвязь" id="41">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаНастроитьСвязь</CommandName>
+				<ExtendedTooltip name="ФормаКомандаНастроитьСвязьРасширеннаяПодсказка" id="42"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -98,6 +110,23 @@
 					<ContextMenu name="ГраницаКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ГраницаРасширеннаяПодсказка" id="24"/>
 				</LabelField>
+				<LabelField name="Смещение" id="30">
+					<DataPath>Список.Смещение</DataPath>
+					<ContextMenu name="СмещениеКонтекстноеМеню" id="31"/>
+					<ExtendedTooltip name="СмещениеРасширеннаяПодсказка" id="32"/>
+				</LabelField>
+				<CheckBoxField name="Использовать" id="38">
+					<DataPath>Список.Использовать</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ИспользоватьКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ИспользоватьРасширеннаяПодсказка" id="40"/>
+				</CheckBoxField>
+				<CheckBoxField name="Свой" id="35">
+					<DataPath>Список.Свой</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СвойКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="СвойРасширеннаяПодсказка" id="37"/>
+				</CheckBoxField>
 			</ChildItems>
 		</Table>
 	</ChildItems>
@@ -108,8 +137,21 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>false</ManualQuery>
+				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	РегистрСведенийВетисГраницыЗапросов.BusinessEntity,
+	РегистрСведенийВетисГраницыЗапросов.Enterprise,
+	РегистрСведенийВетисГраницыЗапросов.Операция,
+	РегистрСведенийВетисГраницыЗапросов.Граница,
+	РегистрСведенийВетисГраницыЗапросов.Смещение,
+	ВетисBusinessMembers.Использовать,
+	ВетисBusinessMembers.Свой
+ИЗ
+	РегистрСведений.ВетисГраницыЗапросов КАК РегистрСведенийВетисГраницыЗапросов
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисBusinessMembers КАК ВетисBusinessMembers
+		ПО РегистрСведенийВетисГраницыЗапросов.Enterprise = ВетисBusinessMembers.Enterprise
+			И РегистрСведенийВетисГраницыЗапросов.BusinessEntity = ВетисBusinessMembers.BusinessEntity</QueryText>
 				<MainTable>InformationRegister.ВетисГраницыЗапросов</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -145,6 +187,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаУстановить</Action>
+		</Command>
+		<Command name="КомандаНастроитьСвязь" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настроить связь</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда настроить связь</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаНастроитьСвязь</Action>
 		</Command>
 	</Commands>
 </Form>

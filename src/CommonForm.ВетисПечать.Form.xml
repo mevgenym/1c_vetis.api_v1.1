@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаКомандаПечать" id="4">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаПечать</CommandName>
+				<ExtendedTooltip name="ФормаКомандаПечатьРасширеннаяПодсказка" id="5"/>
+			</Button>
+			<Button name="ФормаКомандаПечатьДиалог" id="26">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаПечатьДиалог</CommandName>
+				<ExtendedTooltip name="ФормаКомандаПечатьДиалогРасширеннаяПодсказка" id="27"/>
+			</Button>
+			<Button name="ФормаКомандаМеню" id="24">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.КомандаМеню</CommandName>
+				<ExtendedTooltip name="ФормаКомандаМенюРасширеннаяПодсказка" id="25"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаМеню" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа меню</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа меню</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаМенюРасширеннаяПодсказка" id="10"/>
+			<ChildItems>
+				<InputField name="Шрифт" id="11">
+					<DataPath>ШрифтНачертание</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ContextMenu name="ШрифтКонтекстноеМеню" id="12"/>
+					<ExtendedTooltip name="ШрифтРасширеннаяПодсказка" id="13"/>
+				</InputField>
+				<UsualGroup name="Группа2" id="17">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="18"/>
+					<ChildItems>
+						<InputField name="РазмерШрифта" id="6">
+							<DataPath>РазмерШрифта</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<SpinButton>true</SpinButton>
+							<ContextMenu name="РазмерШрифтаКонтекстноеМеню" id="7"/>
+							<ExtendedTooltip name="РазмерШрифтаРасширеннаяПодсказка" id="8"/>
+							<Events>
+								<Event name="OnChange">РазмерШрифтаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="Масштаб" id="21">
+							<DataPath>Масштаб</DataPath>
+							<SpinButton>true</SpinButton>
+							<ContextMenu name="МасштабКонтекстноеМеню" id="22"/>
+							<ExtendedTooltip name="МасштабРасширеннаяПодсказка" id="23"/>
+							<Events>
+								<Event name="OnChange">МасштабПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа3" id="19">
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="20"/>
+					<ChildItems>
+						<CheckBoxField name="АвтоМасштаб" id="14">
+							<DataPath>АвтоМасштаб</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="АвтоМасштабКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="АвтоМасштабРасширеннаяПодсказка" id="16"/>
+							<Events>
+								<Event name="OnChange">АвтоМасштабПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<SpreadSheetDocumentField name="Результат" id="1">
+			<DataPath>Результат</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<VerticalScrollBar>true</VerticalScrollBar>
+			<HorizontalScrollBar>true</HorizontalScrollBar>
+			<Edit>true</Edit>
+			<ContextMenu name="РезультатКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="РезультатРасширеннаяПодсказка" id="3"/>
+			<Events>
+				<Event name="OnActivateArea">РезультатПриАктивизацииОбласти</Event>
+				<Event name="Selection">РезультатВыбор</Event>
+			</Events>
+		</SpreadSheetDocumentField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Результат" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РазмерШрифта" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Размер шрифта</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ШрифтНачертание" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шрифт начертание</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="АвтоМасштаб" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Авто масштаб</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Масштаб" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Масштаб</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДиалогПечати" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Диалог печати</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаПечать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда печать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПечать</Action>
+		</Command>
+		<Command name="КомандаМеню" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Меню</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда меню</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаМеню</Action>
+		</Command>
+		<Command name="КомандаПечатьДиалог" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать диалог</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда печать диалог</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПечатьДиалог</Action>
+		</Command>
+	</Commands>
+</Form>

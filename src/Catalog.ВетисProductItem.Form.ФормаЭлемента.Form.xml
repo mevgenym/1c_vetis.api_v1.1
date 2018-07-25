@@ -14,7 +14,7 @@
 			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
 		</InputField>
 		<LabelField name="уид" id="4">
-			<DataPath>Объект.уид</DataPath>
+			<DataPath>1/0:42a42f27-b7a1-41ed-8ea8-997d613161e6</DataPath>
 			<EditMode>EnterOnInput</EditMode>
 			<ContextMenu name="уидКонтекстноеМеню" id="5"/>
 			<ExtendedTooltip name="уидРасширеннаяПодсказка" id="6"/>

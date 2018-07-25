@@ -523,8 +523,8 @@
 	
 	_Объект = Создать("TransportInfo");
 	
-	_Объект.transportType   = transportType;
-	_Объект.transportNumber = transportNumber;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportType, "transportType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportNumber, "transportNumber");
 	
 	Возврат _Объект;
 	

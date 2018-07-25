@@ -330,39 +330,6 @@
 				<Field>ОтборРайон</Field>
 			</Save>
 		</Attribute>
-		<ConditionalAppearance>
-			<dcsset:item>
-				<dcsset:selection>
-					<dcsset:item>
-						<dcsset:field>Наименование</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Страна</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Регион</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Район</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>guid</dcsset:field>
-					</dcsset:item>
-				</dcsset:selection>
-				<dcsset:filter>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">Список.guid</dcsset:left>
-						<dcsset:comparisonType>Filled</dcsset:comparisonType>
-					</dcsset:item>
-				</dcsset:filter>
-				<dcsset:appearance>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>ЦветФона</dcscor:parameter>
-						<dcscor:value xsi:type="v8ui:Color">#CCFFCC</dcscor:value>
-					</dcscor:item>
-				</dcsset:appearance>
-			</dcsset:item>
-		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
 		<Command name="КомандаЗаполнить" id="1">

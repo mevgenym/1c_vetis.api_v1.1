@@ -481,6 +481,7 @@
 				</Properties>
 			</Attribute>
 			<Form>ФормаДокумента</Form>
+			<Form>ФормаЗаполнитьПоМакету</Form>
 			<TabularSection uuid="2940fbf3-55fd-4dcb-b7c3-b1d1f6fc877b">
 				<InternalInfo>
 					<xr:GeneratedType name="DocumentTabularSection.ВетисИнвентаризация.Товары" category="TabularSection">

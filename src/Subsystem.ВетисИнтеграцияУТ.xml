@@ -76,7 +76,6 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисEnterprise</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисProductMarkingClass</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисResearchResult</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисStockEntryList</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисRegionalizationService_2_0</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисRegion</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисDistrict</xr:Item>
@@ -133,10 +132,6 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисИнвентаризация</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисГраницыЗапросов</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисEnterpriseRole</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисPackageList</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисProductMarks</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисPackageList</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисProductMarks</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">FilterCriterion.ВетисСвязанныеДокументы</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисСервис</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисRegionalizationDecision</xr:Item>
@@ -144,6 +139,18 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисОсновнойПользователь</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommandGroup.ВетисАдресныйКлассификатор</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисStreet</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисСтатусТранзакции</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.ВетисПечать</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисНаправлениеОперации</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисОтветственныеСобытие</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">3aedfbe2-9933-4c53-bc47-d471ee13aa81</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">4f766ed0-66b9-43c4-9b64-a6173ac72516</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">fb43f19d-0e54-40b4-9ab1-77299da89d2a</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">50fa289d-9671-43c0-b92a-c6959e75bd95</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисStockEntry</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">ExchangePlan.ВетисКлиенты</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисПланОбмена</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисСинхронизвать</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

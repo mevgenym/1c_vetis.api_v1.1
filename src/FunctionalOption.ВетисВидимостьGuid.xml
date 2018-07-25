@@ -13,24 +13,6 @@
 			<Location>Constant.ВетисВидимостьGuid</Location>
 			<PrivilegedGetMode>true</PrivilegedGetMode>
 			<Content>
-				<xr:Object>Catalog.ВетисAnimalDisease.Attribute.уид</xr:Object>
-				<xr:Object>Catalog.ВетисBusinessEntity.Attribute.уид</xr:Object>
-				<xr:Object>Catalog.ВетисCountry.Attribute.уид</xr:Object>
-				<xr:Object>Catalog.ВетисDistrict.Attribute.уид</xr:Object>
-				<xr:Object>Catalog.ВетисEnterprise.Attribute.уид</xr:Object>
-				<xr:Object>Catalog.ВетисEnterpriseActivity.Attribute.уид</xr:Object>
-				<xr:Object>Catalog.ВетисIncorporationForm.Attribute.уид</xr:Object>
-				<xr:Object>Catalog.ВетисLocality.Attribute.уид</xr:Object>
-				<xr:Object>Catalog.ВетисPackingForm.Attribute.уид</xr:Object>
-				<xr:Object>Catalog.ВетисProduct.Attribute.уид</xr:Object>
-				<xr:Object>Catalog.ВетисProductItem.Attribute.уид</xr:Object>
-				<xr:Object>Catalog.ВетисPurpose.Attribute.уид</xr:Object>
-				<xr:Object>Catalog.ВетисRegion.Attribute.уид</xr:Object>
-				<xr:Object>Catalog.ВетисRegionalizationCondition.Attribute.уид</xr:Object>
-				<xr:Object>Catalog.ВетисSubProduct.Attribute.уид</xr:Object>
-				<xr:Object>Catalog.ВетисUnit.Attribute.уид</xr:Object>
-				<xr:Object>Catalog.ВетисUser.Attribute.уид</xr:Object>
-				<xr:Object>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.уид</xr:Object>
 				<xr:Object>Catalog.ВетисAnimalDisease.Attribute.guid</xr:Object>
 				<xr:Object>Catalog.ВетисBusinessEntity.Attribute.guid</xr:Object>
 				<xr:Object>Catalog.ВетисCountry.Attribute.guid</xr:Object>

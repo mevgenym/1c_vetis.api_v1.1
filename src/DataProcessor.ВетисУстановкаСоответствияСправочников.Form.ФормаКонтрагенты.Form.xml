@@ -337,6 +337,44 @@
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
+								<UsualGroup name="ГруппаОтборСтрана" id="299">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа отбор страна</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа отбор страна</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОтборСтранаРасширеннаяПодсказка" id="300"/>
+									<ChildItems>
+										<CheckBoxField name="ОтборСтранаИспользование" id="301">
+											<DataPath>ОтборСтранаИспользование</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ОтборСтранаИспользованиеКонтекстноеМеню" id="302"/>
+											<ExtendedTooltip name="ОтборСтранаИспользованиеРасширеннаяПодсказка" id="303"/>
+											<Events>
+												<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<InputField name="ОтборСтрана" id="304">
+											<DataPath>ОтборСтрана</DataPath>
+											<ContextMenu name="ОтборСтранаКонтекстноеМеню" id="305"/>
+											<ExtendedTooltip name="ОтборСтранаРасширеннаяПодсказка" id="306"/>
+											<Events>
+												<Event name="OnChange">ОтборСтранаПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
 								<UsualGroup name="ГруппаОтборРегион" id="221">
 									<Title>
 										<v8:item>
@@ -367,6 +405,13 @@
 										</CheckBoxField>
 										<InputField name="ОтборРегион" id="197">
 											<DataPath>ОтборРегион</DataPath>
+											<ChoiceParameterLinks>
+												<xr:Link>
+													<xr:Name>Отбор.Country</xr:Name>
+													<xr:DataPath xsi:type="xs:string">ОтборСтрана</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+											</ChoiceParameterLinks>
 											<InputHint>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -413,8 +458,13 @@
 											<DataPath>ОтборРайон</DataPath>
 											<ChoiceParameterLinks>
 												<xr:Link>
-													<xr:Name>Отбор.Регион</xr:Name>
+													<xr:Name>Отбор.Region</xr:Name>
 													<xr:DataPath xsi:type="xs:string">ОтборРегион</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+												<xr:Link>
+													<xr:Name>Отбор.Country</xr:Name>
+													<xr:DataPath xsi:type="xs:string">ОтборСтрана</xr:DataPath>
 													<xr:ValueChange>Clear</xr:ValueChange>
 												</xr:Link>
 											</ChoiceParameterLinks>
@@ -432,6 +482,25 @@
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОтбор3" id="307">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор3</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор3</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтбор3РасширеннаяПодсказка" id="308"/>
+							<ChildItems>
 								<UsualGroup name="ГруппаОтборТип" id="254">
 									<Title>
 										<v8:item>
@@ -767,7 +836,7 @@
 									<ExtendedTooltip name="СправочникСписокНаименованиеРасширеннаяПодсказка" id="156"/>
 								</LabelField>
 								<LabelField name="СправочникСписокguid" id="289">
-									<DataPath>СправочникСписок.уид</DataPath>
+									<DataPath>~СправочникСписок.уид</DataPath>
 									<ContextMenu name="СправочникСписокguidКонтекстноеМеню" id="290"/>
 									<ExtendedTooltip name="СправочникСписокguidРасширеннаяПодсказка" id="291"/>
 								</LabelField>
@@ -1280,6 +1349,34 @@
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
+		</Attribute>
+		<Attribute name="ОтборСтрана" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страна</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВетисCountry</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборСтрана</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборСтранаИспользование" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор страна использование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборСтранаИспользование</Field>
+			</Save>
 		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>

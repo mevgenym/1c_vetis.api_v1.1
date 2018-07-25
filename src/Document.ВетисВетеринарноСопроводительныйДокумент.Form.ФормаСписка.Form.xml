@@ -132,10 +132,31 @@
 					<ContextMenu name="КоличествоКонтекстноеМеню" id="71"/>
 					<ExtendedTooltip name="КоличествоРасширеннаяПодсказка" id="72"/>
 				</LabelField>
-				<LabelField name="uuid" id="78">
+				<LabelField name="НомерТТН" id="102">
+					<DataPath>Список.НомерТТН</DataPath>
+					<ContextMenu name="НомерТТНКонтекстноеМеню" id="103"/>
+					<ExtendedTooltip name="НомерТТНРасширеннаяПодсказка" id="104"/>
+				</LabelField>
+				<LabelField name="ДатаТТН" id="99">
+					<DataPath>Список.ДатаТТН</DataPath>
+					<ContextMenu name="ДатаТТНКонтекстноеМеню" id="100"/>
+					<ExtendedTooltip name="ДатаТТНРасширеннаяПодсказка" id="101"/>
+				</LabelField>
+				<LabelField name="Транзакция" id="108">
+					<DataPath>Список.Транзакция</DataPath>
+					<ContextMenu name="ТранзакцияКонтекстноеМеню" id="109"/>
+					<ExtendedTooltip name="ТранзакцияРасширеннаяПодсказка" id="110"/>
+				</LabelField>
+				<LabelField name="ОтветственныйВетис" id="105">
+					<DataPath>Список.ОтветственныйВетис</DataPath>
+					<ContextMenu name="ОтветственныйВетисКонтекстноеМеню" id="106"/>
+					<ExtendedTooltip name="ОтветственныйВетисРасширеннаяПодсказка" id="107"/>
+				</LabelField>
+				<LabelField name="uuid" id="111">
 					<DataPath>Список.uuid</DataPath>
-					<ContextMenu name="uuidКонтекстноеМеню" id="79"/>
-					<ExtendedTooltip name="uuidРасширеннаяПодсказка" id="80"/>
+					<Width>10</Width>
+					<ContextMenu name="uuidКонтекстноеМеню" id="112"/>
+					<ExtendedTooltip name="uuidРасширеннаяПодсказка" id="113"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
@@ -153,8 +174,38 @@
 				<Field>Список.Ref</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>false</ManualQuery>
+				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	_Таблица.Ссылка,
+	_Таблица.ПометкаУдаления,
+	_Таблица.Номер,
+	_Таблица.Дата,
+	_Таблица.Проведен,
+	_Таблица.uuid,
+	_Таблица.НомерВСД,
+	_Таблица.ДатаВСД,
+	_Таблица.НомерТТН,
+	_Таблица.ДатаТТН,
+	_Таблица.Тип,
+	_Таблица.Статус,
+	_Таблица.Форма,
+	_Таблица.Отправитель,
+	_Таблица.ОтправительПредприятие,
+	_Таблица.Получатель,
+	_Таблица.ПолучательПредприятие,
+	_Таблица.ProductItemName,
+	_Таблица.ДатаВыработки,
+	_Таблица.СрокГодности,
+	_Таблица.СтранаПроисхождения,
+	_Таблица.Производитель,
+	_Таблица.Количество,
+	_Таблица.ОтветственныйВетис,
+	_Транзакция.Ссылка КАК Транзакция
+ИЗ
+	Документ.ВетисВетеринарноСопроводительныйДокумент КАК _Таблица
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ВетисТранспортнаяПартия.Партии КАК _Транзакция
+		ПО _Таблица.Ссылка = _Транзакция.ВСД</QueryText>
 				<MainTable>Document.ВетисВетеринарноСопроводительныйДокумент</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -175,4 +226,36 @@
 			</Settings>
 		</Attribute>
 	</Attributes>
+	<Commands>
+		<Command name="КомандаОтборСписокВСДСтатус" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статусы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда отбор список ВСДСтатус</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтборСписокВСДСтатус</Action>
+		</Command>
+		<Command name="КомандаОтборСписокВСДТип" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Типы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда отбор список ВСДТип</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтборСписокВСДТип</Action>
+		</Command>
+	</Commands>
 </Form>

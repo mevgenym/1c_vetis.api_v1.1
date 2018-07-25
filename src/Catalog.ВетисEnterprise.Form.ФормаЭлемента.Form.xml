@@ -296,6 +296,16 @@
 											<ContextMenu name="statusКонтекстноеМеню" id="107"/>
 											<ExtendedTooltip name="statusРасширеннаяПодсказка" id="108"/>
 										</InputField>
+										<InputField name="createDate" id="124">
+											<DataPath>createDate</DataPath>
+											<ContextMenu name="createDateКонтекстноеМеню" id="125"/>
+											<ExtendedTooltip name="createDateРасширеннаяПодсказка" id="126"/>
+										</InputField>
+										<InputField name="updateDate" id="127">
+											<DataPath>updateDate</DataPath>
+											<ContextMenu name="updateDateКонтекстноеМеню" id="128"/>
+											<ExtendedTooltip name="updateDateРасширеннаяПодсказка" id="129"/>
+										</InputField>
 										<InputField name="next" id="118">
 											<DataPath>Объект.next</DataPath>
 											<ContextMenu name="nextКонтекстноеМеню" id="119"/>
@@ -306,6 +316,11 @@
 											<ContextMenu name="previousКонтекстноеМеню" id="116"/>
 											<ExtendedTooltip name="previousРасширеннаяПодсказка" id="117"/>
 										</InputField>
+										<LabelField name="уид" id="121">
+											<DataPath>уид</DataPath>
+											<ContextMenu name="уидКонтекстноеМеню" id="122"/>
+											<ExtendedTooltip name="уидРасширеннаяПодсказка" id="123"/>
+										</LabelField>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -334,9 +349,43 @@
 				<v8:Type>cfg:CatalogRef.ВетисEnterprise</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="next" id="3">
+		<Attribute name="уид" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Уид</v8:content>
+				</v8:item>
+			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.ВетисEnterprise</v8:Type>
+				<v8:Type>v8:UUID</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="createDate" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Create date</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="updateDate" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Update date</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
 			</Type>
 		</Attribute>
 	</Attributes>

@@ -61,11 +61,10 @@
 		_Отказ = Ложь;
 		_Ошибка = "";
 		_Item = Неопределено;
-		_параметры = Неопределено;
-		_sp = ВетисMercuryVetdocument_2_0.StockEntrySearchPattern(ВетисКонстанты.StockEntryBlankFilter_NOT_BLANK());
+		_параметры = Новый Структура("searchPattern", ВетисКонстанты.StockEntryBlankFilter_NOT_BLANK());
 		
 		Попытка
-			Пока ВетисMercuryApplications_2_0.GetStockEntryListNext(_enterpriseGuid, _sp, _businessEntityGuid, _Item, _параметры, _Отказ, _Ошибка) Цикл
+			Пока ВетисMercuryApplications_2_0.GetStockEntryListNext(_enterpriseGuid, _businessEntityGuid, _Item, _параметры, _Отказ, _Ошибка) Цикл
 				Если _Отказ = Истина Тогда
 					Прервать; 
 				КонецЕсли;
@@ -102,7 +101,7 @@
 		_параметры = Неопределено;
 		
 		Попытка
-			Пока ВетисMercuryApplications_2_0.GetVetDocumentListNext(_enterpriseGuid, _businessEntityGuid, , ВетисКонстанты.VetDocumentStatus_CONFIRMED(), _Item, _параметры, _Отказ, _Ошибка) Цикл
+			Пока ВетисMercuryApplications_2_0.GetVetDocumentListNext(_enterpriseGuid, _businessEntityGuid, ВетисКонстанты.VetDocumentType_INCOMING(), ВетисКонстанты.VetDocumentStatus_CONFIRMED(), _Item, _параметры, _Отказ, _Ошибка) Цикл
 				Если _Отказ = Истина Тогда
 					Прервать;
 				КонецЕсли;
@@ -114,6 +113,11 @@
 				//		_тест = _package.Свойства().Получить("globalID");
 				//	КонецЦикла;
 				//КонецЕсли;
+			КонецЦикла;
+			Пока ВетисMercuryApplications_2_0.GetVetDocumentListNext(_enterpriseGuid, _businessEntityGuid, ВетисКонстанты.VetDocumentType_OUTGOING(), ВетисКонстанты.VetDocumentStatus_CONFIRMED(), _Item, _параметры, _Отказ, _Ошибка) Цикл
+				Если _Отказ = Истина Тогда
+					Прервать;
+				КонецЕсли;
 			КонецЦикла;
 			
 			ОтчетДополнить("GetVetDocumentList", ?(_Отказ, _Ошибка, "Ок (total:"+_параметры.ListResponse.total+")"));
