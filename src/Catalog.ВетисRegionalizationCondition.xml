@@ -62,7 +62,7 @@
 			<DefaultObjectForm>Catalog.ВетисRegionalizationCondition.Form.ФормаЭлемента</DefaultObjectForm>
 			<DefaultFolderForm/>
 			<DefaultListForm>Catalog.ВетисRegionalizationCondition.Form.ФормаСписка</DefaultListForm>
-			<DefaultChoiceForm>Catalog.ВетисRegionalizationCondition.Form.ФормаВыбора</DefaultChoiceForm>
+			<DefaultChoiceForm/>
 			<DefaultFolderChoiceForm/>
 			<AuxiliaryObjectForm/>
 			<AuxiliaryFolderForm/>
@@ -473,7 +473,6 @@
 			</TabularSection>
 			<Form>ФормаСписка</Form>
 			<Form>ФормаЭлемента</Form>
-			<Form>ФормаВыбора</Form>
 		</ChildObjects>
 	</Catalog>
 </MetaDataObject>

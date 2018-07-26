@@ -210,10 +210,11 @@
 			<EventSubscription>ВетисПриУстановкеНовогоКода</EventSubscription>
 			<EventSubscription>ВетисПриУстановкеНовогоНомера</EventSubscription>
 			<ScheduledJob>ВетисОчередьЗапросов</ScheduledJob>
-			<ScheduledJob>ВетисСинхронизвация</ScheduledJob>
+			<ScheduledJob>ВетисСинхронизация</ScheduledJob>
 			<FunctionalOption>ВетисВидимостьGuid</FunctionalOption>
 			<CommonCommand>ВетисAnimalDisease</CommonCommand>
 			<CommonCommand>ВетисBusinessEntity</CommonCommand>
+			<CommonCommand>ВетисCountry</CommonCommand>
 			<CommonCommand>ВетисDistrict</CommonCommand>
 			<CommonCommand>ВетисEnterprise</CommonCommand>
 			<CommonCommand>ВетисIncorporationForm</CommonCommand>
@@ -235,9 +236,8 @@
 			<CommonCommand>ВетисГраницыЗапросов</CommonCommand>
 			<CommonCommand>ВетисПланОбмена</CommonCommand>
 			<CommonCommand>ВетисПредприятияХС</CommonCommand>
-			<CommonCommand>ВетисCountry</CommonCommand>
+			<CommonCommand>ВетисСинхронизировать</CommonCommand>
 			<CommonCommand>ВетисСоответствие</CommonCommand>
-			<CommonCommand>ВетисСинхронизвать</CommonCommand>
 			<CommandGroup>ВетисДокументы</CommandGroup>
 			<CommandGroup>ВетисСправочники</CommandGroup>
 			<CommandGroup>ВетисСервис</CommandGroup>

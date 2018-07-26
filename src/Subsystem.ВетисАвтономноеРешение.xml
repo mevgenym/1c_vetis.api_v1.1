@@ -188,7 +188,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисStockEntry</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">ExchangePlan.ВетисКлиенты</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисПланОбмена</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисСинхронизвать</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисСинхронизировать</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>
