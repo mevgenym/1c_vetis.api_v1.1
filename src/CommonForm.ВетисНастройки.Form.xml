@@ -680,6 +680,12 @@
 											<ContextMenu name="ИнтеграцияКонтекстноеМеню" id="224"/>
 											<ExtendedTooltip name="ИнтеграцияРасширеннаяПодсказка" id="225"/>
 										</CheckBoxField>
+										<CheckBoxField name="РегламентныеЗадания" id="408">
+											<DataPath>РегламентныеЗадания</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="РегламентныеЗаданияКонтекстноеМеню" id="409"/>
+											<ExtendedTooltip name="РегламентныеЗаданияРасширеннаяПодсказка" id="410"/>
+										</CheckBoxField>
 									</ChildItems>
 								</UsualGroup>
 								<UsualGroup name="ГруппаСистемныеКолонка1" id="236">
@@ -1204,6 +1210,17 @@
 			</Title>
 			<Type>
 				<v8:Type>cfg:CatalogRef.ВетисПользователи</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РегламентныеЗадания" id="36">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регламентные задания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>

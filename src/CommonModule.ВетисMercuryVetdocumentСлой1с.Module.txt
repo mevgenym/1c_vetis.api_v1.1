@@ -445,7 +445,7 @@
 		_док.СерияВСД = _всд.issueSeries;
 		_док.НомерВСД = _всд.issueNumber;
 		_док.ДатаВСД  = _всд.issueDate;
-		_док.Тип      = VetDocumentType(_всд.type);
+		_док.ТипВСД   = VetDocumentType(_всд.type);
 		_док.Статус   = VetDocumentStatus(_всд.status);
 		_док.Форма    = VetDocumentForm(_всд.form);
 		
@@ -609,7 +609,7 @@
 		_док.СерияВСД = _всд.issueSeries;
 		_док.НомерВСД = _всд.issueNumber;
 		_док.ДатаВСД  = _всд.issueDate;
-		_док.Тип      = VetDocumentType(_всд.vetDType);
+		_док.ТипВСД   = VetDocumentType(_всд.vetDType);
 		_док.Статус   = VetDocumentStatus(_всд.vetDStatus);
 		_док.Форма    = VetDocumentForm(_всд.vetDForm);
 		

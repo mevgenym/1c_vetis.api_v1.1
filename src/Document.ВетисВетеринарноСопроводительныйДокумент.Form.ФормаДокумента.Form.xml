@@ -1125,7 +1125,7 @@
 					<ExtendedTooltip name="ГруппаВСДРасширеннаяПодсказка" id="299"/>
 					<ChildItems>
 						<LabelField name="Тип" id="463">
-							<DataPath>Объект.Тип</DataPath>
+							<DataPath>Объект.ТипВСД</DataPath>
 							<ContextMenu name="ТипКонтекстноеМеню" id="464"/>
 							<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="465"/>
 						</LabelField>
@@ -1518,6 +1518,7 @@
 					</ChildItems>
 				</Page>
 				<Page name="ГруппаУсловияПеремещения" id="650">
+					<Visible>false</Visible>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -1698,13 +1699,13 @@
 							<ExtendedTooltip name="uuidРасширеннаяПодсказка" id="484"/>
 						</InputField>
 						<LabelField name="Тип1" id="506">
-							<DataPath>Объект.Тип</DataPath>
+							<DataPath>Объект.ТипВСД</DataPath>
 							<Visible>false</Visible>
 							<ContextMenu name="Тип1КонтекстноеМеню" id="507"/>
 							<ExtendedTooltip name="Тип1РасширеннаяПодсказка" id="508"/>
 						</LabelField>
 						<InputField name="ТипПоле1" id="707">
-							<DataPath>Объект.Тип</DataPath>
+							<DataPath>Объект.ТипВСД</DataPath>
 							<ContextMenu name="ТипПоле1КонтекстноеМеню" id="708"/>
 							<ExtendedTooltip name="ТипПоле1РасширеннаяПодсказка" id="709"/>
 						</InputField>

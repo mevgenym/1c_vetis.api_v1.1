@@ -12,6 +12,11 @@
 				<CommandName>Form.Command.КомандаОтправить</CommandName>
 				<ExtendedTooltip name="ФормаОтправитьРасширеннаяПодсказка" id="110"/>
 			</Button>
+			<Button name="ФормаКомандаАннулировать" id="590">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаАннулировать</CommandName>
+				<ExtendedTooltip name="ФормаКомандаАннулироватьРасширеннаяПодсказка" id="591"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -72,6 +77,21 @@
 					</InputHint>
 					<ContextMenu name="СтатусКонтекстноеМеню" id="446"/>
 					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="447"/>
+				</InputField>
+				<InputField name="СтатусТранзакции" id="592">
+					<DataPath>Объект.СтатусТранзакции</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalAlign>Center</HorizontalAlign>
+					<Font height="12" bold="true" underline="true" kind="AutoFont"/>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Не отправлена</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="СтатусТранзакцииКонтекстноеМеню" id="593"/>
+					<ExtendedTooltip name="СтатусТранзакцииРасширеннаяПодсказка" id="594"/>
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
@@ -338,6 +358,12 @@
 									<Events>
 										<Event name="StartChoice">ПартииЗаписьСЖНачалоВыбора</Event>
 									</Events>
+								</InputField>
+								<InputField name="ПартииSubProduct" id="598">
+									<DataPath>Объект.Партии.SubProduct</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПартииSubProductКонтекстноеМеню" id="599"/>
+									<ExtendedTooltip name="ПартииSubProductРасширеннаяПодсказка" id="600"/>
 								</InputField>
 								<InputField name="ПартииProductItemName" id="525">
 									<DataPath>Объект.Партии.ProductItemName</DataPath>
@@ -743,21 +769,6 @@
 						</CheckBoxField>
 					</ChildItems>
 				</Page>
-				<Page name="ГруппаДополнительно" id="95">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Дополнительно</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа дополнительно</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="96"/>
-				</Page>
 				<Page name="ГруппаУсловияПеремещения" id="551">
 					<Title>
 						<v8:item>
@@ -836,6 +847,29 @@
 								</InputField>
 							</ChildItems>
 						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаДополнительно" id="95">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дополнительно</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="96"/>
+					<ChildItems>
+						<CheckBoxField name="РасхожденияСогласованы" id="595">
+							<DataPath>Объект.РасхожденияСогласованы</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РасхожденияСогласованыКонтекстноеМеню" id="596"/>
+							<ExtendedTooltip name="РасхожденияСогласованыРасширеннаяПодсказка" id="597"/>
+						</CheckBoxField>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -1329,6 +1363,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаУсловияПеремещения</Action>
+		</Command>
+		<Command name="КомандаАннулировать" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аннулировать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда аннулировать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаАннулировать</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>

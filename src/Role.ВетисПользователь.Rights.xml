@@ -1565,7 +1565,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.Тип</name>
+		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.ТипВСД</name>
 		<right>
 			<name>Edit</name>
 			<value>false</value>

@@ -70,15 +70,28 @@
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="16"/>
 				</LabelField>
-				<LabelField name="guid" id="28">
-					<DataPath>Список.guid</DataPath>
-					<ContextMenu name="guidКонтекстноеМеню" id="29"/>
-					<ExtendedTooltip name="guidРасширеннаяПодсказка" id="30"/>
-				</LabelField>
+				<CheckBoxField name="last" id="34">
+					<DataPath>Список.last</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="lastКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="lastРасширеннаяПодсказка" id="36"/>
+				</CheckBoxField>
+				<CheckBoxField name="active" id="37">
+					<DataPath>Список.active</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="activeКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="activeРасширеннаяПодсказка" id="39"/>
+				</CheckBoxField>
 				<LabelField name="status" id="31">
 					<DataPath>Список.status</DataPath>
 					<ContextMenu name="statusКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="statusРасширеннаяПодсказка" id="33"/>
+				</LabelField>
+				<LabelField name="guid" id="28">
+					<DataPath>Список.guid</DataPath>
+					<Width>10</Width>
+					<ContextMenu name="guidКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="guidРасширеннаяПодсказка" id="30"/>
 				</LabelField>
 			</ChildItems>
 		</Table>

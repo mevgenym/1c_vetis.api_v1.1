@@ -163,8 +163,8 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
-				<Field>Список.Тип</Field>
 				<Field>Список.Статус</Field>
+				<Field>~Список.Тип</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>false</ManualQuery>

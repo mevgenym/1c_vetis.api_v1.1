@@ -106,7 +106,7 @@
 			<UseAlways>
 				<Field>Список.last</Field>
 				<Field>Список.active</Field>
-				<Field>Список.BusinessEntity</Field>
+				<Field>~Список.BusinessEntity</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
@@ -116,16 +116,12 @@
 	_Таблица.guid,
 	_Таблица.Наименование,
 	_Таблица.enterpriseNumber,
-	_BusinessMembers.BusinessEntity,
 	_Таблица.addressView,
 	_Таблица.Комментарий,
 	_Таблица.last,
 	_Таблица.active
 ИЗ
 	Справочник.ВетисEnterprise КАК _Таблица
-		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисBusinessMembers КАК _BusinessMembers
-		ПО (_BusinessMembers.Enterprise = _Таблица.Ссылка)
-			И (_BusinessMembers.Использовать)
 ГДЕ
 	ИСТИНА
 	//И _Таблица.last

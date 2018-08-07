@@ -2,42 +2,9 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>None</CommandBarLocation>
 	<ScalingMode>Compact</ScalingMode>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаКомандаЖурнал" id="335">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаЖурнал</CommandName>
-				<ExtendedTooltip name="ФормаКомандаЖурналРасширеннаяПодсказка" id="336"/>
-			</Button>
-			<Button name="ФормаКомандаЖурналОпераций" id="477">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаЖурналОпераций</CommandName>
-				<ExtendedTooltip name="ФормаКомандаЖурналОперацийРасширеннаяПодсказка" id="478"/>
-			</Button>
-			<Button name="ФормаКомандаПоискХС" id="546">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаПоискХС</CommandName>
-				<ExtendedTooltip name="ФормаКомандаПоискХСРасширеннаяПодсказка" id="547"/>
-			</Button>
-			<Button name="ФормаКомандаПоискПредприятий" id="548">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаПоискПредприятий</CommandName>
-				<ExtendedTooltip name="ФормаКомандаПоискПредприятийРасширеннаяПодсказка" id="549"/>
-			</Button>
-			<Button name="ФормаКомандаНастройки" id="339">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаНастройки</CommandName>
-				<ExtendedTooltip name="ФормаКомандаНастройкиРасширеннаяПодсказка" id="340"/>
-			</Button>
-			<Button name="СписокВСДКомандаСинхронизироватьВСД" id="599">
-				<Type>CommandBarButton</Type>
-				<Visible>false</Visible>
-				<CommandName>Form.Command.КомандаСинхронизировать</CommandName>
-				<ExtendedTooltip name="СписокВСДКомандаСинхронизироватьВСДРасширеннаяПодсказка" id="600"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -46,79 +13,112 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаХС" id="178">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа ХС</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа ХС</v8:content>
-				</v8:item>
-			</ToolTip>
+		<UsualGroup name="Группа2" id="840">
 			<Group>Horizontal</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаХСРасширеннаяПодсказка" id="179"/>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="841"/>
 			<ChildItems>
-				<InputField name="ОтборХС" id="172">
-					<DataPath>ОтборХС</DataPath>
-					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
-					<AutoMarkIncomplete>true</AutoMarkIncomplete>
-					<BackColor>#FFF3D6</BackColor>
-					<InputHint>
+				<Button name="ФормаКомандаЖурнал" id="335">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.КомандаЖурнал</CommandName>
+					<ExtendedTooltip name="ФормаКомандаЖурналРасширеннаяПодсказка" id="336"/>
+				</Button>
+				<Button name="ФормаКомандаЖурналОпераций" id="477">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.КомандаЖурналОпераций</CommandName>
+					<ExtendedTooltip name="ФормаКомандаЖурналОперацийРасширеннаяПодсказка" id="478"/>
+				</Button>
+				<Button name="ФормаКомандаПоискХС" id="546">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.КомандаПоискХС</CommandName>
+					<ExtendedTooltip name="ФормаКомандаПоискХСРасширеннаяПодсказка" id="547"/>
+				</Button>
+				<Button name="ФормаКомандаПоискПредприятий" id="548">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.КомандаПоискПредприятий</CommandName>
+					<ExtendedTooltip name="ФормаКомандаПоискПредприятийРасширеннаяПодсказка" id="549"/>
+				</Button>
+				<Button name="ФормаКомандаНастройки" id="339">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.КомандаНастройки</CommandName>
+					<ExtendedTooltip name="ФормаКомандаНастройкиРасширеннаяПодсказка" id="340"/>
+				</Button>
+				<UsualGroup name="ГруппаХС" id="178">
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ХС</v8:content>
-						</v8:item>
-					</InputHint>
-					<ContextMenu name="ОтборХСКонтекстноеМеню" id="173"/>
-					<ExtendedTooltip name="ОтборХСРасширеннаяПодсказка" id="174"/>
-					<Events>
-						<Event name="OnChange">ОтборХСПриИзменении</Event>
-					</Events>
-				</InputField>
-				<InputField name="ОтборПредприятие" id="175">
-					<DataPath>ОтборПредприятие</DataPath>
-					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
-					<AutoMarkIncomplete>true</AutoMarkIncomplete>
-					<ChooseType>false</ChooseType>
-					<BackColor>#FFF3D6</BackColor>
-					<InputHint>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Предприятие</v8:content>
-						</v8:item>
-					</InputHint>
-					<ContextMenu name="ОтборПредприятиеКонтекстноеМеню" id="176"/>
-					<ExtendedTooltip name="ОтборПредприятиеРасширеннаяПодсказка" id="177"/>
-					<Events>
-						<Event name="OnChange">ОтборПредприятиеПриИзменении</Event>
-						<Event name="StartChoice">ОтборПредприятиеНачалоВыбора</Event>
-					</Events>
-				</InputField>
-				<PictureDecoration name="ПредприятиеСвязь" id="479">
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Предприятие связь</v8:content>
+							<v8:content>Группа ХС</v8:content>
 						</v8:item>
 					</Title>
-					<GroupVerticalAlign>Center</GroupVerticalAlign>
-					<Hyperlink>true</Hyperlink>
-					<Picture>
-						<xr:Ref>CommonPicture.ВетисЕстьСвязь</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</Picture>
-					<ContextMenu name="ПредприятиеСвязьКонтекстноеМеню" id="480"/>
-					<ExtendedTooltip name="ПредприятиеСвязьРасширеннаяПодсказка" id="481"/>
-					<Events>
-						<Event name="Click">ПредприятиеСвязьНажатие</Event>
-					</Events>
-				</PictureDecoration>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа ХС</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаХСРасширеннаяПодсказка" id="179"/>
+					<ChildItems>
+						<InputField name="ОтборХС" id="172">
+							<DataPath>ОтборХС</DataPath>
+							<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<BackColor>#FFF3D6</BackColor>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ХС</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ОтборХСКонтекстноеМеню" id="173"/>
+							<ExtendedTooltip name="ОтборХСРасширеннаяПодсказка" id="174"/>
+							<Events>
+								<Event name="OnChange">ОтборХСПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ОтборПредприятие" id="175">
+							<DataPath>ОтборПредприятие</DataPath>
+							<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ChooseType>false</ChooseType>
+							<BackColor>#FFF3D6</BackColor>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Предприятие</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ОтборПредприятиеКонтекстноеМеню" id="176"/>
+							<ExtendedTooltip name="ОтборПредприятиеРасширеннаяПодсказка" id="177"/>
+							<Events>
+								<Event name="OnChange">ОтборПредприятиеПриИзменении</Event>
+								<Event name="StartChoice">ОтборПредприятиеНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<PictureDecoration name="ПредприятиеСвязь" id="479">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Предприятие связь</v8:content>
+								</v8:item>
+							</Title>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<Hyperlink>true</Hyperlink>
+							<Picture>
+								<xr:Ref>CommonPicture.ВетисЕстьСвязь</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ContextMenu name="ПредприятиеСвязьКонтекстноеМеню" id="480"/>
+							<ExtendedTooltip name="ПредприятиеСвязьРасширеннаяПодсказка" id="481"/>
+							<Events>
+								<Event name="Click">ПредприятиеСвязьНажатие</Event>
+							</Events>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 		<Pages name="Страницы" id="1">
@@ -227,244 +227,72 @@
 								<ExtendedTooltip name="СписокВСДУправлениеПоискомРасширеннаяПодсказка" id="17"/>
 							</SearchControlAddition>
 							<ChildItems>
-								<ColumnGroup name="СписокВСДГруппаДата" id="461">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список ВСДГруппа дата</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список ВСДГруппа дата</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>Horizontal</Group>
-									<ExtendedTooltip name="СписокВСДГруппаДатаРасширеннаяПодсказка" id="462"/>
-									<ChildItems>
-										<LabelField name="СписокВСДДата" id="124">
-											<DataPath>СписокВСД.Date</DataPath>
-											<Width>5</Width>
-											<ContextMenu name="СписокВСДДатаКонтекстноеМеню" id="125"/>
-											<ExtendedTooltip name="СписокВСДДатаРасширеннаяПодсказка" id="126"/>
-										</LabelField>
-										<LabelField name="СписокВСДНомер" id="127">
-											<DataPath>СписокВСД.Number</DataPath>
-											<ContextMenu name="СписокВСДНомерКонтекстноеМеню" id="128"/>
-											<ExtendedTooltip name="СписокВСДНомерРасширеннаяПодсказка" id="129"/>
-										</LabelField>
-									</ChildItems>
-								</ColumnGroup>
-								<ColumnGroup name="СписокВСДГруппаДатаВетис" id="463">
-									<Visible>false</Visible>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список ВСДГруппа дата ветис</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список ВСДГруппа дата ветис</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>Horizontal</Group>
-									<ExtendedTooltip name="СписокВСДГруппаДатаВетисРасширеннаяПодсказка" id="464"/>
-									<ChildItems>
-										<LabelField name="СписокВСДДатаВСД" id="24">
-											<DataPath>СписокВСД.ДатаВСД</DataPath>
-											<ContextMenu name="СписокВСДДатаВСДКонтекстноеМеню" id="25"/>
-											<ExtendedTooltip name="СписокВСДДатаВСДРасширеннаяПодсказка" id="26"/>
-										</LabelField>
-										<LabelField name="СписокВСДНомерВСД" id="27">
-											<DataPath>СписокВСД.НомерВСД</DataPath>
-											<ContextMenu name="СписокВСДНомерВСДКонтекстноеМеню" id="28"/>
-											<ExtendedTooltip name="СписокВСДНомерВСДРасширеннаяПодсказка" id="29"/>
-										</LabelField>
-									</ChildItems>
-								</ColumnGroup>
-								<ColumnGroup name="СписокВСДГруппаОтправитель" id="465">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список ВСДГруппа отправитель</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список ВСДГруппа отправитель</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>Horizontal</Group>
-									<ExtendedTooltip name="СписокВСДГруппаОтправительРасширеннаяПодсказка" id="466"/>
-									<ChildItems>
-										<LabelField name="СписокВСДОтправитель" id="30">
-											<DataPath>СписокВСД.Отправитель</DataPath>
-											<ContextMenu name="СписокВСДОтправительКонтекстноеМеню" id="31"/>
-											<ExtendedTooltip name="СписокВСДОтправительРасширеннаяПодсказка" id="32"/>
-										</LabelField>
-										<LabelField name="СписокВСДОтправительПредприятие" id="352">
-											<DataPath>СписокВСД.ОтправительПредприятие</DataPath>
-											<ContextMenu name="СписокВСДОтправительПредприятиеКонтекстноеМеню" id="353"/>
-											<ExtendedTooltip name="СписокВСДОтправительПредприятиеРасширеннаяПодсказка" id="354"/>
-										</LabelField>
-									</ChildItems>
-								</ColumnGroup>
-								<ColumnGroup name="СписокВСДГруппаПолучатель" id="467">
-									<Visible>false</Visible>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список ВСДГруппа получатель</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список ВСДГруппа получатель</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>Horizontal</Group>
-									<ExtendedTooltip name="СписокВСДГруппаПолучательРасширеннаяПодсказка" id="468"/>
-									<ChildItems>
-										<LabelField name="СписокВСДПолучатель" id="33">
-											<DataPath>СписокВСД.Получатель</DataPath>
-											<ContextMenu name="СписокВСДПолучательКонтекстноеМеню" id="34"/>
-											<ExtendedTooltip name="СписокВСДПолучательРасширеннаяПодсказка" id="35"/>
-										</LabelField>
-										<LabelField name="СписокВСДПолучательПредприятие" id="445">
-											<DataPath>СписокВСД.ПолучательПредприятие</DataPath>
-											<ContextMenu name="СписокВСДПолучательПредприятиеКонтекстноеМеню" id="446"/>
-											<ExtendedTooltip name="СписокВСДПолучательПредприятиеРасширеннаяПодсказка" id="447"/>
-										</LabelField>
-									</ChildItems>
-								</ColumnGroup>
-								<ColumnGroup name="СписокВСДГруппаНоменклатура" id="469">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список ВСДГруппа номенклатура</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список ВСДГруппа номенклатура</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>Horizontal</Group>
-									<ExtendedTooltip name="СписокВСДГруппаНоменклатураРасширеннаяПодсказка" id="470"/>
-									<ChildItems>
-										<LabelField name="СписокВСДProductItemName" id="612">
-											<DataPath>СписокВСД.ProductItemName</DataPath>
-											<Width>15</Width>
-											<ContextMenu name="СписокВСДProductItemNameКонтекстноеМеню" id="613"/>
-											<ExtendedTooltip name="СписокВСДProductItemNameРасширеннаяПодсказка" id="614"/>
-										</LabelField>
-										<LabelField name="СписокВСДДатаВыработки" id="615">
-											<DataPath>СписокВСД.ДатаВыработки</DataPath>
-											<Width>10</Width>
-											<ContextMenu name="СписокВСДДатаВыработкиКонтекстноеМеню" id="616"/>
-											<ExtendedTooltip name="СписокВСДДатаВыработкиРасширеннаяПодсказка" id="617"/>
-										</LabelField>
-										<LabelField name="СписокВСДСрокГодности" id="621">
-											<DataPath>СписокВСД.СрокГодности</DataPath>
-											<Width>10</Width>
-											<ContextMenu name="СписокВСДСрокГодностиКонтекстноеМеню" id="622"/>
-											<ExtendedTooltip name="СписокВСДСрокГодностиРасширеннаяПодсказка" id="623"/>
-										</LabelField>
-										<LabelField name="СписокВСДСтранаПроисхождения" id="624">
-											<DataPath>СписокВСД.СтранаПроисхождения</DataPath>
-											<Width>10</Width>
-											<ContextMenu name="СписокВСДСтранаПроисхожденияКонтекстноеМеню" id="625"/>
-											<ExtendedTooltip name="СписокВСДСтранаПроисхожденияРасширеннаяПодсказка" id="626"/>
-										</LabelField>
-										<LabelField name="СписокВСДПроизводитель" id="618">
-											<DataPath>СписокВСД.Производитель</DataPath>
-											<ContextMenu name="СписокВСДПроизводительКонтекстноеМеню" id="619"/>
-											<ExtendedTooltip name="СписокВСДПроизводительРасширеннаяПодсказка" id="620"/>
-										</LabelField>
-									</ChildItems>
-								</ColumnGroup>
-								<ColumnGroup name="СписокВСДГруппаКоличество" id="473">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список ВСДГруппа количество</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список ВСДГруппа количество</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>Horizontal</Group>
-									<ExtendedTooltip name="СписокВСДГруппаКоличествоРасширеннаяПодсказка" id="474"/>
-									<ChildItems>
-										<LabelField name="СписокВСДКоличество" id="251">
-											<DataPath>СписокВСД.Количество</DataPath>
-											<ContextMenu name="СписокВСДКоличествоКонтекстноеМеню" id="252"/>
-											<ExtendedTooltip name="СписокВСДКоличествоРасширеннаяПодсказка" id="253"/>
-										</LabelField>
-									</ChildItems>
-								</ColumnGroup>
-								<ColumnGroup name="СписокВСДГруппаUuid" id="475">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список ВСДГруппа uuid</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список ВСДГруппа uuid</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>Horizontal</Group>
-									<ExtendedTooltip name="СписокВСДГруппаUuidРасширеннаяПодсказка" id="476"/>
-									<ChildItems>
-										<LabelField name="СписокВСДuuid" id="343">
-											<DataPath>СписокВСД.uuid</DataPath>
-											<Width>10</Width>
-											<ContextMenu name="СписокВСДuuidКонтекстноеМеню" id="344"/>
-											<ExtendedTooltip name="СписокВСДuuidРасширеннаяПодсказка" id="345"/>
-										</LabelField>
-									</ChildItems>
-								</ColumnGroup>
-								<ColumnGroup name="СписокВСДГруппаКомментарий" id="471">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список ВСДГруппа комментарий</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Список ВСДГруппа комментарий</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>Horizontal</Group>
-									<ExtendedTooltip name="СписокВСДГруппаКомментарийРасширеннаяПодсказка" id="472"/>
-									<ChildItems>
-										<LabelField name="СписокВСДКомментарий" id="355">
-											<DataPath>СписокВСД.Комментарий</DataPath>
-											<Visible>false</Visible>
-											<ContextMenu name="СписокВСДКомментарийКонтекстноеМеню" id="356"/>
-											<ExtendedTooltip name="СписокВСДКомментарийРасширеннаяПодсказка" id="357"/>
-										</LabelField>
-										<LabelField name="СписокВСДОтветственныйВетис" id="458">
-											<DataPath>СписокВСД.ОтветственныйВетис</DataPath>
-											<ContextMenu name="СписокВСДОтветственныйВетисКонтекстноеМеню" id="459"/>
-											<ExtendedTooltip name="СписокВСДОтветственныйВетисРасширеннаяПодсказка" id="460"/>
-										</LabelField>
-									</ChildItems>
-								</ColumnGroup>
+								<LabelField name="СписокВСДДата" id="124">
+									<DataPath>СписокВСД.Date</DataPath>
+									<Width>5</Width>
+									<ContextMenu name="СписокВСДДатаКонтекстноеМеню" id="125"/>
+									<ExtendedTooltip name="СписокВСДДатаРасширеннаяПодсказка" id="126"/>
+								</LabelField>
+								<LabelField name="СписокВСДНомер" id="127">
+									<DataPath>СписокВСД.Number</DataPath>
+									<ContextMenu name="СписокВСДНомерКонтекстноеМеню" id="128"/>
+									<ExtendedTooltip name="СписокВСДНомерРасширеннаяПодсказка" id="129"/>
+								</LabelField>
+								<LabelField name="СписокВСДОтправитель" id="30">
+									<DataPath>СписокВСД.Отправитель</DataPath>
+									<ContextMenu name="СписокВСДОтправительКонтекстноеМеню" id="31"/>
+									<ExtendedTooltip name="СписокВСДОтправительРасширеннаяПодсказка" id="32"/>
+								</LabelField>
+								<LabelField name="СписокВСДОтправительПредприятие" id="352">
+									<DataPath>СписокВСД.ОтправительПредприятие</DataPath>
+									<ContextMenu name="СписокВСДОтправительПредприятиеКонтекстноеМеню" id="353"/>
+									<ExtendedTooltip name="СписокВСДОтправительПредприятиеРасширеннаяПодсказка" id="354"/>
+								</LabelField>
+								<LabelField name="СписокВСДProductItemName" id="612">
+									<DataPath>СписокВСД.ProductItemName</DataPath>
+									<Width>15</Width>
+									<ContextMenu name="СписокВСДProductItemNameКонтекстноеМеню" id="613"/>
+									<ExtendedTooltip name="СписокВСДProductItemNameРасширеннаяПодсказка" id="614"/>
+								</LabelField>
+								<LabelField name="СписокВСДКоличество" id="251">
+									<DataPath>СписокВСД.Количество</DataPath>
+									<ContextMenu name="СписокВСДКоличествоКонтекстноеМеню" id="252"/>
+									<ExtendedTooltip name="СписокВСДКоличествоРасширеннаяПодсказка" id="253"/>
+								</LabelField>
+								<LabelField name="СписокВСДДатаВыработки" id="615">
+									<DataPath>СписокВСД.ДатаВыработки</DataPath>
+									<Width>10</Width>
+									<ContextMenu name="СписокВСДДатаВыработкиКонтекстноеМеню" id="616"/>
+									<ExtendedTooltip name="СписокВСДДатаВыработкиРасширеннаяПодсказка" id="617"/>
+								</LabelField>
+								<LabelField name="СписокВСДСрокГодности" id="621">
+									<DataPath>СписокВСД.СрокГодности</DataPath>
+									<Width>10</Width>
+									<ContextMenu name="СписокВСДСрокГодностиКонтекстноеМеню" id="622"/>
+									<ExtendedTooltip name="СписокВСДСрокГодностиРасширеннаяПодсказка" id="623"/>
+								</LabelField>
+								<LabelField name="СписокВСДСтранаПроисхождения" id="624">
+									<DataPath>СписокВСД.СтранаПроисхождения</DataPath>
+									<Width>10</Width>
+									<ContextMenu name="СписокВСДСтранаПроисхожденияКонтекстноеМеню" id="625"/>
+									<ExtendedTooltip name="СписокВСДСтранаПроисхожденияРасширеннаяПодсказка" id="626"/>
+								</LabelField>
+								<LabelField name="СписокВСДПроизводитель" id="618">
+									<DataPath>СписокВСД.Производитель</DataPath>
+									<ContextMenu name="СписокВСДПроизводительКонтекстноеМеню" id="619"/>
+									<ExtendedTooltip name="СписокВСДПроизводительРасширеннаяПодсказка" id="620"/>
+								</LabelField>
+								<LabelField name="СписокВСДuuid" id="343">
+									<DataPath>СписокВСД.uuid</DataPath>
+									<Width>10</Width>
+									<ContextMenu name="СписокВСДuuidКонтекстноеМеню" id="344"/>
+									<ExtendedTooltip name="СписокВСДuuidРасширеннаяПодсказка" id="345"/>
+								</LabelField>
+								<LabelField name="СписокВСДОтветственныйВетис" id="458">
+									<DataPath>СписокВСД.ОтветственныйВетис</DataPath>
+									<ContextMenu name="СписокВСДОтветственныйВетисКонтекстноеМеню" id="459"/>
+									<ExtendedTooltip name="СписокВСДОтветственныйВетисРасширеннаяПодсказка" id="460"/>
+								</LabelField>
 							</ChildItems>
 						</Table>
 					</ChildItems>
@@ -741,6 +569,11 @@
 									<ContextMenu name="СписокТранспортныеПартииОтветственныйКонтекстноеМеню" id="119"/>
 									<ExtendedTooltip name="СписокТранспортныеПартииОтветственныйРасширеннаяПодсказка" id="120"/>
 								</LabelField>
+								<LabelField name="СписокТранспортныеПартииСтатусТранзакции" id="842">
+									<DataPath>СписокТранспортныеПартии.СтатусТранзакции</DataPath>
+									<ContextMenu name="СписокТранспортныеПартииСтатусТранзакцииКонтекстноеМеню" id="843"/>
+									<ExtendedTooltip name="СписокТранспортныеПартииСтатусТранзакцииРасширеннаяПодсказка" id="844"/>
+								</LabelField>
 								<CheckBoxField name="СписокТранспортныеПартииЕстьОшибки" id="837">
 									<DataPath>СписокТранспортныеПартии.ЕстьОшибки</DataPath>
 									<Title>
@@ -870,6 +703,11 @@
 									<ContextMenu name="СписокИсходящихВСДProductItemNameКонтекстноеМеню" id="700"/>
 									<ExtendedTooltip name="СписокИсходящихВСДProductItemNameРасширеннаяПодсказка" id="701"/>
 								</LabelField>
+								<LabelField name="СписокИсходящихВСДКоличество" id="714">
+									<DataPath>СписокИсходящихВСД.Количество</DataPath>
+									<ContextMenu name="СписокИсходящихВСДКоличествоКонтекстноеМеню" id="715"/>
+									<ExtendedTooltip name="СписокИсходящихВСДКоличествоРасширеннаяПодсказка" id="716"/>
+								</LabelField>
 								<LabelField name="СписокИсходящихВСДДатаВыработки" id="702">
 									<DataPath>СписокИсходящихВСД.ДатаВыработки</DataPath>
 									<Width>15</Width>
@@ -891,11 +729,6 @@
 									<DataPath>СписокИсходящихВСД.Производитель</DataPath>
 									<ContextMenu name="СписокИсходящихВСДПроизводительКонтекстноеМеню" id="712"/>
 									<ExtendedTooltip name="СписокИсходящихВСДПроизводительРасширеннаяПодсказка" id="713"/>
-								</LabelField>
-								<LabelField name="СписокИсходящихВСДКоличество" id="714">
-									<DataPath>СписокИсходящихВСД.Количество</DataPath>
-									<ContextMenu name="СписокИсходящихВСДКоличествоКонтекстноеМеню" id="715"/>
-									<ExtendedTooltip name="СписокИсходящихВСДКоличествоРасширеннаяПодсказка" id="716"/>
 								</LabelField>
 								<LabelField name="СписокИсходящихВСДДатаТТН" id="756">
 									<DataPath>СписокИсходящихВСД.ДатаТТН</DataPath>
@@ -1173,9 +1006,10 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<UseAlways>
-				<Field>СписокВСД.Тип</Field>
+				<Field>СписокВСД.ТипВСД</Field>
 				<Field>СписокВСД.Статус</Field>
 				<Field>СписокВСД.Ref</Field>
+				<Field>~СписокВСД.Тип</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>false</ManualQuery>
@@ -1214,6 +1048,7 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<UseAlways>
+				<Field>СписокТранспортныеПартии.СтатусТранзакции</Field>
 				<Field>СписокТранспортныеПартии.Статус</Field>
 				<Field>СписокТранспортныеПартии.Ref</Field>
 			</UseAlways>
@@ -1233,6 +1068,7 @@
 	_Таблица.Получатель,
 	_Таблица.ПолучательПредприятие,
 	_Таблица.Статус,
+	_Таблица.СтатусТранзакции,
 	_Таблица.Ответственный,
 	_Таблица.Количество,
 	_Таблица.КоличествоМест,
@@ -1511,9 +1347,10 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<UseAlways>
-				<Field>СписокИсходящихВСД.Тип</Field>
+				<Field>СписокИсходящихВСД.ТипВСД</Field>
 				<Field>СписокИсходящихВСД.Статус</Field>
 				<Field>СписокИсходящихВСД.Ref</Field>
+				<Field>~СписокИсходящихВСД.Тип</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
@@ -1527,9 +1364,9 @@
 	_Таблица.uuid,
 	_Таблица.НомерВСД,
 	_Таблица.ДатаВСД,
+	_Таблица.ТипВСД,
 	_Таблица.НомерТТН,
 	_Таблица.ДатаТТН,
-	_Таблица.Тип,
 	_Таблица.Статус,
 	_Таблица.Форма,
 	_Таблица.Отправитель,

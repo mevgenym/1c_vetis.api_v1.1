@@ -506,7 +506,7 @@
 			</Attribute>
 			<Attribute uuid="c9985c71-c45b-4a0d-bf54-66f68a3e41f6">
 				<Properties>
-					<Name>Тип</Name>
+					<Name>ТипВСД</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>

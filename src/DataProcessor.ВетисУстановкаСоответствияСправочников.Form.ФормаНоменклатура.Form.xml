@@ -313,17 +313,17 @@
 										<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
 									</Events>
 								</CheckBoxField>
-								<InputField name="ОтборПродукция" id="146">
+								<InputField name="ОтборПродукция" id="247">
 									<DataPath>ОтборПродукция</DataPath>
-									<ListChoiceMode>true</ListChoiceMode>
-									<InputHint>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Продукция</v8:content>
-										</v8:item>
-									</InputHint>
-									<ContextMenu name="ОтборПродукцияКонтекстноеМеню" id="147"/>
-									<ExtendedTooltip name="ОтборПродукцияРасширеннаяПодсказка" id="148"/>
+									<ChoiceParameterLinks>
+										<xr:Link>
+											<xr:Name>Отбор.productType</xr:Name>
+											<xr:DataPath xsi:type="xs:string">ОтборТипПродукции</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+									</ChoiceParameterLinks>
+									<ContextMenu name="ОтборПродукцияКонтекстноеМеню" id="248"/>
+									<ExtendedTooltip name="ОтборПродукцияРасширеннаяПодсказка" id="249"/>
 									<Events>
 										<Event name="OnChange">ОтборПродукцияПриИзменении</Event>
 									</Events>
@@ -358,17 +358,22 @@
 										<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
 									</Events>
 								</CheckBoxField>
-								<InputField name="ОтборВидПродукции" id="164">
+								<InputField name="ОтборВидПродукции" id="250">
 									<DataPath>ОтборВидПродукции</DataPath>
-									<ListChoiceMode>true</ListChoiceMode>
-									<InputHint>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Вид продукции</v8:content>
-										</v8:item>
-									</InputHint>
-									<ContextMenu name="ОтборВидПродукцииКонтекстноеМеню" id="165"/>
-									<ExtendedTooltip name="ОтборВидПродукцииРасширеннаяПодсказка" id="166"/>
+									<ChoiceParameterLinks>
+										<xr:Link>
+											<xr:Name>Отбор.product</xr:Name>
+											<xr:DataPath xsi:type="xs:string">ОтборПродукция</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+										<xr:Link>
+											<xr:Name>Отбор.productType</xr:Name>
+											<xr:DataPath xsi:type="xs:string">ОтборТипПродукции</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+									</ChoiceParameterLinks>
+									<ContextMenu name="ОтборВидПродукцииКонтекстноеМеню" id="251"/>
+									<ExtendedTooltip name="ОтборВидПродукцииРасширеннаяПодсказка" id="252"/>
 									<Events>
 										<Event name="OnChange">ОтборВидПродукцииПриИзменении</Event>
 									</Events>
@@ -400,36 +405,23 @@
 						<ExcludedCommand>Change</ExcludedCommand>
 					</CommandSet>
 					<RowFilter xsi:nil="true"/>
-					<ContextMenu name="СписокВетисКонтекстноеМеню" id="101">
-						<ChildItems>
-							<Button name="СписокВетисКонтекстноеМенюКомандаСоздатьСвязь" id="224">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.КомандаСоздатьСвязь</CommandName>
-								<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаСоздатьСвязьРасширеннаяПодсказка" id="225"/>
-							</Button>
-							<Button name="СписокВетисКонтекстноеМенюКомандаУдалитьСвязь" id="226">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.КомандаУдалитьСвязь</CommandName>
-								<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаУдалитьСвязьРасширеннаяПодсказка" id="227"/>
-							</Button>
-							<Button name="СписокВетисКонтекстноеМенюКомандаДобавитьИзСервиса" id="228">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.КомандаДобавитьИзСервиса</CommandName>
-								<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаДобавитьИзСервисаРасширеннаяПодсказка" id="229"/>
-							</Button>
-							<Button name="СписокВетисКонтекстноеМенюКомандаЗаполнитьИзСервиса" id="230">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
-								<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="231"/>
-							</Button>
-						</ChildItems>
-					</ContextMenu>
+					<ContextMenu name="СписокВетисКонтекстноеМеню" id="101"/>
 					<AutoCommandBar name="СписокВетисКоманднаяПанель" id="102">
 						<ChildItems>
 							<Button name="СписокВетисКомандаНайти" id="232">
 								<Type>CommandBarButton</Type>
 								<CommandName>Form.Command.КомандаНайти</CommandName>
 								<ExtendedTooltip name="СписокВетисКомандаНайтиРасширеннаяПодсказка" id="233"/>
+							</Button>
+							<Button name="СписокВетисКомандаДобавитьИзСервиса" id="253">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.КомандаДобавитьИзСервиса</CommandName>
+								<ExtendedTooltip name="СписокВетисКомандаДобавитьИзСервисаРасширеннаяПодсказка" id="254"/>
+							</Button>
+							<Button name="СписокВетисКомандаЗаполнитьИзСервиса" id="255">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
+								<ExtendedTooltip name="СписокВетисКомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="256"/>
 							</Button>
 						</ChildItems>
 					</AutoCommandBar>
@@ -528,20 +520,7 @@
 					<AllowRootChoice>false</AllowRootChoice>
 					<UpdateOnDataChange>Auto</UpdateOnDataChange>
 					<ContextMenu name="СправочникСписокКонтекстноеМеню" id="29"/>
-					<AutoCommandBar name="СправочникСписокКоманднаяПанель" id="30">
-						<ChildItems>
-							<Button name="СправочникСписокСоздатьСвязь" id="78">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.КомандаСоздатьСвязь</CommandName>
-								<ExtendedTooltip name="СправочникСписокСоздатьСвязьРасширеннаяПодсказка" id="79"/>
-							</Button>
-							<Button name="СправочникСписокУдалитьСвязь" id="86">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.КомандаУдалитьСвязь</CommandName>
-								<ExtendedTooltip name="СправочникСписокУдалитьСвязьРасширеннаяПодсказка" id="87"/>
-							</Button>
-						</ChildItems>
-					</AutoCommandBar>
+					<AutoCommandBar name="СправочникСписокКоманднаяПанель" id="30"/>
 					<ExtendedTooltip name="СправочникСписокРасширеннаяПодсказка" id="31"/>
 					<SearchStringAddition name="СправочникСписокСтрокаПоиска" id="32">
 						<AdditionSource>
@@ -577,19 +556,9 @@
 									<ExtendedTooltip name="СправочникСписокГруппа3РасширеннаяПодсказка" id="70"/>
 									<ChildItems>
 										<LabelField name="СправочникСписокНаименование" id="244">
-											<DataPath>СправочникСписок.Наименование</DataPath>
+											<DataPath>СправочникСписок.Description</DataPath>
 											<ContextMenu name="СправочникСписокНаименованиеКонтекстноеМеню" id="245"/>
 											<ExtendedTooltip name="СправочникСписокНаименованиеРасширеннаяПодсказка" id="246"/>
-										</LabelField>
-										<LabelField name="СправочникСписокname" id="97">
-											<DataPath>СправочникСписок._name</DataPath>
-											<ContextMenu name="СправочникСписокnameКонтекстноеМеню" id="98"/>
-											<ExtendedTooltip name="СправочникСписокnameРасширеннаяПодсказка" id="99"/>
-										</LabelField>
-										<LabelField name="СправочникСписокguid" id="241">
-											<DataPath>СправочникСписок.guid</DataPath>
-											<ContextMenu name="СправочникСписокguidКонтекстноеМеню" id="242"/>
-											<ExtendedTooltip name="СправочникСписокguidРасширеннаяПодсказка" id="243"/>
 										</LabelField>
 									</ChildItems>
 								</ColumnGroup>
@@ -626,22 +595,15 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<UseAlways>
-				<Field>СправочникСписок.Ссылка</Field>
 				<Field>СправочникСписок.guid</Field>
+				<Field>~СправочникСписок.Ссылка</Field>
 				<Field>~СправочникСписок.Предприятие</Field>
 				<Field>~СправочникСписок.ЕстьНК</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>true</ManualQuery>
-				<DynamicDataRead>false</DynamicDataRead>
-				<QueryText>ВЫБРАТЬ
-	NULL КАК Ссылка,
-	NULL КАК Код,
-	NULL КАК Наименование,
-	NULL КАК ИНН,
-	NULL КАК КПП,
-	NULL КАК guid,
-	NULL КАК _name</QueryText>
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>Catalog.ВетисProductItem</MainTable>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
@@ -950,68 +912,6 @@
 				<Field>ВариантПоиска</Field>
 			</Save>
 		</Attribute>
-		<ConditionalAppearance>
-			<dcsset:item>
-				<dcsset:selection>
-					<dcsset:item>
-						<dcsset:field>СправочникСписокНаименование</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СправочникСписокname</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СправочникСписокguid</dcsset:field>
-					</dcsset:item>
-				</dcsset:selection>
-				<dcsset:filter>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">СправочникСписок.guid</dcsset:left>
-						<dcsset:comparisonType>Filled</dcsset:comparisonType>
-					</dcsset:item>
-				</dcsset:filter>
-				<dcsset:appearance>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>ЦветФона</dcscor:parameter>
-						<dcscor:value xsi:type="v8ui:Color">#CCFFCC</dcscor:value>
-					</dcscor:item>
-				</dcsset:appearance>
-			</dcsset:item>
-			<dcsset:item>
-				<dcsset:selection>
-					<dcsset:item>
-						<dcsset:field>СписокВетисenterprise</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВетисproductType</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВетисproduct</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВетисsubProduct</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВетисname</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВетисguid</dcsset:field>
-					</dcsset:item>
-				</dcsset:selection>
-				<dcsset:filter>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">СписокВетис.link</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
-					</dcsset:item>
-				</dcsset:filter>
-				<dcsset:appearance>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>ЦветФона</dcscor:parameter>
-						<dcscor:value xsi:type="v8ui:Color">#CCFFCC</dcscor:value>
-					</dcscor:item>
-				</dcsset:appearance>
-			</dcsset:item>
-		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
 		<Command name="КомандаНайти" id="1">

@@ -189,6 +189,7 @@
 			<CommonModule>ВетисДлительныеОперации</CommonModule>
 			<CommonModule>ВетисКлиент</CommonModule>
 			<CommonModule>ВетисКонстанты</CommonModule>
+			<CommonModule>ВетисОбменДанными</CommonModule>
 			<CommonModule>ВетисОбщегоНазначения</CommonModule>
 			<CommonModule>ВетисОбщегоНазначенияКлиентСервер</CommonModule>
 			<CommonModule>ВетисПовтИсп</CommonModule>
@@ -211,6 +212,7 @@
 			<EventSubscription>ВетисПриУстановкеНовогоНомера</EventSubscription>
 			<ScheduledJob>ВетисОчередьЗапросов</ScheduledJob>
 			<ScheduledJob>ВетисСинхронизация</ScheduledJob>
+			<ScheduledJob>ВетисСинхронизацияBusinessEntity</ScheduledJob>
 			<FunctionalOption>ВетисВидимостьGuid</FunctionalOption>
 			<CommonCommand>ВетисAnimalDisease</CommonCommand>
 			<CommonCommand>ВетисBusinessEntity</CommonCommand>

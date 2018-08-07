@@ -40,11 +40,11 @@
 		<ChildObjects>
 			<EnumValue uuid="e1fecba1-f22f-455e-b4be-1fb6ab4bade7">
 				<Properties>
-					<Name>Новая</Name>
+					<Name>НеОтправлена</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Новая</v8:content>
+							<v8:content>Не отправлена</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>

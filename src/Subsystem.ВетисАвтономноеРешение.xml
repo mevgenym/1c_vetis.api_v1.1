@@ -181,10 +181,6 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.ВетисПечать</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисНаправлениеОперации</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисОтветственныеСобытие</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">3aedfbe2-9933-4c53-bc47-d471ee13aa81</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">4f766ed0-66b9-43c4-9b64-a6173ac72516</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">fb43f19d-0e54-40b4-9ab1-77299da89d2a</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">50fa289d-9671-43c0-b92a-c6959e75bd95</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисStockEntry</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">ExchangePlan.ВетисКлиенты</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисПланОбмена</xr:Item>

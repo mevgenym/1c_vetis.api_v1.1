@@ -168,10 +168,10 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
-				<Field>Список.Тип</Field>
 				<Field>Список.Статус</Field>
 				<Field>Список.uuid</Field>
 				<Field>Список.Ref</Field>
+				<Field>~Список.Тип</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
@@ -187,7 +187,7 @@
 	_Таблица.ДатаВСД,
 	_Таблица.НомерТТН,
 	_Таблица.ДатаТТН,
-	_Таблица.Тип,
+	_Таблица.ТипВСД,
 	_Таблица.Статус,
 	_Таблица.Форма,
 	_Таблица.Отправитель,

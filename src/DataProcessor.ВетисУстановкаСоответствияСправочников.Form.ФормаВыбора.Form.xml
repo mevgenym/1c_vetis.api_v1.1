@@ -35,6 +35,11 @@
 					<CommandName>Form.Command.Enterprise</CommandName>
 					<ExtendedTooltip name="EnterpriseРасширеннаяПодсказка" id="34"/>
 				</Button>
+				<Button name="СправочникПродукции" id="64">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.СправочникПродукции</CommandName>
+					<ExtendedTooltip name="СправочникПродукцииРасширеннаяПодсказка" id="65"/>
+				</Button>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаКолонка2" id="31">
