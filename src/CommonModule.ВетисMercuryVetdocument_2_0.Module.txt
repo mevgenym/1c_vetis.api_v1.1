@@ -32,7 +32,7 @@
 // productItem - dt:ProductItem - Оригинальное наименование продукции (данное производителем)
 // country - 	dt:Country - Страна происхождения продукции
 // producer - dt:Producer - Сведения о производителях продукции
-Функция BatchOrigin(productItem, country, producer) Экспорт
+Функция BatchOrigin(productItem = Неопределено, country = Неопределено, producer = Неопределено) Экспорт
 	
 	_Объект = Создать("BatchOrigin");
 	

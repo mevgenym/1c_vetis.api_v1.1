@@ -101,6 +101,7 @@
 			<Form>ФормаПредприятия</Form>
 			<Form>ФормаНоменклатура</Form>
 			<Form>ФормаТестирование</Form>
+			<Form>ФормаПредприятияПоИНН</Form>
 		</ChildObjects>
 	</DataProcessor>
 </MetaDataObject>

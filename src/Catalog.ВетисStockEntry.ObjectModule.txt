@@ -13,6 +13,7 @@
 		
 		ПометкаУдаления = Ложь;
 		guid = _stockEntry.guid;
+		uuid = _stockEntry.uuid;
 		last = _stockEntry.last;
 		active = _stockEntry.active;
 		status = ВетисBaseСлой1с.VersionStatus(_stockEntry.Status);
@@ -29,6 +30,9 @@
 		
 		Unit        = _ВетисArgusCommonСлой1с.Unit(_stockEntry.batch.unit);
 		volume      = _stockEntry.batch.volume;
+		
+		perishable    = _stockEntry.batch.perishable;
+		lowGradeCargo = _stockEntry.batch.lowGradeCargo;
 		
 		Если НЕ ЗначениеЗаполнено(_stockEntry.previous) Тогда
 			//createDate меняется в каждой версии, поэтому надо брать только из первой
@@ -52,7 +56,7 @@
 					_plСтрока = _pl.Добавить();
 					_plСтрока.level = ВетисDictionaryСлой1с.PackageLevelType(_package.level);
 					_plСтрока.packingType = ВетисDictionaryСлой1с.PackingType(_package.packingType);
-					_plСтрока.packingAmount = _package.quantity;
+					_plСтрока.quantity = _package.quantity;
 					_plСтрока.КлючСтроки = _plКлючСтроки;
 					Для каждого _productMarks Из _package.productMarks Цикл
 						_pmСтрока = _pm.Добавить();
@@ -71,6 +75,7 @@
 					Для каждого _producer Из _stockEntry.batch.origin.producer Цикл
 						_Строка = ProducerList.Добавить();
 						_Строка.producer = _ВетисCerberusEnterpriseСлой1с.Enterprise(_producer.enterprise);
+						_Строка.role = ВетисDictionaryСлой1с.EnterpriseRole(_producer.role);
 						Если ЗначениеЗаполнено(_Строка.producer) Тогда
 							_Строка.producerName = _Строка.producer.Наименование;
 						ИначеЕсли ЗначениеЗаполнено(_producer.enterprise.name) Тогда
@@ -98,6 +103,7 @@
 						Для каждого _producer Из __stockEntry.batch.origin.producer Цикл
 							_Строка = ProducerList.Добавить();
 							_Строка.producer = _ВетисCerberusEnterpriseСлой1с.Enterprise(_producer.enterprise);
+							_Строка.role = ВетисDictionaryСлой1с.EnterpriseRole(_producer.role);
 							Если ЗначениеЗаполнено(_Строка.producer) Тогда
 								_Строка.producerName = _Строка.producer.Наименование;
 							ИначеЕсли ЗначениеЗаполнено(_producer.enterprise.name) Тогда
@@ -153,7 +159,7 @@
 	
 	packingAmount = 0;
 	Для каждого _Строка Из PackageList Цикл
-		packingAmount = packingAmount + _Строка.packingAmount;
+		packingAmount = packingAmount + _Строка.quantity;
 	КонецЦикла;
 	
 	Если ЗначениеЗаполнено(dateOfProductionInformal) Тогда

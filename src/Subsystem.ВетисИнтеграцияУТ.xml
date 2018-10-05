@@ -51,10 +51,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисDocumentType</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.ВетисУстановкаСоответствияСправочников</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисЖурнал</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисПредопределенные</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисПользователь</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисАдминистратор</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисСоответствие</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.ВетисРабочийСтол</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисВерсияAPI</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисIkarService_2_0</xr:Item>
@@ -142,11 +140,27 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисСтатусТранзакции</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.ВетисПечать</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисНаправлениеОперации</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисОтветственныеСобытие</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисStockEntry</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">ExchangePlan.ВетисКлиенты</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисПланОбмена</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисСинхронизировать</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисУстановкаСоответствияСправочников</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисЖурнал</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисЖурналОпераций</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.ВетисНастройкиПодключения</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисНастройки</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисНастройкиПодключения</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">ScheduledJob.ВетисСинхронизацияTransportOperation</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">ScheduledJob.ВетисСинхронизацияBusinessEntity</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">ScheduledJob.ВетисСинхронизация</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">ScheduledJob.ВетисОчередьЗапросов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">ScheduledJob.ВетисСинхронизацияStockEntry</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">ScheduledJob.ВетисСинхронизацияVetDocument</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисСтатусОбмена</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисРазделениеПартии</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисОтложенныеОперации</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисОтложенныеОперации</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисОтложенныеОперации</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисФоновыеЗадания</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

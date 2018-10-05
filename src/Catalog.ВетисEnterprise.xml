@@ -754,18 +754,13 @@
 					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 					<ChoiceParameterLinks>
 						<xr:Link>
-							<xr:Name>Отбор.Район</xr:Name>
-							<xr:DataPath xsi:type="xs:string">Catalog.ВетисEnterprise.Attribute.District</xr:DataPath>
+							<xr:Name>Отбор.Страна</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Catalog.ВетисEnterprise.Attribute.Country</xr:DataPath>
 							<xr:ValueChange>Clear</xr:ValueChange>
 						</xr:Link>
 						<xr:Link>
 							<xr:Name>Отбор.Регион</xr:Name>
 							<xr:DataPath xsi:type="xs:string">Catalog.ВетисEnterprise.Attribute.Region</xr:DataPath>
-							<xr:ValueChange>Clear</xr:ValueChange>
-						</xr:Link>
-						<xr:Link>
-							<xr:Name>Отбор.Страна</xr:Name>
-							<xr:DataPath xsi:type="xs:string">Catalog.ВетисEnterprise.Attribute.Country</xr:DataPath>
 							<xr:ValueChange>Clear</xr:ValueChange>
 						</xr:Link>
 					</ChoiceParameterLinks>

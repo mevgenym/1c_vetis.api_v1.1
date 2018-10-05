@@ -185,6 +185,11 @@
 							<ContextMenu name="ДолжностьКонтекстноеМеню" id="20"/>
 							<ExtendedTooltip name="ДолжностьРасширеннаяПодсказка" id="21"/>
 						</InputField>
+						<InputField name="Enterprise" id="55">
+							<DataPath>Объект.Предприятие</DataPath>
+							<ContextMenu name="EnterpriseКонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="EnterpriseРасширеннаяПодсказка" id="57"/>
+						</InputField>
 					</ChildItems>
 				</Page>
 			</ChildItems>

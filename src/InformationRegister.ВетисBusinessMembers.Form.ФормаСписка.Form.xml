@@ -7,16 +7,6 @@
 				<CommandName>Form.Command.КомандаОбновитьХСПредприятие</CommandName>
 				<ExtendedTooltip name="ФормаКомандаОбновитьХСПредприятиеРасширеннаяПодсказка" id="28"/>
 			</Button>
-			<Button name="ФормаКомандаПривязатьВСервисе" id="43">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаПривязатьВСервисе</CommandName>
-				<ExtendedTooltip name="ФормаКомандаПривязатьВСервисеРасширеннаяПодсказка" id="44"/>
-			</Button>
-			<Button name="ФормаКомандаОтвязатьВСервисе" id="45">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаОтвязатьВСервисе</CommandName>
-				<ExtendedTooltip name="ФормаКомандаОтвязатьВСервисеРасширеннаяПодсказка" id="46"/>
-			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<ChildItems>
@@ -55,20 +45,7 @@
 			<AllowRootChoice>false</AllowRootChoice>
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
-			<ContextMenu name="СписокКонтекстноеМеню" id="4">
-				<ChildItems>
-					<Button name="СписокКонтекстноеМенюКомандаПривязатьВСервисе" id="41">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.КомандаПривязатьВСервисе</CommandName>
-						<ExtendedTooltip name="СписокКонтекстноеМенюКомандаПривязатьВСервисеРасширеннаяПодсказка" id="42"/>
-					</Button>
-					<Button name="СписокКонтекстноеМенюКомандаОтвязатьВСервисе" id="39">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.КомандаОтвязатьВСервисе</CommandName>
-						<ExtendedTooltip name="СписокКонтекстноеМенюКомандаОтвязатьВСервисеРасширеннаяПодсказка" id="40"/>
-					</Button>
-				</ChildItems>
-			</ContextMenu>
+			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
 				<Autofill>false</Autofill>
 			</AutoCommandBar>

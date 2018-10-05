@@ -343,27 +343,15 @@
 									<ContextMenu name="ПартииНомерСтрокиКонтекстноеМеню" id="204"/>
 									<ExtendedTooltip name="ПартииНомерСтрокиРасширеннаяПодсказка" id="205"/>
 								</LabelField>
-								<InputField name="ПартииКлючСвязи" id="206">
-									<DataPath>Объект.Партии.КлючСвязи</DataPath>
-									<Visible>false</Visible>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ПартииКлючСвязиКонтекстноеМеню" id="207"/>
-									<ExtendedTooltip name="ПартииКлючСвязиРасширеннаяПодсказка" id="208"/>
-								</InputField>
 								<InputField name="ПартииЗаписьСЖ" id="584">
 									<DataPath>Объект.Партии.ЗаписьСЖ</DataPath>
 									<EditMode>EnterOnInput</EditMode>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="ПартииЗаписьСЖКонтекстноеМеню" id="585"/>
 									<ExtendedTooltip name="ПартииЗаписьСЖРасширеннаяПодсказка" id="586"/>
 									<Events>
 										<Event name="StartChoice">ПартииЗаписьСЖНачалоВыбора</Event>
 									</Events>
-								</InputField>
-								<InputField name="ПартииSubProduct" id="598">
-									<DataPath>Объект.Партии.SubProduct</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ПартииSubProductКонтекстноеМеню" id="599"/>
-									<ExtendedTooltip name="ПартииSubProductРасширеннаяПодсказка" id="600"/>
 								</InputField>
 								<InputField name="ПартииProductItemName" id="525">
 									<DataPath>Объект.Партии.ProductItemName</DataPath>
@@ -382,14 +370,9 @@
 									<DataPath>Объект.Партии.Unit</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<Width>10</Width>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="ПартииUnitКонтекстноеМеню" id="588"/>
 									<ExtendedTooltip name="ПартииUnitРасширеннаяПодсказка" id="589"/>
-								</InputField>
-								<InputField name="Партииproducer" id="541">
-									<DataPath>Объект.Партии.producer</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ПартииproducerКонтекстноеМеню" id="542"/>
-									<ExtendedTooltip name="ПартииproducerРасширеннаяПодсказка" id="543"/>
 								</InputField>
 								<LabelField name="ПартииСтатус" id="454">
 									<DataPath>Объект.Партии.Статус</DataPath>
@@ -413,6 +396,7 @@
 							</ChildItems>
 						</Table>
 						<UsualGroup name="ГруппаУпаковка" id="511">
+							<Visible>false</Visible>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -1206,7 +1190,7 @@
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
-		<Command name="КомандаЗаполнитьТовары" id="3">
+		<Command name="КомандаЗаполнитьПодпиткой" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1219,7 +1203,7 @@
 					<v8:content>Заполнить товары</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>КомандаЗаполнитьТовары</Action>
+			<Action>КомандаЗаполнитьПодпиткой</Action>
 		</Command>
 		<Command name="КомандаОтправить" id="4">
 			<Title>

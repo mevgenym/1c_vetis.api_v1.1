@@ -1633,20 +1633,20 @@
 							<FullTextSearch>Use</FullTextSearch>
 						</Properties>
 					</Attribute>
-					<Attribute uuid="728dd257-5a53-4031-90ea-8f9b7fb34e40">
+					<Attribute uuid="cffdc2c1-36f7-4ecf-82f1-e0721471a688">
 						<Properties>
-							<Name>ProductItemName</Name>
+							<Name>ProductItemUuid</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Наименование</v8:content>
+									<v8:content>Product item uuid</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>
 							<Type>
 								<v8:Type>xs:string</v8:Type>
 								<v8:StringQualifiers>
-									<v8:Length>255</v8:Length>
+									<v8:Length>36</v8:Length>
 									<v8:AllowedLength>Variable</v8:AllowedLength>
 								</v8:StringQualifiers>
 							</Type>
@@ -1673,18 +1673,22 @@
 							<FullTextSearch>Use</FullTextSearch>
 						</Properties>
 					</Attribute>
-					<Attribute uuid="f6aba4ab-341e-402a-b089-b620dbac9b06">
+					<Attribute uuid="728dd257-5a53-4031-90ea-8f9b7fb34e40">
 						<Properties>
-							<Name>Номенклатура</Name>
+							<Name>ProductItemName</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Номенклатура (УТ)</v8:content>
+									<v8:content>Наименование</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+								<v8:Type>xs:string</v8:Type>
+								<v8:StringQualifiers>
+									<v8:Length>255</v8:Length>
+									<v8:AllowedLength>Variable</v8:AllowedLength>
+								</v8:StringQualifiers>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>

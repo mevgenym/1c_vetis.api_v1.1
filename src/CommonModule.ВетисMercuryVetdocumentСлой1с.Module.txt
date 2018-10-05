@@ -1038,6 +1038,7 @@
 		_строкаСЖ.Вставить("SubProduct", ВетисDictionaryСлой1с.SubProduct(_batch.subProduct));
 		_строкаСЖ.Вставить("productItem", ВетисDictionaryСлой1с.ProductItem(_batch.productItem));
 		_строкаСЖ.Вставить("ProductItemName", _batch.productItem.name);
+		_строкаСЖ.Вставить("ProductItemUuid", _batch.productItem.uuid);
 		
 		_строкаСЖ.Вставить("Количество", _batch.volume);
 		_строкаСЖ.Вставить("ЕдиницаИзмерения", ВетисDictionaryСлой1с.Unit(_batch.unit));
@@ -1135,10 +1136,15 @@
 		_batch.product     = ВетисDictionary_2_0.Product(ВетисDictionaryСлой1с.Product(_СтрокаСЖ.product));
 		_batch.subProduct  = ВетисDictionary_2_0.SubProduct(ВетисDictionaryСлой1с.SubProduct(_СтрокаСЖ.SubProduct));
 		//_batch.productItem = ВетисDictionary_2_0.ProductItem(ВетисDictionaryСлой1с.ProductItem(_СтрокаСЖ.ProductItem), ?(_строкаСЖ.ProductItemName="", Неопределено, _строкаСЖ.ProductItemName));
-		Если _строкаСЖ.ProductItemName="" Тогда
+		Если НЕ ПустаяСтрока(_строкаСЖ.ProductItemUuid) Тогда
+			_batch.productItem = ВетисDictionary_2_0.ProductItem();
+			_batch.productItem.uuid = _строкаСЖ.ProductItemUuid;
+		ИначеЕсли ЗначениеЗаполнено(_строкаСЖ.ProductItem) Тогда
 			_batch.productItem = ВетисDictionary_2_0.ProductItem(ВетисDictionaryСлой1с.ProductItem(_СтрокаСЖ.ProductItem));
-		Иначе
+		ИначеЕсли НЕ ПустаяСтрока(_строкаСЖ.ProductItemName) Тогда
 			_batch.productItem = ВетисDictionary_2_0.ProductItem(, _строкаСЖ.ProductItemName);
+		Иначе
+			//
 		КонецЕсли;
 		
 		////если нет всего блока то:

@@ -4,6 +4,13 @@
 	<setForAttributesByDefault>true</setForAttributesByDefault>
 	<independentRightsOfChildObjects>false</independentRightsOfChildObjects>
 	<object>
+		<name>CommonCommand.ВетисНастройкиПодключения</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Document.ИнвентаризацияТоваровНаСкладе</name>
 		<right>
 			<name>Read</name>
@@ -203,6 +210,13 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonCommand.ВетисЖурнал</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Document.ПриходныйОрдерНаТовары</name>
 		<right>
 			<name>Read</name>
@@ -309,6 +323,20 @@
 	</object>
 	<object>
 		<name>Subsystem.ВетисАвтономноеРешение</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonForm.ВетисНастройкиПодключения</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.ВетисНастройки</name>
 		<right>
 			<name>View</name>
 			<value>true</value>
@@ -506,6 +534,13 @@
 		</right>
 		<right>
 			<name>InteractiveClearDeletionMarkPredefinedData</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.ВетисЖурналОпераций</name>
+		<right>
+			<name>View</name>
 			<value>true</value>
 		</right>
 	</object>

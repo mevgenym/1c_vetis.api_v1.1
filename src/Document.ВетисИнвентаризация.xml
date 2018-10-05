@@ -533,6 +533,42 @@
 					</StandardAttributes>
 				</Properties>
 				<ChildObjects>
+					<Attribute uuid="98ecdd10-a78e-414b-a084-56dc2fbe5f01">
+						<Properties>
+							<Name>ЗаписьСЖ</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Партия</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>cfg:CatalogRef.ВетисStockEntry</v8:Type>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+						</Properties>
+					</Attribute>
 					<Attribute uuid="4b317502-a379-42b2-9a02-efe5da0f0063">
 						<Properties>
 							<Name>Отправлена</Name>
@@ -943,16 +979,16 @@
 							<FullTextSearch>Use</FullTextSearch>
 						</Properties>
 					</Attribute>
-					<Attribute uuid="fa3a7dfb-05d8-4790-853f-0551d41819d1">
+					<Attribute uuid="48efc75f-39af-4395-a1f2-1296fa88c108">
 						<Properties>
-							<Name>Количество</Name>
+							<Name>volume</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Количество</v8:content>
 								</v8:item>
 							</Synonym>
-							<Comment>volume</Comment>
+							<Comment/>
 							<Type>
 								<v8:Type>xs:decimal</v8:Type>
 								<v8:NumberQualifiers>
@@ -984,16 +1020,16 @@
 							<FullTextSearch>Use</FullTextSearch>
 						</Properties>
 					</Attribute>
-					<Attribute uuid="6cb5f8b2-b6b3-43c9-8136-747d9738de85">
+					<Attribute uuid="d5e69fb9-7b6b-49e9-83ff-303e29d089a5">
 						<Properties>
-							<Name>ЕдиницаИзмерения</Name>
+							<Name>Unit</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Единица измерения</v8:content>
+									<v8:content>Ед. изм.</v8:content>
 								</v8:item>
 							</Synonym>
-							<Comment>unit</Comment>
+							<Comment/>
 							<Type>
 								<v8:Type>cfg:CatalogRef.ВетисUnit</v8:Type>
 							</Type>
@@ -1022,14 +1058,14 @@
 					</Attribute>
 					<Attribute uuid="a63c429d-bfdc-442b-aaeb-9e6fa6267332">
 						<Properties>
-							<Name>ДатаВыработкиНачало</Name>
+							<Name>dateOfProductionFirst</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Дата выработки начало</v8:content>
+									<v8:content>Дата выработки нач.</v8:content>
 								</v8:item>
 							</Synonym>
-							<Comment>dateOfProduction</Comment>
+							<Comment/>
 							<Type>
 								<v8:Type>xs:dateTime</v8:Type>
 								<v8:DateQualifiers>
@@ -1061,14 +1097,14 @@
 					</Attribute>
 					<Attribute uuid="23e3bfe3-8706-40ce-a083-17a4ea154236">
 						<Properties>
-							<Name>ДатаВыработкиКонец</Name>
+							<Name>dateOfProductionSecond</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Дата выработки конец</v8:content>
+									<v8:content>Дата выработки кон.</v8:content>
 								</v8:item>
 							</Synonym>
-							<Comment>dateOfProduction</Comment>
+							<Comment/>
 							<Type>
 								<v8:Type>xs:dateTime</v8:Type>
 								<v8:DateQualifiers>
@@ -1100,11 +1136,11 @@
 					</Attribute>
 					<Attribute uuid="f79687dc-13cf-44e6-b969-a71890acf379">
 						<Properties>
-							<Name>ДатаВыработкиСтрокой</Name>
+							<Name>dateOfProductionInformal</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Дата выработки строкой</v8:content>
+									<v8:content>Дата выработки</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>
@@ -1140,14 +1176,14 @@
 					</Attribute>
 					<Attribute uuid="41fe98e5-22cd-4e06-a4ad-eb343cbc25cc">
 						<Properties>
-							<Name>СрокГодностиНачало</Name>
+							<Name>expiryDateFirst</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Срок годности начало</v8:content>
+									<v8:content>Срок годности нач.</v8:content>
 								</v8:item>
 							</Synonym>
-							<Comment>expiryDate</Comment>
+							<Comment/>
 							<Type>
 								<v8:Type>xs:dateTime</v8:Type>
 								<v8:DateQualifiers>
@@ -1177,16 +1213,16 @@
 							<FullTextSearch>Use</FullTextSearch>
 						</Properties>
 					</Attribute>
-					<Attribute uuid="31068618-0a67-4923-9a64-bee70c5b032b">
+					<Attribute uuid="32e961c1-3d0e-4b56-a833-b52a619ebed8">
 						<Properties>
-							<Name>СрокГодностиКонец</Name>
+							<Name>expiryDateSecond</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Срок годности конец</v8:content>
+									<v8:content>Срок годности кон.</v8:content>
 								</v8:item>
 							</Synonym>
-							<Comment>expiryDate</Comment>
+							<Comment/>
 							<Type>
 								<v8:Type>xs:dateTime</v8:Type>
 								<v8:DateQualifiers>
@@ -1216,13 +1252,13 @@
 							<FullTextSearch>Use</FullTextSearch>
 						</Properties>
 					</Attribute>
-					<Attribute uuid="4b1e93e7-3c73-48a7-b7cd-f76726451a54">
+					<Attribute uuid="cd33fa2c-18e7-48ab-a02a-6a1e602a54f6">
 						<Properties>
-							<Name>СрокГодностиСтрокой</Name>
+							<Name>expiryDateInformal</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Срок годности строкой</v8:content>
+									<v8:content>Срок годности</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>
@@ -1256,16 +1292,16 @@
 							<FullTextSearch>Use</FullTextSearch>
 						</Properties>
 					</Attribute>
-					<Attribute uuid="4ec6577e-e188-49fe-80ac-2010d5eaf6c3">
+					<Attribute uuid="13f07865-e8ac-45c8-8be1-2870e208a3e4">
 						<Properties>
-							<Name>СтранаПроисхождения</Name>
+							<Name>country</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Страна происхождения</v8:content>
+									<v8:content>Страна</v8:content>
 								</v8:item>
 							</Synonym>
-							<Comment>origin.country</Comment>
+							<Comment/>
 							<Type>
 								<v8:Type>cfg:CatalogRef.ВетисCountry</v8:Type>
 							</Type>
@@ -1292,92 +1328,16 @@
 							<FullTextSearch>Use</FullTextSearch>
 						</Properties>
 					</Attribute>
-					<Attribute uuid="f4899408-ad01-46ee-a4f9-093eecd4f09e">
-						<Properties>
-							<Name>ПроизводительПредприятие</Name>
-							<Synonym>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Производитель предприятие</v8:content>
-								</v8:item>
-							</Synonym>
-							<Comment>origin.producer</Comment>
-							<Type>
-								<v8:Type>cfg:CatalogRef.ВетисEnterprise</v8:Type>
-							</Type>
-							<PasswordMode>false</PasswordMode>
-							<Format/>
-							<EditFormat/>
-							<ToolTip/>
-							<MarkNegatives>false</MarkNegatives>
-							<Mask/>
-							<MultiLine>false</MultiLine>
-							<ExtendedEdit>false</ExtendedEdit>
-							<MinValue xsi:nil="true"/>
-							<MaxValue xsi:nil="true"/>
-							<FillChecking>DontCheck</FillChecking>
-							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-							<ChoiceParameterLinks/>
-							<ChoiceParameters/>
-							<QuickChoice>Auto</QuickChoice>
-							<CreateOnInput>Auto</CreateOnInput>
-							<ChoiceForm/>
-							<LinkByType/>
-							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
-							<Indexing>DontIndex</Indexing>
-							<FullTextSearch>Use</FullTextSearch>
-						</Properties>
-					</Attribute>
-					<Attribute uuid="f1a816fb-652e-4eca-bf2e-565850c1978e">
-						<Properties>
-							<Name>ИДПартии</Name>
-							<Synonym>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>ИД партии</v8:content>
-								</v8:item>
-							</Synonym>
-							<Comment>batchID {bs:Identifier}</Comment>
-							<Type>
-								<v8:Type>xs:string</v8:Type>
-								<v8:StringQualifiers>
-									<v8:Length>100</v8:Length>
-									<v8:AllowedLength>Variable</v8:AllowedLength>
-								</v8:StringQualifiers>
-							</Type>
-							<PasswordMode>false</PasswordMode>
-							<Format/>
-							<EditFormat/>
-							<ToolTip/>
-							<MarkNegatives>false</MarkNegatives>
-							<Mask/>
-							<MultiLine>false</MultiLine>
-							<ExtendedEdit>false</ExtendedEdit>
-							<MinValue xsi:nil="true"/>
-							<MaxValue xsi:nil="true"/>
-							<FillChecking>DontCheck</FillChecking>
-							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-							<ChoiceParameterLinks/>
-							<ChoiceParameters/>
-							<QuickChoice>Auto</QuickChoice>
-							<CreateOnInput>Auto</CreateOnInput>
-							<ChoiceForm/>
-							<LinkByType/>
-							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
-							<Indexing>DontIndex</Indexing>
-							<FullTextSearch>Use</FullTextSearch>
-						</Properties>
-					</Attribute>
 					<Attribute uuid="f930b0d7-729f-4f20-82c3-03f55b910309">
 						<Properties>
-							<Name>Скоропортящаяся</Name>
+							<Name>perishable</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Скоропортящаяся</v8:content>
 								</v8:item>
 							</Synonym>
-							<Comment>perishable</Comment>
+							<Comment/>
 							<Type>
 								<v8:Type>xs:boolean</v8:Type>
 							</Type>
@@ -1406,14 +1366,14 @@
 					</Attribute>
 					<Attribute uuid="9b2736ce-1129-4d91-b759-7d17731aa4e2">
 						<Properties>
-							<Name>НекачественныйГруз</Name>
+							<Name>lowGradeCargo</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Некачественный груз</v8:content>
 								</v8:item>
 							</Synonym>
-							<Comment>lowGradeCargo</Comment>
+							<Comment/>
 							<Type>
 								<v8:Type>xs:boolean</v8:Type>
 							</Type>
@@ -1440,16 +1400,16 @@
 							<FullTextSearch>Use</FullTextSearch>
 						</Properties>
 					</Attribute>
-					<Attribute uuid="3eb25c92-c1f8-4db9-a72c-7eea3dc9111e">
+					<Attribute uuid="a909707d-5e88-4e61-bb6e-f83824714a45">
 						<Properties>
-							<Name>Собственник</Name>
+							<Name>seOwner</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Собственник</v8:content>
 								</v8:item>
 							</Synonym>
-							<Comment>owner</Comment>
+							<Comment/>
 							<Type>
 								<v8:Type>cfg:CatalogRef.ВетисBusinessEntity</v8:Type>
 							</Type>
@@ -1560,24 +1520,24 @@
 			</TabularSection>
 			<TabularSection uuid="ecea2888-8a1d-4e04-938b-2d9ce3fbffb5">
 				<InternalInfo>
-					<xr:GeneratedType name="DocumentTabularSection.ВетисИнвентаризация.Упаковка" category="TabularSection">
+					<xr:GeneratedType name="DocumentTabularSection.ВетисИнвентаризация.PackageList" category="TabularSection">
 						<xr:TypeId>c0484b02-f715-413a-923f-f66b3dc9b2f7</xr:TypeId>
 						<xr:ValueId>d33ee5e2-41ef-4a93-a852-e7e5f24975d1</xr:ValueId>
 					</xr:GeneratedType>
-					<xr:GeneratedType name="DocumentTabularSectionRow.ВетисИнвентаризация.Упаковка" category="TabularSectionRow">
+					<xr:GeneratedType name="DocumentTabularSectionRow.ВетисИнвентаризация.PackageList" category="TabularSectionRow">
 						<xr:TypeId>4ee897c3-1044-4cab-b226-f8d2df89854f</xr:TypeId>
 						<xr:ValueId>0429e7dc-f86e-4165-8ab8-54a3cd152c18</xr:ValueId>
 					</xr:GeneratedType>
 				</InternalInfo>
 				<Properties>
-					<Name>Упаковка</Name>
+					<Name>PackageList</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Упаковка</v8:content>
 						</v8:item>
 					</Synonym>
-					<Comment>certifiedConsignment.Batch.packageList {dt:PackageList} v2.0</Comment>
+					<Comment/>
 					<ToolTip/>
 					<FillChecking>DontCheck</FillChecking>
 					<StandardAttributes>
@@ -1693,7 +1653,7 @@
 					</Attribute>
 					<Attribute uuid="e6fd533a-ed42-4dd4-9791-38088e54409a">
 						<Properties>
-							<Name>Уровень</Name>
+							<Name>level</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -1729,7 +1689,7 @@
 					</Attribute>
 					<Attribute uuid="f9d31d14-7ad2-4c52-ab16-577e9ee8b6b9">
 						<Properties>
-							<Name>Упаковка</Name>
+							<Name>packingType</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -1765,7 +1725,7 @@
 					</Attribute>
 					<Attribute uuid="6ba9181c-faf9-4926-98d9-161c1b63495f">
 						<Properties>
-							<Name>Количество</Name>
+							<Name>quantity</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -1808,24 +1768,24 @@
 			</TabularSection>
 			<TabularSection uuid="8fc4c574-9fb8-4f0c-9322-b661189d1dd7">
 				<InternalInfo>
-					<xr:GeneratedType name="DocumentTabularSection.ВетисИнвентаризация.Маркировка" category="TabularSection">
+					<xr:GeneratedType name="DocumentTabularSection.ВетисИнвентаризация.ProductMarks" category="TabularSection">
 						<xr:TypeId>e8c36b8f-040c-4491-9606-957a61693653</xr:TypeId>
 						<xr:ValueId>cde8c484-b2df-4e9f-8551-942f361de10f</xr:ValueId>
 					</xr:GeneratedType>
-					<xr:GeneratedType name="DocumentTabularSectionRow.ВетисИнвентаризация.Маркировка" category="TabularSectionRow">
+					<xr:GeneratedType name="DocumentTabularSectionRow.ВетисИнвентаризация.ProductMarks" category="TabularSectionRow">
 						<xr:TypeId>a1d59dda-4d58-4d29-9f6c-a304f5b6e40f</xr:TypeId>
 						<xr:ValueId>60be847b-8e16-40e5-a08e-db27f0bd4985</xr:ValueId>
 					</xr:GeneratedType>
 				</InternalInfo>
 				<Properties>
-					<Name>Маркировка</Name>
+					<Name>ProductMarks</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Маркировка</v8:content>
 						</v8:item>
 					</Synonym>
-					<Comment>ProductMarks v2.0</Comment>
+					<Comment/>
 					<ToolTip/>
 					<FillChecking>DontCheck</FillChecking>
 					<StandardAttributes>
@@ -1900,7 +1860,7 @@
 					</Attribute>
 					<Attribute uuid="0f0b62d4-786f-43d2-9f89-76da7d70359c">
 						<Properties>
-							<Name>Маркировка</Name>
+							<Name>value</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -1940,14 +1900,14 @@
 					</Attribute>
 					<Attribute uuid="80a43f96-9e9a-4fe1-b73c-16d705824fb0">
 						<Properties>
-							<Name>КлассМаркировки</Name>
+							<Name>class</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Класс маркировки</v8:content>
+									<v8:content>Тип</v8:content>
 								</v8:item>
 							</Synonym>
-							<Comment>productMarks {dt:ProductMarks}</Comment>
+							<Comment/>
 							<Type>
 								<v8:Type>cfg:EnumRef.ВетисProductMarkingClass</v8:Type>
 							</Type>

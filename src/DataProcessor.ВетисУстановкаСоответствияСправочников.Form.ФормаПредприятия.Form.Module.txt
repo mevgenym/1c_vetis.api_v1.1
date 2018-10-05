@@ -320,14 +320,16 @@
 		_отбор.numberList.enterpriseNumber.Добавить(ОтборНомер);
 	КонецЕсли;
 	
+	_параметры = Новый Структура("filter", _отбор);
+	
 	Если _Версия20 Тогда
-		Пока ВетисEnterpriseService_2_0.GetRussianEnterpriseListNext(_отбор, _Enterprise, _Параметры) Цикл
+		Пока ВетисEnterpriseService_2_0.GetRussianEnterpriseListNext(_Enterprise, _Параметры) Цикл
 			СписокВетисДобавить(_Enterprise);
 			Если МаксимальноеКоличество > 0 И СписокВетис.Количество() >= МаксимальноеКоличество Тогда Прервать; КонецЕсли;
 		КонецЦикла;
 		
 	Иначе
-		Пока ВетисEnterpriseService.GetRussianEnterpriseListNext(_отбор, _Enterprise, _Параметры) Цикл
+		Пока ВетисEnterpriseService.GetRussianEnterpriseListNext(_Enterprise, _Параметры) Цикл
 			СписокВетисДобавить(_Enterprise);
 			Если МаксимальноеКоличество > 0 И СписокВетис.Количество() >= МаксимальноеКоличество Тогда Прервать; КонецЕсли;
 		КонецЦикла;

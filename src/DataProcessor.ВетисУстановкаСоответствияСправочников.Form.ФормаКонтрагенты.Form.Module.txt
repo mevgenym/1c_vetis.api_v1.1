@@ -242,9 +242,9 @@
 	_ОтборТип = _ВетисCerberusEnterpriseСлой1с.BusinessEntityType(ОтборТип);
 	_ОтборАдрес = ВРег(ОтборАдрес);
 	
-	_параметры = Новый Структура("count", ?(МаксимальноеКоличество > 1000, Неопределено, МаксимальноеКоличество));
+	_параметры = Новый Структура("filter,count", _отбор, ?(МаксимальноеКоличество > 1000, Неопределено, МаксимальноеКоличество));
 	
-	Пока _ВетисEnterpriseService.GetBusinessEntityListNext(_Отбор, _businessEntity, _параметры) Цикл
+	Пока _ВетисEnterpriseService.GetBusinessEntityListNext(_businessEntity, _параметры) Цикл
 		
 		Если ОтборАдресИспользование И Найти(ВРег(_businessEntity.juridicalAddress.addressView), _ОтборАдрес) = 0 Тогда
 			Продолжить;

@@ -41,11 +41,29 @@
 					<ContextMenu name="ВСервисеКонтекстноеМеню" id="14"/>
 					<ExtendedTooltip name="ВСервисеРасширеннаяПодсказка" id="15"/>
 				</CheckBoxField>
-				<Button name="КомандаОбновитьСвязь" id="16">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.КомандаОбновитьСвязь</CommandName>
-					<ExtendedTooltip name="КомандаОбновитьСвязьРасширеннаяПодсказка" id="17"/>
-				</Button>
+				<UsualGroup name="Группа2" id="24">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="25"/>
+					<ChildItems>
+						<Button name="КомандаОбновитьСвязь" id="16">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.КомандаОбновитьСвязь</CommandName>
+							<ExtendedTooltip name="КомандаОбновитьСвязьРасширеннаяПодсказка" id="17"/>
+						</Button>
+						<Button name="ФормаКомандаПривязатьВСервисе" id="22">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.КомандаПривязатьВСервисе</CommandName>
+							<ExtendedTooltip name="ФормаКомандаПривязатьВСервисеРасширеннаяПодсказка" id="23"/>
+						</Button>
+						<Button name="ФормаКомандаОтвязатьВСервисе" id="20">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.КомандаОтвязатьВСервисе</CommandName>
+							<ExtendedTooltip name="ФормаКомандаОтвязатьВСервисеРасширеннаяПодсказка" id="21"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -73,6 +91,36 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаОбновитьСвязь</Action>
+		</Command>
+		<Command name="КомандаОтвязатьВСервисе" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отвязать в сервисе</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда отвязать в сервисе</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтвязатьВСервисе</Action>
+		</Command>
+		<Command name="КомандаПривязатьВСервисе" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Привязать в сервисе</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда привязать в сервисе</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПривязатьВСервисе</Action>
 		</Command>
 	</Commands>
 </Form>

@@ -340,7 +340,7 @@
 	
 КонецФункции
 
-Функция PackageList(package) Экспорт
+Функция PackageList(package = Неопределено) Экспорт
 	
 	_Объект = Создать("PackageList");
 	

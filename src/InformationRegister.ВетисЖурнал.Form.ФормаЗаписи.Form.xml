@@ -6,38 +6,12 @@
 		<ExcludedCommand>Delete</ExcludedCommand>
 		<ExcludedCommand>Write</ExcludedCommand>
 	</CommandSet>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаТест" id="43">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаТест</CommandName>
-				<ExtendedTooltip name="ФормаТестРасширеннаяПодсказка" id="44"/>
-			</Button>
-			<Button name="ФормаКомандаИмя" id="50">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаИмя</CommandName>
-				<ExtendedTooltip name="ФормаКомандаИмяРасширеннаяПодсказка" id="51"/>
-			</Button>
-			<Button name="ФормаКомандаТип" id="52">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаТип</CommandName>
-				<ExtendedTooltip name="ФормаКомандаТипРасширеннаяПодсказка" id="53"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<InputField name="РасшифровкаМП" id="29">
-			<DataPath>Расшифровка</DataPath>
-			<TitleLocation>None</TitleLocation>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<MultiLine>true</MultiLine>
-			<ContextMenu name="РасшифровкаМПКонтекстноеМеню" id="30"/>
-			<ExtendedTooltip name="РасшифровкаМПРасширеннаяПодсказка" id="31"/>
-		</InputField>
 		<TextDocumentField name="Расшифровка" id="15">
 			<DataPath>Расшифровка</DataPath>
 			<ReadOnly>true</ReadOnly>
@@ -123,51 +97,4 @@
 			</Type>
 		</Attribute>
 	</Attributes>
-	<Commands>
-		<Command name="КомандаТест" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Тест</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда тест</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаТест</Action>
-		</Command>
-		<Command name="КомандаИмя" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Имя</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда имя</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаИмя</Action>
-		</Command>
-		<Command name="КомандаТип" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Тип</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда тип</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаТип</Action>
-		</Command>
-	</Commands>
 </Form>

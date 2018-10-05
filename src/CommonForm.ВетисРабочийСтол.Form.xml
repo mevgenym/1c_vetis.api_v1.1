@@ -19,16 +19,6 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="841"/>
 			<ChildItems>
-				<Button name="ФормаКомандаЖурнал" id="335">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.КомандаЖурнал</CommandName>
-					<ExtendedTooltip name="ФормаКомандаЖурналРасширеннаяПодсказка" id="336"/>
-				</Button>
-				<Button name="ФормаКомандаЖурналОпераций" id="477">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.КомандаЖурналОпераций</CommandName>
-					<ExtendedTooltip name="ФормаКомандаЖурналОперацийРасширеннаяПодсказка" id="478"/>
-				</Button>
 				<Button name="ФормаКомандаПоискХС" id="546">
 					<Type>UsualButton</Type>
 					<CommandName>Form.Command.КомандаПоискХС</CommandName>
@@ -194,11 +184,6 @@
 										<CommandName>Form.Command.КомандаПогасить</CommandName>
 										<ExtendedTooltip name="СписокВСДКомандаПогаситьРасширеннаяПодсказка" id="730"/>
 									</Button>
-									<Button name="СписокВСДКомандаЗаполнитьИзСервиса" id="731">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
-										<ExtendedTooltip name="СписокВСДКомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="732"/>
-									</Button>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="СписокВСДРасширеннаяПодсказка" id="8"/>
@@ -281,12 +266,6 @@
 									<DataPath>СписокВСД.Производитель</DataPath>
 									<ContextMenu name="СписокВСДПроизводительКонтекстноеМеню" id="619"/>
 									<ExtendedTooltip name="СписокВСДПроизводительРасширеннаяПодсказка" id="620"/>
-								</LabelField>
-								<LabelField name="СписокВСДuuid" id="343">
-									<DataPath>СписокВСД.uuid</DataPath>
-									<Width>10</Width>
-									<ContextMenu name="СписокВСДuuidКонтекстноеМеню" id="344"/>
-									<ExtendedTooltip name="СписокВСДuuidРасширеннаяПодсказка" id="345"/>
 								</LabelField>
 								<LabelField name="СписокВСДОтветственныйВетис" id="458">
 									<DataPath>СписокВСД.ОтветственныйВетис</DataPath>
@@ -469,20 +448,15 @@
 										<CommandName>Form.Command.КомандаТранзакцияАннулировать</CommandName>
 										<ExtendedTooltip name="СписокТранспортныеПартииКомандаТранзакцияАннулироватьРасширеннаяПодсказка" id="744"/>
 									</Button>
+									<Button name="СписокТранспортныеПартииКомандаОтложенныеОперацииРегл" id="848">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаОтложенныеОперацииРегл</CommandName>
+										<ExtendedTooltip name="СписокТранспортныеПартииКомандаОтложенныеОперацииРеглРасширеннаяПодсказка" id="849"/>
+									</Button>
 									<Button name="СписокТранспортныеПартииКомандаТранзакцияПечать" id="741">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаТранзакцияПечать</CommandName>
 										<ExtendedTooltip name="СписокТранспортныеПартииКомандаТранзакцияПечатьРасширеннаяПодсказка" id="742"/>
-									</Button>
-									<Button name="СписокТранспортныеПартииКомандаТранзакцияОбновитьСтатус" id="745">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.КомандаТранзакцияОбновитьСтатус</CommandName>
-										<ExtendedTooltip name="СписокТранспортныеПартииКомандаТранзакцияОбновитьСтатусРасширеннаяПодсказка" id="746"/>
-									</Button>
-									<Button name="СписокТранспортныеПартииКомандаТранзакцияПрикрепить" id="761">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.КомандаТранзакцияПрикрепить</CommandName>
-										<ExtendedTooltip name="СписокТранспортныеПартииКомандаТранзакцияПрикрепитьРасширеннаяПодсказка" id="762"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
@@ -547,22 +521,6 @@
 									<DataPath>СписокТранспортныеПартии.Количество</DataPath>
 									<ContextMenu name="СписокТранспортныеПартииКоличествоКонтекстноеМеню" id="628"/>
 									<ExtendedTooltip name="СписокТранспортныеПартииКоличествоРасширеннаяПодсказка" id="629"/>
-								</LabelField>
-								<LabelField name="СписокТранспортныеПартииКоличествоР" id="763">
-									<DataPath>СписокТранспортныеПартии.КоличествоР</DataPath>
-									<ContextMenu name="СписокТранспортныеПартииКоличествоРКонтекстноеМеню" id="764"/>
-									<ExtendedTooltip name="СписокТранспортныеПартииКоличествоРРасширеннаяПодсказка" id="765"/>
-								</LabelField>
-								<LabelField name="СписокТранспортныеПартииКоличествоМест" id="630">
-									<DataPath>СписокТранспортныеПартии.КоличествоМест</DataPath>
-									<Visible>false</Visible>
-									<ContextMenu name="СписокТранспортныеПартииКоличествоМестКонтекстноеМеню" id="631"/>
-									<ExtendedTooltip name="СписокТранспортныеПартииКоличествоМестРасширеннаяПодсказка" id="632"/>
-								</LabelField>
-								<LabelField name="СписокТранспортныеПартииКоличествоИ" id="766">
-									<DataPath>СписокТранспортныеПартии.КоличествоИ</DataPath>
-									<ContextMenu name="СписокТранспортныеПартииКоличествоИКонтекстноеМеню" id="767"/>
-									<ExtendedTooltip name="СписокТранспортныеПартииКоличествоИРасширеннаяПодсказка" id="768"/>
 								</LabelField>
 								<LabelField name="СписокТранспортныеПартииОтветственный" id="118">
 									<DataPath>СписокТранспортныеПартии.Ответственный</DataPath>
@@ -645,6 +603,7 @@
 									</Button>
 									<Button name="СписокИсходящихВСДКомандаИсходящиеПерезаписать" id="759">
 										<Type>CommandBarButton</Type>
+										<Visible>false</Visible>
 										<CommandName>Form.Command.КомандаИсходящиеПерезаписать</CommandName>
 										<ExtendedTooltip name="СписокИсходящихВСДКомандаИсходящиеПерезаписатьРасширеннаяПодсказка" id="760"/>
 									</Button>
@@ -755,13 +714,6 @@
 									<DataPath>СписокИсходящихВСД.ОтветственныйВетис</DataPath>
 									<ContextMenu name="СписокИсходящихВСДОтветственныйВетисКонтекстноеМеню" id="721"/>
 									<ExtendedTooltip name="СписокИсходящихВСДОтветственныйВетисРасширеннаяПодсказка" id="722"/>
-								</LabelField>
-								<LabelField name="СписокИсходящихВСДuuid" id="654">
-									<DataPath>СписокИсходящихВСД.uuid</DataPath>
-									<Visible>false</Visible>
-									<Width>10</Width>
-									<ContextMenu name="СписокИсходящихВСДuuidКонтекстноеМеню" id="655"/>
-									<ExtendedTooltip name="СписокИсходящихВСДuuidРасширеннаяПодсказка" id="656"/>
 								</LabelField>
 							</ChildItems>
 						</Table>
@@ -898,12 +850,6 @@
 										<CommandName>Form.Item.СписокСкладскойЖурнал.StandardCommand.Refresh</CommandName>
 										<ExtendedTooltip name="СписокСкладскойЖурналОбновитьРасширеннаяПодсказка" id="602"/>
 									</Button>
-									<Button name="СписокСкладскойЖурналКомандаСинхронизироватьСЖ" id="835">
-										<Type>CommandBarButton</Type>
-										<Visible>false</Visible>
-										<CommandName>Form.Command.КомандаСинхронизироватьСЖ</CommandName>
-										<ExtendedTooltip name="СписокСкладскойЖурналКомандаСинхронизироватьСЖРасширеннаяПодсказка" id="836"/>
-									</Button>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="СписокСкладскойЖурналРасширеннаяПодсказка" id="135"/>
@@ -970,9 +916,16 @@
 								</LabelField>
 								<LabelField name="СписокСкладскойЖурналproducer" id="823">
 									<DataPath>СписокСкладскойЖурнал.producer</DataPath>
+									<Visible>false</Visible>
 									<Width>10</Width>
 									<ContextMenu name="СписокСкладскойЖурналproducerКонтекстноеМеню" id="824"/>
 									<ExtendedTooltip name="СписокСкладскойЖурналproducerРасширеннаяПодсказка" id="825"/>
+								</LabelField>
+								<LabelField name="СписокСкладскойЖурналproducerName" id="845">
+									<DataPath>СписокСкладскойЖурнал.producerName</DataPath>
+									<Width>10</Width>
+									<ContextMenu name="СписокСкладскойЖурналproducerNameКонтекстноеМеню" id="846"/>
+									<ExtendedTooltip name="СписокСкладскойЖурналproducerNameРасширеннаяПодсказка" id="847"/>
 								</LabelField>
 								<LabelField name="СписокСкладскойЖурналcountry" id="808">
 									<DataPath>СписокСкладскойЖурнал.country</DataPath>
@@ -1071,29 +1024,10 @@
 	_Таблица.СтатусТранзакции,
 	_Таблица.Ответственный,
 	_Таблица.Количество,
-	_Таблица.КоличествоМест,
-	_Реализации.Количество КАК КоличествоР,
-	_Партии.Количество КАК КоличествоИ
+	_Таблица.КоличествоМест
 ИЗ
 	Документ.ВетисТранспортнаяПартия КАК _Таблица
-		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
-			_Таблица.Ссылка КАК Ссылка,
-			СУММА(_Таблица.Количество) КАК Количество
-		ИЗ
-			Документ.РеализацияТоваровУслуг.Товары КАК _Таблица
-		
-		СГРУППИРОВАТЬ ПО
-			_Таблица.Ссылка) КАК _Реализации
-		ПО _Таблица.ДокументОснование = _Реализации.Ссылка
-		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
-			_Таблица.Ссылка КАК Ссылка,
-			СУММА(_Таблица.Количество) КАК Количество
-		ИЗ
-			Документ.ВетисТранспортнаяПартия.Партии КАК _Таблица
-		
-		СГРУППИРОВАТЬ ПО
-			_Таблица.Ссылка) КАК _Партии
-		ПО _Таблица.Ссылка = _Партии.Ссылка</QueryText>
+</QueryText>
 				<MainTable>Document.ВетисТранспортнаяПартия</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -1585,29 +1519,6 @@
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>
-			<dcsset:item>
-				<dcsset:selection>
-					<dcsset:item>
-						<dcsset:field>СписокТранспортныеПартииКоличество</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокТранспортныеПартииКоличествоР</dcsset:field>
-					</dcsset:item>
-				</dcsset:selection>
-				<dcsset:filter>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">СписокТранспортныеПартии.Количество</dcsset:left>
-						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
-						<dcsset:right xsi:type="dcscor:Field">СписокТранспортныеПартии.КоличествоР</dcsset:right>
-					</dcsset:item>
-				</dcsset:filter>
-				<dcsset:appearance>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>ЦветТекста</dcscor:parameter>
-						<dcscor:value xsi:type="v8ui:Color">#FF0000</dcscor:value>
-					</dcscor:item>
-				</dcsset:appearance>
-			</dcsset:item>
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
@@ -1625,21 +1536,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаИсходящиеАннулировать</Action>
-		</Command>
-		<Command name="КомандаСинхронизировать" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Синхронизировать</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда синхронизировать</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаСинхронизировать</Action>
 		</Command>
 		<Command name="КомандаОтборСписокВСДТип" id="6">
 			<Title>
@@ -1670,21 +1566,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаОтборСписокВСДСтатус</Action>
-		</Command>
-		<Command name="КомандаЖурнал" id="8">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Журнал</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда журнал</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаЖурнал</Action>
 		</Command>
 		<Command name="КомандаУстановкаСоответствияСправочников" id="9">
 			<Title>
@@ -1775,21 +1656,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаОтборСписокТранспортныеПартииСтатус</Action>
-		</Command>
-		<Command name="КомандаЖурналОпераций" id="15">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Журнал операций</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда журнал</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаЖурналОпераций</Action>
 		</Command>
 		<Command name="КомандаПоискПредприятий" id="3">
 			<Title>
@@ -1955,6 +1821,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаСинхронизироватьСЖ</Action>
+		</Command>
+		<Command name="КомандаОтложенныеОперацииРегл" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отложенные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда транзакция отправить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтложенныеОперацииРегл</Action>
 		</Command>
 	</Commands>
 </Form>

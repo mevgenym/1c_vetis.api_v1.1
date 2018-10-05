@@ -35,113 +35,15 @@
 					<CommandName>Form.Command.Enterprise</CommandName>
 					<ExtendedTooltip name="EnterpriseРасширеннаяПодсказка" id="34"/>
 				</Button>
+				<Button name="КомандаПредприятияПоИНН" id="66">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.КомандаПредприятияПоИНН</CommandName>
+					<ExtendedTooltip name="КомандаПредприятияПоИННРасширеннаяПодсказка" id="67"/>
+				</Button>
 				<Button name="СправочникПродукции" id="64">
 					<Type>UsualButton</Type>
 					<CommandName>Form.Command.СправочникПродукции</CommandName>
 					<ExtendedTooltip name="СправочникПродукцииРасширеннаяПодсказка" id="65"/>
-				</Button>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаКолонка2" id="31">
-			<Visible>false</Visible>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Дополнительные</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Vertical</Group>
-			<Representation>None</Representation>
-			<ExtendedTooltip name="ГруппаКолонка2РасширеннаяПодсказка" id="32"/>
-			<ChildItems>
-				<Button name="Purpose" id="47">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.Purpose</CommandName>
-					<ExtendedTooltip name="PurposeРасширеннаяПодсказка" id="48"/>
-				</Button>
-				<Button name="PackingForm" id="35">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.PackingForm</CommandName>
-					<ExtendedTooltip name="PackingFormРасширеннаяПодсказка" id="36"/>
-				</Button>
-				<Button name="RegionalizationCondition" id="37">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.RegionalizationCondition</CommandName>
-					<ExtendedTooltip name="RegionalizationConditionРасширеннаяПодсказка" id="38"/>
-				</Button>
-				<Button name="IncorporationForm" id="45">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.IncorporationForm</CommandName>
-					<ExtendedTooltip name="IncorporationFormРасширеннаяПодсказка" id="46"/>
-				</Button>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаКолонка3" id="52">
-			<Visible>false</Visible>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Адреса</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Vertical</Group>
-			<Representation>None</Representation>
-			<ExtendedTooltip name="ГруппаКолонка3РасширеннаяПодсказка" id="53"/>
-			<ChildItems>
-				<Button name="Country" id="3">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.Country</CommandName>
-					<ExtendedTooltip name="CountryРасширеннаяПодсказка" id="4"/>
-				</Button>
-				<Button name="Region" id="39">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.Region</CommandName>
-					<ExtendedTooltip name="RegionРасширеннаяПодсказка" id="40"/>
-				</Button>
-				<Button name="District" id="41">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.District</CommandName>
-					<ExtendedTooltip name="DistrictРасширеннаяПодсказка" id="42"/>
-				</Button>
-				<Button name="Locality" id="43">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.Locality</CommandName>
-					<ExtendedTooltip name="LocalityРасширеннаяПодсказка" id="44"/>
-				</Button>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаКолонка4" id="58">
-			<Visible>false</Visible>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Продукция</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа колонка4</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Group>Vertical</Group>
-			<Representation>None</Representation>
-			<ExtendedTooltip name="ГруппаКолонка4РасширеннаяПодсказка" id="59"/>
-			<ChildItems>
-				<Button name="Product" id="60">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.Product</CommandName>
-					<ExtendedTooltip name="ProductРасширеннаяПодсказка" id="61"/>
-				</Button>
-				<Button name="SubProduct" id="21">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.SubProduct</CommandName>
-					<ExtendedTooltip name="SubProductРасширеннаяПодсказка" id="22"/>
-				</Button>
-				<Button name="ProductItem" id="19">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.ProductItem</CommandName>
-					<ExtendedTooltip name="ProductItemРасширеннаяПодсказка" id="20"/>
 				</Button>
 			</ChildItems>
 		</UsualGroup>
@@ -200,21 +102,6 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Country" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Country</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Country</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Country</Action>
-		</Command>
 		<Command name="BusinessEntity" id="6">
 			<Title>
 				<v8:item>
@@ -229,21 +116,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>BusinessEntity</Action>
-		</Command>
-		<Command name="Unit" id="7">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Unit</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Unit</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Unit</Action>
 		</Command>
 		<Command name="Enterprise" id="9">
 			<Title>
@@ -260,36 +132,6 @@
 			</ToolTip>
 			<Action>Enterprise</Action>
 		</Command>
-		<Command name="ProductItem" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Product item</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Product item</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ProductItem</Action>
-		</Command>
-		<Command name="SubProduct" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Sub product</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Sub product</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>SubProduct</Action>
-		</Command>
 		<Command name="Тестирование" id="5">
 			<Title>
 				<v8:item>
@@ -304,126 +146,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Тестирование</Action>
-		</Command>
-		<Command name="ОбновитьСправочники" id="8">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Обновить справочники</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Обновить справочники</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОбновитьСправочники</Action>
-		</Command>
-		<Command name="Region" id="10">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Region</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Region</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Region</Action>
-		</Command>
-		<Command name="District" id="11">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>District</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>District</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>District</Action>
-		</Command>
-		<Command name="Locality" id="12">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Locality</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Locality</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Locality</Action>
-		</Command>
-		<Command name="IncorporationForm" id="13">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Incorporation form</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Incorporation form</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>IncorporationForm</Action>
-		</Command>
-		<Command name="RegionalizationCondition" id="14">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Regionalization condition</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Regionalization condition</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>RegionalizationCondition</Action>
-		</Command>
-		<Command name="Purpose" id="15">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Purpose</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Purpose</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Purpose</Action>
-		</Command>
-		<Command name="PackingForm" id="16">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Packing form</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Packing form</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>PackingForm</Action>
 		</Command>
 		<Command name="ПредприятияХС" id="17">
 			<Title>
@@ -455,20 +177,20 @@
 			</ToolTip>
 			<Action>СправочникПродукции</Action>
 		</Command>
-		<Command name="Product" id="19">
+		<Command name="КомандаПредприятияПоИНН" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Product</v8:content>
+					<v8:content>Предприятия по ИНН</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Product</v8:content>
+					<v8:content>Команда предприятия по ИНН</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>Product</Action>
+			<Action>КомандаПредприятияПоИНН</Action>
 		</Command>
 	</Commands>
 </Form>

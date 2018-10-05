@@ -44,9 +44,7 @@
 			</UsePurposes>
 			<ScriptVariant>Russian</ScriptVariant>
 			<DefaultRoles>
-				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисПользователь</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисАдминистратор</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисАвтономноеРешение</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисФоновыеЗадания</xr:Item>
 			</DefaultRoles>
 			<Vendor/>
 			<Version>1.2.0</Version>
@@ -145,6 +143,7 @@
 			<Role>ВетисОператор</Role>
 			<Role>ВетисПолныеПрава</Role>
 			<Role>ВетисПользователь</Role>
+			<Role>ВетисФоновыеЗадания</Role>
 			<CommonTemplate>ВСДКратко</CommonTemplate>
 			<FilterCriterion>ВетисСвязанныеДокументы</FilterCriterion>
 			<CommonModule>Ветис</CommonModule>
@@ -210,36 +209,39 @@
 			<EventSubscription>ВетисПриКопированииСправочник</EventSubscription>
 			<EventSubscription>ВетисПриУстановкеНовогоКода</EventSubscription>
 			<EventSubscription>ВетисПриУстановкеНовогоНомера</EventSubscription>
+			<ScheduledJob>ВетисОтложенныеОперации</ScheduledJob>
 			<ScheduledJob>ВетисОчередьЗапросов</ScheduledJob>
 			<ScheduledJob>ВетисСинхронизация</ScheduledJob>
 			<ScheduledJob>ВетисСинхронизацияBusinessEntity</ScheduledJob>
+			<ScheduledJob>ВетисСинхронизацияStockEntry</ScheduledJob>
+			<ScheduledJob>ВетисСинхронизацияTransportOperation</ScheduledJob>
+			<ScheduledJob>ВетисСинхронизацияVetDocument</ScheduledJob>
 			<FunctionalOption>ВетисВидимостьGuid</FunctionalOption>
-			<CommonCommand>ВетисAnimalDisease</CommonCommand>
 			<CommonCommand>ВетисBusinessEntity</CommonCommand>
 			<CommonCommand>ВетисCountry</CommonCommand>
 			<CommonCommand>ВетисDistrict</CommonCommand>
 			<CommonCommand>ВетисEnterprise</CommonCommand>
-			<CommonCommand>ВетисIncorporationForm</CommonCommand>
 			<CommonCommand>ВетисLocality</CommonCommand>
 			<CommonCommand>ВетисPackingForm</CommonCommand>
 			<CommonCommand>ВетисProduct</CommonCommand>
 			<CommonCommand>ВетисProductItem</CommonCommand>
 			<CommonCommand>ВетисPurpose</CommonCommand>
 			<CommonCommand>ВетисRegion</CommonCommand>
-			<CommonCommand>ВетисRegionalizationCondition</CommonCommand>
 			<CommonCommand>ВетисStockEntryList</CommonCommand>
 			<CommonCommand>ВетисSubProduct</CommonCommand>
-			<CommonCommand>ВетисTransport</CommonCommand>
 			<CommonCommand>ВетисUnit</CommonCommand>
-			<CommonCommand>ВетисUser</CommonCommand>
 			<CommonCommand>ВетисXSD</CommonCommand>
 			<CommonCommand>ВетисВетеринарноСопроводительныйДокумент</CommonCommand>
 			<CommonCommand>ВетисВходящаяПартияПоДокументам</CommonCommand>
 			<CommonCommand>ВетисГраницыЗапросов</CommonCommand>
+			<CommonCommand>ВетисЖурнал</CommonCommand>
+			<CommonCommand>ВетисЖурналОпераций</CommonCommand>
+			<CommonCommand>ВетисНастройки</CommonCommand>
+			<CommonCommand>ВетисНастройкиПодключения</CommonCommand>
+			<CommonCommand>ВетисОтложенныеОперации</CommonCommand>
 			<CommonCommand>ВетисПланОбмена</CommonCommand>
 			<CommonCommand>ВетисПредприятияХС</CommonCommand>
-			<CommonCommand>ВетисСинхронизировать</CommonCommand>
-			<CommonCommand>ВетисСоответствие</CommonCommand>
+			<CommonCommand>ВетисУстановкаСоответствияСправочников</CommonCommand>
 			<CommandGroup>ВетисДокументы</CommandGroup>
 			<CommandGroup>ВетисСправочники</CommandGroup>
 			<CommandGroup>ВетисСервис</CommandGroup>
@@ -251,6 +253,7 @@
 			<Constant>ВетисОсновнойПользователь</Constant>
 			<CommonForm>ВетисXSD</CommonForm>
 			<CommonForm>ВетисНастройки</CommonForm>
+			<CommonForm>ВетисНастройкиПодключения</CommonForm>
 			<CommonForm>ВетисПечать</CommonForm>
 			<CommonForm>ВетисРабочийСтол</CommonForm>
 			<Catalog>ВетисAnimalDisease</Catalog>
@@ -289,6 +292,7 @@
 			<Document>ВетисВетеринарноСопроводительныйДокумент</Document>
 			<Document>ВетисВходящаяПартияПоДокументам</Document>
 			<Document>ВетисИнвентаризация</Document>
+			<Document>ВетисРазделениеПартии</Document>
 			<Document>ВетисТранспортнаяПартия</Document>
 			<Document>ИнвентаризацияТоваровНаСкладе</Document>
 			<Document>ПеремещениеТоваров</Document>
@@ -318,9 +322,10 @@
 			<Enum>ВетисVeterinaryEventType</Enum>
 			<Enum>ВетисВерсияAPI</Enum>
 			<Enum>ВетисНаправлениеОперации</Enum>
-			<Enum>ВетисОтветственныеСобытие</Enum>
+			<Enum>ВетисОтложенныеОперации</Enum>
 			<Enum>ВетисСервис</Enum>
 			<Enum>ВетисСтатусЗапроса</Enum>
+			<Enum>ВетисСтатусОбмена</Enum>
 			<Enum>ВетисСтатусТранзакции</Enum>
 			<Enum>ВетисТипАдреса</Enum>
 			<Enum>ВетисЦелевойСервис</Enum>
@@ -331,9 +336,8 @@
 			<InformationRegister>ВетисГраницыЗапросов</InformationRegister>
 			<InformationRegister>ВетисЖурнал</InformationRegister>
 			<InformationRegister>ВетисЖурналОпераций</InformationRegister>
+			<InformationRegister>ВетисОтложенныеОперации</InformationRegister>
 			<InformationRegister>ВетисОчередьЗапросов</InformationRegister>
-			<InformationRegister>ВетисПредопределенные</InformationRegister>
-			<InformationRegister>ВетисСоответствие</InformationRegister>
 		</ChildObjects>
 	</Configuration>
 </MetaDataObject>
