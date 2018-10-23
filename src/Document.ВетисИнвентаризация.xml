@@ -535,7 +535,7 @@
 				<ChildObjects>
 					<Attribute uuid="98ecdd10-a78e-414b-a084-56dc2fbe5f01">
 						<Properties>
-							<Name>ЗаписьСЖ</Name>
+							<Name>StockEntry</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>

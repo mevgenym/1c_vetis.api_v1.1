@@ -105,13 +105,6 @@
 									<ContextMenu name="МиллисекундыКонтекстноеМеню" id="37"/>
 									<ExtendedTooltip name="МиллисекундыРасширеннаяПодсказка" id="38"/>
 								</LabelField>
-								<LabelField name="ВерсияМП" id="56">
-									<DataPath>Список.Версия</DataPath>
-									<Width>2</Width>
-									<HorizontalStretch>false</HorizontalStretch>
-									<ContextMenu name="ВерсияМПКонтекстноеМеню" id="57"/>
-									<ExtendedTooltip name="ВерсияМПРасширеннаяПодсказка" id="58"/>
-								</LabelField>
 							</ChildItems>
 						</ColumnGroup>
 						<ColumnGroup name="Группа3" id="52">
@@ -142,11 +135,25 @@
 									<ContextMenu name="ОперацияКонтекстноеМеню" id="65"/>
 									<ExtendedTooltip name="ОперацияРасширеннаяПодсказка" id="66"/>
 								</LabelField>
-								<LabelField name="КлючДанных" id="59">
-									<DataPath>~Список.КлючДанных</DataPath>
-									<Visible>false</Visible>
-									<ContextMenu name="КлючДанныхКонтекстноеМеню" id="60"/>
-									<ExtendedTooltip name="КлючДанныхРасширеннаяПодсказка" id="61"/>
+								<LabelField name="Направление" id="76">
+									<DataPath>Список.Направление</DataPath>
+									<ContextMenu name="НаправлениеКонтекстноеМеню" id="77"/>
+									<ExtendedTooltip name="НаправлениеРасширеннаяПодсказка" id="78"/>
+								</LabelField>
+								<LabelField name="BusinessEntity" id="70">
+									<DataPath>Список.BusinessEntity</DataPath>
+									<ContextMenu name="BusinessEntityКонтекстноеМеню" id="71"/>
+									<ExtendedTooltip name="BusinessEntityРасширеннаяПодсказка" id="72"/>
+								</LabelField>
+								<LabelField name="Enterprise" id="73">
+									<DataPath>Список.Enterprise</DataPath>
+									<ContextMenu name="EnterpriseКонтекстноеМеню" id="74"/>
+									<ExtendedTooltip name="EnterpriseРасширеннаяПодсказка" id="75"/>
+								</LabelField>
+								<LabelField name="Объект" id="67">
+									<DataPath>Список.Объект</DataPath>
+									<ContextMenu name="ОбъектКонтекстноеМеню" id="68"/>
+									<ExtendedTooltip name="ОбъектРасширеннаяПодсказка" id="69"/>
 								</LabelField>
 								<LabelField name="Версия" id="45">
 									<DataPath>Список.Версия</DataPath>

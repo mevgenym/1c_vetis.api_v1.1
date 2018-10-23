@@ -25,13 +25,6 @@
 			<ContextMenu name="fioКонтекстноеМеню" id="14"/>
 			<ExtendedTooltip name="fioРасширеннаяПодсказка" id="15"/>
 		</InputField>
-		<InputField name="guid" id="7">
-			<DataPath>Объект.guid</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<EditMode>EnterOnInput</EditMode>
-			<ContextMenu name="guidКонтекстноеМеню" id="8"/>
-			<ExtendedTooltip name="guidРасширеннаяПодсказка" id="9"/>
-		</InputField>
 		<Pages name="Страницы" id="49">
 			<Title>
 				<v8:item>
@@ -182,21 +175,42 @@
 									<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="67"/>
 									<ChildItems>
 										<CheckBoxField name="last" id="59">
-											<DataPath>Объект.last</DataPath>
+											<DataPath>last</DataPath>
 											<CheckBoxType>Auto</CheckBoxType>
 											<ContextMenu name="lastКонтекстноеМеню" id="60"/>
 											<ExtendedTooltip name="lastРасширеннаяПодсказка" id="61"/>
 										</CheckBoxField>
 										<CheckBoxField name="active" id="68">
-											<DataPath>Объект.active</DataPath>
+											<DataPath>active</DataPath>
 											<CheckBoxType>Auto</CheckBoxType>
 											<ContextMenu name="activeКонтекстноеМеню" id="69"/>
 											<ExtendedTooltip name="activeРасширеннаяПодсказка" id="70"/>
 										</CheckBoxField>
 										<InputField name="status" id="71">
-											<DataPath>Объект.status</DataPath>
+											<DataPath>status</DataPath>
 											<ContextMenu name="statusКонтекстноеМеню" id="72"/>
 											<ExtendedTooltip name="statusРасширеннаяПодсказка" id="73"/>
+										</InputField>
+										<InputField name="guid" id="7">
+											<DataPath>Объект.guid</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="guidКонтекстноеМеню" id="8"/>
+											<ExtendedTooltip name="guidРасширеннаяПодсказка" id="9"/>
+										</InputField>
+										<InputField name="previous" id="77">
+											<DataPath>previous</DataPath>
+											<ContextMenu name="previousКонтекстноеМеню" id="78"/>
+											<ExtendedTooltip name="previousРасширеннаяПодсказка" id="79"/>
+										</InputField>
+										<InputField name="_uuid" id="89">
+											<DataPath>_uuid</DataPath>
+											<ContextMenu name="_uuidКонтекстноеМеню" id="90"/>
+											<ExtendedTooltip name="_uuidРасширеннаяПодсказка" id="91"/>
+										</InputField>
+										<InputField name="next" id="80">
+											<DataPath>next</DataPath>
+											<ContextMenu name="nextКонтекстноеМеню" id="81"/>
+											<ExtendedTooltip name="nextРасширеннаяПодсказка" id="82"/>
 										</InputField>
 										<InputField name="createDate" id="86">
 											<DataPath>createDate</DataPath>
@@ -208,21 +222,6 @@
 											<ContextMenu name="updateDateКонтекстноеМеню" id="84"/>
 											<ExtendedTooltip name="updateDateРасширеннаяПодсказка" id="85"/>
 										</InputField>
-										<InputField name="previous" id="77">
-											<DataPath>previous</DataPath>
-											<ContextMenu name="previousКонтекстноеМеню" id="78"/>
-											<ExtendedTooltip name="previousРасширеннаяПодсказка" id="79"/>
-										</InputField>
-										<InputField name="next" id="80">
-											<DataPath>next</DataPath>
-											<ContextMenu name="nextКонтекстноеМеню" id="81"/>
-											<ExtendedTooltip name="nextРасширеннаяПодсказка" id="82"/>
-										</InputField>
-										<LabelField name="уид" id="74">
-											<DataPath>уид</DataPath>
-											<ContextMenu name="уидКонтекстноеМеню" id="75"/>
-											<ExtendedTooltip name="уидРасширеннаяПодсказка" id="76"/>
-										</LabelField>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -253,7 +252,11 @@
 		</Attribute>
 		<Attribute name="next" id="3">
 			<Type>
-				<v8:Type>cfg:CatalogRef.ВетисEnterprise</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>36</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
 		<Attribute name="previous" id="4">
@@ -264,7 +267,11 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.ВетисEnterprise</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>36</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
 		<Attribute name="createDate" id="5">
@@ -293,6 +300,54 @@
 				<v8:DateQualifiers>
 					<v8:DateFractions>DateTime</v8:DateFractions>
 				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_uuid" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>uuid</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>36</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="active" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Active</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="last" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Last</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="status" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Status</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ВетисVersionStatus</v8:Type>
 			</Type>
 		</Attribute>
 	</Attributes>

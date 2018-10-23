@@ -28,6 +28,8 @@
 		ProductItem = _ВетисArgusProductionСлой1с.ProductItem(_stockEntry.batch.productItem);
 		ProductItemName = _stockEntry.batch.productItem.name;
 		
+		Наименование = ProductItemName;
+		
 		Unit        = _ВетисArgusCommonСлой1с.Unit(_stockEntry.batch.unit);
 		volume      = _stockEntry.batch.volume;
 		
@@ -120,11 +122,11 @@
 				country = _ВетисIkarСлой1с.Country(_stockEntry.batch.origin.country);
 			КонецЕсли;
 			
-			//VetDocumentList.Очистить();
-			//Для каждого _vetDocument Из _stockEntry.vetDocument Цикл
-			//	_Строка = VetDocumentList.Добавить();
-			//	_Строка.vetDocument = ВетисMercuryVetdocumentСлой1с.VetDocument(_vetDocument);
-			//КонецЦикла;
+			VetDocumentList.Очистить();
+			Для каждого _vetDocument Из _stockEntry.vetDocument Цикл
+				_Строка = VetDocumentList.Добавить();
+				_Строка.vetDocument = ВетисMercuryVetdocumentСлой1с.VetDocument(_vetDocument);
+			КонецЦикла;
 			
 			dateOfProductionFirst = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.dateOfProduction.firstDate, Истина);
 			dateOfProductionSecond = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.dateOfProduction.secondDate, Истина);
@@ -144,6 +146,16 @@
 	
 	Если ОбменДанными.Загрузка Тогда
 		Возврат;
+	КонецЕсли;
+	
+	Если НЕ ЗначениеЗаполнено(guid) Тогда
+		Отказ = Истина;
+	КонецЕсли;
+	
+	Если ЭтоНовый() Тогда
+		Если НЕ ЗначениеЗаполнено(ПолучитьСсылкуНового()) Тогда
+			УстановитьСсылкуНового(Справочники.ВетисStockEntry.ПолучитьСсылку(Новый УникальныйИдентификатор(guid)));
+		КонецЕсли;
 	КонецЕсли;
 	
 	productMarking = "";

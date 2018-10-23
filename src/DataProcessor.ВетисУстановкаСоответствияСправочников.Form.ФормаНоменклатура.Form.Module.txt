@@ -70,9 +70,9 @@
 		Возврат;
 	КонецЕсли;
 	
-	_форма = ОткрытьФорму("Справочник.ВетисProductItem.ФормаОбъекта");
+	_форма = ОткрытьФорму("Справочник.ВетисProductItem.ФормаОбъекта", Новый Структура("guid", Элементы.СписокВетис.ТекущиеДанные.guid));
 	
-	_форма.Объект.Наименование = Элементы.СписокВетис.ТекущиеДанные.name;
+	//_форма.Объект.Наименование = Элементы.СписокВетис.ТекущиеДанные.name;
 	
 КонецПроцедуры
 
@@ -204,7 +204,7 @@
 		Элементы.ОтборХСИспользование.Видимость = Истина;
 		Элементы.ОтборПредприятиеИспользование.Видимость = Истина;
 		Элементы.ОтборПредприятиеИспользование1.Видимость = Истина;
-		Элементы.ОтборТипПродукцииИспользование.Видимость = Ложь;
+		Элементы.ОтборТипПродукцииИспользование.Видимость = Истина;
 		
 		Элементы.ОтборХС.Видимость = Истина;
 		
@@ -265,57 +265,39 @@
 	
 	Если _Версия20 Тогда
 		
-		_businessEntity = ВетисDictionary_2_0.BusinessEntity(?(ОтборХСИспользование, ВетисDictionaryСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект), Неопределено));
-		_enterprise  = ВетисDictionary_2_0.Enterprise(?(ОтборПредприятиеИспользование, ?(ЗначениеЗаполнено(Объект.Предприятие), ВетисDictionaryСлой1с.Enterprise(Объект.Предприятие), ОтборПредприятиеGuid), Неопределено));
+		_businessEntity = ?(ОтборХСИспользование, ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект)), Неопределено);
+		_enterprise  = ?(ОтборПредприятиеИспользование, ВетисDictionary_2_0.Enterprise(?(ЗначениеЗаполнено(Объект.Предприятие), ВетисDictionaryСлой1с.Enterprise(Объект.Предприятие), ОтборПредприятиеGuid)), Неопределено);
 		
-		_productType = ВетисDictionaryСлой1с.ProductType(ОтборТипПродукции);
-		_product     = ВетисDictionary_2_0.Product(?(ОтборПродукцияИспользование, ВетисDictionaryСлой1с.Product(ОтборПродукция), Неопределено));
-		_subProduct  = ВетисDictionary_2_0.SubProduct(?(ОтборВидПродукцииИспользование, ВетисDictionaryСлой1с.SubProduct(ОтборВидПродукции), Неопределено));
+		_productType = ?(ОтборТипПродукцииИспользование, ВетисDictionaryСлой1с.ProductType(ОтборТипПродукции), Неопределено);
+		_product     = ?(ОтборПродукцияИспользование, ВетисDictionary_2_0.Product(ВетисDictionaryСлой1с.Product(ОтборПродукция)), Неопределено);
+		_subProduct  = ?(ОтборВидПродукцииИспользование, ВетисDictionary_2_0.SubProduct(ВетисDictionaryСлой1с.SubProduct(ОтборВидПродукции)), Неопределено);
 		
 		_subProductСоответствие = Новый Соответствие;
-		//_subProductСоответствие.Вставить(ОтборВидПродукции, ОтборВидПродукцииПредставление);
 		
 		_productСоответствие = Новый Соответствие;
-		//_productСоответствие.Вставить(ОтборПродукция, ОтборПродукцияПредставление);
 		
 		_enterpriseСоответствие = Новый Соответствие;
-		//_enterpriseСоответствие.Вставить(_enterprise.guid, ?(ЗначениеЗаполнено(Объект.Предприятие), Объект.Предприятие, ОтборПредприятиеПредставление));
 		
-		_параметрыPI = Неопределено;
+		//_параметрыPI = Неопределено;
+		_параметрыPI = Новый Структура("ОберткаHttp");
 		Пока ВетисProductService_2_0.GetProductItemListNext(_productType, _product, _subProduct, _businessEntity, _enterprise, _productItem, _параметрыPI) Цикл
+		//Пока ВетисProductService_2_0.GetProductItemChangesListNext(_businessEntity, _enterprise, , , _productItem, _параметрыPI) Цикл
 			
-			Если НЕ _productItem.producing = Неопределено И _productItem.producing.Количество() > 0
+			Если НЕ _productItem.producing = Неопределено
+				И _productItem.producing.Количество() > 0
 				И НЕ _productItem.producing[0].location = Неопределено
 				И НЕ _productItem.producing[0].location.guid = Неопределено
 				И _enterpriseСоответствие.Получить(_productItem.producing[0].location.guid) = Неопределено Тогда
-				_item = ВетисEnterpriseService_2_0.GetEnterpriseByGuid(_productItem.producing[0].location.guid);
-				Если _item = Неопределено Тогда
-					_enterpriseСоответствие.Вставить(_productItem.producing[0].location.guid, "");
-				Иначе
-					_enterpriseСоответствие.Вставить(_item.guid, _item.name);
-				КонецЕсли;
+				_guid = _productItem.producing[0].location.guid;
+				_enterpriseСоответствие.Вставить(_guid, ВетисDictionaryСлой1с.Enterprise(_guid));
 			КонецЕсли;
 			
 			Если _subProductСоответствие.Получить(_productItem.subProduct.guid) = Неопределено Тогда
-				//2017-11-01
-				//entityNotFoundFault
-				//SubProduct with guid [02eec86c-54f3-2d20-6311-d3db41a2e2d1] not found.
-				//т.е. то что вернул GetProductItemList
-				_item = ВетисProductService_2_0.GetSubProductByGuid(_productItem.subProduct.guid,,Ложь);
-				Если _item = Неопределено Тогда
-					_subProductСоответствие.Вставить(_productItem.subProduct.guid, "");
-				Иначе
-					_subProductСоответствие.Вставить(_item.guid, _item.name);
-				КонецЕсли;
+				_subProductСоответствие.Вставить(_productItem.subProduct.guid, ВетисDictionaryСлой1с.SubProduct(_productItem.subProduct));
 			КонецЕсли;
 			
 			Если _productСоответствие.Получить(_productItem.product.guid) = Неопределено Тогда
-				_item = ВетисProductService_2_0.GetProductByGuid(_productItem.product.guid);
-				Если _item = Неопределено Тогда
-					_productСоответствие.Вставить(_productItem.product.guid, "");
-				Иначе
-					_productСоответствие.Вставить(_item.guid, _item.name);
-				КонецЕсли;
+				_productСоответствие.Вставить(_productItem.product.guid, ВетисDictionaryСлой1с.Product(_productItem.product));
 			КонецЕсли;
 			
 			_СписокСтрока = СписокВетис.Добавить();

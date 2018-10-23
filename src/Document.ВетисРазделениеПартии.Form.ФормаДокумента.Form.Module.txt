@@ -7,6 +7,8 @@
 &НаКлиенте
 Процедура ПриОткрытии(Отказ)
 	
+	УстановитьВидимостьКлиент();
+	
 КонецПроцедуры
 
 
@@ -18,14 +20,162 @@
 КонецПроцедуры
 
 &НаСервере
-Процедура КомандаВыполнитьНаСервере()
+Процедура КомандаВыполнитьНаСервере(пОтказ = Ложь, пОшибка = "")
+	
+	//подготовка
 	
 	//транзакция 1 на буферное предприятие
+	
+	_Объект = Документы.ВетисТранспортнаяПартия.СоздатьДокумент();
+	_Объект.Дата = Объект.Дата;
+	_Объект.Проведен = Истина;
+	_Объект.ПометкаУдаления = Ложь;
+	_Объект.Подпитка = Ложь;
+	_Объект.Отправитель = Объект.BusinessEntity;
+	_Объект.ОтправительПредприятие = Объект.Enterprise;
+	_Объект.Получатель = Объект.BusinessEntityExchange;
+	_Объект.ПолучательПредприятие = Объект.EnterpriseExchange;
+	
+	Для каждого _Consignment1 Из Объект.ConsignmentList Цикл
+		_Consignment2 = _Объект.Партии.Добавить();
+		_Consignment2.StockEntry = _Consignment1.StockEntry;
+		_Consignment2.Количество = _Consignment1.Volume;
+		//...
+	КонецЦикла;
+	
+	//ВетисMercuryApplicationsСлой1с.TransportOperation(_Объект, пОтказ, пОшибка);
 	
 	//гашение 1 на буферном предприятии
 	
 	//транзакция 2 от буферного предприятия
 	
 	//гашение 2 на исходном предприятии
+	
+КонецПроцедуры
+
+
+&НаКлиенте
+Процедура BusinessEntityOnChange(Элемент)
+	
+	Если BusinessMemberLink Тогда
+		Объект.Enterprise = Неопределено;
+	КонецЕсли;
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура EnterpriseStartChoice(Элемент, ДанныеВыбора, СтандартнаяОбработка)
+	
+	Если BusinessMemberLink Тогда
+		СтандартнаяОбработка = Ложь;
+		Если ЗначениеЗаполнено(Объект.BusinessEntity) Тогда
+			ОткрытьФорму("Справочник.ВетисEnterprise.ФормаВыбора", Новый Структура("BusinessEntity", Объект.BusinessEntity),,,,,Новый ОписаниеОповещения("EnterpriseStartChoiceNotificationProcessing",ЭтотОбъект));
+		КонецЕсли;
+	КонецЕсли;
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура EnterpriseStartChoiceNotificationProcessing(Результат, Параметр) Экспорт
+	
+	Если НЕ Результат = Неопределено Тогда
+		Модифицированность = Истина;
+		Объект.Enterprise = Результат;
+	КонецЕсли;
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура BusinessMemberLinkНажатие(Элемент)
+	
+	BusinessMemberLink = НЕ BusinessMemberLink;
+	
+	УстановитьВидимостьКлиент("BusinessMemberLink");
+	
+КонецПроцедуры
+
+
+&НаКлиенте
+Процедура BusinessEntityExchangeOnChange(Элемент)
+	
+	Если BusinessMemberExchangeLink Тогда
+		Объект.EnterpriseExchange = Неопределено;
+	КонецЕсли;
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура EnterpriseExchangeStartChoice(Элемент, ДанныеВыбора, СтандартнаяОбработка)
+	
+	Если BusinessMemberExchangeLink Тогда
+		СтандартнаяОбработка = Ложь;
+		Если ЗначениеЗаполнено(Объект.BusinessEntityExchange) Тогда
+			ОткрытьФорму("Справочник.ВетисEnterprise.ФормаВыбора", Новый Структура("BusinessEntity", Объект.BusinessEntityExchange),,,,,Новый ОписаниеОповещения("EnterpriseExchangeStartChoiceNotificationProcessing",ЭтотОбъект));
+		КонецЕсли;
+	КонецЕсли;
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура EnterpriseExchangeStartChoiceNotificationProcessing(Результат, Параметр) Экспорт
+	
+	Если НЕ Результат = Неопределено Тогда
+		Модифицированность = Истина;
+		Объект.EnterpriseExchange = Результат;
+	КонецЕсли;
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура BusinessMemberExchangeLinkНажатие(Элемент)
+	
+	BusinessMemberExchangeLink = НЕ BusinessMemberExchangeLink;
+	
+	УстановитьВидимостьКлиент("BusinessMemberExchangeLink");
+	
+КонецПроцедуры
+
+
+&НаКлиенте
+Процедура StockEntryStartChoice(Элемент, ДанныеВыбора, СтандартнаяОбработка)
+	
+	СтандартнаяОбработка = Ложь;
+	
+	_Параметры = Новый Структура;
+	
+	_Параметры.Вставить("BusinessEntity", Объект.BusinessEntity);
+	
+	_Параметры.Вставить("Enterprise", Объект.Enterprise);
+	
+	_Параметры.Вставить("Ключ", Объект.StockEntry);
+	
+	ОткрытьФорму("Справочник.ВетисStockEntry.ФормаВыбора", _Параметры, ЭтотОбъект, ,,,Новый ОписаниеОповещения("StockEntryStartChoiceNotificationProcessing", ЭтотОбъект));
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура StockEntryStartChoiceNotificationProcessing(Результат, Параметр) Экспорт
+	
+	Если НЕ Результат = Неопределено Тогда
+		
+		Объект.StockEntry = Результат;
+		
+	КонецЕсли;
+	
+КонецПроцедуры
+
+
+&НаКлиенте
+Процедура УстановитьВидимостьКлиент(пИмяСобытия = Неопределено)
+	
+	Если пИмяСобытия = "BusinessMemberLink" ИЛИ пИмяСобытия = Неопределено Тогда
+		Элементы.BusinessMemberLink.Подсказка = ?(BusinessMemberLink, "с учетом связи", "без учета связи");
+		Элементы.BusinessMemberLink.Картинка = ?(BusinessMemberLink, БиблиотекаКартинок.ВетисЕстьСвязь, БиблиотекаКартинок.ВетисНетСвязи);
+	КонецЕсли;
+	
+	Если пИмяСобытия = "BusinessMemberExchangeLink" ИЛИ пИмяСобытия = Неопределено Тогда
+		Элементы.BusinessMemberExchangeLink.Подсказка = ?(BusinessMemberExchangeLink, "с учетом связи", "без учета связи");
+		Элементы.BusinessMemberExchangeLink.Картинка = ?(BusinessMemberExchangeLink, БиблиотекаКартинок.ВетисЕстьСвязь, БиблиотекаКартинок.ВетисНетСвязи);
+	КонецЕсли;
 	
 КонецПроцедуры

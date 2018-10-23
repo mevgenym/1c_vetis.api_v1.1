@@ -116,6 +116,79 @@
 КонецФункции
 
 
+Функция getProductItemListNext(productType = Неопределено, product = Неопределено, subProduct = Неопределено, businessEntity = Неопределено, enterprise = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		_ИмяСервиса = ВетисProductService_2_0.ИмяСервиса();
+		_Фабрика = ВетисПовтИсп.ФабрикаWS(_ИмяСервиса);
+		
+		_request = Создать("getProductItemListRequest", _Фабрика);
+		
+		_request.listOptions = ListOptions(_Фабрика, ?(пПараметры.Свойство("count"), пПараметры.count, Неопределено), ?(пПараметры.Свойство("offset"), пПараметры.offset, Неопределено));
+		
+		Если НЕ productType = Неопределено Тогда
+			_request.productType = productType;
+		КонецЕсли;
+		
+		Если НЕ product = Неопределено Тогда
+			_request.product = ВетисОбщегоНазначения.Создать("Product", ВетисDictionary_2_0.URI(), _Фабрика);
+			ВетисОбщегоНазначения.ЗаполнитьЗначенияСвойствXDTO(_request.product, product);
+		КонецЕсли;
+		
+		Если НЕ subProduct = Неопределено Тогда
+			_request.subProduct = ВетисОбщегоНазначения.Создать("SubProduct", ВетисDictionary_2_0.URI(), _Фабрика);
+			ВетисОбщегоНазначения.ЗаполнитьЗначенияСвойствXDTO(_request.subProduct, subProduct);
+		КонецЕсли;
+		
+		Если НЕ enterprise = Неопределено Тогда
+			_request.enterprise = ВетисОбщегоНазначения.Создать("Enterprise", ВетисDictionary_2_0.URI(), _Фабрика);
+			ВетисОбщегоНазначения.ЗаполнитьЗначенияСвойствXDTO(_request.enterprise, enterprise);
+		КонецЕсли;
+		
+		Если НЕ businessEntity = Неопределено Тогда
+			_request.businessEntity = ВетисОбщегоНазначения.Создать("BusinessEntity", ВетисDictionary_2_0.URI(), _Фабрика);
+			ВетисОбщегоНазначения.ЗаполнитьЗначенияСвойствXDTO(_request.businessEntity, businessEntity);
+		КонецЕсли;
+		
+		GetListNextInit(_ИмяСервиса, _Фабрика, _request, "getProductItemListResponse", "productItemList", "productItem", , пПараметры);
+	КонецЕсли;
+	
+	Возврат GetListNext(пItem, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
+
+Функция getProductItemChangesListNext(businessEntity = Неопределено, enterprise = Неопределено, beginDate = Неопределено, endDate = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		_ИмяСервиса = ВетисProductService_2_0.ИмяСервиса();
+		_Фабрика = ВетисПовтИсп.ФабрикаWS(_ИмяСервиса);
+		
+		_request = Создать("getProductItemChangesListRequest", _Фабрика);
+		
+		_request.listOptions = ListOptions(_Фабрика, ?(пПараметры.Свойство("count"), пПараметры.count, Неопределено), ?(пПараметры.Свойство("offset"), пПараметры.offset, Неопределено));
+		
+		_request.updateDateInterval = DateInterval(_Фабрика, beginDate, endDate);
+		
+		Если НЕ enterprise = Неопределено Тогда
+			_request.enterprise = ВетисОбщегоНазначения.Создать("Enterprise", ВетисDictionary_2_0.URI(), _Фабрика);
+			ВетисОбщегоНазначения.ЗаполнитьЗначенияСвойствXDTO(_request.enterprise, enterprise);
+		КонецЕсли;
+		
+		Если НЕ businessEntity = Неопределено Тогда
+			_request.businessEntity = ВетисОбщегоНазначения.Создать("BusinessEntity", ВетисDictionary_2_0.URI(), _Фабрика);
+			ВетисОбщегоНазначения.ЗаполнитьЗначенияСвойствXDTO(_request.businessEntity, businessEntity);
+		КонецЕсли;
+		
+		GetListNextInit(_ИмяСервиса, _Фабрика, _request, "getProductItemChangesListResponse", "productItemList", "productItem", , пПараметры);
+	КонецЕсли;
+	
+	Возврат GetListNext(пItem, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
+
+
 Функция getR13nConditionListNext(пЗаболевание = Неопределено, пУсловие, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
@@ -191,6 +264,24 @@
 	
 	_Объект.count = ?(count = Неопределено, Ветис.Настройки_КоличествоОбъектовВСписке(), count);
 	_Объект.offset = ?(offset = Неопределено, 0, offset);
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция DateInterval(пФабрика, beginDate = Неопределено, endDate = Неопределено) Экспорт
+	
+	_Объект = ВетисОбщегоНазначения.Создать("DateInterval", ВетисBase_2_0.URI(), пФабрика);
+	
+	Если beginDate = Неопределено Тогда
+		_Объект.beginDate = Дата(2000,1,1);
+	Иначе
+		_Объект.beginDate = beginDate;
+	КонецЕсли;
+	
+	Если НЕ endDate = Неопределено Тогда
+		_Объект.endDate = endDate;
+	КонецЕсли;
 	
 	Возврат _Объект;
 	

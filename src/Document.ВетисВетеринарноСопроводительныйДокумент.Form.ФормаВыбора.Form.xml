@@ -163,6 +163,7 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
+				<Field>Список.ТипВСД</Field>
 				<Field>Список.Статус</Field>
 				<Field>~Список.Тип</Field>
 			</UseAlways>

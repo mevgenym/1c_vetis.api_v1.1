@@ -29,7 +29,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат GetStockEntryByGuidResponse(_Response);
+	Возврат GetStockEntryByUuidResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -61,7 +61,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат GetStockEntryByUuidResponse(_Response);
+	Возврат GetStockEntryByUuidResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -127,9 +127,14 @@
 	
 	_Response = Прокси("getStockEntryListRequest", пПараметры.ListRequest, issuerId, пОтказ, пОшибка);
 	
+	пПараметры.Вставить("ТекстЗапроса", _Response.ТекстЗапроса);
+	пПараметры.Вставить("ТекстЗапросаЗаявки", _Response.ТекстЗапросаЗаявки);
+	пПараметры.Вставить("ТекстОшибки", _Response.ТекстОшибки);
+	пПараметры.Вставить("ТекстОтвета", _Response.ТекстОтвета);
+	
 	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
 	
-	_ListResponse = GetStockEntryListResponse(_Response);
+	_ListResponse = GetStockEntryListResponse(_Response.Объект);
 	
 	пПараметры.Вставить("ListResponse", _ListResponse);
 	
@@ -192,9 +197,14 @@
 	
 	_Response = Прокси("getStockEntryChangesListRequest", пПараметры.ListRequest, issuerId, пОтказ, пОшибка);
 	
+	пПараметры.Вставить("ТекстЗапроса", _Response.ТекстЗапроса);
+	пПараметры.Вставить("ТекстЗапросаЗаявки", _Response.ТекстЗапросаЗаявки);
+	пПараметры.Вставить("ТекстОшибки", _Response.ТекстОшибки);
+	пПараметры.Вставить("ТекстОтвета", _Response.ТекстОтвета);
+	
 	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
 	
-	_ListResponse = GetStockEntryChangesListResponse(_Response);
+	_ListResponse = GetStockEntryChangesListResponse(_Response.Объект);
 	
 	пПараметры.Вставить("ListResponse", _ListResponse);
 	
@@ -259,7 +269,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
 	
-	_ListResponse = GetStockEntryVersionListResponse(_Response);
+	_ListResponse = GetStockEntryVersionListResponse(_Response.Объект);
 	
 	пПараметры.Вставить("ListResponse", _ListResponse);
 	
@@ -309,7 +319,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат GetVetDocumentByUuidResponse(_Response);
+	Возврат GetVetDocumentByUuidResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -384,9 +394,14 @@
 	
 	_Response = Прокси("getVetDocumentListRequest", пПараметры.ListRequest, issuerId, пОтказ, пОшибка);
 	
+	пПараметры.Вставить("ТекстЗапроса", _Response.ТекстЗапроса);
+	пПараметры.Вставить("ТекстЗапросаЗаявки", _Response.ТекстЗапросаЗаявки);
+	пПараметры.Вставить("ТекстОшибки", _Response.ТекстОшибки);
+	пПараметры.Вставить("ТекстОтвета", _Response.ТекстОтвета);
+	
 	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
 	
-	_ListResponse = GetVetDocumentListResponse(_Response);
+	_ListResponse = GetVetDocumentListResponse(_Response.Объект);
 	
 	пПараметры.Вставить("ListResponse", _ListResponse);
 	
@@ -454,9 +469,14 @@
 	
 	_Response = Прокси("getVetDocumentChangesListRequest", пПараметры.ListRequest, issuerId, пОтказ, пОшибка);
 	
+	пПараметры.Вставить("ТекстЗапроса", _Response.ТекстЗапроса);
+	пПараметры.Вставить("ТекстЗапросаЗаявки", _Response.ТекстЗапросаЗаявки);
+	пПараметры.Вставить("ТекстОшибки", _Response.ТекстОшибки);
+	пПараметры.Вставить("ТекстОтвета", _Response.ТекстОтвета);
+	
 	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
 	
-	_ListResponse = getVetDocumentChangesListResponse(_Response);
+	_ListResponse = getVetDocumentChangesListResponse(_Response.Объект);
 	
 	пПараметры.Вставить("ListResponse", _ListResponse);
 	
@@ -499,7 +519,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат UpdateVeterinaryEventsResponse(_Response);
+	Возврат UpdateVeterinaryEventsResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -523,6 +543,18 @@
 Функция MergeStockEntriesResponse(пResponse) Экспорт
 	
 	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.mergeStockEntriesResponse, "MergeStockEntriesResponse", URI());
+	
+КонецФункции
+
+Функция MergeStockEntries(guid, enterpriseGuid, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Request = GetStockEntryByGuidRequest(guid, enterpriseGuid);
+	
+	_Response = Прокси("getStockEntryByGuidRequest", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат GetStockEntryByUuidResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -570,9 +602,13 @@
 	
 	_Response = Прокси("processIncomingConsignmentRequest", _Request, issuerId, пОтказ, пОшибка);
 	
-	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат _Response; КонецЕсли;
 	
-	Возврат ProcessIncomingConsignmentResponse(_Response);
+	//Возврат ProcessIncomingConsignmentResponse(_Response);
+	
+	_Response.Вставить("Response", ProcessIncomingConsignmentResponse(_Response.Объект));
+	
+	Возврат _Response;
 	
 КонецФункции
 
@@ -607,9 +643,13 @@
 	
 	_Response = Прокси("prepareOutgoingConsignmentRequest", _Request, issuerId, пОтказ, пОшибка);
 	
-	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат _Response; КонецЕсли;
 	
-	Возврат PrepareOutgoingConsignmentResponse(_Response);
+	//Возврат PrepareOutgoingConsignmentResponse(_Response);
+	
+	_Response.Вставить("Response", PrepareOutgoingConsignmentResponse(_Response.Объект));
+	
+	Возврат _Response;
 	
 КонецФункции
 
@@ -647,7 +687,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат RegisterProductionOperationResponse(_Response);
+	Возврат RegisterProductionOperationResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -695,7 +735,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат ResolveDiscrepancyResponse(_Response);
+	Возврат ResolveDiscrepancyResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -750,7 +790,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат WithdrawVetDocumentResponse(_Response);
+	Возврат WithdrawVetDocumentResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -790,7 +830,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат ModifyBusinessEntityResponse(_Response);
+	Возврат ModifyBusinessEntityResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -829,7 +869,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат ModifyEnterpriseResponse(_Response);
+	Возврат ModifyEnterpriseResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -867,7 +907,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат ModifyActivityLocationsResponse(_Response);
+	Возврат ModifyActivityLocationsResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -906,7 +946,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат ModifyProducerStockListResponse(_Response);
+	Возврат ModifyProducerStockListResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -945,7 +985,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат UpdateTransportMovementDetailsResponse(_Response);
+	Возврат UpdateTransportMovementDetailsResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -982,7 +1022,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат CheckShipmentRegionalizationResponse(_Response);
+	Возврат CheckShipmentRegionalizationResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -1021,7 +1061,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат AddBusinessEntityUserResponse(_Response);
+	Возврат AddBusinessEntityUserResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -1058,7 +1098,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат GetBusinessEntityUserResponse(_Response);
+	Возврат GetBusinessEntityUserResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -1112,7 +1152,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
 	
-	_ListResponse = GetBusinessEntityUserListResponse(_Response);
+	_ListResponse = GetBusinessEntityUserListResponse(_Response.Объект);
 	
 	пПараметры.Вставить("ListResponse", _ListResponse);
 	
@@ -1167,7 +1207,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат UpdateUserAuthoritiesResponse(_Response);
+	Возврат UpdateUserAuthoritiesResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -1204,7 +1244,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат UpdateUserWorkingAreasResponse(_Response);
+	Возврат UpdateUserWorkingAreasResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -1241,7 +1281,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат UnbindBusinessEntityUserResponse(_Response);
+	Возврат UnbindBusinessEntityUserResponse(_Response.Объект);
 	
 КонецФункции
 
@@ -1295,7 +1335,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
 	
-	_ListResponse = GetApplicableUserAuthorityListResponse(_Response);
+	_ListResponse = GetApplicableUserAuthorityListResponse(_Response.Объект);
 	
 	пПараметры.Вставить("ListResponse", _ListResponse);
 	
@@ -1355,7 +1395,7 @@
 	
 	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
 	
-	_ListResponse = GetAppliedUserAuthorityListResponse(_Response);
+	_ListResponse = GetAppliedUserAuthorityListResponse(_Response.Объект);
 	
 	пПараметры.Вставить("ListResponse", _ListResponse);
 	
@@ -1422,15 +1462,17 @@
 	Если _Ответ.Отказ = Истина Тогда
 		пОтказ = _Ответ.Отказ;
 		пОшибка = _Ответ.ТекстОшибки;
-		Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстЗапроса, пИмяОперации, "Запрос");
-		Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстЗапросаЗаявки, пИмяОперации, "Заявка");
-		Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстОшибки, пИмяОперации, "Запрос");
-		Возврат Неопределено;
-	Иначе
-		Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстЗапроса, пИмяОперации, "Запрос");
-		Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстЗапросаЗаявки, пИмяОперации, "Заявка");
-		Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстОтвета, пИмяОперации, "Ответ");
-		Возврат _Ответ.Объект;
+	//	Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстЗапроса, пИмяОперации, "Запрос");
+	//	Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстЗапросаЗаявки, пИмяОперации, "Заявка");
+	//	Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстОшибки, пИмяОперации, "Запрос");
+	//	Возврат Неопределено;
+	//Иначе
+	//	Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстЗапроса, пИмяОперации, "Запрос");
+	//	Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстЗапросаЗаявки, пИмяОперации, "Заявка");
+	//	Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстОтвета, пИмяОперации, "Ответ");
+	//	Возврат _Ответ.Объект;
 	КонецЕсли;
+	
+	Возврат _Ответ;
 	
 КонецФункции

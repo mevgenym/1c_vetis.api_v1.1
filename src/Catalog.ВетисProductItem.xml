@@ -495,7 +495,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Corresponds to gost</v8:content>
+							<v8:content>Соответствие ГОСТ</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -534,7 +534,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Gost</v8:content>
+							<v8:content>ГОСТ</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -665,7 +665,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Producing</v8:content>
+							<v8:content>Список площадок</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -680,7 +680,7 @@
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Location</v8:content>
+									<v8:content>Площадка</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>
@@ -728,7 +728,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Packaging</v8:content>
+							<v8:content>Фасовка</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -743,7 +743,7 @@
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Packaging type</v8:content>
+									<v8:content>Тип упаковки</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>
@@ -779,7 +779,7 @@
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Quantity</v8:content>
+									<v8:content>Количество единиц</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>
@@ -820,7 +820,7 @@
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Volume</v8:content>
+									<v8:content>Объём единицы</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>
@@ -861,7 +861,7 @@
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Unit</v8:content>
+									<v8:content>Единица измерения объёма единицы упаковки</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>

@@ -14,7 +14,6 @@
 			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
 		</InputField>
 		<LabelField name="уид" id="4">
-			<DataPath>1/0:42a42f27-b7a1-41ed-8ea8-997d613161e6</DataPath>
 			<EditMode>EnterOnInput</EditMode>
 			<ContextMenu name="уидКонтекстноеМеню" id="5"/>
 			<ExtendedTooltip name="уидРасширеннаяПодсказка" id="6"/>
@@ -104,7 +103,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Producing</v8:content>
+							<v8:content>Список площадок</v8:content>
 						</v8:item>
 					</Title>
 					<ExtendedTooltip name="ГруппаproducingРасширеннаяПодсказка" id="40"/>
@@ -165,7 +164,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Packaging</v8:content>
+							<v8:content>Фасовка</v8:content>
 						</v8:item>
 					</Title>
 					<ExtendedTooltip name="ГруппаpackagingРасширеннаяПодсказка" id="61"/>
@@ -269,6 +268,12 @@
 										<Button name="КомандаДобавитьВСервисе" id="94">
 											<Type>UsualButton</Type>
 											<CommandName>Form.Command.КомандаДобавитьВСервисе</CommandName>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Создать в сервисе</v8:content>
+												</v8:item>
+											</Title>
 											<ExtendedTooltip name="КомандаДобавитьВСервисеРасширеннаяПодсказка" id="95"/>
 										</Button>
 										<Button name="КомандаЗаполнитьИзСервиса" id="96">
@@ -279,6 +284,12 @@
 										<Button name="КомандаИзменитьВСервисе" id="98">
 											<Type>UsualButton</Type>
 											<CommandName>Form.Command.КомандаИзменитьВСервисе</CommandName>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Обновить в сервисе</v8:content>
+												</v8:item>
+											</Title>
 											<ExtendedTooltip name="КомандаИзменитьВСервисеРасширеннаяПодсказка" id="99"/>
 										</Button>
 										<Button name="КомандаУдалитьВСервисе" id="100">
@@ -286,6 +297,25 @@
 											<CommandName>Form.Command.КомандаУдалитьВСервисе</CommandName>
 											<ExtendedTooltip name="КомандаУдалитьВСервисеРасширеннаяПодсказка" id="101"/>
 										</Button>
+										<UsualGroup name="Группа4" id="139">
+											<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="140"/>
+											<ChildItems>
+												<Button name="КомандаПредыдущая" id="137">
+													<Type>UsualButton</Type>
+													<CommandName>Form.Command.КомандаПредыдущая</CommandName>
+													<ExtendedTooltip name="КомандаПредыдущаяРасширеннаяПодсказка" id="138"/>
+												</Button>
+												<Button name="КомандаСледующая" id="135">
+													<Type>UsualButton</Type>
+													<CommandName>Form.Command.КомандаСледующая</CommandName>
+													<ExtendedTooltip name="КомандаСледующаяРасширеннаяПодсказка" id="136"/>
+												</Button>
+											</ChildItems>
+										</UsualGroup>
 									</ChildItems>
 								</UsualGroup>
 								<UsualGroup name="Группа3" id="106">
@@ -310,6 +340,26 @@
 											<DataPath>status</DataPath>
 											<ContextMenu name="statusКонтекстноеМеню" id="118"/>
 											<ExtendedTooltip name="statusРасширеннаяПодсказка" id="119"/>
+										</InputField>
+										<InputField name="guid" id="123">
+											<DataPath>Объект.guid</DataPath>
+											<ContextMenu name="guidКонтекстноеМеню" id="124"/>
+											<ExtendedTooltip name="guidРасширеннаяПодсказка" id="125"/>
+										</InputField>
+										<InputField name="previous" id="132">
+											<DataPath>previous</DataPath>
+											<ContextMenu name="previousКонтекстноеМеню" id="133"/>
+											<ExtendedTooltip name="previousРасширеннаяПодсказка" id="134"/>
+										</InputField>
+										<InputField name="uuid" id="126">
+											<DataPath>_uuid</DataPath>
+											<ContextMenu name="uuidКонтекстноеМеню" id="127"/>
+											<ExtendedTooltip name="uuidРасширеннаяПодсказка" id="128"/>
+										</InputField>
+										<InputField name="next" id="129">
+											<DataPath>next</DataPath>
+											<ContextMenu name="nextКонтекстноеМеню" id="130"/>
+											<ExtendedTooltip name="nextРасширеннаяПодсказка" id="131"/>
 										</InputField>
 										<InputField name="createDate" id="111">
 											<DataPath>createDate</DataPath>
@@ -338,17 +388,6 @@
 			<MainAttribute>true</MainAttribute>
 			<SavedData>true</SavedData>
 		</Attribute>
-		<Attribute name="active" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Active</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-		</Attribute>
 		<Attribute name="createDate" id="3">
 			<Title>
 				<v8:item>
@@ -363,33 +402,6 @@
 				</v8:DateQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="last" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Last</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="status" id="5">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Status</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:decimal</v8:Type>
-				<v8:NumberQualifiers>
-					<v8:Digits>10</v8:Digits>
-					<v8:FractionDigits>0</v8:FractionDigits>
-					<v8:AllowedSign>Any</v8:AllowedSign>
-				</v8:NumberQualifiers>
-			</Type>
-		</Attribute>
 		<Attribute name="updateDate" id="6">
 			<Title>
 				<v8:item>
@@ -402,6 +414,84 @@
 				<v8:DateQualifiers>
 					<v8:DateFractions>DateTime</v8:DateFractions>
 				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="next" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>next</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>36</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="previous" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Previous</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>36</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="active" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Active</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="last" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Last</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="status" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Status</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ВетисVersionStatus</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="_uuid" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>uuid</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>36</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
 	</Attributes>
@@ -465,6 +555,46 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаЗаполнитьИзСервиса</Action>
+		</Command>
+		<Command name="КомандаПредыдущая" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предыдущая</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда предыдущая</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MoveLeft</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаПредыдущая</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="КомандаСледующая" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Следующая</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда следующая</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MoveRight</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаСледующая</Action>
+			<Representation>Picture</Representation>
 		</Command>
 	</Commands>
 </Form>

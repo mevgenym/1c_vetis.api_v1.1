@@ -1899,7 +1899,7 @@
 					</Attribute>
 					<Attribute uuid="37559abc-dfa2-4b35-a328-71a28c13e7dd">
 						<Properties>
-							<Name>ЗаписьСЖ</Name>
+							<Name>StockEntry</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>

@@ -70,16 +70,44 @@
 							<ContextMenu name="ПользовательКонтекстноеМеню" id="11"/>
 							<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="12"/>
 						</InputField>
-						<LabelField name="Контекст" id="32">
-							<DataPath>Запись.Контекст</DataPath>
-							<ContextMenu name="КонтекстКонтекстноеМеню" id="33"/>
-							<ExtendedTooltip name="КонтекстРасширеннаяПодсказка" id="34"/>
-						</LabelField>
-						<LabelField name="Версия" id="35">
+						<InputField name="Направление" id="57">
+							<DataPath>Запись.Направление</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="НаправлениеКонтекстноеМеню" id="58"/>
+							<ExtendedTooltip name="НаправлениеРасширеннаяПодсказка" id="59"/>
+						</InputField>
+						<InputField name="Версия" id="35">
 							<DataPath>Запись.Версия</DataPath>
+							<ReadOnly>true</ReadOnly>
 							<ContextMenu name="ВерсияКонтекстноеМеню" id="36"/>
 							<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="37"/>
-						</LabelField>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа4" id="46">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="47"/>
+					<ChildItems>
+						<InputField name="Enterprise" id="54">
+							<DataPath>Запись.Enterprise</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="EnterpriseКонтекстноеМеню" id="55"/>
+							<ExtendedTooltip name="EnterpriseРасширеннаяПодсказка" id="56"/>
+						</InputField>
+						<InputField name="BusinessEntity" id="51">
+							<DataPath>Запись.BusinessEntity</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="BusinessEntityКонтекстноеМеню" id="52"/>
+							<ExtendedTooltip name="BusinessEntityРасширеннаяПодсказка" id="53"/>
+						</InputField>
+						<InputField name="Объект" id="48">
+							<DataPath>Запись.Объект</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="ОбъектКонтекстноеМеню" id="49"/>
+							<ExtendedTooltip name="ОбъектРасширеннаяПодсказка" id="50"/>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>

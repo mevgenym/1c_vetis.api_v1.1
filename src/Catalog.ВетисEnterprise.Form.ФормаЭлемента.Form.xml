@@ -38,12 +38,6 @@
 			<ContextMenu name="ТипКонтекстноеМеню" id="26"/>
 			<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="27"/>
 		</InputField>
-		<InputField name="guid" id="94">
-			<DataPath>Объект.guid</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<ContextMenu name="guidКонтекстноеМеню" id="95"/>
-			<ExtendedTooltip name="guidРасширеннаяПодсказка" id="96"/>
-		</InputField>
 		<Pages name="Страницы" id="31">
 			<Title>
 				<v8:item>
@@ -256,21 +250,40 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="100"/>
 									<ChildItems>
-										<Button name="КомандаЗаполнитьИзСервиса" id="88">
-											<Type>UsualButton</Type>
-											<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
-											<ExtendedTooltip name="КомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="89"/>
-										</Button>
 										<Button name="КомандаСоздатьВСервисе" id="92">
 											<Type>UsualButton</Type>
 											<CommandName>Form.Command.КомандаСоздатьВСервисе</CommandName>
 											<ExtendedTooltip name="КомандаСоздатьВСервисеРасширеннаяПодсказка" id="93"/>
+										</Button>
+										<Button name="КомандаЗаполнитьИзСервиса" id="88">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
+											<ExtendedTooltip name="КомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="89"/>
 										</Button>
 										<Button name="КомандаОбновитьВСервисе" id="90">
 											<Type>UsualButton</Type>
 											<CommandName>Form.Command.КомандаОбновитьВСервисе</CommandName>
 											<ExtendedTooltip name="КомандаОбновитьВСервисеРасширеннаяПодсказка" id="91"/>
 										</Button>
+										<UsualGroup name="Группа5" id="133">
+											<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="134"/>
+											<ChildItems>
+												<Button name="КомандаПредыдущая" id="137">
+													<Type>UsualButton</Type>
+													<CommandName>Form.Command.КомандаПредыдущая</CommandName>
+													<ExtendedTooltip name="КомандаПредыдущаяРасширеннаяПодсказка" id="138"/>
+												</Button>
+												<Button name="КомандаСледующая" id="135">
+													<Type>UsualButton</Type>
+													<CommandName>Form.Command.КомандаСледующая</CommandName>
+													<ExtendedTooltip name="КомандаСледующаяРасширеннаяПодсказка" id="136"/>
+												</Button>
+											</ChildItems>
+										</UsualGroup>
 									</ChildItems>
 								</UsualGroup>
 								<UsualGroup name="Группа4" id="101">
@@ -292,9 +305,29 @@
 											<ExtendedTooltip name="activeРасширеннаяПодсказка" id="111"/>
 										</CheckBoxField>
 										<InputField name="status" id="106">
-											<DataPath>Объект.status</DataPath>
+											<DataPath>status</DataPath>
 											<ContextMenu name="statusКонтекстноеМеню" id="107"/>
 											<ExtendedTooltip name="statusРасширеннаяПодсказка" id="108"/>
+										</InputField>
+										<InputField name="guid" id="94">
+											<DataPath>Объект.guid</DataPath>
+											<ContextMenu name="guidКонтекстноеМеню" id="95"/>
+											<ExtendedTooltip name="guidРасширеннаяПодсказка" id="96"/>
+										</InputField>
+										<InputField name="previous" id="115">
+											<DataPath>previous</DataPath>
+											<ContextMenu name="previousКонтекстноеМеню" id="116"/>
+											<ExtendedTooltip name="previousРасширеннаяПодсказка" id="117"/>
+										</InputField>
+										<InputField name="_uuid" id="130">
+											<DataPath>_uuid</DataPath>
+											<ContextMenu name="_uuidКонтекстноеМеню" id="131"/>
+											<ExtendedTooltip name="_uuidРасширеннаяПодсказка" id="132"/>
+										</InputField>
+										<InputField name="next" id="118">
+											<DataPath>next</DataPath>
+											<ContextMenu name="nextКонтекстноеМеню" id="119"/>
+											<ExtendedTooltip name="nextРасширеннаяПодсказка" id="120"/>
 										</InputField>
 										<InputField name="createDate" id="124">
 											<DataPath>createDate</DataPath>
@@ -306,21 +339,6 @@
 											<ContextMenu name="updateDateКонтекстноеМеню" id="128"/>
 											<ExtendedTooltip name="updateDateРасширеннаяПодсказка" id="129"/>
 										</InputField>
-										<InputField name="next" id="118">
-											<DataPath>Объект.next</DataPath>
-											<ContextMenu name="nextКонтекстноеМеню" id="119"/>
-											<ExtendedTooltip name="nextРасширеннаяПодсказка" id="120"/>
-										</InputField>
-										<InputField name="previous" id="115">
-											<DataPath>previous</DataPath>
-											<ContextMenu name="previousКонтекстноеМеню" id="116"/>
-											<ExtendedTooltip name="previousРасширеннаяПодсказка" id="117"/>
-										</InputField>
-										<LabelField name="уид" id="121">
-											<DataPath>уид</DataPath>
-											<ContextMenu name="уидКонтекстноеМеню" id="122"/>
-											<ExtendedTooltip name="уидРасширеннаяПодсказка" id="123"/>
-										</LabelField>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -346,7 +364,11 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.ВетисEnterprise</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>36</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
 		<Attribute name="уид" id="4">
@@ -386,6 +408,69 @@
 				<v8:DateQualifiers>
 					<v8:DateFractions>DateTime</v8:DateFractions>
 				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_uuid" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>uuid</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>36</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="active" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Active</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="last" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Last</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="next" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>next</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>36</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="status" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Status</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ВетисVersionStatus</v8:Type>
 			</Type>
 		</Attribute>
 	</Attributes>
@@ -434,6 +519,46 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаЗаполнитьИзСервиса</Action>
+		</Command>
+		<Command name="КомандаПредыдущая" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предыдущая</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда предыдущая</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MoveLeft</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаПредыдущая</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="КомандаСледующая" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Следующая</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда следующая</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MoveRight</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаСледующая</Action>
+			<Representation>Picture</Representation>
 		</Command>
 	</Commands>
 </Form>

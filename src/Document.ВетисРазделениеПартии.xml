@@ -513,17 +513,17 @@
 			<Form>ФормаДокумента</Form>
 			<TabularSection uuid="4e4b0a62-b51a-4d9f-9153-71d645d1ab5f">
 				<InternalInfo>
-					<xr:GeneratedType name="DocumentTabularSection.ВетисРазделениеПартии.StockEntryList" category="TabularSection">
+					<xr:GeneratedType name="DocumentTabularSection.ВетисРазделениеПартии.ConsignmentList" category="TabularSection">
 						<xr:TypeId>8f2c83a0-32ec-40d9-9cb4-b89e4df2fceb</xr:TypeId>
 						<xr:ValueId>12256805-5051-4c6f-8252-1244d2fa4b69</xr:ValueId>
 					</xr:GeneratedType>
-					<xr:GeneratedType name="DocumentTabularSectionRow.ВетисРазделениеПартии.StockEntryList" category="TabularSectionRow">
+					<xr:GeneratedType name="DocumentTabularSectionRow.ВетисРазделениеПартии.ConsignmentList" category="TabularSectionRow">
 						<xr:TypeId>c69dac60-87f3-4fa2-b571-6aaa2c836ede</xr:TypeId>
 						<xr:ValueId>47c90846-4610-4fa1-9f96-221284a8e4b1</xr:ValueId>
 					</xr:GeneratedType>
 				</InternalInfo>
 				<Properties>
-					<Name>StockEntryList</Name>
+					<Name>ConsignmentList</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -722,7 +722,43 @@
 					</Attribute>
 					<Attribute uuid="25f0ce4a-b568-4e21-a81d-8f96df530888">
 						<Properties>
-							<Name>VetDocument</Name>
+							<Name>VetDocumentOutgoing</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ВСД</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>cfg:DocumentRef.ВетисВетеринарноСопроводительныйДокумент</v8:Type>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="1d6d9993-48f3-4089-aa8e-234bea5fb242">
+						<Properties>
+							<Name>VetDocumentIncoming</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -758,11 +794,47 @@
 					</Attribute>
 					<Attribute uuid="8693a9b0-3a8a-42cc-a557-e0676eaac454">
 						<Properties>
-							<Name>VetDocumentStatus</Name>
+							<Name>VetDocumentOutgoingStatus</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Статус</v8:content>
+									<v8:content>Статус исходящего</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>cfg:EnumRef.ВетисVetDocumentStatus</v8:Type>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="e89d9be0-9232-455c-8bb6-3e83623986e2">
+						<Properties>
+							<Name>VetDocumentIncomingStatus</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Статус входящего</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>
@@ -1212,6 +1284,26 @@
 					</Attribute>
 				</ChildObjects>
 			</TabularSection>
+			<Command uuid="e4f5bb9a-f7ef-4e07-b616-63b36775fa66">
+				<Properties>
+					<Name>ВетисРазделениеПартии</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разделение партии (ветис)</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Group>CommandGroup.ВетисДокументы</Group>
+					<CommandParameterType/>
+					<ParameterUseMode>Single</ParameterUseMode>
+					<ModifiesData>false</ModifiesData>
+					<Representation>Auto</Representation>
+					<ToolTip/>
+					<Picture/>
+					<Shortcut/>
+				</Properties>
+			</Command>
 		</ChildObjects>
 	</Document>
 </MetaDataObject>
