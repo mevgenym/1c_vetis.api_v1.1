@@ -5,7 +5,6 @@
 		_Версия20 = Ветис.Версия_2_0();
 		_ВетисIkarСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисIkarСлой1с);
 		_ВетисArgusCommonСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
-		_ВетисMercuryApplications = ?(_Версия20, ВетисMercuryApplications_2_0, ВетисMercuryApplications);
 		_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
 		_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
 		
@@ -93,7 +92,7 @@
 							//возращают пустые значения producer.enterprise.guid И producer.enterprise.name
 							//операция getStockEntryByGuid возращает с заполненными полями
 							_Отказ = Ложь;
-							__stockEntry = _ВетисMercuryApplications.getStockEntryByGuid(_stockEntry.guid, Enterprise.guid, BusinessEntity, _Отказ);
+							__stockEntry = ВетисMercuryApplications.getStockEntryByGuid(_stockEntry.guid, Enterprise.guid, BusinessEntity, _Отказ);
 							Если НЕ _Отказ Тогда
 								Прервать;
 							КонецЕсли;
@@ -128,12 +127,12 @@
 				_Строка.vetDocument = ВетисMercuryVetdocumentСлой1с.VetDocument(_vetDocument);
 			КонецЦикла;
 			
-			dateOfProductionFirst = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.dateOfProduction.firstDate, Истина);
-			dateOfProductionSecond = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.dateOfProduction.secondDate, Истина);
+			dateOfProductionFirst = ВетисDictionary.ComplexDate(_stockEntry.batch.dateOfProduction.firstDate, Истина);
+			dateOfProductionSecond = ВетисDictionary.ComplexDate(_stockEntry.batch.dateOfProduction.secondDate, Истина);
 			dateOfProductionInformal = _stockEntry.batch.dateOfProduction.informalDate;
 			
-			expiryDateFirst = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.expiryDate.firstDate, Истина);
-			expiryDateSecond = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.expiryDate.secondDate, Истина);
+			expiryDateFirst = ВетисDictionary.ComplexDate(_stockEntry.batch.expiryDate.firstDate, Истина);
+			expiryDateSecond = ВетисDictionary.ComplexDate(_stockEntry.batch.expiryDate.secondDate, Истина);
 			expiryDateInformal = _stockEntry.batch.expiryDate.informalDate;
 			
 		КонецЕсли;

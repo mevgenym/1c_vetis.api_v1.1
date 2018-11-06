@@ -35,8 +35,8 @@
 		_businessEntityGuid = ВетисDictionaryСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект);
 		_enterpriseGuid     = ВетисDictionaryСлой1с.Enterprise(Объект.Предприятие);
 		
-		_businessEntity = ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект));
-		_enterprise     = ВетисDictionary_2_0.Enterprise(ВетисDictionaryСлой1с.Enterprise(Объект.Предприятие));
+		_businessEntity = ВетисDictionary.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект));
+		_enterprise     = ВетисDictionary.Enterprise(ВетисDictionaryСлой1с.Enterprise(Объект.Предприятие));
 		
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		_Отказ = Ложь;
@@ -46,7 +46,7 @@
 		_ДатаНачала = Дата(1,1,1);
 		
 		Попытка
-			Пока ВетисMercuryApplications_2_0.GetStockEntryChangesListNext(_enterpriseGuid, _ДатаНачала, , _businessEntityGuid, _Item, _параметры, _Отказ, _Ошибка) Цикл
+			Пока ВетисMercuryApplications.GetStockEntryChangesListNext(_enterpriseGuid, _ДатаНачала, , _businessEntityGuid, _Item, _параметры, _Отказ, _Ошибка) Цикл
 				Если _Отказ = Истина Тогда
 					Прервать; 
 				КонецЕсли;
@@ -64,7 +64,7 @@
 		_параметры = Новый Структура("searchPattern", ВетисКонстанты.StockEntryBlankFilter_NOT_BLANK());
 		
 		Попытка
-			Пока ВетисMercuryApplications_2_0.GetStockEntryListNext(_enterpriseGuid, _businessEntityGuid, _Item, _параметры, _Отказ, _Ошибка) Цикл
+			Пока ВетисMercuryApplications.GetStockEntryListNext(_enterpriseGuid, _businessEntityGuid, _Item, _параметры, _Отказ, _Ошибка) Цикл
 				Если _Отказ = Истина Тогда
 					Прервать; 
 				КонецЕсли;
@@ -83,7 +83,7 @@
 		_ДатаНачала = ДобавитьМесяц(ТекущаяДата(), -12);
 		
 		Попытка
-			Пока ВетисMercuryApplications_2_0.GetVetDocumentChangesListNext(_enterpriseGuid, _ДатаНачала, , _businessEntityGuid, _Item, _параметры, _Отказ, _Ошибка) Цикл
+			Пока ВетисMercuryApplications.GetVetDocumentChangesListNext(_enterpriseGuid, _ДатаНачала, , _businessEntityGuid, _Item, _параметры, _Отказ, _Ошибка) Цикл
 				Если _Отказ = Истина Тогда
 					Прервать; 
 				КонецЕсли;
@@ -101,7 +101,7 @@
 		_параметры = Неопределено;
 		
 		Попытка
-			Пока ВетисMercuryApplications_2_0.GetVetDocumentListNext(_enterpriseGuid, _businessEntityGuid, ВетисКонстанты.VetDocumentType_INCOMING(), ВетисКонстанты.VetDocumentStatus_CONFIRMED(), _Item, _параметры, _Отказ, _Ошибка) Цикл
+			Пока ВетисMercuryApplications.GetVetDocumentListNext(_enterpriseGuid, _businessEntityGuid, ВетисКонстанты.VetDocumentType_INCOMING(), ВетисКонстанты.VetDocumentStatus_CONFIRMED(), _Item, _параметры, _Отказ, _Ошибка) Цикл
 				Если _Отказ = Истина Тогда
 					Прервать;
 				КонецЕсли;
@@ -114,7 +114,7 @@
 				//	КонецЦикла;
 				//КонецЕсли;
 			КонецЦикла;
-			Пока ВетисMercuryApplications_2_0.GetVetDocumentListNext(_enterpriseGuid, _businessEntityGuid, ВетисКонстанты.VetDocumentType_OUTGOING(), ВетисКонстанты.VetDocumentStatus_CONFIRMED(), _Item, _параметры, _Отказ, _Ошибка) Цикл
+			Пока ВетисMercuryApplications.GetVetDocumentListNext(_enterpriseGuid, _businessEntityGuid, ВетисКонстанты.VetDocumentType_OUTGOING(), ВетисКонстанты.VetDocumentStatus_CONFIRMED(), _Item, _параметры, _Отказ, _Ошибка) Цикл
 				Если _Отказ = Истина Тогда
 					Прервать;
 				КонецЕсли;
@@ -132,8 +132,8 @@
 		_businessEntityGuid = ВетисCerberusEnterpriseСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект);
 		_enterpriseGuid     = ВетисCerberusEnterpriseСлой1с.Enterprise(Объект.Предприятие);
 		
-		_businessEntity = ВетисCerberusEnterprise.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект));
-		_enterprise     = ВетисCerberusEnterprise.Enterprise(ВетисDictionaryСлой1с.Enterprise(Объект.Предприятие));
+		_businessEntity = ВетисDictionary.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект));
+		_enterprise     = ВетисDictionary.Enterprise(ВетисDictionaryСлой1с.Enterprise(Объект.Предприятие));
 		
 		
 	КонецЕсли;

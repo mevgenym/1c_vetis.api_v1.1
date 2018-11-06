@@ -141,15 +141,9 @@
 		_список = Новый Массив;
 		_Enterprise = Неопределено;
 		_параметры = Неопределено;
-		Если _Версия20 Тогда
-			Пока ВетисEnterpriseService_2_0.GetActivityLocationListNext(ВыборкаХС.BusinessEntityGuid, _Enterprise, _параметры, пОтказ, пОшибка) Цикл
-				_список.Добавить(_Enterprise.guid);
-			КонецЦикла;
-		Иначе
-			Пока ВетисEnterpriseService.GetActivityLocationListNext(ВыборкаХС.BusinessEntityGuid, _Enterprise, _параметры, пОтказ, пОшибка) Цикл
-				_список.Добавить(_Enterprise.guid);
-			КонецЦикла;
-		КонецЕсли;
+		Пока ВетисEnterpriseService.GetActivityLocationListNext(ВыборкаХС.BusinessEntityGuid, _Enterprise, _параметры, пОтказ, пОшибка) Цикл
+			_список.Добавить(_Enterprise.guid);
+		КонецЦикла;
 		
 		Если пОтказ = Истина Тогда
 			Возврат;

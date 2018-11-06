@@ -186,7 +186,7 @@
 	
 	_URI = Новый Массив;
 	_URI.Добавить(ВетисRegistry_2_0.ServiceURI());
-	_URI.Добавить(ВетисBase_2_0.ServiceURI());
+	_URI.Добавить(ВетисBase.ServiceURI());
 	
 	_ФабрикаWS = Новый ФабрикаXDTO(_Определения.ФабрикаXDTO.ЭкспортМоделиXDTO(_URI), _ФабрикаXDTO.Пакеты);
 	
@@ -213,14 +213,8 @@
 	
 	// создаем врем. фабрику на основе пакетов из конфиги и web сервиса
 	// нам нужны 2 пакета из ws, но пакет с application нужен локальный
-	Если Ветис.Версия_2_0() Тогда
-		_URI.Добавить(ВетисApplication_2_0.ServiceURI());
-		_URI.Добавить(ВетисBase_2_0.ServiceURI());
-		
-	Иначе
-		_URI.Добавить(ВетисApplication.ServiceURI());
-		_URI.Добавить(ВетисBase.ServiceURI());
-	КонецЕсли;
+	_URI.Добавить(ВетисApplication.ServiceURI());
+	_URI.Добавить(ВетисBase.ServiceURI());
 	
 	_ФабрикаWS = Новый ФабрикаXDTO(_Определения.ФабрикаXDTO.ЭкспортМоделиXDTO(_URI), _ФабрикаXDTO.Пакеты);
 	
@@ -303,7 +297,7 @@
 
 #Область WSDL
 
-Функция ПолучитьТаблицуWSDL(пТестовый = Неопределено, пСервис = Неопределено)
+Функция ПолучитьТаблицуWSDL(пТестовый = Неопределено, пСервис = Неопределено, пВерсия = Неопределено)
 	
 	_таблица = Неопределено;
 	
@@ -311,49 +305,56 @@
 	
 	_Сервис = ?(пСервис = Неопределено, Настройки_ЦелевойСервис(), пСервис);
 	
-	Если Ветис.Версия_2_0() Тогда
+	Если Ложь Тогда
 		
-		Если _Тестовый Тогда
-			_имя = "http://api.vetrf.ru/schema/platform/services/2.0-RC-last/";
-			_суф = "_v2.0_pilot.wsdl";
-		Иначе
-			_имя = "http://api.vetrf.ru/schema/platform/services/2.0-last/";
-			_суф = "_v2.0_production.wsdl";
-		КонецЕсли;
+	ИначеЕсли Ветис.Версия_2_1(пВерсия) Тогда
 		
-		Если _Сервис = "mercury_vu_service" Тогда
-			WSDLДобавить(_таблица, Перечисления.ВетисСервис.amsMercuryService, "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"ams-mercury-vu.service"+_суф, Истина);
-		Иначе
-			WSDLДобавить(_таблица, Перечисления.ВетисСервис.amsMercuryService, "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"ams-mercury-g2b.service"+_суф, Истина);
-		КонецЕсли;
+		_КорневойКаталог = "http://api.vetrf.ru/schema/platform/services/2.1-RC-last/";
+		_суф = ?(_Тестовый, "_v2.1_pilot.wsdl", "_v2.1_production.wsdl");
+		_имя = ?(_Сервис = Перечисления.ВетисЦелевойСервис.mercury_vu_service, "ams-mercury-vu.service", "ams-mercury-g2b.service");
 		
-		WSDLДобавить(_таблица, Перечисления.ВетисСервис.ApplicationManagementService, "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"ApplicationManagementService_v1.1.wsdl");
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.amsMercuryService, "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _КорневойКаталог+_имя+_суф, Истина);
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.ApplicationManagementService, "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _КорневойКаталог+"ApplicationManagementService_v2.0.wsdl");
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.DictionaryService, "http://api.vetrf.ru/schema/cdm/registry/dictionary/service/v2", "DictionaryServiceBindingQSService", "DictionaryServiceBindingQSPort", _КорневойКаталог+"DictionaryService"+_суф);
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.EnterpriseService, "http://api.vetrf.ru/schema/cdm/registry/enterprise/service/v2", "EnterpriseServiceBindingQSService", "EnterpriseServiceBindingQSPort", _КорневойКаталог+"EnterpriseService"+_суф);
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.IkarService,       "http://api.vetrf.ru/schema/cdm/registry/ikar/service/v2",       "IkarServiceBindingQSService",       "IkarServiceBindingQSPort",       _КорневойКаталог+"IkarService"+_суф);
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.ProductService,    "http://api.vetrf.ru/schema/cdm/registry/product/service/v2",    "ProductServiceBindingQSService",    "ProductServiceBindingQSPort",    _КорневойКаталог+"ProductService"+_суф);
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.RegionalizationService, "http://api.vetrf.ru/schema/cdm/registry/r13n/service/v2",  "RegionalizationServiceBindingQSService", "RegionalizationServiceBindingQSPort", _КорневойКаталог+"RegionalizationService"+_суф);
 		
-		WSDLДобавить(_таблица, Перечисления.ВетисСервис.DictionaryService, "http://api.vetrf.ru/schema/cdm/registry/dictionary/service/v2", "DictionaryServiceBindingQSService", "DictionaryServiceBindingQSPort", _Имя+"DictionaryService"+_суф);
-		WSDLДобавить(_таблица, Перечисления.ВетисСервис.EnterpriseService, "http://api.vetrf.ru/schema/cdm/registry/enterprise/service/v2", "EnterpriseServiceBindingQSService", "EnterpriseServiceBindingQSPort", _Имя+"EnterpriseService"+_суф);
-		WSDLДобавить(_таблица, Перечисления.ВетисСервис.IkarService,       "http://api.vetrf.ru/schema/cdm/registry/ikar/service/v2",       "IkarServiceBindingQSService",       "IkarServiceBindingQSPort",       _Имя+"IkarService"+_суф);
-		WSDLДобавить(_таблица, Перечисления.ВетисСервис.ProductService,    "http://api.vetrf.ru/schema/cdm/registry/product/service/v2",    "ProductServiceBindingQSService",    "ProductServiceBindingQSPort",    _Имя+"ProductService"+_суф);
-		WSDLДобавить(_таблица, Перечисления.ВетисСервис.RegionalizationService, "http://api.vetrf.ru/schema/cdm/registry/r13n/service/v2",  "RegionalizationServiceBindingQSService", "RegionalizationServiceBindingQSPort", _Имя+"RegionalizationService"+_суф);
+	ИначеЕсли Ветис.Версия_2_0(пВерсия) Тогда
+		
+		_КорневойКаталог = "http://api.vetrf.ru/schema/platform/services/2.0-last/";
+		_суф = ?(_Тестовый, "_v2.0_pilot.wsdl", "_v2.0_production.wsdl");
+		_имя = ?(_Сервис = Перечисления.ВетисЦелевойСервис.mercury_vu_service, "ams-mercury-vu.service", "ams-mercury-g2b.service");
+		
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.amsMercuryService, "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _КорневойКаталог+_имя+_суф, Истина);
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.ApplicationManagementService, "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _КорневойКаталог+"ApplicationManagementService_v1.1.wsdl");
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.DictionaryService, "http://api.vetrf.ru/schema/cdm/registry/dictionary/service/v2", "DictionaryServiceBindingQSService", "DictionaryServiceBindingQSPort", _КорневойКаталог+"DictionaryService"+_суф);
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.EnterpriseService, "http://api.vetrf.ru/schema/cdm/registry/enterprise/service/v2", "EnterpriseServiceBindingQSService", "EnterpriseServiceBindingQSPort", _КорневойКаталог+"EnterpriseService"+_суф);
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.IkarService,       "http://api.vetrf.ru/schema/cdm/registry/ikar/service/v2",       "IkarServiceBindingQSService",       "IkarServiceBindingQSPort",       _КорневойКаталог+"IkarService"+_суф);
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.ProductService,    "http://api.vetrf.ru/schema/cdm/registry/product/service/v2",    "ProductServiceBindingQSService",    "ProductServiceBindingQSPort",    _КорневойКаталог+"ProductService"+_суф);
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.RegionalizationService, "http://api.vetrf.ru/schema/cdm/registry/r13n/service/v2",  "RegionalizationServiceBindingQSService", "RegionalizationServiceBindingQSPort", _КорневойКаталог+"RegionalizationService"+_суф);
+		
+	ИначеЕсли Ветис.Версия_1_4(пВерсия) Тогда
+		
+		_КорневойКаталог = "http://api.vetrf.ru/schema/platform/";
+		
+		_суф = ?(_Тестовый, "_v1.4_pilot.wsdl", "_v1.3_production.wsdl");
+		
+		//для совместиовсти с 2.0
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.amsMercuryService, "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _КорневойКаталог+"services/ApplicationManagementService"+_суф, Истина);
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.ApplicationManagementService, "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _КорневойКаталог+"services/ApplicationManagementService"+_суф);
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.DictionaryService, "http://api.vetrf.ru/schema/cdm/registry/service", "DictionaryServiceBindingQSService", "DictionaryServiceBindingQSPort", _КорневойКаталог+"services/DictionaryService"+_суф);
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.EnterpriseService, "http://api.vetrf.ru/schema/cdm/registry/service", "EnterpriseServiceBindingQSService", "EnterpriseServiceBindingQSPort", _КорневойКаталог+"cerberus/services/EnterpriseService"+_суф);
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.IkarService,       "http://api.vetrf.ru/schema/cdm/registry/service", "IkarServiceBindingQSService",       "IkarServiceBindingQSPort",       _КорневойКаталог+"ikar/services/IkarService"+_суф);
+		WSDLДобавить(_таблица, Перечисления.ВетисСервис.ProductService,    "http://api.vetrf.ru/schema/cdm/registry/service", "ProductServiceBindingQSService",    "ProductServiceBindingQSPort",    _КорневойКаталог+"services/ProductService"+_суф);
 		
 	Иначе
 		
-		_имя = "http://api.vetrf.ru/schema/platform/";
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		
-		Если _Тестовый Тогда
-			_суф = "_v1.4_pilot.wsdl";
-		Иначе
-			_суф = "_v1.3_production.wsdl";
-		КонецЕсли;
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 		
-		//для совместиовсти с 2.0
-		WSDLДобавить(_таблица, Перечисления.ВетисСервис.amsMercuryService, "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"services/ApplicationManagementService"+_суф, Истина);
-		
-		WSDLДобавить(_таблица, Перечисления.ВетисСервис.ApplicationManagementService, "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"services/ApplicationManagementService"+_суф);
-		
-		WSDLДобавить(_таблица, Перечисления.ВетисСервис.DictionaryService, "http://api.vetrf.ru/schema/cdm/registry/service", "DictionaryServiceBindingQSService", "DictionaryServiceBindingQSPort", _Имя+"services/DictionaryService"+_суф);
-		WSDLДобавить(_таблица, Перечисления.ВетисСервис.EnterpriseService, "http://api.vetrf.ru/schema/cdm/registry/service", "EnterpriseServiceBindingQSService", "EnterpriseServiceBindingQSPort", _Имя+"cerberus/services/EnterpriseService"+_суф);
-		WSDLДобавить(_таблица, Перечисления.ВетисСервис.IkarService,       "http://api.vetrf.ru/schema/cdm/registry/service", "IkarServiceBindingQSService",       "IkarServiceBindingQSPort",       _Имя+"ikar/services/IkarService"+_суф);
-		WSDLДобавить(_таблица, Перечисления.ВетисСервис.ProductService,    "http://api.vetrf.ru/schema/cdm/registry/service", "ProductServiceBindingQSService",    "ProductServiceBindingQSPort",    _Имя+"services/ProductService"+_суф);
 	КонецЕсли;
 	
 	Возврат _таблица;
@@ -478,7 +479,7 @@
 
 #Область XSD
 
-Функция ПолучитьТаблицуXSD(пТестовый = Неопределено, пСервис = Неопределено)
+Функция ПолучитьТаблицуXSD(пТестовый = Неопределено, пСервис = Неопределено, пВерсия = Неопределено)
 	
 	_таблица = Неопределено;
 	
@@ -486,41 +487,53 @@
 	
 	_Сервис = ?(пСервис = Неопределено, Настройки_ЦелевойСервис(), пСервис);
 	
-	Если Ветис.Версия_2_0() Тогда
-		Если _Тестовый Тогда
-			_имя = "http://api.vetrf.ru/schema/platform/services/2.0-RC-last/";
-			_суф = "_v2.0.xsd";
-		Иначе
-			_имя = "http://api.vetrf.ru/schema/platform/services/2.0-last/";
-			_суф = "_v2.0.xsd";
-		КонецЕсли;
+	Если Ложь Тогда
 		
-		XSDДобавить(_таблица, _Имя+"application_v1.1.xsd",          ВетисApplication_2_0.URI());
-		XSDДобавить(_таблица, _Имя+"base_v1.1.xsd",                 ВетисBase_2_0.URI());
-		XSDДобавить(_таблица, _Имя+"dictionary"+_суф,               ВетисDictionary_2_0.URI());
-		XSDДобавить(_таблица, _Имя+"document"+_суф,                 ВетисMercuryVetdocument_2_0.URI());
-		//XSDДобавить(_таблица, _Имя+"registry_ws_definitions"+_суф,  ВетисRegistry_2_0.ServiceURI());
+	ИначеЕсли Ветис.Версия_2_1(пВерсия) Тогда
 		
-		Если _Сервис = Перечисления.ВетисЦелевойСервис.mercury_vu_service Тогда
-			XSDДобавить(_таблица, _Имя+"mercury_vu_applications"+_суф, ВетисMercuryApplications_2_0.URI());
-		Иначе
-			XSDДобавить(_таблица, _Имя+"mercury_g2b_applications"+_суф, ВетисMercuryApplications_2_0.URI());
-		КонецЕсли;
+		_КорневойКаталог = "http://api.vetrf.ru/schema/platform/services/2.1-RC-last/";
+		_суф = "_v2.1.xsd";
+		_имя = ?(_Сервис = Перечисления.ВетисЦелевойСервис.mercury_vu_service, "mercury_vu_applications", "mercury_g2b_applications");
+		
+		XSDДобавить(_таблица, _КорневойКаталог+"application_v2.0.xsd",          ВетисApplication.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+"base_v2.0.xsd",                 ВетисBase.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+"dictionary"+_суф,               ВетисDictionary.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+"document"+_суф,                 ВетисMercuryVetdocument.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+_имя+_суф, ВетисMercuryApplications.URI());
+		
+	ИначеЕсли Ветис.Версия_2_0(пВерсия) Тогда
+		
+		_КорневойКаталог = "http://api.vetrf.ru/schema/platform/services/2.0-last/";
+		_суф = "_v2.0.xsd";
+		_имя = ?(_Сервис = Перечисления.ВетисЦелевойСервис.mercury_vu_service, "mercury_vu_applications", "mercury_g2b_applications");
+		
+		XSDДобавить(_таблица, _КорневойКаталог+"application_v1.1.xsd",          ВетисApplication.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+"base_v1.1.xsd",                 ВетисBase.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+"dictionary"+_суф,               ВетисDictionary.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+"document"+_суф,                 ВетисMercuryVetdocument.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+_имя+_суф, ВетисMercuryApplications.URI());
+		
+	ИначеЕсли Ветис.Версия_1_4(пВерсия) Тогда
+		
+		_КорневойКаталог = "http://api.vetrf.ru/schema/platform/mercury/g2b/";
+		_суф = "_v1.4.xsd";
+		
+		XSDДобавить(_таблица, _КорневойКаталог+"application"+_суф,         ВетисApplication.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+"argus_common"+_суф,        ВетисArgusCommon_1_4.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+"production"+_суф,          ВетисArgusProduction_1_4.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+"argus_shipment"+_суф,      ВетисArgusShipment_1_4.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+"base"+_суф,                ВетисBase.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+"enterprise"+_суф,          ВетисCerberusEnterprise_1_4.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+"ikar"+_суф,                ВетисIkar_1_4.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+"applications"+_суф,        ВетисMercuryApplications.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+"veterinary_document"+_суф, ВетисMercuryVetdocument.URI());
 		
 	Иначе
 		
-		_имя = "http://api.vetrf.ru/schema/platform/mercury/g2b/";
-		_суф = "_v1.4.xsd";
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		
-		XSDДобавить(_таблица, _Имя+"application"+_суф,         ВетисApplication.URI());
-		XSDДобавить(_таблица, _Имя+"argus_common"+_суф,        ВетисArgusCommon.URI());
-		XSDДобавить(_таблица, _Имя+"production"+_суф,          ВетисArgusProduction.URI());
-		XSDДобавить(_таблица, _Имя+"argus_shipment"+_суф,      ВетисArgusShipment.URI());
-		XSDДобавить(_таблица, _Имя+"base"+_суф,                ВетисBase.URI());
-		XSDДобавить(_таблица, _Имя+"enterprise"+_суф,          ВетисCerberusEnterprise.URI());
-		XSDДобавить(_таблица, _Имя+"ikar"+_суф,                ВетисIkar.URI());
-		XSDДобавить(_таблица, _Имя+"applications"+_суф,        ВетисMercuryApplications.URI());
-		XSDДобавить(_таблица, _Имя+"veterinary_document"+_суф, ВетисMercuryVetdocument.URI());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+		
 	КонецЕсли;
 	
 	Возврат _таблица;

@@ -48,9 +48,7 @@
 	
 	_параметры = Неопределено;
 	
-	_Версия20 = Ветис.Версия_2_0();
-	
-	Пока ?(_Версия20, ВетисEnterpriseService_2_0, ВетисEnterpriseService).GetActivityLocationListNext(_BusinessEntityGuid, _Enterprise, _параметры, пОтказ, пОшибка) Цикл
+	Пока ВетисEnterpriseService.GetActivityLocationListNext(_BusinessEntityGuid, _Enterprise, _параметры, пОтказ, пОшибка) Цикл
 		Если пОтказ = Истина Тогда
 			Возврат Неопределено;
 		ИначеЕсли _EnterpriseGuid = _Enterprise.guid Тогда

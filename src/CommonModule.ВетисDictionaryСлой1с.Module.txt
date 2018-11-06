@@ -36,7 +36,7 @@
 
 Функция BusinessEntity(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат conv(value, "ВетисBusinessEntity", "ВетисEnterpriseService_2_0", "GetBusinessEntityByGuid", "GetBusinessEntityByUuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисBusinessEntity", "ВетисEnterpriseService", "GetBusinessEntityByGuid", "GetBusinessEntityByUuid", ПоУмолчанию);
 	
 КонецФункции
 
@@ -54,7 +54,7 @@
 
 Функция Enterprise(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат conv(value, "ВетисEnterprise", "ВетисEnterpriseService_2_0", "GetEnterpriseByGuid", "GetEnterpriseByUuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисEnterprise", "ВетисEnterpriseService", "GetEnterpriseByGuid", "GetEnterpriseByUuid", ПоУмолчанию);
 	
 КонецФункции
 
@@ -124,7 +124,7 @@
 				КонецЦикла;
 			КонецЕсли;
 		Иначе
-			Возврат ВетисDictionary_2_0.Package();
+			Возврат ВетисDictionary.Package();
 		КонецЕсли;
 	КонецЕсли;
 	
@@ -196,14 +196,14 @@
 
 Функция Product(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат conv(value, "ВетисProduct", "ВетисProductService_2_0", "GetProductByGuid", "GetProductByUuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисProduct", "ВетисProductService", "GetProductByGuid", "GetProductByUuid", ПоУмолчанию);
 	
 КонецФункции
 
 Функция ProductMarks(value, ПоУмолчанию = Неопределено) Экспорт
 	
 	Если ТипЗнч(value) = Тип("Структура") Тогда
-		Возврат ВетисDictionary_2_0.ProductMarks(value.Значение, ProductMarkingClass(value.Класс));
+		Возврат ВетисDictionary.ProductMarks(value.Значение, ProductMarkingClass(value.Класс));
 	ИначеЕсли ТипЗнч(value) = Тип("СписокXDTO") Тогда
 		Если value.Количество() = 0 Тогда
 			Возврат Новый Структура("content,class");
@@ -218,13 +218,13 @@
 
 Функция Purpose(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат conv(value, "ВетисPurpose", "ВетисDictionaryService_2_0", "GetPurposeByGuid", "GetPurposeByUuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисPurpose", "ВетисDictionaryService", "GetPurposeByGuid", "GetPurposeByUuid", ПоУмолчанию);
 	
 КонецФункции
 
 Функция ProductItem(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат conv(value, "ВетисProductItem", "ВетисProductService_2_0", "GetProductItemByGuid", "GetProductItemByUuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисProductItem", "ВетисProductService", "GetProductItemByGuid", "GetProductItemByUuid", ПоУмолчанию);
 	
 КонецФункции
 
@@ -260,13 +260,13 @@
 
 Функция SubProduct(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат conv(value, "ВетисSubProduct", "ВетисProductService_2_0", "GetSubProductByGuid", "GetSubProductByUuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисSubProduct", "ВетисProductService", "GetSubProductByGuid", "GetSubProductByUuid", ПоУмолчанию);
 	
 КонецФункции
 
 Функция Unit(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат conv(value, "ВетисUnit", "ВетисDictionaryService_2_0", "GetUnitByGuid", "GetUnitByUuid", ПоУмолчанию);
+	Возврат conv(value, "ВетисUnit", "ВетисDictionaryService", "GetUnitByGuid", "GetUnitByUuid", ПоУмолчанию);
 	
 КонецФункции
 

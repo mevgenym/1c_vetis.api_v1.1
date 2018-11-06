@@ -69,16 +69,16 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.Ветис</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисApplication</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисApplication_2_0</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисArgusCommon</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисArgusCommon_1_4</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисArgusCommonСлой1с</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисArgusProduction</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисArgusProduction_1_4</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисArgusProductionСлой1с</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисArgusShipment</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисArgusShipment_1_4</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисArgusShipmentСлой1с</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисBase</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисBase_2_0</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисBaseСлой1с</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисCerberusEnterprise</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисCerberusEnterprise_1_4</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисCerberusEnterpriseСлой1с</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисDictionary_2_0</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисDictionaryService</xr:Item>
@@ -86,7 +86,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисDictionaryСлой1с</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисEnterpriseService</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисEnterpriseService_2_0</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисIkar</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисIkar_1_4</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисIkarService</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисIkarService_2_0</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисIkarСлой1с</xr:Item>
@@ -192,6 +192,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисОтложенныеОперации</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисОтложенныеОперации</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисФоновыеЗадания</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">80425461-fc47-47f2-a32d-fb8ff61f1836</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

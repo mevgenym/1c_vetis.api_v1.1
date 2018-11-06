@@ -1,57 +1,175 @@
 ﻿
-// Тип, описывающий cколько времени животные находились на территории ТС.
-Функция AnimalSpentPeriod(value) Экспорт
+//Тип, описывающий сведения о проведенной обработке/иммунизации животных.
+//Параметры:
+// disease - Заболевание. dt:AnimalDisease
+// medicinalDrug - Препарат/вакцина. dt:MedicinalDrug
+// effectiveBeforeDate - Срок действия препарата/вакцины. Указывается дата и время окончания срока действия. xs:dateTime
+Функция AnimalMedicationEvent(disease = Неопределено, medicinalDrug = Неопределено, effectiveBeforeDate = Неопределено) Экспорт
 	
-	Если      value = 1 Тогда
-		Возврат ВетисКонстанты.AnimalSpentPeriod_FROM_BIRTH();
-	ИначеЕсли value = 2 Тогда
-		Возврат ВетисКонстанты.AnimalSpentPeriod_NOT_LESS_SIX_MONTHS();
-	ИначеЕсли value = 3 Тогда
-		Возврат ВетисКонстанты.AnimalSpentPeriod_IN_MONTHS();
-	ИначеЕсли value = 4 Тогда
-		Возврат ВетисКонстанты.AnimalSpentPeriod_ZERO();
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.AnimalMedicationEvent(disease, medicinalDrug, effectiveBeforeDate);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.AnimalMedicationEvent(disease, medicinalDrug, effectiveBeforeDate);
 	Иначе
-		Возврат Неопределено;
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
 	
 КонецФункции
 
 // Тип, описывающий партию груза.
-Функция Batch() Экспорт
+Функция Batch(value = Неопределено) Экспорт
 	
-	_Объект = Создать("Batch");
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.Batch(value);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.Batch(value);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисMercuryVetdocument_1_4.Batch();
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
-	Возврат _Объект;
+КонецФункции
+
+//Тип, описывающий cведения о происхождении партии продукции.
+//Параметры:
+// productItem - dt:ProductItem - Оригинальное наименование продукции (данное производителем)
+// country - 	dt:Country - Страна происхождения продукции
+// producer - dt:Producer - Сведения о производителях продукции
+Функция BatchOrigin(productItem = Неопределено, country = Неопределено, producer = Неопределено) Экспорт
+	
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.BatchOrigin(productItem, country, producer);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.BatchOrigin(productItem, country, producer);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
+	
+КонецФункции
+
+//Операция изменения связи между хозяйствующим субъектом и предприятиями. 
+//Параметры:
+// type - Тип операции (CREATE, DELETE) bs:RegisterModificationType 1
+// businessEntityGuid - Хозяйствующий субъект, к которому прикрепляется предприятие (поднадзорный объект) Строка 1
+// enterpriseGuid - Строка 1..*
+Функция BusinessEntityActivityLocationsModificationOperation(type, businessEntityGuid, enterpriseGuid) Экспорт
+	
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.BusinessEntityActivityLocationsModificationOperation(type, businessEntityGuid, enterpriseGuid);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.BusinessEntityActivityLocationsModificationOperation(type, businessEntityGuid, enterpriseGuid);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисCerberusEnterprise_1_4.BusinessEntityActivityLocationsModificationOperation(type, businessEntityGuid, enterpriseGuid);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
+	
+КонецФункции
+
+//Операция внесения изменений в реестр ХС
+//Параметры:
+// type - Тип операции (CREATE, FIND_OR_CREATE, UPDATE) bs:RegisterModificationType
+// affectedList - Входящий список ХС dt:BusinessEntity
+// resultingList - Список, который содержит сведения о добавляемых хозяйствующих субъектах.
+//                 На данный момент поддерживается добавление только одного субъекта в рамках одной заявки. dt:BusinessEntity
+// reason - Основание добавления записи в реестр xs:String
+Функция BusinessEntityModificationOperation(registerModificationType, affectedList = Неопределено, resultingList = Неопределено, reason = Неопределено) Экспорт
+	
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.BusinessEntityModificationOperation(registerModificationType, affectedList, resultingList, reason);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.BusinessEntityModificationOperation(registerModificationType, affectedList, resultingList, reason);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисCerberusEnterprise_1_4.BusinessEntityModificationOperation(registerModificationType, affectedList, resultingList, reason);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
+	
+КонецФункции
+
+//Тип, описывающий cертифицированную производственную партию продукции.
+//Параметры:
+// producer - dt:BusinessMember - Сведения о производителе продукции. Заполняется только для производственного вет.сертификата.
+// batch - vd:Batch - Сведения о партии продукции.
+Функция CertifiedBatch(batch, producer = Неопределено) Экспорт
+	
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.CertifiedBatch(batch, producer);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.CertifiedBatch(batch, producer);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
+	
+КонецФункции
+
+//Тип, описывающий сертифицированную транспортную партию.
+//Параметры:
+// consignor - dt:BusinessMember - Сведения об отправителе (владельце). Заполняется только для транспортного вет.сертификата.
+// consignee - dt:BusinessMember - Сведения о получателе груза. Заполняется только для транспортного вет.сертификата.
+// batch - vd:Batch - Сведения о партии продукции.
+// broker - dt:BusinessEntity - Сведения о фирме-посреднике (перевозчике).
+// transportInfo - vd:TransportInfo - Сведения о транспорте.
+// transportStorageType - dt:TransportationStorageType - Способ хранения при перевозке.
+// shipmentRoute - vd:ShipmentRoute - Сведения о маршруте следования (пунктах перегрузки).
+Функция CertifiedConsignment(consignor, consignee, batch, broker, transportInfo, transportStorageType, shipmentRoute = Неопределено) Экспорт
+	
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.CertifiedConsignment(consignor, consignee, batch, broker, transportInfo, transportStorageType, shipmentRoute);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.CertifiedConsignment(consignor, consignee, batch, broker, transportInfo, transportStorageType, shipmentRoute);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
 КонецФункции
 
 // Тип, описывающий транспортную партию груза.
-Функция Consignment() Экспорт
+Функция Consignment(value = Неопределено) Экспорт
 	
-	_Объект = Создать("Consignment");
-	
-	//_Объект.id = "";// Идентификатор, определяющий consignment в запросе. Должен быть указан, если запрос содержит несколько элементов consignment.
-	
-	//_Объект.partOf = "";// Ссылка на consignment в разделе delivery запроса. Должен быть указан, если запрос содержит несколько элементов consignment.
-	
-	// http://vetrf.ru/vetrf-forum/posts/list/315/6855.page#39747
-	// Этот атрибут был заявлен на перспективу.
-	// В дальнейшем планируется добавить возможность гашения нескольких партий товара.
-	// На данный момент использование или неиспользование этого атрибута ошибочным не является.
-	
-	Возврат _Объект;
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.Consignment(value);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.Consignment(value);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисMercuryVetdocument_1_4.Consignment();
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
 КонецФункции
 
 // Тип, описывающий контроль поставки (документарный, ветеринарный).
-Функция ConsignmentDocumentList(waybill, VetDocument) Экспорт
+Функция ConsignmentDocumentList(waybill, VetDocument, relatedDocument = Неопределено) Экспорт
 	
-	_Объект = Создать("ConsignmentDocumentList");
-	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, waybill, "waybill");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, VetDocument, "vetCertificate");
-	
-	Возврат _Объект;
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(waybill, VetDocument, relatedDocument);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(waybill, VetDocument, relatedDocument);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисMercuryVetdocument_1_4.ConsignmentDocumentList(waybill, VetDocument);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
 КонецФункции
 
@@ -61,32 +179,19 @@
 //  consignee - ent:BusinessMember - Сведения о получателе.
 //  consignment - vetd:Consignment - Фактические сведения о входящей партии или группе животных.
 //  accompanyingForms - vetd:ConsignmentDocumentList - Сопроводительные документы.
-Функция Delivery(consignor, consignee, consignment, accompanyingForms) Экспорт
+Функция Delivery(consignor, consignee, consignment, accompanyingForms, broker = Неопределено, transportInfo = Неопределено, transportStorageType = Неопределено, shipmentRoute = Неопределено) Экспорт
 	
-	_Объект = Создать("Delivery");
-	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяСервиса(), "deliveryDate");// xs:dateTime
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignor, "consignor");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignee, "consignee");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, accompanyingForms, "accompanyingForms");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignment, "consignment");
-	
-	Возврат _Объект;
-	
-	// http://vetrf.ru/vetrf-forum/posts/list/825/6855.page#41188
-	// В случае если вы передаете в запросе несколько объектов consignment ("..Request/delivery/consignment")
-	// и несколько объектов vetCertificate ("..Request/delivery/accompanyingForms/vetCertificate")
-	// то связь между ними должна быть установлена путем указания атрибутов "id" - у элемента consignment
-	// и "for" - для элемента vetCertificate.
-	// 
-	// В случае если вы передаете в запросе несколько объектов consignment и один объект vetCertificate,
-	// то атрибуты id и for могут быть не указаны,
-	// но в этом случае информация из единственного элемента vetCertificate будет распространяться на все ВСД,
-	// оформляемые в этом запросе.
-	//
-	// http://vetrf.ru/vetrf-forum/posts/list/825/6855.page#41192
-	// Возможно, что неверно указали значения для атрибутов id и for.
-	// Их типы ID и IDREF, соответственно, и должны начинаться с "_" или буквенного символа.
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.Delivery(consignor, consignee, consignment, accompanyingForms, broker, transportInfo, transportStorageType, shipmentRoute);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.Delivery(consignor, consignee, consignment, accompanyingForms, broker, transportInfo, transportStorageType, shipmentRoute);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисMercuryVetdocument_1_4.Delivery(consignor, consignee, consignment, accompanyingForms);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
 КонецФункции
 
@@ -98,14 +203,17 @@
 //  decision - vetd:DeliveryDecision - Принятое решение о приёме входной партии.
 Функция DeliveryFactList(presence, docInspection, vetInspection, decision) Экспорт
 	
-	_Объект = Создать("DeliveryFactList");
-	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, presence, "vetCertificatePresence");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, docInspection, "docInspection");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetInspection, "vetInspection");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, decision, "decision");
-	
-	Возврат _Объект;
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.DeliveryFactList(presence, docInspection, vetInspection, decision);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.DeliveryFactList(presence, docInspection, vetInspection, decision);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисMercuryVetdocument_1_4.DeliveryFactList(presence, docInspection, vetInspection, decision);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
 КонецФункции
 
@@ -115,12 +223,17 @@
 //  responsible - argc:User - Ответственный за контроль.
 Функция DeliveryInspection(result, responsible = Неопределено) Экспорт
 	
-	_Объект = Создать("DeliveryInspection");
-	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, result, "result");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, responsible, "responsible", , ВетисArgusCommon.User(ВетисПовтИсп.ТекущийПользователь_Логин()));
-	
-	Возврат _Объект;
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.DeliveryInspection(result, responsible);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.DeliveryInspection(result, responsible);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисMercuryVetdocument_1_4.DeliveryInspection(result, responsible);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
 КонецФункции
 
@@ -129,11 +242,17 @@
 // name - Название причины. - bs:String255
 Функция DiscrepancyReason(name) Экспорт
 	
-	_Объект = Создать("DiscrepancyReason");
-	
-	_Объект.name = name;
-	
-	Возврат _Объект;
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.DiscrepancyReason(name);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.DiscrepancyReason(name);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисMercuryVetdocument_1_4.DiscrepancyReason(name);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
 КонецФункции
 
@@ -146,35 +265,75 @@
 // description - Детальное описание. xs:string
 Функция DiscrepancyReport(issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, reason = Неопределено, description = Неопределено) Экспорт
 	
-	_Объект = Создать("DiscrepancyReport");
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.DiscrepancyReport(issueSeries, issueNumber, issueDate, reason, description);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.DiscrepancyReport(issueSeries, issueNumber, issueDate, reason, description);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисMercuryVetdocument_1_4.DiscrepancyReport(issueSeries, issueNumber, issueDate, reason, description);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueSeries, "issueSeries");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueNumber, "issueNumber");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueDate, "issueDate");//xs:date
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, DiscrepancyReason(reason), "reason");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, description, "description");
+КонецФункции
+
+//Тип, описывающий документ
+//Параметры:
+// issueSeries - Серия документа. bs:String255 0..1
+// issueNumber - Номер документа. bs:String255 0..1
+// issueDate - Дата документа. xs:date 0..1
+// type - Тип документа. dt:DocumentType
+Функция Document(issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, type = Неопределено, issuer = Неопределено) Экспорт
 	
-	Возврат _Объект;
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.Document(issueSeries, issueNumber, issueDate, type, issuer);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.Document(issueSeries, issueNumber, issueDate, type, issuer);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
+	
+КонецФункции
+
+//Операция внесения изменений в реестр ХС
+//Параметры:
+// type - bs:RegisterModificationType - Тип операции (CREATE, UPDATE)
+// enterprise - dt:Enterprise - сведения о добавляемых поднадзорных объектах.
+//                 На данный момент поддерживается добавление только одной площадки в рамках одной заявки.
+// reason - xs:String - Основание добавления записи в реестр
+Функция EnterpriseModificationOperation(type, enterprise = Неопределено, reason = Неопределено) Экспорт
+	
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.EnterpriseModificationOperation(type, enterprise, reason);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.EnterpriseModificationOperation(type, enterprise, reason);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
 КонецФункции
 
 // Тип, описывающий дату производства, либо дату окончания срока годности продукции.
 // Может указываться единичной датой, интервалом, либо строкой.
-Функция GoodsDate(firstDate, secondDate = Неопределено, пЧас = Ложь) Экспорт
+Функция GoodsDate(firstDate, secondDate = Неопределено, Day = Ложь, Hour = Ложь, Minute = Ложь) Экспорт
 	
-	_Объект = Создать("GoodsDate");
-	
-	Если ТипЗнч(firstDate) = Тип("Дата") Тогда
-		_Объект.firstDate = ВетисBase.ComplexDate(firstDate, пЧас);
-		
-		Если НЕ secondDate = Неопределено И ЗначениеЗаполнено(secondDate) Тогда
-			_Объект.secondDate = ВетисBase.ComplexDate(secondDate, пЧас);
-		КонецЕсли;
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.GoodsDate(firstDate, secondDate, Day, Hour, Minute);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.GoodsDate(firstDate, secondDate, Day, Hour, Minute);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисMercuryVetdocument_1_4.GoodsDate(firstDate, secondDate, Day);
 	Иначе
-		_Объект.informalDate = firstDate;
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
-	
-	Возврат _Объект;
 	
 КонецФункции
 
@@ -196,33 +355,97 @@
 //
 Функция MergeStockEntriesOperation(sourceStockEntry) Экспорт
 	
-	_Объект = Создать("MergeStockEntriesOperation");
-	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, sourceStockEntry, "sourceStockEntry", "ВетисMercuryVetdocument.StockEntry");
-	
-	Возврат _Объект;
-	
-КонецФункции
-
-Функция ProductMarking(content) Экспорт
-	
-	_Объект = Создать("ProductMarking");
-	
-	_Объект.class = ВетисКонстанты.ProductMarkingClass_UNDEFINED();//пока только UNDEFINED
-	
-	_Объект.__content = content;
-	
-	Возврат _Объект;
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.MergeStockEntriesOperation(sourceStockEntry);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.MergeStockEntriesOperation(sourceStockEntry);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисMercuryVetdocument_1_4.MergeStockEntriesOperation(sourceStockEntry);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
 КонецФункции
 
-Функция ProductMarkingList(content) Экспорт
+//Тип, описывающий лабораторное исследование. Исследование выполняется на конкретный показатель/заболевание в лаборатории.
+//Параметры:
+// batchID - bs:Identifier - Уникальный идентификатор производственной партии продукции, для которой проводились лабораторные исследования.
+// expertiseID - bs:String255 - Номер экспертизы.
+// indicator - dt:Indicator - Показатель безопасности.
+// disease - dt:AnimalDisease - Заболевание.
+// method - dt:ResearchMethod - Метод исследования.
+// result - dt:ResearchResult - Результат исследования.
+// conclusion - 	bs:Text - Заключение.
+Функция LaboratoryResearchEvent(batchID, expertiseID, indicator, disease, method, result, conclusion) Экспорт
 	
-	_Объект = Создать("ProductMarkingList");
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.LaboratoryResearchEvent(batchID, expertiseID, indicator, disease, method, result, conclusion);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.LaboratoryResearchEvent(batchID, expertiseID, indicator, disease, method, result, conclusion);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, content, "productMarking", "ВетисMercuryVetdocument.ProductMarking");
+КонецФункции
+
+//Тип, описывающий операцию внесения изменений в реестр наименований продукции
+//Параметры:
+// type - bs:RegisterModificationType - Тип операции (CREATE, UPDATE, DELETE)
+// productItemList - Массив
+Функция PSLModificationOperation(type, productItemList = Неопределено) Экспорт
 	
-	Возврат _Объект;
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.PSLModificationOperation(type, productItemList);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.PSLModificationOperation(type, productItemList);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
+	
+КонецФункции
+
+//Тип, описывающий cведения о связанном документе
+//Параметры:
+// relationshipType - Тип отношения между документами. ReferenceType 1..1
+// issueSeries - Серия документа. bs:String255 0..1
+// issueNumber - Номер документа. bs:String255 0..1
+// issueDate - Дата документа. xs:date 0..1
+// type - Тип документа. dt:DocumentType
+Функция ReferencedDocument(relationshipType = Неопределено, issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, type = Неопределено) Экспорт
+	
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.ReferencedDocument(relationshipType, issueSeries, issueNumber, issueDate, type);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.ReferencedDocument(relationshipType, issueSeries, issueNumber, issueDate, type);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
+	
+КонецФункции
+
+//Тип, описывающий подтверждение соблюдения условия перемещения продукции.
+//Параметры:
+// condition - dt:RegionalizationCondition - Cоблюдаемое условие перемещения партии.
+// text - bs:Text - Текст (точная формулировка) соблюдаемого условия перемещения партии.
+Функция RegionalizationClause(condition = Неопределено, text = Неопределено) Экспорт
+	
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.RegionalizationClause(condition, text);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.RegionalizationClause(condition, text);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
 КонецФункции
 
@@ -231,41 +454,210 @@
 // resultingList - Одна или несколько записей складского журнала продукции, полученная, либо измененная в результате инвентаризации. vetd:StockEntryList 0..1
 Функция StockDiscrepancy(stockEntry) Экспорт
 	
-	_Объект = Создать("StockDiscrepancy");
-	
-	//ВетисОбщегоНазначения.УстановитьЗначение(_Объект, resultingList, "resultingList");
-	
-	//_Объект.count = _Объект.resultingList.Количество();
-	//_Объект.offset = 0;
-	//_Объект.total = 0;
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, StockEntryList(stockEntry), "resultingList");
-	
-	Возврат _Объект;
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.StockDiscrepancy(stockEntry);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.StockDiscrepancy(stockEntry);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисMercuryVetdocument_1_4.StockDiscrepancy(stockEntry);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
 КонецФункции
 
 // Тип, описывающий cведения о записи журнала продукции.
 Функция StockEntry(guid = Неопределено) Экспорт
 	
-	_Объект = Создать("StockEntry");
-	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid);
-	
-	Возврат _Объект;
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.StockEntry(guid);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.StockEntry(guid);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисMercuryVetdocument_1_4.StockEntry(guid);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
 КонецФункции
 
 Функция StockEntryList(stockEntry = Неопределено) Экспорт
 	
-	_Объект = Создать("StockEntryList");
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.StockEntryList(stockEntry);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.StockEntryList(stockEntry);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисMercuryVetdocument_1_4.StockEntryList(stockEntry);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, stockEntry, "stockEntry");
+КонецФункции
+
+//Тип, описывающий список пунктов в маршруте следования груза (в т.ч. точек перегрузки).
+//Параметры:
+// routePoint - Пункт перегрузки. vd:ShipmentRoutePoint 0..*
+Функция ShipmentRoute(routePoint = Неопределено) Экспорт
 	
-	_Объект.count = _Объект.stockEntry.Количество();
-	_Объект.offset = 0;
-	_Объект.total = 0;
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.ShipmentRoute(routePoint);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.ShipmentRoute(routePoint);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
-	Возврат _Объект;
+КонецФункции
+
+//Тип, описывающий cведения о точке маршрута следования.
+//Наследуется от типа bs:GenericEntity.
+//Параметры:
+// sqnId - Порядовый номер точки маршрута. bs:SequenceNumber 0..1
+// location - Сведения о пункте перегрузки. dt:Location 0..1
+// enterprise - Сведения о пункте перегрузки. dt:Enterprise 0..1
+// transshipment - Признак того, осуществляется ли в данной точке перегрузка. xs:boolean 0..1
+// nextTransport - Сведения о дальнейшем транспорте. vd:TransportInfo 0..1
+Функция ShipmentRoutePoint(sqnId = Неопределено, location = Неопределено, enterprise = Неопределено, transshipment = Неопределено, nextTransport = Неопределено) Экспорт
+	
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.ShipmentRoutePoint(sqnId, location, enterprise, transshipment, nextTransport);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.ShipmentRoutePoint(sqnId, location, enterprise, transshipment, nextTransport);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
+	
+КонецФункции
+
+//
+//Параметры:
+// blankFilter - Фильтр по объёму записи складского журнала. vd:StockEntryBlankFilter
+Функция StockEntrySearchPattern(blankFilter) Экспорт
+	
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.StockEntrySearchPattern(blankFilter);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.StockEntrySearchPattern(blankFilter);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
+	
+КонецФункции
+
+Функция TransportInfo(transportType, transportNumber) Экспорт
+	
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.TransportInfo(transportType, transportNumber);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.TransportInfo(transportType, transportNumber);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисArgusShipment_1_4.TransportInfo(transportType, transportNumber);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
+	
+КонецФункции
+
+Функция TransportNumber() Экспорт
+	
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.TransportNumber();
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.TransportNumber();
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
+	
+КонецФункции
+
+//Тип, описывающий пользователя. Наследуется от типа bs:GenericEntity.
+Функция User(login = Неопределено, fio = Неопределено, post = Неопределено) Экспорт
+	
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.User(login, fio, post);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.User(login, fio, post);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисArgusCommon_1_4.User(login, fio, post);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
+	
+КонецФункции
+
+//Тип, описывающий результаты осмотра/исследований партии. Заключение ветеринарного врача/специалиста.
+//Параметры:
+// purpose - dt:Purpose - Цель. Назначение груза.
+// cargoInspected - xs:boolean - Осуществлен контроль гос.ветврачом на соответствие требованиям.
+// cargoExpertized - dt:ResearchResult - Проводилась ли ветсанэкспертиза.
+// locationProsperity - bs:String255 - Благополучие местности.
+// specialMarks - bs:Text - Особые отметки.
+// r13nClause - vd:RegionalizationClause - Подтверждение соблюдаемых условий перемещения продукции.
+//              Если в соответствии с правилами регионализации перемещение продукции разрешено при выполнении определенных условий,
+//              то условия, которые обязуется выполнить перевозчик передаются в данном поле.
+// laboratoryResearch - vd:LaboratoryResearchEvent - Сведения о проведенных лабораторных исследованиях.
+Функция VeterinaryAuthentication(purpose = Неопределено,
+	cargoInspected = Неопределено,
+	cargoExpertized = Неопределено,
+	locationProsperity = Неопределено,
+	specialMarks = Неопределено,
+	r13nClause = Неопределено,
+	laboratoryResearch = Неопределено) Экспорт
+	
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.VeterinaryAuthentication(purpose, cargoInspected, cargoExpertized, locationProsperity, specialMarks, r13nClause, laboratoryResearch);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.VeterinaryAuthentication(purpose, cargoInspected, cargoExpertized, locationProsperity, specialMarks, r13nClause, laboratoryResearch);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
+	
+КонецФункции
+
+//Тип, описывающий некое событие или мероприятие, ассоциированное с партией продукции (или живым животным).
+//Например, лабораторное исследование, ВСЭ, произведенная обработка или иммунизация животного и т.д.
+//Параметры:
+// ID - Идентификатор события в разрезе записи складского журнала или вет.сертификата. Не задаётся пользователем в запросах (кроме запросов на редактирование), формируется системой автоматически. bs:Identifier
+// name - Наименование мероприятия. bs:String255
+// type - Тип мероприятия. vd:VeterinaryEventType
+// actualDateTime - Дата события. xs:dateTime
+// location - Место проведения мероприятия. Указывается, если место проведения - это не предприятие зарегистрированное в справочнике Меркурия. dt:Location
+// enterprise - Место проведения мероприятия в случае, если это зарегистрированное предприятие. dt:Enterprise
+// operator - Организация-оператор, осуществляющий мероприятие. Например, лаборатория (в случае лаб.исследований) или СББЖ. dt:Organization
+// referencedDocument - Связанный документ. Например, акт отбора пробы для лаб.исследования. vd:Document
+// notes - Дополнительные сведения. bs:Text
+Функция VeterinaryEvent(value = Неопределено) Экспорт
+	
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.VeterinaryEvent(value);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.VeterinaryEvent(value);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
 КонецФункции
 
@@ -274,21 +666,96 @@
 //  uuid - Идентификатор ВСД
 Функция VetDocument(uuid = Неопределено) Экспорт
 	
-	_Объект = Создать("VetDocument");
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.VetDocument(uuid);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.VetDocument(uuid);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисMercuryVetdocument_1_4.VetDocument(uuid);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, uuid, "uuid");
+КонецФункции
+
+//Тип, описывающий cведения об изменении статуса ветеринарного документа.
+//Параметры;
+// status - vd:VetDocumentStatus - установленный статус документа
+// user - dt:User - пользователь, изменивший статус
+// date - xs:dateTime - дата и время изменения статуса
+// reason - vd:VetDocumentStatusChangeReason - основание
+Функция VetDocumentStatusChange(status = Неопределено, user = Неопределено, date = Неопределено, reason = Неопределено) Экспорт
 	
-	Возврат _Объект;
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.VetDocumentStatusChange(status, user, date, reason);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.VetDocumentStatusChange(status, user, date, reason);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
+	
+КонецФункции
+
+//API v2.x
+Функция VetDocumentStatusChangeReason(пЗначение) Экспорт
+	
+	Возврат Строка(пЗначение);
+	
+КонецФункции
+
+//Тип, описывающий товарно-транспортную накладную.
+//Параметры;
+// consignor - Сведения об отправителе (владельце). dt:BusinessMember 0..1
+// consignee - Сведения о получателе груза. dt:BusinessMember 0..1
+// broker - Сведения о фирме-посреднике (перевозчике). dt:BusinessEntity 0..1
+// transportInfo - Сведения о транспорте. vd:TransportInfo 0..1
+// transportStorageType - Способ хранения при перевозке. dt:TransportationStorageType 0..1
+// shipmentRoute - Сведения о маршруте следования (пунктах перегрузки). vd:ShipmentRoute 0..1
+Функция Waybill(issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, type = Неопределено, broker = Неопределено, transportInfo = Неопределено, transportStorageType = Неопределено) Экспорт
+	
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.Waybill(issueSeries, issueNumber, issueDate, type, broker, transportInfo, transportStorageType);
+	ИначеЕсли Ветис.Версия_2_0() Тогда
+		Возврат ВетисMercuryVetdocument_2_0.Waybill(issueSeries, issueNumber, issueDate, type, broker, transportInfo, transportStorageType);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ВетисArgusShipment_1_4.Waybill(issueSeries, issueNumber, issueDate, type, broker, transportInfo, transportStorageType);
+	Иначе
+		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
+		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	КонецЕсли;
 	
 КонецФункции
 
 //Причина аннулирования ветеринарного сертификата. 
+//API v1.4
 Функция WithdrawReason(пЗначение) Экспорт
 	
 	Возврат Строка(пЗначение);
 	
 КонецФункции
 
+
+//Тип, описывающий cколько времени животные находились на территории ТС.
+Функция AnimalSpentPeriod(value) Экспорт
+	
+	Если      value = 1 Тогда
+		Возврат ВетисКонстанты.AnimalSpentPeriod_FROM_BIRTH();
+	ИначеЕсли value = 2 Тогда
+		Возврат ВетисКонстанты.AnimalSpentPeriod_NOT_LESS_SIX_MONTHS();
+	ИначеЕсли value = 3 Тогда
+		Возврат ВетисКонстанты.AnimalSpentPeriod_IN_MONTHS();
+	ИначеЕсли value = 4 Тогда
+		Возврат ВетисКонстанты.AnimalSpentPeriod_ZERO();
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
+	
+КонецФункции
 
 // Тип, описывающий контроль поставки (документарный, ветеринарный).
 Функция DeliveryDecision(value) Экспорт

@@ -58,7 +58,7 @@
 		_Отказ = Ложь; _Ошибка = "";
 		
 		Если Выборка.guid = NULL Тогда
-			_список = ВетисEnterpriseService_2_0.GetBusinessEntityByINN(Выборка.ИНН, _Отказ, _Ошибка);
+			_список = ВетисEnterpriseService.GetBusinessEntityByINN(Выборка.ИНН, _Отказ, _Ошибка);
 			Если _список.Количество() = 0 Тогда
 				Продолжить;
 			КонецЕсли;
@@ -74,7 +74,7 @@
 		
 		_enterprise = Неопределено;
 		_параметры = Неопределено;
-		Пока ВетисEnterpriseService_2_0.GetActivityLocationListNext(_guid, _enterprise, _параметры, _Отказ, _Ошибка) Цикл
+		Пока ВетисEnterpriseService.GetActivityLocationListNext(_guid, _enterprise, _параметры, _Отказ, _Ошибка) Цикл
 			_ent = ВетисDictionaryСлой1с.Enterprise(_enterprise);
 			_мз = _нз.Добавить();
 			_мз.Использовать = Истина;

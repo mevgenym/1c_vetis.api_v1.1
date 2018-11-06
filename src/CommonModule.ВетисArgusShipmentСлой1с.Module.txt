@@ -95,7 +95,7 @@
 
 Функция TransportInfo(пТипТранспорта, пНомер = Неопределено, пНомерПрицепа = Неопределено, пНомерКонтейнера = Неопределено) Экспорт
 	
-	Возврат ВетисArgusShipment.TransportInfo(
+	Возврат ВетисArgusShipment_1_4.TransportInfo(
 				TransportType(пТипТранспорта),
 				TransportNumber(пТипТранспорта, пНомер, пНомерПрицепа, пНомерКонтейнера)
 				);
@@ -130,7 +130,7 @@
 		
 	ИначеЕсли ТипЗнч(value) = Тип("ПеречислениеСсылка.ВетисTransportType") Тогда
 		
-		_Объект = ВетисArgusShipment.TransportNumber();
+		_Объект = ВетисArgusShipment_1_4.TransportNumber();
 		
 		Если value = Перечисления.ВетисTransportType.Автомобильный Тогда
 			ВетисОбщегоНазначения.УстановитьЗначение(_Объект, пНомер, "vehicleNumber");

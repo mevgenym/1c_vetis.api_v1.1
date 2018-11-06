@@ -1,37 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <CommandInterface xmlns="http://v8.1c.ru/8.3/xcf/extrnprops" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
 	<CommandsVisibility>
-		<Command name="0:0d1a8a3f-b4a3-4dac-ab74-ba9a885641f2">
-			<Visibility>
-				<xr:Common>false</xr:Common>
-			</Visibility>
-		</Command>
 		<Command name="CommonCommand.ВетисUnit">
 			<Visibility>
 				<xr:Common>false</xr:Common>
 			</Visibility>
 		</Command>
-		<Command name="0:613cdb09-f714-457a-86bf-6e62e9215dbf">
-			<Visibility>
-				<xr:Common>false</xr:Common>
-			</Visibility>
-		</Command>
-		<Command name="0:bb0274c7-b1bc-4872-869b-91d391fc775a">
-			<Visibility>
-				<xr:Common>false</xr:Common>
-			</Visibility>
-		</Command>
-		<Command name="0:3b4d31f4-a418-4a84-80a2-4609f4198217">
-			<Visibility>
-				<xr:Common>false</xr:Common>
-			</Visibility>
-		</Command>
 		<Command name="CommonCommand.ВетисPackingForm">
-			<Visibility>
-				<xr:Common>false</xr:Common>
-			</Visibility>
-		</Command>
-		<Command name="0:a416cea8-2d03-475f-98e0-6639818d6d19">
 			<Visibility>
 				<xr:Common>false</xr:Common>
 			</Visibility>
@@ -51,23 +26,11 @@
 				<xr:Common>false</xr:Common>
 			</Visibility>
 		</Command>
-		<Command name="0:0d4d295b-6f1c-48cf-8592-65777609b980">
-			<Visibility>
-				<xr:Common>false</xr:Common>
-			</Visibility>
-		</Command>
-		<Command name="0:f12a81fb-1c99-4f28-a19d-fae180331562">
-			<Visibility>
-				<xr:Common>false</xr:Common>
-			</Visibility>
-		</Command>
-		<Command name="0:8e57d164-03e6-44de-8311-2929ee576ec3">
-			<Visibility>
-				<xr:Common>false</xr:Common>
-			</Visibility>
-		</Command>
 	</CommandsVisibility>
 	<CommandsOrder>
+		<Command name="Enum.ВетисОтложенныеОперации.StandardCommand.OpenList">
+			<CommandGroup>NavigationPanelOrdinary</CommandGroup>
+		</Command>
 		<Command name="CommonCommand.ВетисCountry">
 			<CommandGroup>CommandGroup.ВетисАдресныйКлассификатор</CommandGroup>
 		</Command>
@@ -75,18 +38,21 @@
 			<CommandGroup>CommandGroup.ВетисАдресныйКлассификатор</CommandGroup>
 		</Command>
 		<Command name="CommonCommand.ВетисDistrict">
-			<CommandGroup>CommandGroup.ВетисАдресныйКлассификатор</CommandGroup>
+			<CommandGroup>00000000-0000-0000-0000-000000000000</CommandGroup>
 		</Command>
 		<Command name="CommonCommand.ВетисLocality">
-			<CommandGroup>CommandGroup.ВетисАдресныйКлассификатор</CommandGroup>
+			<CommandGroup>00000000-0000-0000-0000-000000000000</CommandGroup>
 		</Command>
 		<Command name="CommonCommand.ВетисProduct">
 			<CommandGroup>CommandGroup.ВетисСправочникПродукции</CommandGroup>
 		</Command>
 		<Command name="CommonCommand.ВетисSubProduct">
-			<CommandGroup>CommandGroup.ВетисСправочникПродукции</CommandGroup>
+			<CommandGroup>00000000-0000-0000-0000-000000000000</CommandGroup>
 		</Command>
 		<Command name="CommonCommand.ВетисProductItem">
+			<CommandGroup>00000000-0000-0000-0000-000000000000</CommandGroup>
+		</Command>
+		<Command name="CommonCommand.ВетисУстановкаСоответствияСправочников">
 			<CommandGroup>CommandGroup.ВетисСправочникПродукции</CommandGroup>
 		</Command>
 	</CommandsOrder>

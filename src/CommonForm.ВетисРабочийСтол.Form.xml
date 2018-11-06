@@ -933,6 +933,12 @@
 									<ContextMenu name="СписокСкладскойЖурналcountryКонтекстноеМеню" id="809"/>
 									<ExtendedTooltip name="СписокСкладскойЖурналcountryРасширеннаяПодсказка" id="810"/>
 								</LabelField>
+								<LabelField name="СписокСкладскойЖурналКод" id="850">
+									<DataPath>СписокСкладскойЖурнал.Code</DataPath>
+									<Width>5</Width>
+									<ContextMenu name="СписокСкладскойЖурналКодКонтекстноеМеню" id="851"/>
+									<ExtendedTooltip name="СписокСкладскойЖурналКодРасширеннаяПодсказка" id="852"/>
+								</LabelField>
 							</ChildItems>
 						</Table>
 						<UsualGroup name="Группа1" id="550">

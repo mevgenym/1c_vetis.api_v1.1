@@ -47,7 +47,7 @@
 	
 	_guid = Строка(Объект.Ссылка.УникальныйИдентификатор());
 	
-	_se = ВетисMercuryApplications_2_0.GetStockEntryByGuid(_guid, ВетисDictionaryСлой1с.Enterprise(Объект.Enterprise), Объект.BusinessEntity, пОтказ, пОшибка);
+	_se = ВетисMercuryApplications.GetStockEntryByGuid(_guid, ВетисDictionaryСлой1с.Enterprise(Объект.Enterprise), Объект.BusinessEntity, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда
 		Возврат;
@@ -91,7 +91,7 @@
 	
 	_enterpriseGuid = ВетисDictionaryСлой1с.Enterprise(Объект.Enterprise);
 	
-	_stockEntry = ВетисMercuryVetdocument_2_0.StockEntry();
+	_stockEntry = ВетисMercuryVetdocument.StockEntry();
 	
 	Если ЗначениеЗаполнено(Объект.uuid) Тогда
 		_stockEntry.uuid = Объект.uuid;
@@ -163,7 +163,7 @@
 &НаСервере
 Процедура КомандаСледующаяНаСервере(Знач пUuid, пОтказ = Ложь, пОшибка = "")
 	
-	_se = ВетисMercuryApplications_2_0.GetStockEntryByUuid(пUuid, ВетисDictionaryСлой1с.Enterprise(Объект.Enterprise), Объект.BusinessEntity, пОтказ, пОшибка);
+	_se = ВетисMercuryApplications.GetStockEntryByUuid(пUuid, ВетисDictionaryСлой1с.Enterprise(Объект.Enterprise), Объект.BusinessEntity, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда
 		Возврат;
@@ -381,42 +381,50 @@
 &НаСервере
 Процедура ОтрисоватьЭлементы()
 	
-	_пердставление = "";
+	_представление = "";
 	Для каждого _УпаковкаСтрока Из Объект.PackageList Цикл
-		_пердставление = _пердставление + Строка(_УпаковкаСтрока.packingType) + " (" + _УпаковкаСтрока.quantity;
+		_представление = _представление + ?(_представление = "", "", "; ") + Строка(_УпаковкаСтрока.packingType) + ", " + _УпаковкаСтрока.quantity;
+		_маркировка = "";
 		Для каждого _МаркировкаСтрока Из Объект.ProductMarks Цикл
 			Если _МаркировкаСтрока.КлючСвязи = _УпаковкаСтрока.КлючСтроки Тогда
-				_пердставление = _пердставление + ", " + Строка(_МаркировкаСтрока.value);
+				_маркировка = _маркировка + ?(_маркировка = "", "", "; ") + Строка(_МаркировкаСтрока.value);
 			КонецЕсли;
 		КонецЦикла;
-		_пердставление = _пердставление + ")";
+		_представление = _представление + ?(_маркировка = "", "", " (" + _маркировка + ")");
 	КонецЦикла;
 	
-	Если НЕ ПустаяСтрока(_пердставление) Тогда
-		Элементы.Упаковка.Заголовок = _пердставление;
+	Если НЕ ПустаяСтрока(_представление) Тогда
+		Элементы.Упаковка.Заголовок = ОбработатьПредставление(_представление);
 	КонецЕсли;
 	
-	_пердставление = "";
+	_представление = "";
 	Для каждого _ПроизводителиСтрока Из Объект.ProducerList Цикл
-		_пердставление = _пердставление + ?(ЗначениеЗаполнено(_ПроизводителиСтрока.producer), Строка(_ПроизводителиСтрока.producer), _ПроизводителиСтрока.producerName);
+		_представление = _представление + ?(ЗначениеЗаполнено(_ПроизводителиСтрока.producer), Строка(_ПроизводителиСтрока.producer), _ПроизводителиСтрока.producerName);
 	КонецЦикла;
 	
-	Если НЕ ПустаяСтрока(_пердставление) Тогда
-		Элементы.Производители.Заголовок = _пердставление;
+	Если НЕ ПустаяСтрока(_представление) Тогда
+		Элементы.Производители.Заголовок = ОбработатьПредставление(_представление);
 	КонецЕсли;
 	
-	_пердставление = "";
+	_представление = "";
 	Для каждого _ВетДокументыСтрока Из Объект.VetDocumentList Цикл
-		_пердставление = _пердставление + Строка(_ВетДокументыСтрока.vetDocument);
+		_представление = _представление + ?(_представление = "", "", "; ") + Строка(_ВетДокументыСтрока.vetDocument);
 	КонецЦикла;
 	
-	Если НЕ ПустаяСтрока(_пердставление) Тогда
-		Элементы.ВетДокументы.Заголовок = _пердставление;
+	Если НЕ ПустаяСтрока(_представление) Тогда
+		Элементы.ВетДокументы.Заголовок = ОбработатьПредставление(_представление);
 	КонецЕсли;
 	
 	Элементы.volume.Заголовок = СтрШаблон("Количество (%1)", Объект.volume1);
 	
 КонецПроцедуры
+
+Функция ОбработатьПредставление(пЗначение)
+	
+	Возврат ?(СтрДлина(пЗначение) > 300, Лев(пЗначение, 300) + "...", пЗначение);
+	
+КонецФункции
+
 
 &НаСервере
 Процедура ЗаполнитьРеквизиты(value)
@@ -441,20 +449,20 @@
 &НаСервере
 Функция BatchКонвертировать()
 	
-	_batch = ВетисMercuryVetdocument_2_0.Batch();
+	_batch = ВетисMercuryVetdocument.Batch();
 	
 	_batch.productType = ВетисDictionaryСлой1с.ProductType(Объект.productType);
-	_batch.product     = ВетисDictionary_2_0.Product(ВетисDictionaryСлой1с.Product(Объект.product));
-	_batch.subProduct  = ВетисDictionary_2_0.SubProduct(ВетисDictionaryСлой1с.SubProduct(Объект.SubProduct));
+	_batch.product     = ВетисDictionary.Product(ВетисDictionaryСлой1с.Product(Объект.product));
+	_batch.subProduct  = ВетисDictionary.SubProduct(ВетисDictionaryСлой1с.SubProduct(Объект.SubProduct));
 	Если Объект.ProductItemName="" Тогда
-		_batch.productItem = ВетисDictionary_2_0.ProductItem(ВетисDictionaryСлой1с.ProductItem(Объект.ProductItem));
+		_batch.productItem = ВетисDictionary.ProductItem(ВетисDictionaryСлой1с.ProductItem(Объект.ProductItem));
 	Иначе
-		_batch.productItem = ВетисDictionary_2_0.ProductItem(, Объект.ProductItemName);
+		_batch.productItem = ВетисDictionary.ProductItem(, Объект.ProductItemName);
 	КонецЕсли;
 	
 	_batch.volume           = Объект.volume;
 	
-	_batch.unit = ВетисDictionary_2_0.Unit(ВетисDictionaryСлой1с.Unit(Объект.Unit));
+	_batch.unit = ВетисDictionary.Unit(ВетисDictionaryСлой1с.Unit(Объект.Unit));
 	
 	_День = Макс(День(Объект.expiryDateFirst), День(Объект.expiryDateSecond), День(Объект.dateOfProductionFirst), День(Объект.dateOfProductionSecond));
 	_Час = Макс(Час(Объект.expiryDateFirst), Час(Объект.expiryDateSecond), Час(Объект.dateOfProductionFirst), Час(Объект.dateOfProductionSecond));
@@ -465,9 +473,9 @@
 	//Для не скоропортящейся продукции дата выработки и дата окончания срока годности должны быть заданы в одном формате
 	//(например, если дата выработки указывается как год/месяц, то указать дату окончания срока годности как год/месяц/день нельзя).
 	Если ЗначениеЗаполнено(Объект.dateOfProductionInformal) Тогда
-		_batch.dateOfProduction = ВетисMercuryVetdocument_2_0.GoodsDate(Объект.dateOfProductionInformal);
+		_batch.dateOfProduction = ВетисMercuryVetdocument.GoodsDate(Объект.dateOfProductionInformal);
 	Иначе
-		_batch.dateOfProduction = ВетисMercuryVetdocument_2_0.GoodsDate(Объект.dateOfProductionFirst, Объект.dateOfProductionSecond, _День > 1 ИЛИ _Час > 0 ИЛИ _Мин > 0, _День > 1 ИЛИ _Час > 1 ИЛИ _Мин > 0, _Мин > 0);
+		_batch.dateOfProduction = ВетисMercuryVetdocument.GoodsDate(Объект.dateOfProductionFirst, Объект.dateOfProductionSecond, _День > 1 ИЛИ _Час > 0 ИЛИ _Мин > 0, _День > 1 ИЛИ _Час > 1 ИЛИ _Мин > 0, _Мин > 0);
 	КонецЕсли;
 	
 	//Не указывается для типа продукции "Живые животные"
@@ -476,24 +484,24 @@
 	//Для не скоропортящейся продукции дата выработки и дата окончания срока годности должны быть заданы в одном формате
 	//(например, если дата выработки указывается как год/месяц, то указать дату окончания срока годности как год/месяц/день нельзя).
 	Если ЗначениеЗаполнено(Объект.expiryDateInformal) Тогда
-		_batch.expiryDate = ВетисMercuryVetdocument_2_0.GoodsDate(Объект.expiryDateInformal);
+		_batch.expiryDate = ВетисMercuryVetdocument.GoodsDate(Объект.expiryDateInformal);
 	Иначе
-		_batch.expiryDate = ВетисMercuryVetdocument_2_0.GoodsDate(Объект.expiryDateFirst, Объект.expiryDateSecond, _День > 1 ИЛИ _Час > 0 ИЛИ _Мин > 0, _День > 1 ИЛИ _Час > 1 ИЛИ _Мин > 0, _Мин > 0);
+		_batch.expiryDate = ВетисMercuryVetdocument.GoodsDate(Объект.expiryDateFirst, Объект.expiryDateSecond, _День > 1 ИЛИ _Час > 0 ИЛИ _Мин > 0, _День > 1 ИЛИ _Час > 1 ИЛИ _Мин > 0, _Мин > 0);
 	КонецЕсли;
 	
 	_batch.perishable       = Объект.perishable;
 	_batch.lowGradeCargo    = Объект.lowGradeCargo;
-	_batch.owner            = ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(Объект.seOwner));
+	_batch.owner            = ВетисDictionary.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(Объект.seOwner));
 	
-	_batch.origin = ВетисMercuryVetdocument_2_0.BatchOrigin();
-	_batch.origin.country = ВетисDictionary_2_0.Country(ВетисDictionaryСлой1с.Country(Объект.country));
+	_batch.origin = ВетисMercuryVetdocument.BatchOrigin();
+	_batch.origin.country = ВетисDictionary.Country(ВетисDictionaryСлой1с.Country(Объект.country));
 	
 	Для каждого _Строка Из Объект.ProducerList Цикл
 		Если ЗначениеЗаполнено(_Строка.producer) Тогда
-			_producer = ВетисDictionary_2_0.Producer(ВетисDictionaryСлой1с.Enterprise(_Строка.producer), ВетисDictionaryСлой1с.EnterpriseRole(_Строка.role));
+			_producer = ВетисDictionary.Producer(ВетисDictionaryСлой1с.Enterprise(_Строка.producer), ВетисDictionaryСлой1с.EnterpriseRole(_Строка.role));
 			_batch.origin.producer.Добавить(_producer);
 		ИначеЕсли ЗначениеЗаполнено(_Строка.producerName) Тогда
-			_producer = ВетисDictionary_2_0.Producer();
+			_producer = ВетисDictionary.Producer();
 			_producer.enterprise.name = _Строка.producerName;
 			_batch.origin.producer.Добавить(_producer);
 		Иначе
@@ -503,9 +511,9 @@
 	КонецЦикла;
 	
 	Если Объект.ProductItemName="" Тогда
-		_batch.origin.productItem = ВетисDictionary_2_0.ProductItem(ВетисDictionaryСлой1с.ProductItem(Объект.ProductItem));
+		_batch.origin.productItem = ВетисDictionary.ProductItem(ВетисDictionaryСлой1с.ProductItem(Объект.ProductItem));
 	Иначе
-		_batch.origin.productItem = ВетисDictionary_2_0.ProductItem(, Объект.ProductItemName);
+		_batch.origin.productItem = ВетисDictionary.ProductItem(, Объект.ProductItemName);
 	КонецЕсли;
 	
 	_packageList = Новый Массив;
@@ -515,20 +523,20 @@
 		_productMarks = Новый Массив;
 		Для каждого _МаркировкаСтрока Из Объект.ProductMarks Цикл
 			Если _МаркировкаСтрока.КлючСвязи = _УпаковкаСтрока.КлючСтроки Тогда
-				_productMarks.Добавить(ВетисDictionary_2_0.ProductMarks(_МаркировкаСтрока.value, ВетисDictionaryСлой1с.ProductMarkingClass(_МаркировкаСтрока.class)));
+				_productMarks.Добавить(ВетисDictionary.ProductMarks(_МаркировкаСтрока.value, ВетисDictionaryСлой1с.ProductMarkingClass(_МаркировкаСтрока.class)));
 			КонецЕсли;
 		КонецЦикла;
 		
-		_packageList.Добавить(ВетисDictionary_2_0.Package(
+		_packageList.Добавить(ВетисDictionary.Package(
 			ВетисDictionaryСлой1с.PackageLevelType(_УпаковкаСтрока.level),
-			ВетисDictionary_2_0.PackingType(ВетисDictionaryСлой1с.PackingType(_УпаковкаСтрока.packingType)),
+			ВетисDictionary.PackingType(ВетисDictionaryСлой1с.PackingType(_УпаковкаСтрока.packingType)),
 			_УпаковкаСтрока.quantity,
 			_productMarks
 			));
 		
 	КонецЦикла;
 	
-	_batch.packageList = ВетисDictionary_2_0.PackageList(_packageList);
+	_batch.packageList = ВетисDictionary.PackageList(_packageList);
 	
 	//Для каждого _Строка Из Объект.ИДПартии Цикл
 	//	_batch.batchID.Добавить(_Строка.batchID);

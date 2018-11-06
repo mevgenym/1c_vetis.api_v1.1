@@ -51,7 +51,7 @@
 			</SearchControlAddition>
 			<Events>
 				<Event name="BeforeDeleteRow">PackageListПередУдалением</Event>
-				<Event name="OnActivateField">PackageListПриАктивизацииПоля</Event>
+				<Event name="OnActivateRow">PackageListПриАктивизацииСтроки</Event>
 				<Event name="OnStartEdit">PackageListПриНачалеРедактирования</Event>
 			</Events>
 			<ChildItems>

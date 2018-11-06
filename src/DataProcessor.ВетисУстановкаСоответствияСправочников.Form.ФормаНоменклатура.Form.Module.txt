@@ -254,7 +254,7 @@
 	
 	Перем _product, _subProduct, _productItem;
 	
-	_Версия20 = Ветис.Версия_2_0();
+	_Версия20 = Ветис.Версия_2_0() ИЛИ Ветис.Версия_2_1();
 	
 	СписокВетис.Очистить();
 	
@@ -265,12 +265,12 @@
 	
 	Если _Версия20 Тогда
 		
-		_businessEntity = ?(ОтборХСИспользование, ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект)), Неопределено);
-		_enterprise  = ?(ОтборПредприятиеИспользование, ВетисDictionary_2_0.Enterprise(?(ЗначениеЗаполнено(Объект.Предприятие), ВетисDictionaryСлой1с.Enterprise(Объект.Предприятие), ОтборПредприятиеGuid)), Неопределено);
+		_businessEntity = ?(ОтборХСИспользование, ВетисDictionary.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект)), Неопределено);
+		_enterprise  = ?(ОтборПредприятиеИспользование, ВетисDictionary.Enterprise(?(ЗначениеЗаполнено(Объект.Предприятие), ВетисDictionaryСлой1с.Enterprise(Объект.Предприятие), ОтборПредприятиеGuid)), Неопределено);
 		
 		_productType = ?(ОтборТипПродукцииИспользование, ВетисDictionaryСлой1с.ProductType(ОтборТипПродукции), Неопределено);
-		_product     = ?(ОтборПродукцияИспользование, ВетисDictionary_2_0.Product(ВетисDictionaryСлой1с.Product(ОтборПродукция)), Неопределено);
-		_subProduct  = ?(ОтборВидПродукцииИспользование, ВетисDictionary_2_0.SubProduct(ВетисDictionaryСлой1с.SubProduct(ОтборВидПродукции)), Неопределено);
+		_product     = ?(ОтборПродукцияИспользование, ВетисDictionary.Product(ВетисDictionaryСлой1с.Product(ОтборПродукция)), Неопределено);
+		_subProduct  = ?(ОтборВидПродукцииИспользование, ВетисDictionary.SubProduct(ВетисDictionaryСлой1с.SubProduct(ОтборВидПродукции)), Неопределено);
 		
 		_subProductСоответствие = Новый Соответствие;
 		
@@ -280,8 +280,8 @@
 		
 		//_параметрыPI = Неопределено;
 		_параметрыPI = Новый Структура("ОберткаHttp");
-		Пока ВетисProductService_2_0.GetProductItemListNext(_productType, _product, _subProduct, _businessEntity, _enterprise, _productItem, _параметрыPI) Цикл
-		//Пока ВетисProductService_2_0.GetProductItemChangesListNext(_businessEntity, _enterprise, , , _productItem, _параметрыPI) Цикл
+		Пока ВетисProductService.GetProductItemListNext(_productType, _product, _subProduct, _businessEntity, _enterprise, _productItem, _параметрыPI) Цикл
+		//Пока ВетисProductService.GetProductItemChangesListNext(_businessEntity, _enterprise, , , _productItem, _параметрыPI) Цикл
 			
 			Если НЕ _productItem.producing = Неопределено
 				И _productItem.producing.Количество() > 0
@@ -317,8 +317,8 @@
 			
 		КонецЦикла;
 	Иначе
-		_productType = ВетисArgusProductionСлой1с.ProductType(ОтборТипПродукции);
-		_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(Объект.Предприятие);
+		_productType = ВетисDictionaryСлой1с.ProductType(ОтборТипПродукции);
+		_enterpriseGuid = ВетисDictionaryСлой1с.Enterprise(Объект.Предприятие);
 		Если ОтборВидПродукцииИспользование Тогда
 			_параметрыPI = Неопределено;
 			Пока ВетисProductService.GetProductItemListNext(ОтборВидПродукции, _enterpriseGuid, _productItem, _параметрыPI) Цикл

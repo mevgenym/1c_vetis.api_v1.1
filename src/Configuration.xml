@@ -47,7 +47,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисФоновыеЗадания</xr:Item>
 			</DefaultRoles>
 			<Vendor/>
-			<Version>1.2.0</Version>
+			<Version>1.3.0</Version>
 			<UpdateCatalogAddress/>
 			<IncludeHelpInContents>false</IncludeHelpInContents>
 			<UseManagedFormInOrdinaryApplication>false</UseManagedFormInOrdinaryApplication>
@@ -148,37 +148,47 @@
 			<FilterCriterion>ВетисСвязанныеДокументы</FilterCriterion>
 			<CommonModule>Ветис</CommonModule>
 			<CommonModule>ВетисApplication</CommonModule>
+			<CommonModule>ВетисApplication_1_4</CommonModule>
 			<CommonModule>ВетисApplication_2_0</CommonModule>
 			<CommonModule>ВетисApplicationСлой1с</CommonModule>
-			<CommonModule>ВетисArgusCommon</CommonModule>
+			<CommonModule>ВетисArgusCommon_1_4</CommonModule>
 			<CommonModule>ВетисArgusCommonСлой1с</CommonModule>
-			<CommonModule>ВетисArgusProduction</CommonModule>
+			<CommonModule>ВетисArgusProduction_1_4</CommonModule>
 			<CommonModule>ВетисArgusProductionСлой1с</CommonModule>
-			<CommonModule>ВетисArgusShipment</CommonModule>
+			<CommonModule>ВетисArgusShipment_1_4</CommonModule>
 			<CommonModule>ВетисArgusShipmentСлой1с</CommonModule>
 			<CommonModule>ВетисBase</CommonModule>
+			<CommonModule>ВетисBase_1_4</CommonModule>
 			<CommonModule>ВетисBase_2_0</CommonModule>
 			<CommonModule>ВетисBaseСлой1с</CommonModule>
-			<CommonModule>ВетисCerberusEnterprise</CommonModule>
+			<CommonModule>ВетисCerberusEnterprise_1_4</CommonModule>
 			<CommonModule>ВетисCerberusEnterpriseСлой1с</CommonModule>
+			<CommonModule>ВетисDictionary</CommonModule>
 			<CommonModule>ВетисDictionary_2_0</CommonModule>
 			<CommonModule>ВетисDictionaryService</CommonModule>
+			<CommonModule>ВетисDictionaryService_1_4</CommonModule>
 			<CommonModule>ВетисDictionaryService_2_0</CommonModule>
 			<CommonModule>ВетисDictionaryСлой1с</CommonModule>
 			<CommonModule>ВетисEnterpriseService</CommonModule>
+			<CommonModule>ВетисEnterpriseService_1_4</CommonModule>
 			<CommonModule>ВетисEnterpriseService_2_0</CommonModule>
-			<CommonModule>ВетисIkar</CommonModule>
+			<CommonModule>ВетисIkar_1_4</CommonModule>
 			<CommonModule>ВетисIkarService</CommonModule>
+			<CommonModule>ВетисIkarService_1_4</CommonModule>
 			<CommonModule>ВетисIkarService_2_0</CommonModule>
 			<CommonModule>ВетисIkarСлой1с</CommonModule>
 			<CommonModule>ВетисMercuryApplications</CommonModule>
+			<CommonModule>ВетисMercuryApplications_1_4</CommonModule>
 			<CommonModule>ВетисMercuryApplications_2_0</CommonModule>
 			<CommonModule>ВетисMercuryApplicationsСлой1с</CommonModule>
 			<CommonModule>ВетисMercuryVetdocument</CommonModule>
+			<CommonModule>ВетисMercuryVetdocument_1_4</CommonModule>
 			<CommonModule>ВетисMercuryVetdocument_2_0</CommonModule>
 			<CommonModule>ВетисMercuryVetdocumentСлой1с</CommonModule>
 			<CommonModule>ВетисProductService</CommonModule>
+			<CommonModule>ВетисProductService_1_4</CommonModule>
 			<CommonModule>ВетисProductService_2_0</CommonModule>
+			<CommonModule>ВетисRegionalizationService</CommonModule>
 			<CommonModule>ВетисRegionalizationService_2_0</CommonModule>
 			<CommonModule>ВетисRegistry_2_0</CommonModule>
 			<CommonModule>ВетисSoapEnvelope</CommonModule>

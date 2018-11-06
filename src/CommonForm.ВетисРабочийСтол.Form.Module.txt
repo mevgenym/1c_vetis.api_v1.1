@@ -944,7 +944,7 @@
 		пОтказ = Ложь;
 		пОшибка = "";
 		
-		_stockEntry = ВетисMercuryApplications_2_0.GetStockEntryByGuid(Выборка.guid, Выборка.EnterpriseGuid, Выборка.issuerId, пОтказ, пОшибка);
+		_stockEntry = ВетисMercuryApplications.GetStockEntryByGuid(Выборка.guid, Выборка.EnterpriseGuid, Выборка.issuerId, пОтказ, пОшибка);
 		
 		Если пОтказ = Истина Тогда
 			Возврат;

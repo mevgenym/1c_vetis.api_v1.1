@@ -81,6 +81,17 @@
 									<ContextMenu name="МаксимальноеКоличествоКонтекстноеМеню" id="168"/>
 									<ExtendedTooltip name="МаксимальноеКоличествоРасширеннаяПодсказка" id="169"/>
 								</InputField>
+								<LabelField name="ВсегоКоличество" id="304">
+									<DataPath>ВсегоКоличество</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Всего</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ВсегоКоличествоКонтекстноеМеню" id="305"/>
+									<ExtendedTooltip name="ВсегоКоличествоРасширеннаяПодсказка" id="306"/>
+								</LabelField>
 							</ChildItems>
 						</UsualGroup>
 						<InputField name="ОтборХозяйствующийСубъект" id="142">
@@ -541,6 +552,7 @@
 										</ColumnGroup>
 										<CheckBoxField name="СписокВетисlast" id="284">
 											<DataPath>СписокВетис.last</DataPath>
+											<Visible>false</Visible>
 											<EditMode>EnterOnInput</EditMode>
 											<CheckBoxType>Auto</CheckBoxType>
 											<ContextMenu name="СписокВетисlastКонтекстноеМеню" id="285"/>
@@ -548,6 +560,7 @@
 										</CheckBoxField>
 										<CheckBoxField name="СписокВетисactive" id="287">
 											<DataPath>СписокВетис.active</DataPath>
+											<Visible>false</Visible>
 											<EditMode>EnterOnInput</EditMode>
 											<CheckBoxType>Auto</CheckBoxType>
 											<ContextMenu name="СписокВетисactiveКонтекстноеМеню" id="288"/>
@@ -1151,6 +1164,22 @@
 			<Save>
 				<Field>ОтборСтранаИспользование</Field>
 			</Save>
+		</Attribute>
+		<Attribute name="ВсегоКоличество" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Всего количество</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
 		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>

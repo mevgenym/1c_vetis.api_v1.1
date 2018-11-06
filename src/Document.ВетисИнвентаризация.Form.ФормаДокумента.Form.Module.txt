@@ -41,8 +41,6 @@
 	
 	_Версия20 = Ветис.Версия_2_0();
 	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
-	_ВетисMercuryApplications = ?(_Версия20, ВетисMercuryApplications_2_0, ВетисMercuryApplications);
-	_ВетисMercuryVetdocument = ?(_Версия20, ВетисMercuryVetdocument_2_0, ВетисMercuryVetdocument);
 	
 	_issuerId = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(Объект.ХС);
 	_enterpriseGuid = _ВетисCerberusEnterpriseСлой1с.Enterprise(Объект.Предприятие);
@@ -70,13 +68,13 @@
 		_СтрокиПроизводители = Новый Массив;
 		_СтрокиПроизводители.Добавить(Новый Структура("Предприятие, Роль", _СтрокаТовары.ПроизводительПредприятие, Перечисления.ВетисEnterpriseRole.PRODUCER));
 		
-		_stockEntry = _ВетисMercuryVetdocument.StockEntry();
+		_stockEntry = ВетисMercuryVetdocument.StockEntry();
 		
 		Если ЗначениеЗаполнено(_СтрокаТовары.uuid) Тогда
 			_stockEntry.uuid = _СтрокаТовары.uuid;
 		КонецЕсли;
 		
-		_stockEntry.batch = _ВетисMercuryVetdocument.Batch();
+		_stockEntry.batch = ВетисMercuryVetdocument.Batch();
 		
 		_Товары = Новый Массив;
 		_Товары.Добавить(_СтрокаТовары);

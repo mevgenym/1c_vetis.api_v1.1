@@ -64,22 +64,10 @@
 	
 	_guid = Строка(Объект.Ссылка.УникальныйИдентификатор());
 	
-	Если Ветис.Версия_2_0() Тогда
-		
-		_Enterprise = ВетисEnterpriseService_2_0.GetEnterpriseByGuid(_guid, пОтказ, пОшибка);
-		
-		Если пОтказ = Истина Тогда
-			Возврат;
-		КонецЕсли;
-		
-	Иначе
-		
-		_Enterprise = ВетисEnterpriseService.GetEnterpriseByGuid(_guid, пОтказ, пОшибка);
-		
-		Если пОтказ = Истина Тогда
-			Возврат;
-		КонецЕсли;
-		
+	_Enterprise = ВетисEnterpriseService.GetEnterpriseByGuid(_guid, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда
+		Возврат;
 	КонецЕсли;
 	
 	Модифицированность = Истина;
@@ -117,7 +105,7 @@
 &НаСервере
 Процедура КомандаСледующаяНаСервере(Знач пUuid)
 	
-	_en = ВетисEnterpriseService_2_0.GetEnterpriseByUuid(пUuid);
+	_en = ВетисEnterpriseService.GetEnterpriseByUuid(пUuid);
 	
 	_Объект = РеквизитФормыВЗначение("Объект");
 	
