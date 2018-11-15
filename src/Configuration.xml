@@ -224,7 +224,6 @@
 			<ScheduledJob>ВетисСинхронизация</ScheduledJob>
 			<ScheduledJob>ВетисСинхронизацияBusinessEntity</ScheduledJob>
 			<ScheduledJob>ВетисСинхронизацияStockEntry</ScheduledJob>
-			<ScheduledJob>ВетисСинхронизацияTransportOperation</ScheduledJob>
 			<ScheduledJob>ВетисСинхронизацияVetDocument</ScheduledJob>
 			<FunctionalOption>ВетисВидимостьGuid</FunctionalOption>
 			<CommonCommand>ВетисBusinessEntity</CommonCommand>
@@ -261,6 +260,7 @@
 			<Constant>ВетисНастройки</Constant>
 			<Constant>ВетисОсновнаяНастройка</Constant>
 			<Constant>ВетисОсновнойПользователь</Constant>
+			<Constant>ВетисТестовый</Constant>
 			<CommonForm>ВетисXSD</CommonForm>
 			<CommonForm>ВетисНастройки</CommonForm>
 			<CommonForm>ВетисНастройкиПодключения</CommonForm>

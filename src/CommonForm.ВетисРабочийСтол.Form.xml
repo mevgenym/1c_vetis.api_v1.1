@@ -1573,21 +1573,6 @@
 			</ToolTip>
 			<Action>КомандаОтборСписокВСДСтатус</Action>
 		</Command>
-		<Command name="КомандаУстановкаСоответствияСправочников" id="9">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Соответствие справочников</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда установка соответствия справочников</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаУстановкаСоответствияСправочников</Action>
-		</Command>
 		<Command name="КомандаНастройки" id="10">
 			<Title>
 				<v8:item>
@@ -1602,21 +1587,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаНастройки</Action>
-		</Command>
-		<Command name="КомандаПредприятияХС" id="11">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Связи Предприятие-ХС</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда предприятия ХС</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаПредприятияХС</Action>
 		</Command>
 		<Command name="КомандаНаправление" id="12">
 			<Title>
@@ -1768,21 +1738,6 @@
 			</ToolTip>
 			<Action>КомандаТранзакцияАннулировать</Action>
 		</Command>
-		<Command name="КомандаТранзакцияОбновитьСтатус" id="20">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Обновить статус</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда транзакция обновить статус</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаТранзакцияОбновитьСтатус</Action>
-		</Command>
 		<Command name="КомандаИсходящиеПерезаписать" id="21">
 			<Title>
 				<v8:item>
@@ -1797,36 +1752,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаИсходящиеПерезаписать</Action>
-		</Command>
-		<Command name="КомандаТранзакцияПрикрепить" id="22">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Прикрепить</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда транзакция прикрепить</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаТранзакцияПрикрепить</Action>
-		</Command>
-		<Command name="КомандаСинхронизироватьСЖ" id="23">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Синхронизировать</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда синхронизировать СЖ</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаСинхронизироватьСЖ</Action>
 		</Command>
 		<Command name="КомандаОтложенныеОперацииРегл" id="2">
 			<Title>

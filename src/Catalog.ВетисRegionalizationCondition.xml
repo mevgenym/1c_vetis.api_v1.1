@@ -61,7 +61,7 @@
 			<ChoiceDataGetModeOnInputByString>Directly</ChoiceDataGetModeOnInputByString>
 			<DefaultObjectForm>Catalog.ВетисRegionalizationCondition.Form.ФормаЭлемента</DefaultObjectForm>
 			<DefaultFolderForm/>
-			<DefaultListForm>Catalog.ВетисRegionalizationCondition.Form.ФормаСписка</DefaultListForm>
+			<DefaultListForm/>
 			<DefaultChoiceForm/>
 			<DefaultFolderChoiceForm/>
 			<AuxiliaryObjectForm/>
@@ -471,7 +471,6 @@
 					</Attribute>
 				</ChildObjects>
 			</TabularSection>
-			<Form>ФормаСписка</Form>
 			<Form>ФормаЭлемента</Form>
 		</ChildObjects>
 	</Catalog>

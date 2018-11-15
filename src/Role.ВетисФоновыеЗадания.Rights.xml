@@ -223,6 +223,13 @@
 		</right>
 	</object>
 	<object>
+		<name>Constant.ВетисТестовый</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>InformationRegister.ВетисXSD</name>
 		<right>
 			<name>Read</name>

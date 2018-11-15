@@ -2,11 +2,8 @@
 Процедура ОбработкаЗаполнения(ДанныеЗаполнения, ТекстЗаполнения, СтандартнаяОбработка)
 	
 	Если ТипЗнч(ДанныеЗаполнения) = Тип("ОбъектXDTO") Тогда
-		_Версия20 = Ветис.Версия_2_0();
-		_ВетисIkarСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисIkarСлой1с);
-		_ВетисArgusCommonСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
-		_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
-		_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+		
+		_Версия20 = Ветис.Версия_2_0() ИЛИ Ветис.Версия_2_1();
 		
 		_stockEntry = ДанныеЗаполнения;
 		
@@ -21,15 +18,15 @@
 		
 		updateDate = Ветис.ВремяМестное(_stockEntry.updateDate);// xs:dateTime
 		
-		ProductType = _ВетисArgusProductionСлой1с.productType(_stockEntry.batch.productType);
-		Product     = _ВетисArgusProductionСлой1с.Product(_stockEntry.batch.product);
-		SubProduct  = _ВетисArgusProductionСлой1с.SubProduct(_stockEntry.batch.subProduct);
-		ProductItem = _ВетисArgusProductionСлой1с.ProductItem(_stockEntry.batch.productItem);
+		ProductType = ВетисDictionaryСлой1с.productType(_stockEntry.batch.productType);
+		Product     = ВетисDictionaryСлой1с.Product(_stockEntry.batch.product);
+		SubProduct  = ВетисDictionaryСлой1с.SubProduct(_stockEntry.batch.subProduct);
+		ProductItem = ВетисDictionaryСлой1с.ProductItem(_stockEntry.batch.productItem);
 		ProductItemName = _stockEntry.batch.productItem.name;
 		
 		Наименование = ProductItemName;
 		
-		Unit        = _ВетисArgusCommonСлой1с.Unit(_stockEntry.batch.unit);
+		Unit        = ВетисDictionaryСлой1с.Unit(_stockEntry.batch.unit);
 		volume      = _stockEntry.batch.volume;
 		
 		perishable    = _stockEntry.batch.perishable;
@@ -45,7 +42,7 @@
 		
 		Если _Версия20 Тогда
 			
-			seOwner = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_stockEntry.batch.owner);
+			seOwner = ВетисDictionaryСлой1с.BusinessEntity(_stockEntry.batch.owner);
 			
 			Если НЕ _stockEntry.batch.packageList = Неопределено Тогда
 				_pl = PackageList;
@@ -75,7 +72,7 @@
 					//ProducerList.Очистить();
 					Для каждого _producer Из _stockEntry.batch.origin.producer Цикл
 						_Строка = ProducerList.Добавить();
-						_Строка.producer = _ВетисCerberusEnterpriseСлой1с.Enterprise(_producer.enterprise);
+						_Строка.producer = ВетисDictionaryСлой1с.Enterprise(_producer.enterprise);
 						_Строка.role = ВетисDictionaryСлой1с.EnterpriseRole(_producer.role);
 						Если ЗначениеЗаполнено(_Строка.producer) Тогда
 							_Строка.producerName = _Строка.producer.Наименование;
@@ -103,7 +100,7 @@
 						ProducerList.Очистить();
 						Для каждого _producer Из __stockEntry.batch.origin.producer Цикл
 							_Строка = ProducerList.Добавить();
-							_Строка.producer = _ВетисCerberusEnterpriseСлой1с.Enterprise(_producer.enterprise);
+							_Строка.producer = ВетисDictionaryСлой1с.Enterprise(_producer.enterprise);
 							_Строка.role = ВетисDictionaryСлой1с.EnterpriseRole(_producer.role);
 							Если ЗначениеЗаполнено(_Строка.producer) Тогда
 								_Строка.producerName = _Строка.producer.Наименование;
@@ -118,7 +115,7 @@
 				//Если НЕ _stockEntry.batch.origin.productItem = Неопределено Тогда
 				//	producerProductItem = _ВетисArgusProductionСлой1с.ProductItem(_stockEntry.batch.origin.productItem);
 				//КонецЕсли;
-				country = _ВетисIkarСлой1с.Country(_stockEntry.batch.origin.country);
+				country = ВетисDictionaryСлой1с.Country(_stockEntry.batch.origin.country);
 			КонецЕсли;
 			
 			VetDocumentList.Очистить();

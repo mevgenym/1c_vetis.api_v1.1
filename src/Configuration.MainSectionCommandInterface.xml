@@ -16,11 +16,6 @@
 				<xr:Common>false</xr:Common>
 			</Visibility>
 		</Command>
-		<Command name="CommonCommand.ВетисXSD">
-			<Visibility>
-				<xr:Common>false</xr:Common>
-			</Visibility>
-		</Command>
 		<Command name="CommonCommand.ВетисStockEntryList">
 			<Visibility>
 				<xr:Common>false</xr:Common>
@@ -38,19 +33,19 @@
 			<CommandGroup>CommandGroup.ВетисАдресныйКлассификатор</CommandGroup>
 		</Command>
 		<Command name="CommonCommand.ВетисDistrict">
-			<CommandGroup>00000000-0000-0000-0000-000000000000</CommandGroup>
+			<CommandGroup>CommandGroup.ВетисАдресныйКлассификатор</CommandGroup>
 		</Command>
 		<Command name="CommonCommand.ВетисLocality">
-			<CommandGroup>00000000-0000-0000-0000-000000000000</CommandGroup>
+			<CommandGroup>CommandGroup.ВетисАдресныйКлассификатор</CommandGroup>
 		</Command>
 		<Command name="CommonCommand.ВетисProduct">
 			<CommandGroup>CommandGroup.ВетисСправочникПродукции</CommandGroup>
 		</Command>
 		<Command name="CommonCommand.ВетисSubProduct">
-			<CommandGroup>00000000-0000-0000-0000-000000000000</CommandGroup>
+			<CommandGroup>CommandGroup.ВетисСправочникПродукции</CommandGroup>
 		</Command>
 		<Command name="CommonCommand.ВетисProductItem">
-			<CommandGroup>00000000-0000-0000-0000-000000000000</CommandGroup>
+			<CommandGroup>CommandGroup.ВетисСправочникПродукции</CommandGroup>
 		</Command>
 		<Command name="CommonCommand.ВетисУстановкаСоответствияСправочников">
 			<CommandGroup>CommandGroup.ВетисСправочникПродукции</CommandGroup>

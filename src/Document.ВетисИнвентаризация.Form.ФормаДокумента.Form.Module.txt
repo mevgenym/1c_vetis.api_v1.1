@@ -40,10 +40,9 @@
 	_СтруктураПоиска = Новый Структура("КлючСвязи");
 	
 	_Версия20 = Ветис.Версия_2_0();
-	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
 	
-	_issuerId = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(Объект.ХС);
-	_enterpriseGuid = _ВетисCerberusEnterpriseСлой1с.Enterprise(Объект.Предприятие);
+	_issuerId = ВетисDictionaryСлой1с.BusinessEntity(Объект.ХС);
+	_enterpriseGuid = ВетисDictionaryСлой1с.Enterprise(Объект.Предприятие);
 	
 	_stockEntryList = Новый Массив;
 	_stockEntryList1 = Новый Массив;

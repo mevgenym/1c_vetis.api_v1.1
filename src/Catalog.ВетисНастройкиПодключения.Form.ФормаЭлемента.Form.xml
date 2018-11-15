@@ -48,6 +48,7 @@
 				</InputField>
 				<CheckBoxField name="Тестовый" id="67">
 					<DataPath>Объект.Тестовый</DataPath>
+					<Visible>false</Visible>
 					<CheckBoxType>Auto</CheckBoxType>
 					<ContextMenu name="ТестовыйКонтекстноеМеню" id="68"/>
 					<ExtendedTooltip name="ТестовыйРасширеннаяПодсказка" id="69"/>

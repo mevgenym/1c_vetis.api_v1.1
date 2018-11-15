@@ -288,7 +288,7 @@
 			<ChoiceDataGetModeOnInputByString>Directly</ChoiceDataGetModeOnInputByString>
 			<DefaultObjectForm>Catalog.ВетисPurpose.Form.ФормаЭлемента</DefaultObjectForm>
 			<DefaultFolderForm/>
-			<DefaultListForm>Catalog.ВетисPurpose.Form.ФормаСписка</DefaultListForm>
+			<DefaultListForm/>
 			<DefaultChoiceForm>Catalog.ВетисPurpose.Form.ФормаВыбора</DefaultChoiceForm>
 			<DefaultFolderChoiceForm/>
 			<AuxiliaryObjectForm/>
@@ -509,7 +509,6 @@
 					<FullTextSearch>Use</FullTextSearch>
 				</Properties>
 			</Attribute>
-			<Form>ФормаСписка</Form>
 			<Form>ФормаЭлемента</Form>
 			<Form>ФормаВыбора</Form>
 		</ChildObjects>

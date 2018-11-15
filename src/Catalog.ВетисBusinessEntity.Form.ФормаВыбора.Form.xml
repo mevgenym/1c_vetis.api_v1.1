@@ -76,15 +76,16 @@
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="18"/>
 				</LabelField>
-				<LabelField name="уид" id="19">
-					<DataPath>~Список.уид</DataPath>
-					<ContextMenu name="уидКонтекстноеМеню" id="20"/>
-					<ExtendedTooltip name="уидРасширеннаяПодсказка" id="21"/>
-				</LabelField>
 				<LabelField name="inn" id="22">
 					<DataPath>Список.inn</DataPath>
 					<ContextMenu name="innКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="innРасширеннаяПодсказка" id="24"/>
+				</LabelField>
+				<LabelField name="guid" id="25">
+					<DataPath>Список.guid</DataPath>
+					<Width>10</Width>
+					<ContextMenu name="guidКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="guidРасширеннаяПодсказка" id="27"/>
 				</LabelField>
 			</ChildItems>
 		</Table>

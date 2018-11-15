@@ -91,6 +91,7 @@
 				</LabelField>
 				<LabelField name="guid" id="22">
 					<DataPath>Список.guid</DataPath>
+					<Width>10</Width>
 					<ContextMenu name="guidКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="guidРасширеннаяПодсказка" id="24"/>
 				</LabelField>
