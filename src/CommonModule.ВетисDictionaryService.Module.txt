@@ -4,15 +4,39 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисDictionaryService_2_0.GetUnitByGuid(guid, пОтказ, пОшибка);
+		Возврат GetUnitByGuid_2_0(guid, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисDictionaryService_2_0.GetUnitByGuid(guid, пОтказ, пОшибка);
+		Возврат GetUnitByGuid_2_0(guid, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисDictionaryService_1_4.GetUnitByGuid(guid, пОтказ, пОшибка);
+		Возврат GetUnitByGuid_1_4(guid, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetUnitByGuid_1_4(guid, пОтказ = Ложь, пОшибка = "")
+	
+	Попытка
+		Возврат Прокси().GetUnitByGuid(guid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetUnitByGuid");
+		ВызватьИсключение;
+	КонецПопытки;
+	
+КонецФункции
+Функция GetUnitByGuid_2_0(guid, пОтказ = Ложь, пОшибка = "", пВызватьИсключение = Ложь)
+	
+	Попытка
+		Возврат Прокси().GetUnitByGuid(guid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetUnitByGuid");
+		Если пВызватьИсключение = Истина Тогда ВызватьИсключение; КонецЕсли;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -21,15 +45,39 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисDictionaryService_2_0.GetPurposeByGuid(guid, пОтказ, пОшибка);
+		Возврат GetPurposeByGuid_2_0(guid, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисDictionaryService_2_0.GetPurposeByGuid(guid, пОтказ, пОшибка);
+		Возврат GetPurposeByGuid_2_0(guid, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисDictionaryService_1_4.GetPurposeByGuid(guid, пОтказ, пОшибка);
+		Возврат GetPurposeByGuid_1_4(guid, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetPurposeByGuid_1_4(guid, пОтказ = Ложь, пОшибка = "")
+	
+	Попытка
+		Возврат Прокси().GetPurposeByGuid(guid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetPurposeByGuid");
+		ВызватьИсключение;
+	КонецПопытки;
+	
+КонецФункции
+Функция GetPurposeByGuid_2_0(guid, пОтказ = Ложь, пОшибка = "", пВызватьИсключение = Ложь)
+	
+	Попытка
+		Возврат Прокси().GetPurposeByGuid(guid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetPurposeByGuid");
+		Если пВызватьИсключение = Истина Тогда ВызватьИсключение; КонецЕсли;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -45,15 +93,29 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисDictionaryService_2_0.GetUnitListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetUnitListNext_2_0(Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисDictionaryService_2_0.GetUnitListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetUnitListNext_2_0(Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисDictionaryService_1_4.GetUnitListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetUnitListNext_1_4(Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetUnitListNext_1_4(Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Ветис.GetRefListInit(ИмяСервиса(), "GetUnitList", "unit", "", пПараметры);
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
+Функция GetUnitListNext_2_0(Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Ветис.GetRefListInit(ИмяСервиса(), "GetUnitList", "unit", "", пПараметры);
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -68,15 +130,29 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисDictionaryService_2_0.GetPurposeListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetPurposeListNext_2_0(Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисDictionaryService_2_0.GetPurposeListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetPurposeListNext_2_0(Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисDictionaryService_1_4.GetPurposeListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetPurposeListNext_1_4(Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetPurposeListNext_1_4(Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Ветис.GetRefListInit(ИмяСервиса(), "GetPurposeList", "purpose", "", пПараметры);
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
+Функция GetPurposeListNext_2_0(Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Ветис.GetRefListInit(ИмяСервиса(), "GetPurposeList", "purpose", "", пПараметры);
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -92,15 +168,23 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисDictionaryService_2_0.GetResearchMethodListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetResearchMethodListNext_2_0(Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисDictionaryService_2_0.GetResearchMethodListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetResearchMethodListNext_2_0(Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
 	
 КонецФункции
+Функция GetResearchMethodListNext_2_0(Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Ветис.GetRefListInit(ИмяСервиса(), "GetResearchMethodList", "researchMethod", "", пПараметры);
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
+
+КонецФункции
+
 
 // Предназначена для получения списка актуальных записей о методах исследования (active=true, last=true).
 // Используется самостоятельно в цикле Пока.
@@ -113,14 +197,21 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисDictionaryService_2_0.GetDiseaseListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetDiseaseListNext_2_0(Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисDictionaryService_2_0.GetDiseaseListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetDiseaseListNext_2_0(Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
 	
+КонецФункции
+Функция GetDiseaseListNext_2_0(Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Ветис.GetRefListInit(ИмяСервиса(), "GetDiseaseList", "disease", "", пПараметры);
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
+
 КонецФункции
 
 
@@ -128,15 +219,35 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисDictionaryService_2_0.GetUnitChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
+		Возврат GetUnitChangesListNext_2_0(beginDate, endDate, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисDictionaryService_2_0.GetUnitChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
+		Возврат GetUnitChangesListNext_2_0(beginDate, endDate, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисDictionaryService_1_4.GetUnitChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
+		Возврат GetUnitChangesListNext_1_4(beginDate, endDate, Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetUnitChangesListNext_1_4(beginDate, endDate = Неопределено, Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetUnitChangesList", "unit", "", пПараметры, 
+			ВетисBase.DateInterval(beginDate, endDate));
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
+Функция GetUnitChangesListNext_2_0(beginDate, endDate = Неопределено, Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetUnitChangesList", "unit", "", пПараметры, 
+			ВетисBase.DateInterval(beginDate, endDate));
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -144,15 +255,35 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисDictionaryService_2_0.GetPurposeChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
+		Возврат GetPurposeChangesListNext_2_0(beginDate, endDate, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисDictionaryService_2_0.GetPurposeChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
+		Возврат GetPurposeChangesListNext_2_0(beginDate, endDate, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисDictionaryService_1_4.GetPurposeChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
+		Возврат GetPurposeChangesListNext_1_4(beginDate, endDate, Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetPurposeChangesListNext_1_4(beginDate, endDate = Неопределено, Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetPurposeChangesList", "purpose", "", пПараметры, 
+			ВетисBase.DateInterval(beginDate, endDate));
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
+Функция GetPurposeChangesListNext_2_0(beginDate, endDate = Неопределено, Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetPurposeChangesList", "purpose", "", пПараметры, 
+			ВетисBase.DateInterval(beginDate, endDate));
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 

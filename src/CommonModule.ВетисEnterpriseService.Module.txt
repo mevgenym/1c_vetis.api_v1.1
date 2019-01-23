@@ -4,15 +4,47 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetBusinessEntityByGuid(guid, пОтказ, пОшибка, пВызватьИсключение);
+		Возврат GetBusinessEntityByGuid_2_0(guid, пОтказ, пОшибка, пВызватьИсключение);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetBusinessEntityByGuid(guid, пОтказ, пОшибка, пВызватьИсключение);
+		Возврат GetBusinessEntityByGuid_2_0(guid, пОтказ, пОшибка, пВызватьИсключение);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисEnterpriseService_1_4.GetBusinessEntityByGuid(guid, пОтказ, пОшибка, пВызватьИсключение);
+		Возврат GetBusinessEntityByGuid_1_4(guid, пОтказ, пОшибка, пВызватьИсключение);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetBusinessEntityByGuid_1_4(guid, пОтказ = Ложь, пОшибка = "", пВызватьИсключение = Ложь)
+	
+	//Если Ветис.Настройки_ОберткаHttp() Тогда
+	//	Возврат ВетисRegistry.getBusinessEntityByGuid(guid, пОтказ, пОшибка);
+	//КонецЕсли;
+	
+	Попытка
+		Возврат Прокси().GetBusinessEntityByGuid(guid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetBusinessEntityByGuid");
+		Если пВызватьИсключение = Истина Тогда ВызватьИсключение; КонецЕсли;
+	КонецПопытки;
+	
+КонецФункции
+Функция GetBusinessEntityByGuid_2_0(guid, пОтказ = Ложь, пОшибка = "", пВызватьИсключение = Ложь)
+	
+	Если Ветис.Настройки_ОберткаHttp() Тогда
+		Возврат ВетисRegistry.getBusinessEntityByGuid(guid, пОтказ, пОшибка);
+	КонецЕсли;
+	
+	Попытка
+		Возврат Прокси().GetBusinessEntityByGuid(guid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetBusinessEntityByGuid");
+		Если пВызватьИсключение = Истина Тогда ВызватьИсключение; КонецЕсли;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -20,9 +52,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetBusinessEntityByUuid(uuid, пОтказ, пОшибка, пВызватьИсключение);
+		Возврат GetBusinessEntityByUuid_2_0(uuid, пОтказ, пОшибка, пВызватьИсключение);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetBusinessEntityByUuid(uuid, пОтказ, пОшибка, пВызватьИсключение);
+		Возврат GetBusinessEntityByUuid_2_0(uuid, пОтказ, пОшибка, пВызватьИсключение);
 	//ИначеЕсли Ветис.Версия_1_4() Тогда
 	//	Возврат ВетисEnterpriseService_1_4.GetBusinessEntityByUuid(uuid, пОтказ, пОшибка, пВызватьИсключение);
 	Иначе
@@ -31,36 +63,100 @@
 	КонецЕсли;
 	
 КонецФункции
+Функция GetBusinessEntityByUuid_2_0(uuid, пОтказ = Ложь, пОшибка = "", пВызватьИсключение = Ложь)
+	
+	//Если Ветис.Настройки_ОберткаHttp() Тогда
+	//	Возврат ВетисRegistry.getBusinessEntityByUuid(guid, пОтказ, пОшибка);
+	//КонецЕсли;
+	
+	Попытка
+		Возврат Прокси().GetBusinessEntityByUuid(uuid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetBusinessEntityByUuid");
+		Если пВызватьИсключение = Истина Тогда ВызватьИсключение; КонецЕсли;
+	КонецПопытки;
+	
+КонецФункции
 
 // поиск ХС по ИНН (этой операции нет в сервисе)
 Функция GetBusinessEntityByINN(inn, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetBusinessEntityByINN(inn, пОтказ, пОшибка);
+		Возврат GetBusinessEntityByINN_2_0(inn, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetBusinessEntityByINN(inn, пОтказ, пОшибка);
+		Возврат GetBusinessEntityByINN_2_0(inn, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
 	
 КонецФункции
+Функция GetBusinessEntityByINN_2_0(inn, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_параметры = Новый Структура("filter", Новый Структура("inn", inn));
+	
+	_ответ = Новый Массив;
+	
+	_businessEntity = Неопределено;
+	
+	Пока GetBusinessEntityListNext(_businessEntity, _параметры, пОтказ, пОшибка) Цикл
+		
+		_ответ.Добавить(_businessEntity);
+		
+	КонецЦикла;
+	
+	Возврат _ответ;
+	
+КонецФункции
 
-// предназначена для получения последней в истории записи предприятия
 Функция GetEnterpriseByGuid(guid, пОтказ = Ложь, пОшибка = "", пВызватьИсключение = Ложь) Экспорт
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetEnterpriseByGuid(guid, пОтказ, пОшибка, пВызватьИсключение);
+		Возврат GetEnterpriseByGuid_2_0(guid, пОтказ, пОшибка, пВызватьИсключение);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetEnterpriseByGuid(guid, пОтказ, пОшибка, пВызватьИсключение);
+		Возврат GetEnterpriseByGuid_2_0(guid, пОтказ, пОшибка, пВызватьИсключение);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисEnterpriseService_1_4.GetEnterpriseByGuid(guid, пОтказ, пОшибка, пВызватьИсключение);
+		Возврат GetEnterpriseByGuid_1_4(guid, пОтказ, пОшибка, пВызватьИсключение);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetEnterpriseByGuid_1_4(guid, пОтказ = Ложь, пОшибка = "", пВызватьИсключение = Ложь)
+	
+	//Если Ветис.Настройки_ОберткаHttp() Тогда
+	//	Возврат ВетисRegistry.GetEnterpriseByGuid(guid, пОтказ, пОшибка);
+	//КонецЕсли;
+	
+	Попытка
+		Возврат Прокси().GetEnterpriseByGuid(guid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetEnterpriseByGuid");
+		Если пВызватьИсключение = Истина Тогда ВызватьИсключение; КонецЕсли;
+	КонецПопытки;
+	
+КонецФункции
+Функция GetEnterpriseByGuid_2_0(guid, пОтказ = Ложь, пОшибка = "", пВызватьИсключение = Ложь)
+	
+	Если Ветис.Настройки_ОберткаHttp() Тогда
+		Возврат ВетисRegistry.GetEnterpriseByGuid(guid, пОтказ, пОшибка);
+	КонецЕсли;
+	
+	Попытка
+		Возврат Прокси().GetEnterpriseByGuid(guid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetEnterpriseByGuid");
+		Если пВызватьИсключение = Истина Тогда ВызватьИсключение; КонецЕсли;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -68,9 +164,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetEnterpriseByUuid(uuid, пОтказ, пОшибка, пВызватьИсключение);
+		Возврат GetEnterpriseByUuid_2_0(uuid, пОтказ, пОшибка, пВызватьИсключение);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetEnterpriseByUuid(uuid, пОтказ, пОшибка, пВызватьИсключение);
+		Возврат GetEnterpriseByUuid_2_0(uuid, пОтказ, пОшибка, пВызватьИсключение);
 	//ИначеЕсли Ветис.Версия_1_4() Тогда
 	//	Возврат ВетисEnterpriseService_1_4.GetEnterpriseByUuid(uuid, пОтказ, пОшибка, пВызватьИсключение);
 	Иначе
@@ -79,7 +175,22 @@
 	КонецЕсли;
 	
 КонецФункции
-
+Функция GetEnterpriseByUuid_2_0(uuid, пОтказ = Ложь, пОшибка = "", пВызватьИсключение = Ложь)
+	
+	//Если Ветис.Настройки_ОберткаHttp() Тогда
+	//	Возврат ВетисRegistry.GetEnterpriseByUuid(guid, пОтказ, пОшибка);
+	//КонецЕсли;
+	
+	Попытка
+		Возврат Прокси().GetEnterpriseByUuid(uuid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetEnterpriseByUuid");
+		Если пВызватьИсключение = Истина Тогда ВызватьИсключение; КонецЕсли;
+	КонецПопытки;
+	
+КонецФункции
 
 // Предназначена для выборки хозяйствующих субъектов из реестра Россельхознадзора.
 // Используется самостоятельно в цикле Пока.
@@ -93,15 +204,42 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetBusinessEntityListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetBusinessEntityListNext_2_0(Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetBusinessEntityListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetBusinessEntityListNext_2_0(Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисEnterpriseService_1_4.GetBusinessEntityListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetBusinessEntityListNext_1_4(Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetBusinessEntityListNext_1_4(Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		Ветис.GetRefListInit(ИмяСервиса(), "GetBusinessEntityList", "businessEntity", "", пПараметры,
+			?(пПараметры.Свойство("filter"), ВетисDictionary.BusinessEntity(пПараметры.filter), ВетисDictionary.BusinessEntity()));
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
+Функция GetBusinessEntityListNext_2_0(Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Если Ветис.Настройки_ОберткаHttp() Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		Возврат ВетисRegistry.getBusinessEntityListNext(?(пПараметры.Свойство("filter"), пПараметры.filter, Неопределено), Item, пПараметры, пОтказ, пОшибка);
+	КонецЕсли;
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		Ветис.GetRefListInit(ИмяСервиса(), "GetBusinessEntityList", "businessEntity", "", пПараметры, 
+			?(пПараметры.Свойство("filter"), ВетисDictionary.BusinessEntity(пПараметры.filter), ВетисDictionary.BusinessEntity()));
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -124,18 +262,59 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetRussianEnterpriseListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetRussianEnterpriseListNext_2_0(Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetRussianEnterpriseListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetRussianEnterpriseListNext_2_0(Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисEnterpriseService_1_4.GetRussianEnterpriseListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetRussianEnterpriseListNext_1_4(Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
 	
 КонецФункции
-
+Функция GetRussianEnterpriseListNext_1_4(Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	//Если Ветис.Настройки_ОберткаHttp() Тогда
+	//	Возврат ВетисRegistry.GetRussianEnterpriseListNext(filter, Item, пПараметры, пОтказ, пОшибка);
+	//КонецЕсли;
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		Если НЕ пПараметры.Свойство("filter") Тогда
+			_filter = ВетисDictionary.Enterprise();
+		ИначеЕсли ТипЗнч(пПараметры.filter) = Тип("Структура") Тогда
+			_filter = ВетисDictionary.Enterprise(пПараметры.filter);
+		Иначе
+			_filter = пПараметры.filter;
+		КонецЕсли;
+		Ветис.GetRefListInit(ИмяСервиса(), "GetRussianEnterpriseList", "enterprise", "", пПараметры, _filter);
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
+Функция GetRussianEnterpriseListNext_2_0(Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Если Ветис.Настройки_ОберткаHttp() Тогда
+		Возврат ВетисRegistry.GetRussianEnterpriseListNext(?(пПараметры.Свойство("filter"), пПараметры.filter, Неопределено), Item, пПараметры, пОтказ, пОшибка);
+	КонецЕсли;
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		Если НЕ пПараметры.Свойство("filter") Тогда
+			_filter = ВетисDictionary.Enterprise();
+		ИначеЕсли ТипЗнч(пПараметры.filter) = Тип("Структура") Тогда
+			_filter = ВетисDictionary.Enterprise(пПараметры.filter);
+		Иначе
+			_filter = пПараметры.filter;
+		КонецЕсли;
+		Ветис.GetRefListInit(ИмяСервиса(), "GetRussianEnterpriseList", "enterprise", "", пПараметры, _filter);
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
 
 // Предназначена для получения изменений в списке российских предприятий за указанный период времени
 // Используется самостоятельно в цикле Пока.
@@ -150,15 +329,43 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetBusinessEntityChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
+		Возврат GetBusinessEntityChangesListNext_2_0(beginDate, endDate, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetBusinessEntityChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
+		Возврат GetBusinessEntityChangesListNext_2_0(beginDate, endDate, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисEnterpriseService_1_4.GetBusinessEntityChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
+		Возврат GetBusinessEntityChangesListNext_1_4(beginDate, endDate, Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetBusinessEntityChangesListNext_1_4(beginDate, endDate = Неопределено, Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	//Если Ветис.Настройки_ОберткаHttp() Тогда
+	//	Возврат ВетисRegistry.getBusinessEntityChangesListNext(beginDate, endDate, Item, пПараметры, пОтказ, пОшибка);
+	//КонецЕсли;
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetBusinessEntityChangesList", "businessEntity", "", пПараметры, 
+			ВетисBase.DateInterval(beginDate, endDate));
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
+Функция GetBusinessEntityChangesListNext_2_0(beginDate, endDate = Неопределено, Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	//Если Ветис.Настройки_ОберткаHttp() Тогда
+	//	Возврат ВетисRegistry.getBusinessEntityChangesListNext(beginDate, endDate, Item, пПараметры, пОтказ, пОшибка);
+	//КонецЕсли;
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetBusinessEntityChangesList", "businessEntity", "", пПараметры, 
+			ВетисBase.DateInterval(beginDate, endDate));
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -175,18 +382,45 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetRussianEnterpriseChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
+		Возврат GetRussianEnterpriseChangesListNext_2_0(beginDate, endDate, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetRussianEnterpriseChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
+		Возврат GetRussianEnterpriseChangesListNext_2_0(beginDate, endDate, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисEnterpriseService_1_4.GetRussianEnterpriseChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
+		Возврат GetRussianEnterpriseChangesListNext_1_4(beginDate, endDate, Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
 	
 КонецФункции
-
+Функция GetRussianEnterpriseChangesListNext_1_4(beginDate, endDate = Неопределено, Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	//Если Ветис.Настройки_ОберткаHttp() Тогда
+	//	Возврат ВетисRegistry.getRussianEnterpriseChangesListNext(beginDate, endDate, Item, пПараметры, пОтказ, пОшибка);
+	//КонецЕсли;
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetRussianEnterpriseChangesList", "enterprise", "", пПараметры, 
+			ВетисBase.DateInterval(beginDate, endDate));
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
+Функция GetRussianEnterpriseChangesListNext_2_0(beginDate, endDate = Неопределено, Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Если Ветис.Настройки_ОберткаHttp() Тогда
+		Возврат ВетисRegistry.getRussianEnterpriseChangesListNext(beginDate, endDate, Item, пПараметры, пОтказ, пОшибка);
+	КонецЕсли;
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetRussianEnterpriseChangesList", "enterprise", "", пПараметры, 
+			ВетисBase.DateInterval(beginDate, endDate));
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
 
 //Запрос на получение списка предприятий, связанных с указанным ХС.
 //Используется самостоятельно в цикле Пока.
@@ -200,15 +434,54 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetActivityLocationListNext(businessEntityGuid, Item, Params, пОтказ, пОшибка);
+		Возврат GetActivityLocationListNext_2_0(businessEntityGuid, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetActivityLocationListNext(businessEntityGuid, Item, Params, пОтказ, пОшибка);
+		Возврат GetActivityLocationListNext_2_0(businessEntityGuid, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисEnterpriseService_1_4.GetActivityLocationListNext(businessEntityGuid, Item, Params, пОтказ, пОшибка);
+		Возврат GetActivityLocationListNext_1_4(businessEntityGuid, Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetActivityLocationListNext_1_4(businessEntityGuid, Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		пПараметры.Вставить("List", Новый Массив);
+		пПараметры.Вставить("Индекс", 0);
+		_Entity = GetBusinessEntityByGuid(businessEntityGuid, пОтказ, пОшибка);
+		Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
+		Для Каждого _Location из _Entity.activityLocation Цикл
+			_Enterprise = GetEnterpriseByGuid(_Location.enterprise.guid, пОтказ, пОшибка);
+			Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
+			пПараметры.List.Добавить(_Enterprise);
+		КонецЦикла;
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+	КонецЕсли;
+	
+	Если пПараметры.Индекс >= пПараметры.List.Количество() Тогда
+		Возврат Ложь;
+	Иначе
+		Item = пПараметры.List[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
+	
+КонецФункции
+Функция GetActivityLocationListNext_2_0(businessEntityGuid, Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Если Ветис.Настройки_ОберткаHttp() Тогда
+		Возврат ВетисRegistry.getActivityLocationListNext(businessEntityGuid, Item, пПараметры, пОтказ, пОшибка);
+	КонецЕсли;
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetActivityLocationList", "location", "enterprise", пПараметры,
+			ВетисDictionary.BusinessEntity(businessEntityGuid));
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -221,16 +494,27 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetBusinessMemberByGLN(globalID, пОтказ, пОшибка);
+		Возврат GetBusinessMemberByGLN_2_0(globalID, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисEnterpriseService_2_0.GetBusinessMemberByGLN(globalID, пОтказ, пОшибка);
+		Возврат GetBusinessMemberByGLN_2_0(globalID, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
 	
 КонецФункции
-
+Функция GetBusinessMemberByGLN_2_0(globalID, пОтказ = Ложь, пОшибка = "")
+	
+	Попытка
+		Возврат Прокси().GetBusinessMemberByGLN(globalID);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetBusinessMemberByGLN");
+		ВызватьИсключение;
+	КонецПопытки;
+	
+КонецФункции
 
 Функция ИмяСервиса() Экспорт
 	

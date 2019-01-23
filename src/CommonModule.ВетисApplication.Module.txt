@@ -4,15 +4,27 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисApplication_2_0.Application(Object, Name, IssuerId);
+		Возврат Application_1_4(Object, Name, IssuerId);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисApplication_2_0.Application(Object, Name, IssuerId);
+		Возврат Application_1_4(Object, Name, IssuerId);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисApplication_1_4.Application(Object, Name, IssuerId);
+		Возврат Application_1_4(Object, Name, IssuerId);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция Application_1_4(Object, пИмя, issuerId)
+	
+	_Объект = Создать("Application");
+	
+	_Объект.serviceId = Ветис.serviceId();
+	_Объект.issuerId  = issuerId;
+	_Объект.issueDate = Ветис.ВремяСервиса();//xs:dateTime
+	_Объект.data      = ApplicationDataWrapper(Object, пИмя);
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -28,15 +40,28 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисApplication_2_0.ApplicationDataWrapper(Object, Name);
+		Возврат ApplicationDataWrapper_1_4(Object, Name);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисApplication_2_0.ApplicationDataWrapper(Object, Name);
+		Возврат ApplicationDataWrapper_1_4(Object, Name);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисApplication_1_4.ApplicationDataWrapper(Object, Name);
+		Возврат ApplicationDataWrapper_1_4(Object, Name);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция ApplicationDataWrapper_1_4(Object = Неопределено, пИмя = Неопределено)
+	
+	_Объект = Создать("ApplicationDataWrapper");
+	
+	Если НЕ Object = Неопределено Тогда
+		
+		_Объект.Добавить(ФормаXML.Элемент, Object.Тип().URIПространстваИмен, ?(пИмя = Неопределено, Object.Тип().Имя, пИмя), Object);
+		
+	КонецЕсли;
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -56,15 +81,25 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисApplication_2_0.submitApplicationRequest(Application, APIkey);
+		Возврат submitApplicationRequest_1_4(Application, APIkey);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисApplication_2_0.submitApplicationRequest(Application, APIkey);
+		Возврат submitApplicationRequest_1_4(Application, APIkey);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисApplication_1_4.submitApplicationRequest(Application, APIkey);
+		Возврат submitApplicationRequest_1_4(Application, APIkey);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция submitApplicationRequest_1_4(пApplication, APIkey)
+	
+	_Объект = Создать("submitApplicationRequest", ServiceURI());
+	
+	_Объект.apiKey      = APIkey;
+	_Объект.application = пApplication;
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -80,15 +115,26 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисApplication_2_0.receiveApplicationResultRequest(ApplicationId, IssuerId, APIkey);
+		Возврат receiveApplicationResultRequest_1_4(ApplicationId, IssuerId, APIkey);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисApplication_2_0.receiveApplicationResultRequest(ApplicationId, IssuerId, APIkey);
+		Возврат receiveApplicationResultRequest_1_4(ApplicationId, IssuerId, APIkey);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисApplication_1_4.receiveApplicationResultRequest(ApplicationId, IssuerId, APIkey);
+		Возврат receiveApplicationResultRequest_1_4(ApplicationId, IssuerId, APIkey);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция receiveApplicationResultRequest_1_4(applicationId, issuerId, APIkey)
+	
+	_Объект = Создать("receiveApplicationResultRequest", ServiceURI());
+	
+	_Объект.apiKey        = APIkey;
+	_Объект.issuerId      = issuerId;
+	_Объект.applicationId = applicationId;
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -112,11 +158,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисApplication_2_0.ServiceURI();
+		Возврат "http://api.vetrf.ru/schema/cdm/application/ws-definitions";
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисApplication_2_0.ServiceURI();
+		Возврат "http://api.vetrf.ru/schema/cdm/application/ws-definitions";
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисApplication_1_4.ServiceURI();
+		Возврат "http://api.vetrf.ru/schema/cdm/application/ws-definitions";
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -128,11 +174,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисApplication_2_0.URI();
+		Возврат "http://api.vetrf.ru/schema/cdm/application";
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисApplication_2_0.URI();
+		Возврат "http://api.vetrf.ru/schema/cdm/application";
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисApplication_1_4.URI();
+		Возврат "http://api.vetrf.ru/schema/cdm/application";
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();

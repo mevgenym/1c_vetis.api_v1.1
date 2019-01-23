@@ -8,13 +8,24 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.AnimalMedicationEvent(disease, medicinalDrug, effectiveBeforeDate);
+		Возврат AnimalMedicationEvent_2_0(disease, medicinalDrug, effectiveBeforeDate);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.AnimalMedicationEvent(disease, medicinalDrug, effectiveBeforeDate);
+		Возврат AnimalMedicationEvent_2_0(disease, medicinalDrug, effectiveBeforeDate);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция AnimalMedicationEvent_2_0(disease = Неопределено, medicinalDrug = Неопределено, effectiveBeforeDate = Неопределено)
+	
+	_Объект = Создать("AnimalMedicationEvent");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, disease, "disease");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, medicinalDrug, "medicinalDrug");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, effectiveBeforeDate, "effectiveBeforeDate");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -23,15 +34,31 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.Batch(value);
+		Возврат Batch_2_0(value);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.Batch(value);
+		Возврат Batch_2_0(value);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryVetdocument_1_4.Batch();
+		Возврат Batch_1_4();
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция Batch_2_0(value = Неопределено)
+	
+	_Объект = Создать("Batch");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, value);
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция Batch_1_4()
+	
+	_Объект = Создать("Batch");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -44,13 +71,24 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.BatchOrigin(productItem, country, producer);
+		Возврат BatchOrigin_2_0(productItem, country, producer);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.BatchOrigin(productItem, country, producer);
+		Возврат BatchOrigin_2_0(productItem, country, producer);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция BatchOrigin_2_0(productItem = Неопределено, country = Неопределено, producer = Неопределено)
+	
+	_Объект = Создать("BatchOrigin");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, productItem, "productItem");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, country, "country");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, producer, "producer");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -63,15 +101,43 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.BusinessEntityActivityLocationsModificationOperation(type, businessEntityGuid, enterpriseGuid);
+		Возврат BusinessEntityActivityLocationsModificationOperation_2_0(type, businessEntityGuid, enterpriseGuid);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.BusinessEntityActivityLocationsModificationOperation(type, businessEntityGuid, enterpriseGuid);
+		Возврат BusinessEntityActivityLocationsModificationOperation_2_0(type, businessEntityGuid, enterpriseGuid);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисCerberusEnterprise_1_4.BusinessEntityActivityLocationsModificationOperation(type, businessEntityGuid, enterpriseGuid);
+		Возврат BusinessEntityActivityLocationsModificationOperation_1_4(type, businessEntityGuid, enterpriseGuid);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция BusinessEntityActivityLocationsModificationOperation_2_0(type, businessEntityGuid, enterpriseGuid)
+	
+	_Объект = Создать("BEActivityLocationsModificationOperation");
+	
+	_activityLocation = Создать(_Объект.Тип().Свойства.Получить("activityLocation").Тип);
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_activityLocation, ВетисDictionary.Enterprise(enterpriseGuid), "enterprise");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисDictionary.BusinessEntity(businessEntityGuid), "businessEntity");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, _activityLocation, "activityLocation");
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция BusinessEntityActivityLocationsModificationOperation_1_4(type, businessEntityGuid, enterpriseGuid) Экспорт
+	
+	_Объект = Создать("BEActivityLocationsModificationOperation");
+	
+	_Enterprise = ВетисDictionary.Enterprise(enterpriseGuid);
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисDictionary.BusinessEntity(businessEntityGuid), "businessEntity");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисDictionary.EnterpriseList(_Enterprise), "enterpriseList");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -86,15 +152,39 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.BusinessEntityModificationOperation(registerModificationType, affectedList, resultingList, reason);
+		Возврат BusinessEntityModificationOperation_2_0(registerModificationType, affectedList, resultingList, reason);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.BusinessEntityModificationOperation(registerModificationType, affectedList, resultingList, reason);
+		Возврат BusinessEntityModificationOperation_2_0(registerModificationType, affectedList, resultingList, reason);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисCerberusEnterprise_1_4.BusinessEntityModificationOperation(registerModificationType, affectedList, resultingList, reason);
+		Возврат BusinessEntityModificationOperation_1_4(registerModificationType, affectedList, resultingList, reason);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция BusinessEntityModificationOperation_2_0(registerModificationType, affectedList = Неопределено, resultingList = Неопределено, reason = Неопределено)
+	
+	_Объект = Создать("BEModificationOperation");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, registerModificationType, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, affectedList, "affectedList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, resultingList, "resultingList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason");
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция BusinessEntityModificationOperation_1_4(registerModificationType, affectedList = Неопределено, resultingList = Неопределено, reason = Неопределено) Экспорт
+	
+	_Объект = Создать("BEModificationOperation");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, registerModificationType, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, affectedList, "affectedList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, resultingList, "resultingList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -106,13 +196,23 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.CertifiedBatch(batch, producer);
+		Возврат CertifiedBatch_2_0(batch, producer);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.CertifiedBatch(batch, producer);
+		Возврат CertifiedBatch_2_0(batch, producer);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция CertifiedBatch_2_0(batch, producer = Неопределено)
+	
+	_Объект = Создать("CertifiedBatch");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, batch, "batch");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, producer, "producer");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -129,13 +229,28 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.CertifiedConsignment(consignor, consignee, batch, broker, transportInfo, transportStorageType, shipmentRoute);
+		Возврат CertifiedConsignment_2_0(consignor, consignee, batch, broker, transportInfo, transportStorageType, shipmentRoute);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.CertifiedConsignment(consignor, consignee, batch, broker, transportInfo, transportStorageType, shipmentRoute);
+		Возврат CertifiedConsignment_2_0(consignor, consignee, batch, broker, transportInfo, transportStorageType, shipmentRoute);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция CertifiedConsignment_2_0(consignor, consignee, batch, broker, transportInfo, transportStorageType, shipmentRoute = Неопределено)
+	
+	_Объект = Создать("CertifiedConsignment");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignor, "consignor");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignee, "consignee");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, batch, "batch");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, broker, "broker");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportInfo, "transportInfo");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportStorageType, "transportStorageType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, shipmentRoute, "shipmentRoute");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -144,15 +259,49 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.Consignment(value);
+		Возврат Consignment_2_0(value);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.Consignment(value);
+		Возврат Consignment_2_0(value);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryVetdocument_1_4.Consignment();
+		Возврат Consignment_1_4();
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция Consignment_2_0(value = Неопределено)
+	
+	_Объект = Создать("Consignment");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, value);
+	
+	//_Объект.id = "";// Идентификатор, определяющий consignment в запросе. Должен быть указан, если запрос содержит несколько элементов consignment.
+	
+	//_Объект.partOf = "";// Ссылка на consignment в разделе delivery запроса. Должен быть указан, если запрос содержит несколько элементов consignment.
+	
+	// http://vetrf.ru/vetrf-forum/posts/list/315/6855.page#39747
+	// Этот атрибут был заявлен на перспективу.
+	// В дальнейшем планируется добавить возможность гашения нескольких партий товара.
+	// На данный момент использование или неиспользование этого атрибута ошибочным не является.
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция Consignment_1_4()
+	
+	_Объект = Создать("Consignment");
+	
+	//_Объект.id = "";// Идентификатор, определяющий consignment в запросе. Должен быть указан, если запрос содержит несколько элементов consignment.
+	
+	//_Объект.partOf = "";// Ссылка на consignment в разделе delivery запроса. Должен быть указан, если запрос содержит несколько элементов consignment.
+	
+	// http://vetrf.ru/vetrf-forum/posts/list/315/6855.page#39747
+	// Этот атрибут был заявлен на перспективу.
+	// В дальнейшем планируется добавить возможность гашения нескольких партий товара.
+	// На данный момент использование или неиспользование этого атрибута ошибочным не является.
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -161,15 +310,36 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(waybill, VetDocument, relatedDocument);
+		Возврат ConsignmentDocumentList_2_0(waybill, VetDocument, relatedDocument);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(waybill, VetDocument, relatedDocument);
+		Возврат ConsignmentDocumentList_2_0(waybill, VetDocument, relatedDocument);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryVetdocument_1_4.ConsignmentDocumentList(waybill, VetDocument);
+		Возврат ConsignmentDocumentList_1_4(waybill, VetDocument);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция ConsignmentDocumentList_2_0(waybill, VetDocument, relatedDocument = Неопределено)
+	
+	_Объект = Создать("ConsignmentDocumentList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, waybill, "waybill");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, VetDocument, "vetCertificate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, relatedDocument, "relatedDocument");
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция ConsignmentDocumentList_1_4(waybill, VetDocument)
+	
+	_Объект = Создать("ConsignmentDocumentList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, waybill, "waybill");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, VetDocument, "vetCertificate");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -183,15 +353,75 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.Delivery(consignor, consignee, consignment, accompanyingForms, broker, transportInfo, transportStorageType, shipmentRoute);
+		Возврат Delivery_2_0(consignor, consignee, consignment, accompanyingForms, broker, transportInfo, transportStorageType, shipmentRoute);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.Delivery(consignor, consignee, consignment, accompanyingForms, broker, transportInfo, transportStorageType, shipmentRoute);
+		Возврат Delivery_2_0(consignor, consignee, consignment, accompanyingForms, broker, transportInfo, transportStorageType, shipmentRoute);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryVetdocument_1_4.Delivery(consignor, consignee, consignment, accompanyingForms);
+		Возврат Delivery_1_4(consignor, consignee, consignment, accompanyingForms);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция Delivery_2_0(consignor, consignee, consignment, accompanyingForms, broker, transportInfo, transportStorageType, shipmentRoute = Неопределено)
+	
+	_Объект = Создать("Delivery");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяСервиса(), "deliveryDate");// xs:dateTime
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignor, "consignor");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignee, "consignee");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, accompanyingForms, "accompanyingForms");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, broker, "broker");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportInfo, "transportInfo");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportStorageType, "transportStorageType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, shipmentRoute, "shipmentRoute");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignment, "consignment");
+
+	Возврат _Объект;
+	
+	// http://vetrf.ru/vetrf-forum/posts/list/825/6855.page#41188
+	// В случае если вы передаете в запросе несколько объектов consignment ("..Request/delivery/consignment")
+	// и несколько объектов vetCertificate ("..Request/delivery/accompanyingForms/vetCertificate")
+	// то связь между ними должна быть установлена путем указания атрибутов "id" - у элемента consignment
+	// и "for" - для элемента vetCertificate.
+	// 
+	// В случае если вы передаете в запросе несколько объектов consignment и один объект vetCertificate,
+	// то атрибуты id и for могут быть не указаны,
+	// но в этом случае информация из единственного элемента vetCertificate будет распространяться на все ВСД,
+	// оформляемые в этом запросе.
+	//
+	// http://vetrf.ru/vetrf-forum/posts/list/825/6855.page#41192
+	// Возможно, что неверно указали значения для атрибутов id и for.
+	// Их типы ID и IDREF, соответственно, и должны начинаться с "_" или буквенного символа.
+	
+КонецФункции
+Функция Delivery_1_4(consignor, consignee, consignment, accompanyingForms)
+	
+	_Объект = Создать("Delivery");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяСервиса(), "deliveryDate");// xs:dateTime
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignor, "consignor");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignee, "consignee");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, accompanyingForms, "accompanyingForms");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignment, "consignment");
+	
+	Возврат _Объект;
+	
+	// http://vetrf.ru/vetrf-forum/posts/list/825/6855.page#41188
+	// В случае если вы передаете в запросе несколько объектов consignment ("..Request/delivery/consignment")
+	// и несколько объектов vetCertificate ("..Request/delivery/accompanyingForms/vetCertificate")
+	// то связь между ними должна быть установлена путем указания атрибутов "id" - у элемента consignment
+	// и "for" - для элемента vetCertificate.
+	// 
+	// В случае если вы передаете в запросе несколько объектов consignment и один объект vetCertificate,
+	// то атрибуты id и for могут быть не указаны,
+	// но в этом случае информация из единственного элемента vetCertificate будет распространяться на все ВСД,
+	// оформляемые в этом запросе.
+	//
+	// http://vetrf.ru/vetrf-forum/posts/list/825/6855.page#41192
+	// Возможно, что неверно указали значения для атрибутов id и for.
+	// Их типы ID и IDREF, соответственно, и должны начинаться с "_" или буквенного символа.
 	
 КонецФункции
 
@@ -205,15 +435,39 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.DeliveryFactList(presence, docInspection, vetInspection, decision);
+		Возврат DeliveryFactList_2_0(presence, docInspection, vetInspection, decision);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.DeliveryFactList(presence, docInspection, vetInspection, decision);
+		Возврат DeliveryFactList_2_0(presence, docInspection, vetInspection, decision);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryVetdocument_1_4.DeliveryFactList(presence, docInspection, vetInspection, decision);
+		Возврат DeliveryFactList_1_4(presence, docInspection, vetInspection, decision);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция DeliveryFactList_2_0(presence, docInspection, vetInspection, decision)
+	
+	_Объект = Создать("DeliveryFactList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, presence, "vetCertificatePresence");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, docInspection, "docInspection");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetInspection, "vetInspection");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, decision, "decision");
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция DeliveryFactList_1_4(presence, docInspection, vetInspection, decision)
+	
+	_Объект = Создать("DeliveryFactList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, presence, "vetCertificatePresence");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, docInspection, "docInspection");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetInspection, "vetInspection");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, decision, "decision");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -225,15 +479,35 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.DeliveryInspection(result, responsible);
+		Возврат DeliveryInspection_2_0(result, responsible);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.DeliveryInspection(result, responsible);
+		Возврат DeliveryInspection_2_0(result, responsible);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryVetdocument_1_4.DeliveryInspection(result, responsible);
+		Возврат DeliveryInspection_1_4(result, responsible);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция DeliveryInspection_2_0(result, responsible = Неопределено)
+	
+	_Объект = Создать("DeliveryInspection");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, result, "result");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, responsible, "responsible", , User(ВетисПовтИсп.ТекущийПользователь_Логин()));
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция DeliveryInspection_1_4(result, responsible = Неопределено)
+	
+	_Объект = Создать("DeliveryInspection");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, result, "result");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, responsible, "responsible", , User(ВетисПовтИсп.ТекущийПользователь_Логин()));
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -244,15 +518,33 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.DiscrepancyReason(name);
+		Возврат DiscrepancyReason_2_0(name);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.DiscrepancyReason(name);
+		Возврат DiscrepancyReason_2_0(name);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryVetdocument_1_4.DiscrepancyReason(name);
+		Возврат DiscrepancyReason_1_4(name);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция DiscrepancyReason_2_0(name)
+	
+	_Объект = Создать("DiscrepancyReason");
+	
+	_Объект.name = name;
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция DiscrepancyReason_1_4(name)
+	
+	_Объект = Создать("DiscrepancyReason");
+	
+	_Объект.name = name;
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -267,15 +559,41 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.DiscrepancyReport(issueSeries, issueNumber, issueDate, reason, description);
+		Возврат DiscrepancyReport_2_0(issueSeries, issueNumber, issueDate, reason, description);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.DiscrepancyReport(issueSeries, issueNumber, issueDate, reason, description);
+		Возврат DiscrepancyReport_2_0(issueSeries, issueNumber, issueDate, reason, description);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryVetdocument_1_4.DiscrepancyReport(issueSeries, issueNumber, issueDate, reason, description);
+		Возврат DiscrepancyReport_1_4(issueSeries, issueNumber, issueDate, reason, description);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция DiscrepancyReport_2_0(issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, reason = Неопределено, description = Неопределено)
+	
+	_Объект = Создать("DiscrepancyReport");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueSeries, "issueSeries");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueNumber, "issueNumber");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueDate, "issueDate");//xs:date
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, DiscrepancyReason(reason), "reason");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, description, "description");
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция DiscrepancyReport_1_4(issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, reason = Неопределено, description = Неопределено)
+	
+	_Объект = Создать("DiscrepancyReport");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueSeries, "issueSeries");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueNumber, "issueNumber");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueDate, "issueDate");//xs:date
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, DiscrepancyReason(reason), "reason");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, description, "description");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -289,13 +607,26 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.Document(issueSeries, issueNumber, issueDate, type, issuer);
+		Возврат Document_2_0(issueSeries, issueNumber, issueDate, type, issuer);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.Document(issueSeries, issueNumber, issueDate, type, issuer);
+		Возврат Document_2_0(issueSeries, issueNumber, issueDate, type, issuer);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция Document_2_0(issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, type = Неопределено, issuer = Неопределено)
+	
+	_Объект = Создать("Document");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueSeries, "issueSeries");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueNumber, "issueNumber");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueDate, "issueDate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issuer, "issuer");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -309,13 +640,24 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.EnterpriseModificationOperation(type, enterprise, reason);
+		Возврат EnterpriseModificationOperation_2_0(type, enterprise, reason);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.EnterpriseModificationOperation(type, enterprise, reason);
+		Возврат EnterpriseModificationOperation_2_0(type, enterprise, reason);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция EnterpriseModificationOperation_2_0(type, enterprise = Неопределено, reason = Неопределено)
+	
+	_Объект = Создать("ENTModificationOperation");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисDictionary.EnterpriseList(enterprise), "resultingList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -325,15 +667,52 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.GoodsDate(firstDate, secondDate, Day, Hour, Minute);
+		Возврат GoodsDate_2_0(firstDate, secondDate, Day, Hour, Minute);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.GoodsDate(firstDate, secondDate, Day, Hour, Minute);
+		Возврат GoodsDate_2_0(firstDate, secondDate, Day, Hour, Minute);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryVetdocument_1_4.GoodsDate(firstDate, secondDate, Day);
+		Возврат GoodsDate_1_4(firstDate, secondDate, Day);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GoodsDate_2_0(firstDate, secondDate = Неопределено, Day = Ложь, Hour = Ложь, Minute = Ложь)
+	
+	_Объект = Создать("GoodsDate");
+	
+	Если ТипЗнч(firstDate) = Тип("Дата") Тогда
+		_Объект.firstDate = ВетисDictionary.ComplexDate(firstDate, Day, Hour, Minute);
+		
+		Если НЕ secondDate = Неопределено И ЗначениеЗаполнено(secondDate) Тогда
+			_фс = "ДФ=ММ.гггг" + ?(Day, ".дд", "") + ?(Hour, ".чч", "") + ?(Minute, ".мм", "");
+			Если НЕ Формат(secondDate, _фс) = Формат(firstDate, _фс) Тогда
+				_Объект.secondDate = ВетисDictionary.ComplexDate(secondDate, Day, Hour, Minute);
+			КонецЕсли;
+		КонецЕсли;
+	Иначе
+		_Объект.informalDate = firstDate;
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция GoodsDate_1_4(firstDate, secondDate = Неопределено, Hour = Ложь)
+	
+	_Объект = Создать("GoodsDate");
+	
+	Если ТипЗнч(firstDate) = Тип("Дата") Тогда
+		_Объект.firstDate = ВетисBase.ComplexDate(firstDate, Hour);
+		
+		Если НЕ secondDate = Неопределено И ЗначениеЗаполнено(secondDate) Тогда
+			_Объект.secondDate = ВетисBase.ComplexDate(secondDate, Hour);
+		КонецЕсли;
+	Иначе
+		_Объект.informalDate = firstDate;
+	КонецЕсли;
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -357,15 +736,33 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.MergeStockEntriesOperation(sourceStockEntry);
+		Возврат MergeStockEntriesOperation_2_0(sourceStockEntry);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.MergeStockEntriesOperation(sourceStockEntry);
+		Возврат MergeStockEntriesOperation_2_0(sourceStockEntry);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryVetdocument_1_4.MergeStockEntriesOperation(sourceStockEntry);
+		Возврат MergeStockEntriesOperation_1_4(sourceStockEntry);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция MergeStockEntriesOperation_2_0(sourceStockEntry)
+	
+	_Объект = Создать("MergeStockEntriesOperation");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, sourceStockEntry, "sourceStockEntry", "ВетисMercuryVetdocument.StockEntry");
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция MergeStockEntriesOperation_1_4(sourceStockEntry)
+	
+	_Объект = Создать("MergeStockEntriesOperation");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, sourceStockEntry, "sourceStockEntry", "ВетисMercuryVetdocument.StockEntry");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -382,13 +779,50 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.LaboratoryResearchEvent(batchID, expertiseID, indicator, disease, method, result, conclusion);
+		Возврат LaboratoryResearchEvent_2_0(batchID, expertiseID, indicator, disease, method, result, conclusion);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.LaboratoryResearchEvent(batchID, expertiseID, indicator, disease, method, result, conclusion);
+		Возврат LaboratoryResearchEvent_2_0(batchID, expertiseID, indicator, disease, method, result, conclusion);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция LaboratoryResearchEvent_2_0(batchID, expertiseID, indicator, disease, method, result, conclusion)
+	
+	_Объект = Создать("LaboratoryResearchEvent");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, batchID, "batchID");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, expertiseID, "expertiseID");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, indicator, "indicator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, disease, "disease");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, method, "method");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, result, "result");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, conclusion, "conclusion");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция ProductMarking(content) Экспорт
+	
+	_Объект = Создать("ProductMarking");
+	
+	_Объект.class = ВетисКонстанты.ProductMarkingClass_UNDEFINED();//пока только UNDEFINED
+	
+	_Объект.__content = content;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция ProductMarkingList(content) Экспорт
+	
+	_Объект = Создать("ProductMarkingList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, content, "productMarking", "ВетисMercuryVetdocument.ProductMarking");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -400,13 +834,28 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.PSLModificationOperation(type, productItemList);
+		Возврат PSLModificationOperation_2_0(type, productItemList);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.PSLModificationOperation(type, productItemList);
+		Возврат PSLModificationOperation_2_0(type, productItemList);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция PSLModificationOperation_2_0(type, productItemList = Неопределено)
+	
+	_Объект = Создать("PSLModificationOperation");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	
+	Если type = ВетисКонстанты.RegisterModificationType_DELETE() Тогда
+		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисDictionary.ProductItemList(productItemList), "affectedList");
+	Иначе
+		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисDictionary.ProductItemList(productItemList), "resultingList");
+	КонецЕсли;
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -421,13 +870,26 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.ReferencedDocument(relationshipType, issueSeries, issueNumber, issueDate, type);
+		Возврат ReferencedDocument_2_0(relationshipType, issueSeries, issueNumber, issueDate, type);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.ReferencedDocument(relationshipType, issueSeries, issueNumber, issueDate, type);
+		Возврат ReferencedDocument_2_0(relationshipType, issueSeries, issueNumber, issueDate, type);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция ReferencedDocument_2_0(relationshipType = Неопределено, issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, type = Неопределено)
+	
+	_Объект = Создать("ReferencedDocument");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, relationshipType, "relationshipType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueSeries, "issueSeries");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueNumber, "issueNumber");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueDate, "issueDate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -439,32 +901,60 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.RegionalizationClause(condition, text);
+		Возврат RegionalizationClause_2_0(condition, text);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.RegionalizationClause(condition, text);
+		Возврат RegionalizationClause_2_0(condition, text);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
 	
 КонецФункции
+Функция RegionalizationClause_2_0(condition = Неопределено, text = Неопределено)
+	
+	_Объект = Создать("RegionalizationClause");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, condition, "condition");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, text, "text");
+	
+	Возврат _Объект;
+	
+КонецФункции
 
 //Тип, описывающий операцию оформления результатов инвентаризации.
 //Параметры:
 // resultingList - Одна или несколько записей складского журнала продукции, полученная, либо измененная в результате инвентаризации. vetd:StockEntryList 0..1
-Функция StockDiscrepancy(stockEntry) Экспорт
+Функция StockDiscrepancy(stockEntry = Неопределено) Экспорт
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.StockDiscrepancy(stockEntry);
+		Возврат StockDiscrepancy_2_0(stockEntry);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.StockDiscrepancy(stockEntry);
+		Возврат StockDiscrepancy_2_0(stockEntry);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryVetdocument_1_4.StockDiscrepancy(stockEntry);
+		Возврат StockDiscrepancy_1_4(stockEntry);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция StockDiscrepancy_2_0(stockEntry = Неопределено)
+	
+	_Объект = Создать("StockDiscrepancy");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, StockEntryList(stockEntry), "resultingList");
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция StockDiscrepancy_1_4(stockEntry = Неопределено)
+	
+	_Объект = Создать("StockDiscrepancy");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, StockEntryList(stockEntry), "resultingList");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -473,15 +963,33 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.StockEntry(guid);
+		Возврат StockEntry_2_0(guid);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.StockEntry(guid);
+		Возврат StockEntry_2_0(guid);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryVetdocument_1_4.StockEntry(guid);
+		Возврат StockEntry_1_4(guid);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция StockEntry_2_0(guid = Неопределено)
+	
+	_Объект = Создать("StockEntry");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid);
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция StockEntry_1_4(guid = Неопределено)
+	
+	_Объект = Создать("StockEntry");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid);
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -489,15 +997,41 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.StockEntryList(stockEntry);
+		Возврат StockEntryList_2_0(stockEntry);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.StockEntryList(stockEntry);
+		Возврат StockEntryList_2_0(stockEntry);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryVetdocument_1_4.StockEntryList(stockEntry);
+		Возврат StockEntryList_1_4(stockEntry);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция StockEntryList_2_0(stockEntry = Неопределено)
+	
+	_Объект = Создать("StockEntryList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, stockEntry, "stockEntry");
+	
+	_Объект.count = _Объект.stockEntry.Количество();
+	_Объект.offset = 0;
+	_Объект.total = 0;
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция StockEntryList_1_4(stockEntry = Неопределено)
+	
+	_Объект = Создать("StockEntryList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, stockEntry, "stockEntry");
+	
+	_Объект.count = _Объект.stockEntry.Количество();
+	_Объект.offset = 0;
+	_Объект.total = 0;
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -508,13 +1042,22 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.ShipmentRoute(routePoint);
+		Возврат ShipmentRoute_2_0(routePoint);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.ShipmentRoute(routePoint);
+		Возврат ShipmentRoute_2_0(routePoint);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция ShipmentRoute_2_0(routePoint = Неопределено)
+	
+	_Объект = Создать("ShipmentRoute");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, routePoint, "routePoint");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -530,30 +1073,52 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.ShipmentRoutePoint(sqnId, location, enterprise, transshipment, nextTransport);
+		Возврат ShipmentRoutePoint_2_0(sqnId, location, enterprise, transshipment, nextTransport);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.ShipmentRoutePoint(sqnId, location, enterprise, transshipment, nextTransport);
+		Возврат ShipmentRoutePoint_2_0(sqnId, location, enterprise, transshipment, nextTransport);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
 	
 КонецФункции
+Функция ShipmentRoutePoint_2_0(sqnId = Неопределено, location = Неопределено, enterprise = Неопределено, transshipment = Неопределено, nextTransport = Неопределено)
+	
+	_Объект = Создать("ShipmentRoutePoint");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, sqnId, "sqnId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, location, "location");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transshipment, "transshipment");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, nextTransport, "nextTransport");
+	
+	Возврат _Объект;
+	
+КонецФункции
 
-//
+//Шаблон поиска записей складского журнала
 //Параметры:
 // blankFilter - Фильтр по объёму записи складского журнала. vd:StockEntryBlankFilter
 Функция StockEntrySearchPattern(blankFilter) Экспорт
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.StockEntrySearchPattern(blankFilter);
+		Возврат StockEntrySearchPattern_2_0(blankFilter);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.StockEntrySearchPattern(blankFilter);
+		Возврат StockEntrySearchPattern_2_0(blankFilter);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция StockEntrySearchPattern_2_0(blankFilter)
+	
+	_Объект = Создать("StockEntrySearchPattern");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, blankFilter, "blankFilter");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -561,15 +1126,35 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.TransportInfo(transportType, transportNumber);
+		Возврат TransportInfo_2_0(transportType, transportNumber);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.TransportInfo(transportType, transportNumber);
+		Возврат TransportInfo_2_0(transportType, transportNumber);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисArgusShipment_1_4.TransportInfo(transportType, transportNumber);
+		Возврат TransportInfo_1_4(transportType, transportNumber);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция TransportInfo_2_0(transportType, transportNumber)
+	
+	_Объект = Создать("TransportInfo");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportType, "transportType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportNumber, "transportNumber");
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция TransportInfo_1_4(transportType, transportNumber)
+	
+	_Объект = Создать("TransportInfo", "shipment");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportType, "transportType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportNumber, "transportNumber");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -577,13 +1162,29 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.TransportNumber();
+		Возврат TransportNumber_2_0();
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.TransportNumber();
+		Возврат TransportNumber_2_0();
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат TransportNumber_1_4();
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция TransportNumber_2_0()
+	
+	_Объект = Создать("TransportNumber");
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция TransportNumber_1_4()
+	
+	_Объект = Создать("TransportNumber", "shipment");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -592,15 +1193,26 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.User(login, fio, post);
+		Возврат User_2_0(login, fio, post);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.User(login, fio, post);
+		Возврат User_2_0(login, fio, post);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисArgusCommon_1_4.User(login, fio, post);
+		Возврат User_2_0(login, fio, post);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция User_2_0(login = Неопределено, fio = Неопределено, post = Неопределено)
+	
+	_Объект = Создать("User");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, login, "login");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, fio, "fio");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, post, "post");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -625,13 +1237,40 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.VeterinaryAuthentication(purpose, cargoInspected, cargoExpertized, locationProsperity, specialMarks, r13nClause, laboratoryResearch);
+		Возврат VeterinaryAuthentication_2_0(purpose, cargoInspected, cargoExpertized, locationProsperity, specialMarks, r13nClause, laboratoryResearch);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.VeterinaryAuthentication(purpose, cargoInspected, cargoExpertized, locationProsperity, specialMarks, r13nClause, laboratoryResearch);
+		Возврат VeterinaryAuthentication_2_0(purpose, cargoInspected, cargoExpertized, locationProsperity, specialMarks, r13nClause, laboratoryResearch);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция VeterinaryAuthentication_2_0(purpose = Неопределено,
+	cargoInspected = Неопределено,
+	cargoExpertized = Неопределено,
+	locationProsperity = Неопределено,
+	specialMarks = Неопределено,
+	r13nClause = Неопределено,
+	laboratoryResearch = Неопределено)
+	
+	_Объект = Создать("VeterinaryAuthentication");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, purpose, "purpose");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, cargoInspected, "cargoInspected");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, cargoExpertized, "cargoExpertized");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, locationProsperity, "locationProsperity");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, specialMarks, "specialMarks");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, r13nClause, "r13nClause");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, laboratoryResearch, "laboratoryResearch");
+	
+	//_Объект.animalSpentPeriod
+	//_Объект.monthsSpent
+	//_Объект.quarantine
+	//_Объект.immunization
+	//_Объект.veterinaryEvent
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -651,13 +1290,32 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.VeterinaryEvent(value);
+		Возврат VeterinaryEvent_2_0(value);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.VeterinaryEvent(value);
+		Возврат VeterinaryEvent_2_0(value);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция VeterinaryEvent_2_0(value = Неопределено)
+	
+	_Объект = Создать("VeterinaryEvent");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, value);
+	
+	//_Объект.ID = ID;
+	//_Объект.name = name;
+	//_Объект.type = type;
+	//_Объект.actualDateTime = actualDateTime;
+	//_Объект.location = location;
+	//_Объект.enterprise = enterprise;
+	//_Объект.operator = operator;
+	//_Объект.referencedDocument = referencedDocument;
+	//_Объект.notes = notes;
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -668,15 +1326,33 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.VetDocument(uuid);
+		Возврат VetDocument_2_0(uuid);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.VetDocument(uuid);
+		Возврат VetDocument_2_0(uuid);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryVetdocument_1_4.VetDocument(uuid);
+		Возврат VetDocument_1_4(uuid);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция VetDocument_2_0(uuid = Неопределено)
+	
+	_Объект = Создать("VetDocument");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, uuid, "uuid");
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция VetDocument_1_4(uuid = Неопределено)
+	
+	_Объект = Создать("VetDocument");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, uuid, "uuid");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -690,13 +1366,25 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.VetDocumentStatusChange(status, user, date, reason);
+		Возврат VetDocumentStatusChange_2_0(status, user, date, reason);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.VetDocumentStatusChange(status, user, date, reason);
+		Возврат VetDocumentStatusChange_2_0(status, user, date, reason);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция VetDocumentStatusChange_2_0(status = Неопределено, user = Неопределено, date = Неопределено, reason = Неопределено)
+	
+	_Объект = Создать("VetDocumentStatusChange");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, status, "status", , ВетисКонстанты.VetDocumentStatus_CONFIRMED());
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, user, "specifiedPerson", , User(ВетисПовтИсп.ТекущийПользователь_Логин()));
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, date, "actualDateTime", , Ветис.ВремяСервиса());// xs:dateTime
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason", "ВетисMercuryVetdocument.VetDocumentStatusChangeReason");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -719,15 +1407,47 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.Waybill(issueSeries, issueNumber, issueDate, type, broker, transportInfo, transportStorageType);
+		Возврат Waybill_2_0(issueSeries, issueNumber, issueDate, type, broker, transportInfo, transportStorageType);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryVetdocument_2_0.Waybill(issueSeries, issueNumber, issueDate, type, broker, transportInfo, transportStorageType);
+		Возврат Waybill_2_0(issueSeries, issueNumber, issueDate, type, broker, transportInfo, transportStorageType);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисArgusShipment_1_4.Waybill(issueSeries, issueNumber, issueDate, type, broker, transportInfo, transportStorageType);
+		Возврат Waybill_1_4(issueSeries, issueNumber, issueDate, type, broker, transportInfo, transportStorageType);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция Waybill_2_0(issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, type = Неопределено, broker = Неопределено, transportInfo = Неопределено, transportStorageType = Неопределено)
+	
+	_Объект = Создать("Waybill");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueSeries, "issueSeries");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueNumber, "issueNumber");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueDate, "issueDate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	//ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignor, "consignor");
+	//ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignee, "consignee");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, broker, "broker");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportInfo, "transportInfo");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportStorageType, "transportStorageType");
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция Waybill_1_4(issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, type = Неопределено, broker = Неопределено, transportInfo = Неопределено, transportStorageType = Неопределено)
+	
+	_Объект = Создать("Waybill", "shipment");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueSeries, "issueSeries");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueNumber, "issueNumber");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueDate, "issueDate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, broker, "broker");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportInfo, "transportInfo");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportStorageType, "transportStorageType");
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -860,15 +1580,24 @@
 КонецФункции
 
 
-Функция Создать(пИмя, пФабрика = Неопределено) Экспорт
+Функция Создать(Name, ver = Неопределено, Factory = Неопределено) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.Создать(пИмя, URI(), пФабрика);
+	Возврат ВетисОбщегоНазначения.Создать(Name, URI(ver), Factory);
 	
 КонецФункции
 
-Функция URI() Экспорт
+Функция URI(ver = Неопределено) Экспорт
 	
-	Возврат "http://api.vetrf.ru/schema/cdm/mercury/vet-document";
+	Если Ложь Тогда
+	ИначеЕсли Ветис.Версия_2_1(ver) Тогда
+		Возврат "http://api.vetrf.ru/schema/cdm/mercury/vet-document/v2";
+	ИначеЕсли Ветис.Версия_2_0(ver) Тогда
+		Возврат "http://api.vetrf.ru/schema/cdm/mercury/vet-document/v2";
+	ИначеЕсли Ветис.Версия_1_4(ver) Тогда
+		Возврат "http://api.vetrf.ru/schema/cdm/mercury/vet-document";
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
 	
 КонецФункции
 

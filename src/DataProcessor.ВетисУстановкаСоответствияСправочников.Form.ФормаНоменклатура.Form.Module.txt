@@ -72,8 +72,6 @@
 	
 	_форма = ОткрытьФорму("Справочник.ВетисProductItem.ФормаОбъекта", Новый Структура("guid", Элементы.СписокВетис.ТекущиеДанные.guid));
 	
-	//_форма.Объект.Наименование = Элементы.СписокВетис.ТекущиеДанные.name;
-	
 КонецПроцедуры
 
 &НаКлиенте
@@ -279,8 +277,8 @@
 		_enterpriseСоответствие = Новый Соответствие;
 		
 		//_параметрыPI = Неопределено;
-		_параметрыPI = Новый Структура("ОберткаHttp");
-		Пока ВетисProductService.GetProductItemListNext(_productType, _product, _subProduct, _businessEntity, _enterprise, _productItem, _параметрыPI) Цикл
+		_параметрыPI = Новый Структура("ОберткаHttp, productType, product, subProduct, businessEntity, enterprise", Истина, _productType, _product, _subProduct, _businessEntity, _enterprise);
+		Пока ВетисProductService.GetProductItemListNext(_productItem, _параметрыPI) Цикл
 		//Пока ВетисProductService.GetProductItemChangesListNext(_businessEntity, _enterprise, , , _productItem, _параметрыPI) Цикл
 			
 			Если НЕ _productItem.producing = Неопределено
@@ -320,8 +318,8 @@
 		_productType = ВетисDictionaryСлой1с.ProductType(ОтборТипПродукции);
 		_enterpriseGuid = ВетисDictionaryСлой1с.Enterprise(Объект.Предприятие);
 		Если ОтборВидПродукцииИспользование Тогда
-			_параметрыPI = Неопределено;
-			Пока ВетисProductService.GetProductItemListNext(ОтборВидПродукции, _enterpriseGuid, _productItem, _параметрыPI) Цикл
+			_параметрыPI = Новый Структура("subProductGuid,enterpriseGuid", ОтборВидПродукции, _enterpriseGuid);
+			Пока ВетисProductService.GetProductItemListNext(_productItem, _параметрыPI) Цикл
 				_СписокСтрока = СписокВетис.Добавить();
 				_СписокСтрока.name = _productItem.name;
 				_СписокСтрока.guid = _productItem.guid;
@@ -334,8 +332,8 @@
 		ИначеЕсли ОтборПродукцияИспользование Тогда
 			_параметрыS = Неопределено;
 			Пока ВетисProductService.GetSubProductByProductListNext(ОтборПродукция, _subProduct, _параметрыS) Цикл
-				_параметрыPI = Неопределено;
-				Пока ВетисProductService.GetProductItemListNext(_subProduct.guid, _enterpriseGuid, _productItem, _параметрыPI) Цикл
+				_параметрыPI = Новый Структура("subProductGuid,enterpriseGuid", _subProduct.guid, _enterpriseGuid);
+				Пока ВетисProductService.GetProductItemListNext(_productItem, _параметрыPI) Цикл
 					_СписокСтрока = СписокВетис.Добавить();
 					_СписокСтрока.name = _productItem.name;
 					_СписокСтрока.guid = _productItem.guid;

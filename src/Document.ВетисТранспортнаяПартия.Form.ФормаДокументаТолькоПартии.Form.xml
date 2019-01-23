@@ -851,6 +851,61 @@
 										</Table>
 									</ChildItems>
 								</Page>
+								<Page name="ГруппаПодпитка" id="641">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Подпитка</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа подпитка</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаПодпиткаРасширеннаяПодсказка" id="642"/>
+									<ChildItems>
+										<UsualGroup name="Группа5" id="625">
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="626"/>
+											<ChildItems>
+												<CheckBoxField name="Подпитка" id="627">
+													<DataPath>Объект.Подпитка</DataPath>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ПодпиткаКонтекстноеМеню" id="628"/>
+													<ExtendedTooltip name="ПодпиткаРасширеннаяПодсказка" id="629"/>
+												</CheckBoxField>
+												<UsualGroup name="Группа6" id="636">
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="637"/>
+													<ChildItems>
+														<InputField name="ОтправительПодпитка" id="630">
+															<DataPath>Объект.ОтправительПодпитка</DataPath>
+															<ContextMenu name="ОтправительПодпиткаКонтекстноеМеню" id="631"/>
+															<ExtendedTooltip name="ОтправительПодпиткаРасширеннаяПодсказка" id="632"/>
+														</InputField>
+														<InputField name="ОтправительПредприятиеПодпитка" id="633">
+															<DataPath>Объект.ОтправительПредприятиеПодпитка</DataPath>
+															<ContextMenu name="ОтправительПредприятиеПодпиткаКонтекстноеМеню" id="634"/>
+															<ExtendedTooltip name="ОтправительПредприятиеПодпиткаРасширеннаяПодсказка" id="635"/>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<InputField name="ТранзакцияПодпитка" id="638">
+													<DataPath>Объект.ТранзакцияПодпитка</DataPath>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="ТранзакцияПодпиткаКонтекстноеМеню" id="639"/>
+													<ExtendedTooltip name="ТранзакцияПодпиткаРасширеннаяПодсказка" id="640"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</Page>
 								<Page name="ГруппаДополнительно" id="95">
 									<Title>
 										<v8:item>
@@ -866,6 +921,13 @@
 									</ToolTip>
 									<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="96"/>
 									<ChildItems>
+										<CheckBoxField name="ЕстьОшибки" id="622">
+											<DataPath>Объект.ЕстьОшибки</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ЕстьОшибкиКонтекстноеМеню" id="623"/>
+											<ExtendedTooltip name="ЕстьОшибкиРасширеннаяПодсказка" id="624"/>
+										</CheckBoxField>
 										<CheckBoxField name="РасхожденияСогласованы" id="595">
 											<DataPath>Объект.РасхожденияСогласованы</DataPath>
 											<CheckBoxType>Auto</CheckBoxType>
@@ -956,12 +1018,33 @@
 								<Event name="Selection">СписокСообщенийВыбор</Event>
 							</Events>
 							<ChildItems>
-								<LabelField name="СписокСообщенияПредставление" id="617">
-									<DataPath>СписокСообщений.Представление</DataPath>
-									<Height>3</Height>
-									<ContextMenu name="СписокСообщенияПредставлениеКонтекстноеМеню" id="618"/>
-									<ExtendedTooltip name="СписокСообщенияПредставлениеРасширеннаяПодсказка" id="619"/>
-								</LabelField>
+								<ColumnGroup name="СписокСообщенийГруппа1" id="646">
+									<ExtendedTooltip name="СписокСообщенийГруппа1РасширеннаяПодсказка" id="647"/>
+									<ChildItems>
+										<ColumnGroup name="СписокСообщенийГруппа2" id="648">
+											<Group>Horizontal</Group>
+											<ExtendedTooltip name="СписокСообщенийГруппа2РасширеннаяПодсказка" id="649"/>
+											<ChildItems>
+												<LabelField name="СписокСообщенийНаправление" id="650">
+													<DataPath>СписокСообщений.Направление</DataPath>
+													<ContextMenu name="СписокСообщенийНаправлениеКонтекстноеМеню" id="651"/>
+													<ExtendedTooltip name="СписокСообщенийНаправлениеРасширеннаяПодсказка" id="652"/>
+												</LabelField>
+												<LabelField name="СписокСообщенийПериод" id="643">
+													<DataPath>СписокСообщений.Period</DataPath>
+													<ContextMenu name="СписокСообщенийПериодКонтекстноеМеню" id="644"/>
+													<ExtendedTooltip name="СписокСообщенийПериодРасширеннаяПодсказка" id="645"/>
+												</LabelField>
+											</ChildItems>
+										</ColumnGroup>
+										<LabelField name="СписокСообщенияПредставление" id="617">
+											<DataPath>СписокСообщений.Представление</DataPath>
+											<Height>3</Height>
+											<ContextMenu name="СписокСообщенияПредставлениеКонтекстноеМеню" id="618"/>
+											<ExtendedTooltip name="СписокСообщенияПредставлениеРасширеннаяПодсказка" id="619"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
 							</ChildItems>
 						</Table>
 					</ChildItems>

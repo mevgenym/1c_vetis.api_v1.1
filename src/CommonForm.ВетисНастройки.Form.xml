@@ -13,6 +13,7 @@
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="BeforeClose">ПередЗакрытием</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -215,6 +216,12 @@
 													<ContextMenu name="МероприятияКонтекстноеМеню" id="175"/>
 													<ExtendedTooltip name="МероприятияРасширеннаяПодсказка" id="176"/>
 												</CheckBoxField>
+												<CheckBoxField name="УсловияПеремещения" id="411">
+													<DataPath>УсловияПеремещения</DataPath>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="УсловияПеремещенияКонтекстноеМеню" id="412"/>
+													<ExtendedTooltip name="УсловияПеремещенияРасширеннаяПодсказка" id="413"/>
+												</CheckBoxField>
 											</ChildItems>
 										</UsualGroup>
 									</ChildItems>
@@ -357,6 +364,9 @@
 											<CheckBoxType>Auto</CheckBoxType>
 											<ContextMenu name="ОтладкаКонтекстноеМеню" id="106"/>
 											<ExtendedTooltip name="ОтладкаРасширеннаяПодсказка" id="107"/>
+											<Events>
+												<Event name="OnChange">ОтладкаПриИзменении</Event>
+											</Events>
 										</CheckBoxField>
 										<CheckBoxField name="ЖурналОпераций" id="326">
 											<DataPath>ЖурналОпераций</DataPath>
@@ -382,6 +392,12 @@
 											<CheckBoxType>Auto</CheckBoxType>
 											<ContextMenu name="РегламентныеЗаданияКонтекстноеМеню" id="409"/>
 											<ExtendedTooltip name="РегламентныеЗаданияРасширеннаяПодсказка" id="410"/>
+										</CheckBoxField>
+										<CheckBoxField name="РегистрНакопленияStockEntry" id="414">
+											<DataPath>РегистрНакопленияStockEntry</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="РегистрНакопленияStockEntryКонтекстноеМеню" id="415"/>
+											<ExtendedTooltip name="РегистрНакопленияStockEntryРасширеннаяПодсказка" id="416"/>
 										</CheckBoxField>
 									</ChildItems>
 								</UsualGroup>
@@ -457,7 +473,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Мероприятия</v8:content>
+					<v8:content>Живые животные</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -656,6 +672,28 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Регламентные задания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="УсловияПеремещения" id="37">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Условия перемещения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РегистрНакопленияStockEntry" id="38">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистр накопления Stock entry</v8:content>
 				</v8:item>
 			</Title>
 			<Type>

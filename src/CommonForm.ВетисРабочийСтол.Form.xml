@@ -31,6 +31,7 @@
 				</Button>
 				<Button name="ФормаКомандаНастройки" id="339">
 					<Type>UsualButton</Type>
+					<Visible>false</Visible>
 					<CommandName>Form.Command.КомандаНастройки</CommandName>
 					<ExtendedTooltip name="ФормаКомандаНастройкиРасширеннаяПодсказка" id="340"/>
 				</Button>
@@ -458,6 +459,11 @@
 										<CommandName>Form.Command.КомандаТранзакцияПечать</CommandName>
 										<ExtendedTooltip name="СписокТранспортныеПартииКомандаТранзакцияПечатьРасширеннаяПодсказка" id="742"/>
 									</Button>
+									<Button name="СписокТранспортныеПартииКомандаТранзакцияЗаписать" id="855">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаТранзакцияЗаписать</CommandName>
+										<ExtendedTooltip name="СписокТранспортныеПартииКомандаТранзакцияЗаписатьРасширеннаяПодсказка" id="856"/>
+									</Button>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="СписокТранспортныеПартииРасширеннаяПодсказка" id="78"/>
@@ -850,6 +856,11 @@
 										<CommandName>Form.Item.СписокСкладскойЖурнал.StandardCommand.Refresh</CommandName>
 										<ExtendedTooltip name="СписокСкладскойЖурналОбновитьРасширеннаяПодсказка" id="602"/>
 									</Button>
+									<Button name="СписокСкладскойЖурналКомандаЗаписатьСЖ" id="853">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаЗаписатьСЖ</CommandName>
+										<ExtendedTooltip name="СписокСкладскойЖурналКомандаЗаписатьСЖРасширеннаяПодсказка" id="854"/>
+									</Button>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="СписокСкладскойЖурналРасширеннаяПодсказка" id="135"/>
@@ -877,9 +888,6 @@
 								<ContextMenu name="СписокСкладскойЖурналУправлениеПоискомКонтекстноеМеню" id="143"/>
 								<ExtendedTooltip name="СписокСкладскойЖурналУправлениеПоискомРасширеннаяПодсказка" id="144"/>
 							</SearchControlAddition>
-							<Events>
-								<Event name="OnActivateRow">СписокСкладскойЖурналПриАктивизацииСтроки</Event>
-							</Events>
 							<ChildItems>
 								<LabelField name="СписокСкладскойЖурналПредставление" id="829">
 									<DataPath>СписокСкладскойЖурнал.Представление</DataPath>
@@ -941,13 +949,6 @@
 								</LabelField>
 							</ChildItems>
 						</Table>
-						<UsualGroup name="Группа1" id="550">
-							<Visible>false</Visible>
-							<Group>Horizontal</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="551"/>
-						</UsualGroup>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -1767,6 +1768,36 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаОтложенныеОперацииРегл</Action>
+		</Command>
+		<Command name="КомандаЗаписатьСЖ" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда записать СЖ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаЗаписатьСЖ</Action>
+		</Command>
+		<Command name="КомандаТранзакцияЗаписать" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда транзакция отправить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаТранзакцияЗаписать</Action>
 		</Command>
 	</Commands>
 </Form>

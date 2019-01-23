@@ -69,12 +69,14 @@
 				<InputField name="ProducerListproducer" id="14">
 					<DataPath>ProducerList.producer</DataPath>
 					<EditMode>EnterOnInput</EditMode>
+					<AutoCellHeight>true</AutoCellHeight>
 					<ContextMenu name="ProducerListproducerКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="ProducerListproducerРасширеннаяПодсказка" id="16"/>
 				</InputField>
 				<InputField name="ProducerListproducerName" id="17">
 					<DataPath>ProducerList.producerName</DataPath>
 					<EditMode>EnterOnInput</EditMode>
+					<AutoCellHeight>true</AutoCellHeight>
 					<ContextMenu name="ProducerListproducerNameКонтекстноеМеню" id="18"/>
 					<ExtendedTooltip name="ProducerListproducerNameРасширеннаяПодсказка" id="19"/>
 				</InputField>

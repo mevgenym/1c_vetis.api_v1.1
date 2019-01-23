@@ -90,6 +90,42 @@
 			<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
 		</Properties>
 		<ChildObjects>
+			<EnumValue uuid="90fa29f4-ee7b-463f-9ec5-798549e16e85">
+				<Properties>
+					<Name>Погасить</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Погасить</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="54b39043-0960-425a-a593-02e4abd14eaf">
+				<Properties>
+					<Name>Вернуть</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вернуть</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="daa4d1c4-cf64-49ba-9027-c72d8e45de65">
+				<Properties>
+					<Name>Отправить</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправить</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
 			<EnumValue uuid="43d83da2-a43c-4e87-ae98-30916a7a4f25">
 				<Properties>
 					<Name>Аннулировать</Name>
@@ -109,18 +145,6 @@
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Обновить</v8:content>
-						</v8:item>
-					</Synonym>
-					<Comment/>
-				</Properties>
-			</EnumValue>
-			<EnumValue uuid="daa4d1c4-cf64-49ba-9027-c72d8e45de65">
-				<Properties>
-					<Name>Отправить</Name>
-					<Synonym>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Отправить</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>

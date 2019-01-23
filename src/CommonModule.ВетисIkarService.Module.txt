@@ -3,15 +3,27 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисIkarService_2_0.GetCountryByGuid(guid, пОтказ, пОшибка);
+		Возврат GetCountryByGuid_1_4(guid, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисIkarService_2_0.GetCountryByGuid(guid, пОтказ, пОшибка);
+		Возврат GetCountryByGuid_1_4(guid, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисIkarService_1_4.GetCountryByGuid(guid, пОтказ, пОшибка);
+		Возврат GetCountryByGuid_1_4(guid, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetCountryByGuid_1_4(guid, пОтказ = Ложь, пОшибка = "")
+	
+	Попытка
+		Возврат Прокси().GetCountryByGuid(guid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetCountryByGuid");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -19,15 +31,27 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисIkarService_2_0.GetRegionByGuid(guid, пОтказ, пОшибка);
+		Возврат GetRegionByGuid_1_4(guid, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисIkarService_2_0.GetRegionByGuid(guid, пОтказ, пОшибка);
+		Возврат GetRegionByGuid_1_4(guid, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисIkarService_1_4.GetRegionByGuid(guid, пОтказ, пОшибка);
+		Возврат GetRegionByGuid_1_4(guid, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetRegionByGuid_1_4(guid, пОтказ = Ложь, пОшибка = "")
+	
+	Попытка
+		Возврат Прокси().GetRegionByGuid(guid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetRegionByGuid");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -35,15 +59,27 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисIkarService_2_0.GetDistrictByGuid(guid, пОтказ, пОшибка);
+		Возврат GetDistrictByGuid_1_4(guid, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисIkarService_2_0.GetDistrictByGuid(guid, пОтказ, пОшибка);
+		Возврат GetDistrictByGuid_1_4(guid, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисIkarService_1_4.GetDistrictByGuid(guid, пОтказ, пОшибка);
+		Возврат GetDistrictByGuid_1_4(guid, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetDistrictByGuid_1_4(guid, пОтказ = Ложь, пОшибка = "")
+	
+	Попытка
+		Возврат Прокси().GetDistrictByGuid(guid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetDistrictByGuid");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -52,15 +88,22 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисIkarService_2_0.GetAllCountryListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetAllCountryListNext_1_4(Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисIkarService_2_0.GetAllCountryListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetAllCountryListNext_1_4(Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисIkarService_1_4.GetAllCountryListNext(Item, Params, пОтказ, пОшибка);
+		Возврат GetAllCountryListNext_1_4(Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetAllCountryListNext_1_4(Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Ветис.GetRefListInit(ИмяСервиса(), "GetAllCountryList", "country", "", пПараметры);
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -68,15 +111,24 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисIkarService_2_0.GetRegionListByCountryNext(countryGuid, Item, Params, пОтказ, пОшибка);
+		Возврат GetRegionListByCountryNext_1_4(countryGuid, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисIkarService_2_0.GetRegionListByCountryNext(countryGuid, Item, Params, пОтказ, пОшибка);
+		Возврат GetRegionListByCountryNext_1_4(countryGuid, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисIkarService_1_4.GetRegionListByCountryNext(countryGuid, Item, Params, пОтказ, пОшибка);
+		Возврат GetRegionListByCountryNext_1_4(countryGuid, Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetRegionListByCountryNext_1_4(countryGuid, Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetRegionListByCountry", "region", "", пПараметры, countryGuid);
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -84,15 +136,24 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисIkarService_2_0.GetDistrictListByRegionNext(regionGuid, Item, Params, пОтказ, пОшибка);
+		Возврат GetDistrictListByRegionNext_1_4(regionGuid, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисIkarService_2_0.GetDistrictListByRegionNext(regionGuid, Item, Params, пОтказ, пОшибка);
+		Возврат GetDistrictListByRegionNext_1_4(regionGuid, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисIkarService_1_4.GetDistrictListByRegionNext(regionGuid, Item, Params, пОтказ, пОшибка);
+		Возврат GetDistrictListByRegionNext_1_4(regionGuid, Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetDistrictListByRegionNext_1_4(regionGuid, Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetDistrictListByRegion", "district", "", пПараметры, regionGuid);
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -100,15 +161,24 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисIkarService_2_0.GetLocalityListByRegionNext(regionGuid, Item, Params, пОтказ, пОшибка);
+		Возврат GetLocalityListByRegionNext_1_4(regionGuid, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисIkarService_2_0.GetLocalityListByRegionNext(regionGuid, Item, Params, пОтказ, пОшибка);
+		Возврат GetLocalityListByRegionNext_1_4(regionGuid, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисIkarService_1_4.GetLocalityListByRegionNext(regionGuid, Item, Params, пОтказ, пОшибка);
+		Возврат GetLocalityListByRegionNext_1_4(regionGuid, Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetLocalityListByRegionNext_1_4(regionGuid, Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetLocalityListByRegion", "locality", "", пПараметры, regionGuid);
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -116,49 +186,58 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисIkarService_2_0.GetLocalityListByDistrictNext(districtGuid, Item, Params, пОтказ, пОшибка);
+		Возврат GetLocalityListByDistrictNext_1_4(districtGuid, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисIkarService_2_0.GetLocalityListByRegionNext(districtGuid, Item, Params, пОтказ, пОшибка);
+		Возврат GetLocalityListByDistrictNext_1_4(districtGuid, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисIkarService_1_4.GetLocalityListByDistrictNext(districtGuid, Item, Params, пОтказ, пОшибка);
+		Возврат GetLocalityListByDistrictNext_1_4(districtGuid, Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
 	
 КонецФункции
+Функция GetLocalityListByDistrictNext_1_4(districtGuid, Item, пПараметры, пОтказ = Ложь, пОшибка = "")
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetLocalityListByDistrict", "locality", "", пПараметры, districtGuid);
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
 
 
 Функция GetCountryChangesListNext(beginDate, endDate = Неопределено, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если Ветис.ВыборкаСпискаЭтоНачало(Params) Тогда
-		Ветис.ВыборкаСпискаИнициализация(ИмяСервиса(), "GetCountryChangesList", "country", "", Params, 
+	Если Ветис.GetListItFirst(Params) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetCountryChangesList", "country", "", Params, 
 			ВетисBase.DateInterval(beginDate, endDate));
 	КонецЕсли;
 	
-	Возврат Ветис.ВыборкаСпискаСледующий(Item, Params, пОтказ, пОшибка);
+	Возврат Ветис.GetRefListNext(Item, Params, пОтказ, пОшибка);
 	
 КонецФункции
 
 Функция GetRegionChangesListNext(beginDate, endDate = Неопределено, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если Ветис.ВыборкаСпискаЭтоНачало(Params) Тогда
-		Ветис.ВыборкаСпискаИнициализация(ИмяСервиса(), "GetRegionChangesList", "region", "", Params, 
+	Если Ветис.GetListItFirst(Params) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetRegionChangesList", "region", "", Params, 
 			ВетисBase.DateInterval(beginDate, endDate));
 	КонецЕсли;
 	
-	Возврат Ветис.ВыборкаСпискаСледующий(Item, Params, пОтказ, пОшибка);
+	Возврат Ветис.GetRefListNext(Item, Params, пОтказ, пОшибка);
 	
 КонецФункции
 
 Функция GetDistrictChangesListNext(beginDate, endDate = Неопределено, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если Ветис.ВыборкаСпискаЭтоНачало(Params) Тогда
-		Ветис.ВыборкаСпискаИнициализация(ИмяСервиса(), "GetDistrictChangesList", "district", "", Params, 
+	Если Ветис.GetListItFirst(Params) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetDistrictChangesList", "district", "", Params, 
 			ВетисBase.DateInterval(beginDate, endDate));
 	КонецЕсли;
 	
-	Возврат Ветис.ВыборкаСпискаСледующий(Item, Params, пОтказ, пОшибка);
+	Возврат Ветис.GetRefListNext(Item, Params, пОтказ, пОшибка);
 	
 КонецФункции
 

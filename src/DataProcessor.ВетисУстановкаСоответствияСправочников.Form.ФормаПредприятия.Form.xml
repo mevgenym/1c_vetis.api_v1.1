@@ -1214,36 +1214,6 @@
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
-		<Command name="КомандаСоздатьСвязь" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Создать связь</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда создать связь</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаСоздатьСвязь</Action>
-		</Command>
-		<Command name="КомандаУдалитьСвязь" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Удалить связь</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда удалить связь</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаУдалитьСвязь</Action>
-		</Command>
 		<Command name="КомандаДобавитьИзСервиса" id="1">
 			<Title>
 				<v8:item>

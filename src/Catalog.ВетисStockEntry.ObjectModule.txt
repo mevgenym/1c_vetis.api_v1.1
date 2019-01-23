@@ -42,6 +42,8 @@
 		
 		Если _Версия20 Тогда
 			
+			_enterpriseGuid = ВетисОбщегоНазначения.ЗначениеРеквизита(Enterprise, "Guid");
+			
 			seOwner = ВетисDictionaryСлой1с.BusinessEntity(_stockEntry.batch.owner);
 			
 			Если НЕ _stockEntry.batch.packageList = Неопределено Тогда
@@ -67,7 +69,8 @@
 			КонецЕсли;
 			
 			Если НЕ _stockEntry.batch.origin = Неопределено Тогда
-				Если НЕ _stockEntry.batch.origin.producer = Неопределено И ProducerList.Количество() = 0 Тогда
+				Если НЕ _stockEntry.batch.origin.producer = Неопределено Тогда
+					ProducerList.Очистить();
 					__stockEntry = Неопределено;
 					//ProducerList.Очистить();
 					Для каждого _producer Из _stockEntry.batch.origin.producer Цикл
@@ -89,7 +92,7 @@
 							//возращают пустые значения producer.enterprise.guid И producer.enterprise.name
 							//операция getStockEntryByGuid возращает с заполненными полями
 							_Отказ = Ложь;
-							__stockEntry = ВетисMercuryApplications.getStockEntryByGuid(_stockEntry.guid, Enterprise.guid, BusinessEntity, _Отказ);
+							__stockEntry = ВетисMercuryApplications.getStockEntryByGuid(_stockEntry.guid, _enterpriseGuid, BusinessEntity, _Отказ);
 							Если НЕ _Отказ Тогда
 								Прервать;
 							КонецЕсли;
@@ -112,16 +115,27 @@
 						КонецЦикла;
 					КонецЕсли;
 				КонецЕсли;
-				//Если НЕ _stockEntry.batch.origin.productItem = Неопределено Тогда
-				//	producerProductItem = _ВетисArgusProductionСлой1с.ProductItem(_stockEntry.batch.origin.productItem);
-				//КонецЕсли;
 				country = ВетисDictionaryСлой1с.Country(_stockEntry.batch.origin.country);
 			КонецЕсли;
 			
 			VetDocumentList.Очистить();
+			_Отказ = Ложь; _Ошибка = "";
 			Для каждого _vetDocument Из _stockEntry.vetDocument Цикл
 				_Строка = VetDocumentList.Добавить();
-				_Строка.vetDocument = ВетисMercuryVetdocumentСлой1с.VetDocument(_vetDocument);
+				_Строка.vetDocument = ВетисMercuryVetdocumentСлой1с.VetDocument(_vetDocument, _enterpriseGuid, BusinessEntity, _Отказ, _Ошибка);
+				Если _Отказ Тогда
+					//MERC29224 - Ветеринарно-сопроводительный документ не найден в реестре РСХН, либо идентификатор не соответствует установленному формату.
+					//ВСД может быть и есть но под другими enterpriseGuid или issuerID
+					//сделать: проверить, возможно исправили
+					//
+					//ответ ТП (2019-01-22):
+					//По вашему обращению проведена проверка.
+					//Запись складского журнала, которая сформировалась в результате гашения ВСД хххххх, была отредактирована гос.вет. врачом.
+					//В частности, указанным врачом изменен ХС-владелец продукции. Произвести данные изменения возможно в веб-интерфейсе Меркурий.ГВЭ.
+					//
+					//...руки опускаются от этого маразма
+					ВызватьИсключение _Ошибка;
+				КонецЕсли;
 			КонецЦикла;
 			
 			dateOfProductionFirst = ВетисDictionary.ComplexDate(_stockEntry.batch.dateOfProduction.firstDate, Истина);
@@ -184,5 +198,28 @@
 	
 	Наименование = ProductItemName;
 	Представление = ProductItemName;
+	
+	Если Ветис.Настройки_РегистрНакопленияStockEntry() Тогда
+		//см. комментарий в обработке проведения ВетисТранспортнаяПартия
+		Для Каждого _ТекСтрокаТовары Из VetDocumentList Цикл
+			_НЗ = РегистрыНакопления.ВетисStockEntry.СоздатьНаборЗаписей();
+			_НЗ.Отбор.Регистратор.Установить(_ТекСтрокаТовары.vetDocument);
+			_Движение = _НЗ.Добавить();
+			_Движение.ВидДвижения = ВидДвиженияНакопления.Приход;
+			_Движение.Период = ВетисОбщегоНазначения.ЗначениеРеквизита(_ТекСтрокаТовары.vetDocument, "Дата");
+			_Движение.vetDocument = _ТекСтрокаТовары.vetDocument;
+			_Движение.BusinessEntity = BusinessEntity;
+			_Движение.Enterprise = Enterprise;
+			_Движение.StockEntry = Ссылка;
+			_Движение.volume = volume1; //начальный объем
+			//_Движение.uuid = uuid;
+			Попытка
+				_НЗ.Записать();
+			Исключение
+				ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке());
+			КонецПопытки;
+			Прервать;
+		КонецЦикла;
+	КонецЕсли;
 	
 КонецПроцедуры

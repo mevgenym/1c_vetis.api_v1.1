@@ -129,8 +129,8 @@
 		
 	Иначе
 		
-		_businessEntityGuid = ВетисCerberusEnterpriseСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект);
-		_enterpriseGuid     = ВетисCerberusEnterpriseСлой1с.Enterprise(Объект.Предприятие);
+		_businessEntityGuid = ВетисDictionaryСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект);
+		_enterpriseGuid     = ВетисDictionaryСлой1с.Enterprise(Объект.Предприятие);
 		
 		_businessEntity = ВетисDictionary.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект));
 		_enterprise     = ВетисDictionary.Enterprise(ВетисDictionaryСлой1с.Enterprise(Объект.Предприятие));

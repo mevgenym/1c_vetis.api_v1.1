@@ -192,6 +192,34 @@
 						</InputField>
 					</ChildItems>
 				</Page>
+				<Page name="ГруппаПрочее" id="58">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прочее</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа прочее</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаПрочееРасширеннаяПодсказка" id="59"/>
+					<ChildItems>
+						<InputField name="Пользователь" id="60">
+							<DataPath>Объект.Пользователь</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пользователь УТ</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПользовательКонтекстноеМеню" id="61"/>
+							<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="62"/>
+						</InputField>
+					</ChildItems>
+				</Page>
 			</ChildItems>
 		</Pages>
 	</ChildItems>

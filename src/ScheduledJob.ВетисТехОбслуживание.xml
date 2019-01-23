@@ -1,23 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
-	<CommonModule uuid="73a2b58c-9865-4025-b215-cb3885948c57">
+	<ScheduledJob uuid="321b954f-324f-423d-8bed-64074eb04801">
 		<Properties>
-			<Name>ВетисBase_1_4</Name>
+			<Name>ВетисТехОбслуживание</Name>
 			<Synonym>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Ветис base 1 4</v8:content>
+					<v8:content>Тех. обслуживание (ветис)</v8:content>
 				</v8:item>
 			</Synonym>
 			<Comment/>
-			<Global>false</Global>
-			<ClientManagedApplication>false</ClientManagedApplication>
-			<Server>true</Server>
-			<ExternalConnection>false</ExternalConnection>
-			<ClientOrdinaryApplication>false</ClientOrdinaryApplication>
-			<ServerCall>false</ServerCall>
-			<Privileged>false</Privileged>
-			<ReturnValuesReuse>DontUse</ReturnValuesReuse>
+			<MethodName>CommonModule.ВетисДлительныеОперации.ВетисТехОбслуживание</MethodName>
+			<Description>ВетисТехОбслуживание</Description>
+			<Key>ВетисТехОбслуживание</Key>
+			<Use>true</Use>
+			<Predefined>true</Predefined>
+			<RestartCountOnFailure>0</RestartCountOnFailure>
+			<RestartIntervalOnFailure>10</RestartIntervalOnFailure>
 		</Properties>
-	</CommonModule>
+	</ScheduledJob>
 </MetaDataObject>

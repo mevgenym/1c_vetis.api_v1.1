@@ -102,7 +102,7 @@
 	_Определения = ВетисПовтИсп.Определения(пИмяСервиса);
 	
 	_URI = Новый Массив;
-	_URI.Добавить(ВетисRegistry_2_0.ServiceURI());
+	_URI.Добавить(ВетисRegistry.ServiceURI());
 	_URI.Добавить(ВетисBase.ServiceURI());
 	
 	_ФабрикаWS = Новый ФабрикаXDTO(_Определения.ФабрикаXDTO.ЭкспортМоделиXDTO(_URI), _ФабрикаXDTO.Пакеты);
@@ -436,12 +436,12 @@
 		_суф = "_v1.4.xsd";
 		
 		XSDДобавить(_таблица, _КорневойКаталог+"application"+_суф,         ВетисApplication.URI());
-		XSDДобавить(_таблица, _КорневойКаталог+"argus_common"+_суф,        ВетисArgusCommon_1_4.URI());
-		XSDДобавить(_таблица, _КорневойКаталог+"production"+_суф,          ВетисArgusProduction_1_4.URI());
-		XSDДобавить(_таблица, _КорневойКаталог+"argus_shipment"+_суф,      ВетисArgusShipment_1_4.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+"argus_common"+_суф,        ВетисDictionary.URI("common"));
+		XSDДобавить(_таблица, _КорневойКаталог+"production"+_суф,          ВетисDictionary.URI("production"));
+		XSDДобавить(_таблица, _КорневойКаталог+"argus_shipment"+_суф,      ВетисDictionary.URI("shipment"));
 		XSDДобавить(_таблица, _КорневойКаталог+"base"+_суф,                ВетисBase.URI());
-		XSDДобавить(_таблица, _КорневойКаталог+"enterprise"+_суф,          ВетисCerberusEnterprise_1_4.URI());
-		XSDДобавить(_таблица, _КорневойКаталог+"ikar"+_суф,                ВетисIkar_1_4.URI());
+		XSDДобавить(_таблица, _КорневойКаталог+"enterprise"+_суф,          ВетисDictionary.URI("enterprise"));
+		XSDДобавить(_таблица, _КорневойКаталог+"ikar"+_суф,                ВетисDictionary.URI("ikar"));
 		XSDДобавить(_таблица, _КорневойКаталог+"applications"+_суф,        ВетисMercuryApplications.URI());
 		XSDДобавить(_таблица, _КорневойКаталог+"veterinary_document"+_суф, ВетисMercuryVetdocument.URI());
 		

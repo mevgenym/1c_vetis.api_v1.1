@@ -3,11 +3,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetStockEntryByGuid(guid, enterpriseGuid, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByGuid", "GetStockEntryByGuid", "stockEntry", issuerId, пОтказ, пОшибка, "enterpriseGuid,guid", enterpriseGuid, guid);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetStockEntryByGuid(guid, enterpriseGuid, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByGuid", "GetStockEntryByGuid", "stockEntry", issuerId, пОтказ, пОшибка, "enterpriseGuid,guid", enterpriseGuid, guid);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.getStockEntryByGuid(guid, enterpriseGuid, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByGuid", "getStockEntryByGuid", "stockEntry", issuerId, пОтказ, пОшибка, "enterpriseGuid,guid", enterpriseGuid, guid);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -19,11 +19,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.getStockEntryByUuid(uuid, enterpriseGuid, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByUuid", "GetStockEntryByUuid", "stockEntry", issuerId, пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, uuid);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.getStockEntryByUuid(uuid, enterpriseGuid, issuerId, пОтказ, пОшибка);
-	//ИначеЕсли Ветис.Версия_1_4() Тогда
-	//	Возврат ВетисMercuryApplications_1_4.getStockEntryByUuid(uuid, enterpriseGuid, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByUuid", "GetStockEntryByUuid", "stockEntry", issuerId, пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, uuid);
+	ИначеЕсли Ветис.Версия_1_4() Тогда
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByUuid", "getStockEntryByUuid", "stockEntry", issuerId, пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, uuid);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -37,54 +37,36 @@
 // enterpriseGuid - Идентификатор предприятия
 // issuerId       - Идентификатор ХС
 // Item          - элемент списка, возвращаемый параметр
-// Params     - для внутреннего использования, начальное значение - Неопределено
+// пПараметры     - для внутреннего использования, начальное значение - Неопределено
 //Возвращаемое значение:
 // Булево         - Ложь значит список пройден весь
-Функция getStockEntryListNext(enterpriseGuid, issuerId = Неопределено, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция getStockEntryListNext(enterpriseGuid, issuerId = Неопределено, Item, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если Ложь Тогда
-	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetStockEntryListNext(enterpriseGuid, issuerId, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetStockEntryListNext(enterpriseGuid, issuerId, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.getStockEntryListNext(enterpriseGuid, issuerId, Item, Params, пОтказ, пОшибка);
-	Иначе
-		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
-		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		GetListInit("getStockEntryList", "GetStockEntryList", "stockEntryList", "stockEntry", , issuerId, пПараметры, "enterpriseGuid,searchPattern", enterpriseGuid, ?(пПараметры.Свойство("searchPattern"), ВетисMercuryVetdocument.StockEntrySearchPattern(пПараметры.searchPattern), ""));
 	КонецЕсли;
+	
+	Возврат Ветис.GetListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
-Функция getStockEntryChangesListNext(enterpriseGuid, beginDate, endDate = Неопределено, issuerId = Неопределено, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция getStockEntryChangesListNext(enterpriseGuid, beginDate, endDate = Неопределено, issuerId = Неопределено, Item, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если Ложь Тогда
-	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetStockEntryChangesListNext(enterpriseGuid, beginDate, endDate, issuerId, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetStockEntryChangesListNext(enterpriseGuid, beginDate, endDate, issuerId, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.getStockEntryChangesListNext(enterpriseGuid, beginDate, endDate, issuerId, Item, Params, пОтказ, пОшибка);
-	Иначе
-		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
-		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		GetListInit("getStockEntryChangesList", "GetStockEntryChangesList", "stockEntryList", "stockEntry", , issuerId, пПараметры, "enterpriseGuid,updateDateInterval", enterpriseGuid, ВетисBase.DateInterval(beginDate, endDate));
 	КонецЕсли;
+	
+	Возврат Ветис.GetListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
-Функция getStockEntryVersionListNext(enterpriseGuid, stockEntryGuid, issuerId = Неопределено, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция getStockEntryVersionListNext(enterpriseGuid, stockEntryGuid, issuerId = Неопределено, Item, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если Ложь Тогда
-	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetStockEntryVersionListNext(enterpriseGuid, stockEntryGuid, issuerId, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetStockEntryVersionListNext(enterpriseGuid, stockEntryGuid, issuerId, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.getStockEntryVersionListNext(enterpriseGuid, stockEntryGuid, issuerId, Item, Params, пОтказ, пОшибка);
-	Иначе
-		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
-		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		GetListInit("getStockEntryVersionList", "GetStockEntryVersionList", "stockEntryList", "stockEntry", , issuerId, пПараметры, "enterpriseGuid,guid", enterpriseGuid, stockEntryGuid);
 	КонецЕсли;
+	
+	Возврат Ветис.GetListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -92,11 +74,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetVetDocumentByUuid(vetDocumentUuid, enterpriseGuid, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getVetDocumentByUuid", "GetVetDocumentByUuid", "vetDocument", issuerId, пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, vetDocumentUuid);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetVetDocumentByUuid(vetDocumentUuid, enterpriseGuid, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getVetDocumentByUuid", "GetVetDocumentByUuid", "vetDocument", issuerId, пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, vetDocumentUuid);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.getVetDocumentByUuid(vetDocumentUuid, enterpriseGuid, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getVetDocumentByUuid", "GetVetDocumentByUuid", "vetDocument", issuerId, пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, vetDocumentUuid);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -110,38 +92,26 @@
 // enterpriseGuid - Идентификатор предприятия
 // issuerId       - Идентификатор ХС
 // Item          - элемент списка, возвращаемый параметр
-// Params     - для внутреннего использования, начальное значение - Неопределено
+// пПараметры     - для внутреннего использования, начальное значение - Неопределено
 //Возвращаемое значение:
 // Булево         - Ложь значит список пройден весь
-Функция getVetDocumentListNext(enterpriseGuid, issuerId = Неопределено, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция getVetDocumentListNext(enterpriseGuid, issuerId = Неопределено, Item, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если Ложь Тогда
-	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetVetDocumentListNext(enterpriseGuid, issuerId, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetVetDocumentListNext(enterpriseGuid, issuerId, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.getVetDocumentListNext(enterpriseGuid, issuerId, Item, Params, пОтказ, пОшибка);
-	Иначе
-		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
-		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		GetListInit("getVetDocumentList", "GetVetDocumentList", "vetDocumentList", "vetDocument", , issuerId, пПараметры, "enterpriseGuid", enterpriseGuid);
 	КонецЕсли;
+	
+	Возврат Ветис.GetListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
-Функция getVetDocumentChangesListNext(enterpriseGuid, beginDate, endDate = Неопределено, issuerId = Неопределено, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция getVetDocumentChangesListNext(enterpriseGuid, beginDate, endDate = Неопределено, issuerId = Неопределено, Item, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если Ложь Тогда
-	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetVetDocumentChangesListNext(enterpriseGuid, beginDate, endDate, issuerId, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetVetDocumentChangesListNext(enterpriseGuid, beginDate, endDate, issuerId, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.getVetDocumentChangesListNext(enterpriseGuid, beginDate, endDate, issuerId, Item, Params, пОтказ, пОшибка);
-	Иначе
-		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
-		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		GetListInit("getVetDocumentChangesList", "GetVetDocumentChangesList", "vetDocumentList", "vetDocument", , issuerId, пПараметры, "enterpriseGuid,updateDateInterval", enterpriseGuid, ВетисBase.DateInterval(beginDate, endDate));
 	КонецЕсли;
+	
+	Возврат Ветис.GetListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -149,11 +119,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.UpdateVeterinaryEvents(enterprise, stockEntry, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("updateVeterinaryEvents", "UpdateVeterinaryEvents", "stockEntry", issuerId, пОтказ, пОшибка, "enterprise,stockEntry", enterprise, stockEntry);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.UpdateVeterinaryEvents(enterprise, stockEntry, issuerId, пОтказ, пОшибка);
-	//ИначеЕсли Ветис.Версия_1_4() Тогда
-	//	Возврат ВетисMercuryApplications_1_4.UpdateVeterinaryEvents(enterprise, stockEntry, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("updateVeterinaryEvents", "UpdateVeterinaryEvents", "stockEntry", issuerId, пОтказ, пОшибка, "enterprise,stockEntry", enterprise, stockEntry);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -161,15 +129,13 @@
 	
 КонецФункции
 
-Функция MergeStockEntries(guid, enterpriseGuid, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция MergeStockEntries(enterprise, mergeOperation, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.MergeStockEntries(guid, enterpriseGuid, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("mergeStockEntries", "MergeStockEntries", "stockEntry", issuerId, пОтказ, пОшибка, "enterprise,mergeOperation", enterprise, mergeOperation);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.MergeStockEntries(guid, enterpriseGuid, issuerId, пОтказ, пОшибка);
-	//ИначеЕсли Ветис.Версия_1_4() Тогда
-	//	Возврат ВетисMercuryApplications_1_4.MergeStockEntries(guid, enterpriseGuid, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("mergeStockEntries", "MergeStockEntries", "stockEntry", issuerId, пОтказ, пОшибка, "enterprise,mergeOperation", enterprise, mergeOperation);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -181,11 +147,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.ProcessIncomingConsignment(delivery, deliveryFacts, discrepancyReport, returnedDelivery, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("processIncomingConsignment", "ProcessIncomingConsignment", , issuerId, пОтказ, пОшибка, "delivery,deliveryFacts,discrepancyReport,returnedDelivery", delivery, deliveryFacts, discrepancyReport, returnedDelivery);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.ProcessIncomingConsignment(delivery, deliveryFacts, discrepancyReport, returnedDelivery, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("processIncomingConsignment", "ProcessIncomingConsignment", , issuerId, пОтказ, пОшибка, "delivery,deliveryFacts,discrepancyReport,returnedDelivery", delivery, deliveryFacts, discrepancyReport, returnedDelivery);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.processIncomingConsignment(delivery, deliveryFacts, discrepancyReport, returnedDelivery, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("processIncomingConsignment", "ProcessIncomingConsignment", , issuerId, пОтказ, пОшибка, "delivery,deliveryFacts,discrepancyReport,returnedDelivery", delivery, deliveryFacts, discrepancyReport, returnedDelivery);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -200,11 +166,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.PrepareOutgoingConsignment(delivery, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("prepareOutgoingConsignment", "PrepareOutgoingConsignment", , issuerId, пОтказ, пОшибка, "delivery", delivery);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.PrepareOutgoingConsignment(delivery, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("prepareOutgoingConsignment", "PrepareOutgoingConsignment", , issuerId, пОтказ, пОшибка, "delivery", delivery);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.prepareOutcomingConsignment(delivery, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("prepareOutcomingConsignment", "PrepareOutcomingConsignment", , issuerId, пОтказ, пОшибка, "delivery", delivery);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -224,11 +190,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.ResolveDiscrepancy(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("resolveDiscrepancy", "ResolveDiscrepancy", "stockEntryList", issuerId, пОтказ, пОшибка, "enterprise,inventoryDate,responsible,stockDiscrepancy,discrepancyReport", enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.ResolveDiscrepancy(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("resolveDiscrepancy", "ResolveDiscrepancy", "stockEntryList", issuerId, пОтказ, пОшибка, "enterprise,inventoryDate,responsible,stockDiscrepancy,discrepancyReport", enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.resolveDiscrepancy(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("resolveDiscrepancy", "ResolveDiscrepancy", "stockEntryList", issuerId, пОтказ, пОшибка, "enterprise,inventoryDate,responsible,stockDiscrepancy,discrepancyReport", enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -246,11 +212,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.WithdrawVetDocument(vetDocumentId, withdrawReason, withdrawDate, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("withdrawVetDocument", "WithdrawVetDocument", "vetDocument", issuerId, пОтказ, пОшибка, "vetDocumentId,withdrawReason,withdrawDate,specifiedPerson", vetDocumentId, withdrawReason, withdrawDate, User());
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.WithdrawVetDocument(vetDocumentId, withdrawReason, withdrawDate, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("withdrawVetDocument", "WithdrawVetDocument", "vetDocument", issuerId, пОтказ, пОшибка, "vetDocumentId,withdrawReason,withdrawDate,specifiedPerson", vetDocumentId, withdrawReason, withdrawDate, User());
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.prepareOutcomingConsignment(vetDocumentId, withdrawReason, withdrawDate, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("withdrawVetDocument", "WithdrawVetDocument", "vetDocument", issuerId, пОтказ, пОшибка, "vetDocumentId,withdrawReason,withdrawDate,vetDoctor", vetDocumentId, withdrawReason, withdrawDate, User());
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -266,11 +232,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.ModifyBusinessEntity(modificationOperation, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("modifyBusinessEntity", "ModifyBusinessEntity", "businessEntity", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.ModifyBusinessEntity(modificationOperation, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("modifyBusinessEntity", "ModifyBusinessEntity", "businessEntity", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.ModifyBusinessEntity(modificationOperation, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("modifyBusinessEntity", "ModifyBusinessEntity", "businessEntity", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -286,11 +252,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.ModifyEnterprise(modificationOperation, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("modifyEnterprise", "ModifyEnterprise", "enterprise", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.ModifyEnterprise(modificationOperation, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("modifyEnterprise", "ModifyEnterprise", "enterprise", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.ModifyEnterprise(modificationOperation, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("modifyEnterprise", "ModifyEnterprise", "enterprise", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -305,11 +271,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.ModifyActivityLocations(modificationOperation, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("modifyActivityLocations", "ModifyActivityLocations", "businessEntity", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.ModifyActivityLocations(modificationOperation, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("modifyActivityLocations", "ModifyActivityLocations", "businessEntity", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.ModifyActivityLocations(modificationOperation, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("modifyActivityLocations", "ModifyActivityLocations", "businessEntity", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -324,11 +290,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.ModifyProducerStockList(modificationOperation, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("modifyProducerStockList", "ModifyProducerStockList", "productItemList", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.ModifyProducerStockList(modificationOperation, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("modifyProducerStockList", "ModifyProducerStockList", "productItemList", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.ModifyProducerStockList(modificationOperation, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("modifyProducerStockList", "ModifyProducerStockList", "productItemList", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -342,9 +308,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.UpdateTransportMovementDetails(deliveryParticipant, vetDocumentUuid, shipmentRoute, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("updateTransportMovementDetails", "UpdateTransportMovementDetails", "vetDocument", issuerId, пОтказ, пОшибка, "deliveryParticipant,vetDocumentUuid,shipmentRoute", deliveryParticipant, vetDocumentUuid, shipmentRoute);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.UpdateTransportMovementDetails(deliveryParticipant, vetDocumentUuid, shipmentRoute, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("updateTransportMovementDetails", "UpdateTransportMovementDetails", "vetDocument", issuerId, пОтказ, пОшибка, "deliveryParticipant,vetDocumentUuid,shipmentRoute", deliveryParticipant, vetDocumentUuid, shipmentRoute);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -358,9 +324,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.CheckShipmentRegionalization(cargoType, shipmentRoute, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("checkShipmentRegionalization", "CheckShipmentRegionalization", "r13nRouteSection", issuerId, пОтказ, пОшибка, "cargoType,shipmentRoute", cargoType, shipmentRoute);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.CheckShipmentRegionalization(cargoType, shipmentRoute, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("checkShipmentRegionalization", "CheckShipmentRegionalization", "r13nRouteSection", issuerId, пОтказ, пОшибка, "cargoType,shipmentRoute", cargoType, shipmentRoute);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -376,9 +342,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.AddBusinessEntityUser(user, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("addBusinessEntityUser", "AddBusinessEntityUser", "user", issuerId, пОтказ, пОшибка, "user", user);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.AddBusinessEntityUser(user, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("addBusinessEntityUser", "AddBusinessEntityUser", "user", issuerId, пОтказ, пОшибка, "user", user);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -393,9 +359,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetBusinessEntityUser(user, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("getBusinessEntityUser", "GetBusinessEntityUser", "user", issuerId, пОтказ, пОшибка, "user", user);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetBusinessEntityUser(user, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("getBusinessEntityUser", "GetBusinessEntityUser", "user", issuerId, пОтказ, пОшибка, "user", user);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -405,17 +371,15 @@
 
 // Предназначена для получения списка пользователей хозяйствующего субъекта
 // Параметры:
-Функция GetBusinessEntityUserListNext(issuerId = Неопределено, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция GetBusinessEntityUserListNext(issuerId = Неопределено, Item, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если Ложь Тогда
-	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetBusinessEntityUserListNext(issuerId, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetBusinessEntityUserListNext(issuerId, Item, Params, пОтказ, пОшибка);
-	Иначе
-		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
-		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+	
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		GetListInit("getBusinessEntityUserList", "GetBusinessEntityUserList", "userList", "user", , issuerId, пПараметры);
 	КонецЕсли;
+	
+	Возврат Ветис.GetListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -427,9 +391,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.UpdateUserAuthorities(user, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("updateUserAuthorities", "UpdateUserAuthorities", "user", issuerId, пОтказ, пОшибка, "user", user);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.UpdateUserAuthorities(user, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("updateUserAuthorities", "UpdateUserAuthorities", "user", issuerId, пОтказ, пОшибка, "user", user);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -444,9 +408,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.UpdateUserWorkingAreas(user, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("updateUserWorkingAreas", "UpdateUserWorkingAreas", "user", issuerId, пОтказ, пОшибка, "user", user);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.UpdateUserWorkingAreas(user, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("updateUserWorkingAreas", "UpdateUserWorkingAreas", "user", issuerId, пОтказ, пОшибка, "user", user);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -461,9 +425,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.UnbindBusinessEntityUser(user, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("unbindBusinessEntityUser", "UnbindBusinessEntityUser", "user", issuerId, пОтказ, пОшибка, "user", user);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.UnbindBusinessEntityUser(user, issuerId, пОтказ, пОшибка);
+		Возврат ПолучитьЧерезПрокси("unbindBusinessEntityUser", "UnbindBusinessEntityUser", "user", issuerId, пОтказ, пОшибка, "user", user);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -473,24 +437,81 @@
 
 // Предназначена для получения списка прав пользователей для системы Меркурий
 // Параметры:
-Функция GetApplicableUserAuthorityListNext(issuerId = Неопределено, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция GetApplicableUserAuthorityListNext(issuerId = Неопределено, Item, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если Ложь Тогда
-	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetApplicableUserAuthorityListNext(issuerId, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.GetApplicableUserAuthorityListNext(issuerId, Item, Params, пОтказ, пОшибка);
-	Иначе
-		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
-		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	Если Ветис.GetListItFirst(пПараметры) Тогда
+		GetListInit("getApplicableUserAuthorityList", "GetApplicableUserAuthorityList", "userList", "user", , issuerId, пПараметры);
 	КонецЕсли;
+	
+	Возврат Ветис.GetListNext(Item, пПараметры, пОтказ, пОшибка);
 	
 КонецФункции
 
-
-Функция Создать(пИмя, пФабрика = Неопределено) Экспорт
+Процедура ДополнитьСтруктуру(пСтруктура, пИмена
+	, пЗн1 = Неопределено, пЗн2 = Неопределено, пЗн3 = Неопределено
+	, пЗн4 = Неопределено, пЗн5 = Неопределено, пЗн6 = Неопределено
+	, пЗн7 = Неопределено, пЗн8 = Неопределено, пЗн9 = Неопределено)
 	
-	Возврат ВетисОбщегоНазначения.Создать(пИмя, URI(), пФабрика);
+	_Номер = 1;
+	Для каждого _Имя Из СтрРазделить(пИмена, ",") Цикл
+		пСтруктура.Вставить(_Имя, Вычислить("пЗн"+_Номер));
+		_Номер = _Номер + 1;
+	КонецЦикла;
+	
+КонецПроцедуры
+
+Функция GetListInit(пИмяОперации, пИмяОбъекта, пИмяСписка, пИмяКоллекции, пИмяСвойства = "", issuerId, пПараметры = Неопределено,
+	пИменаСвойств = Неопределено
+	, пЗн1 = Неопределено, пЗн2 = Неопределено, пЗн3 = Неопределено
+	, пЗн4 = Неопределено, пЗн5 = Неопределено, пЗн6 = Неопределено
+	, пЗн7 = Неопределено, пЗн8 = Неопределено, пЗн9 = Неопределено) Экспорт
+	
+	//Если Ветис.GetListItFirst(пПараметры) Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		
+		_request = Создать(пИмяОбъекта+"Request", пИменаСвойств, пЗн1, пЗн2, пЗн3, пЗн4, пЗн5, пЗн6, пЗн7, пЗн8, пЗн9);
+		
+		Если пПараметры.Свойство("count") ИЛИ пПараметры.Свойство("offset") Тогда
+			ВетисОбщегоНазначения.УстановитьЗначение(_request, ВетисBase.ListOptions(?(пПараметры.Свойство("count"), пПараметры.count, Неопределено), ?(пПараметры.Свойство("offset"), пПараметры.offset, Неопределено)), "listOptions");
+		КонецЕсли;
+		
+		пПараметры.Вставить("Фабрика", ФабрикаWS());
+		пПараметры.Вставить("URI",     URI());
+		пПараметры.Вставить("issuerId", issuerId);
+		
+		Ветис.GetListInit(_request, пИмяОперации+"Request", пИмяОбъекта+"Response", пИмяСписка, пИмяКоллекции, пИмяСвойства, пПараметры);
+	//КонецЕсли;
+	
+КонецФункции
+
+Функция Создать(пИмя, пИменаСвойств = Неопределено
+	, пЗн1 = Неопределено, пЗн2 = Неопределено, пЗн3 = Неопределено
+	, пЗн4 = Неопределено, пЗн5 = Неопределено, пЗн6 = Неопределено
+	, пЗн7 = Неопределено, пЗн8 = Неопределено, пЗн9 = Неопределено) Экспорт
+	
+	_Объект = ВетисОбщегоНазначения.Создать(пИмя, URI());
+	
+	Если НЕ _Объект.Свойства().Получить("localTransactionId") = Неопределено Тогда
+		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	КонецЕсли;
+	
+	Если НЕ _Объект.Свойства().Получить("initiator") = Неопределено Тогда
+		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+	КонецЕсли;
+	
+	Если НЕ _Объект.Свойства().Получить("listOptions") = Неопределено Тогда
+		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase.ListOptions(), "listOptions");
+	КонецЕсли;
+	
+	Если НЕ пИменаСвойств = Неопределено Тогда
+		_Номер = 1;
+		Для каждого _Имя Из СтрРазделить(пИменаСвойств, ",") Цикл
+			ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Вычислить("пЗн"+_Номер), _Имя);
+			_Номер = _Номер + 1;
+		КонецЦикла;
+	КонецЕсли;
+	
+	Возврат _Объект;
 	
 КонецФункции
 
@@ -498,27 +519,42 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.URI();
+		Возврат URI_2_0();
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.URI();
+		Возврат URI_2_0();
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.URI();
+		Возврат "http://api.vetrf.ru/schema/cdm/mercury/applications";
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
 	
 КонецФункции
+Функция URI_2_0()
+	
+	Если ВетисПовтИсп.Настройки_ЦелевойСервис() = Перечисления.ВетисЦелевойСервис.mercury_g2b_service Тогда
+		Возврат "http://api.vetrf.ru/schema/cdm/mercury/g2b/applications/v2";
+	ИначеЕсли ВетисПовтИсп.Настройки_ЦелевойСервис() = Перечисления.ВетисЦелевойСервис.mercury_vu_service Тогда
+		Возврат "http://api.vetrf.ru/schema/cdm/mercury/vu/applications/v2";
+	КонецЕсли;
+	
+КонецФункции
 
 Функция User()
 	
-	Возврат ВетисMercuryVetdocument.User();
+	Возврат ВетисMercuryVetdocument.User(ВетисПовтИсп.ТекущийПользователь_Логин());
 	
 КонецФункции
 
 Функция ИмяСервиса() Экспорт
 	
 	Возврат Перечисления.ВетисСервис.ApplicationManagementService;
+	
+КонецФункции
+
+Функция Фабрика()
+	
+	Возврат ВетисПовтИсп.ФабрикаОбщая();
 	
 КонецФункции
 
@@ -530,16 +566,66 @@
 
 Функция Прокси(пИмяОперации, пRequest, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "")
 	
-	Если Ложь Тогда
-	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисMercuryApplications_2_0.Прокси(пИмяОперации, пRequest, issuerId, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисMercuryApplications_2_0.Прокси(пИмяОперации, пRequest, issuerId, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисMercuryApplications_1_4.Прокси(пИмяОперации, пRequest, issuerId, пОтказ, пОшибка);
+	_Параметры = Новый Структура;
+	_Параметры.Вставить("Сервис", Перечисления.ВетисСервис.amsMercuryService);
+	_Параметры.Вставить("ИмяОперации", пИмяОперации);
+	_Параметры.Вставить("Фабрика", ФабрикаWS());
+	_Параметры.Вставить("Настройка", issuerId);
+	
+	_Ответ = Ветис.ВыполнитьЗапрос(пRequest, _Параметры);
+	
+	Если _Ответ.Отказ = Истина Тогда
+		пОтказ = _Ответ.Отказ;
+		пОшибка = _Ответ.ТекстОшибки;
+	КонецЕсли;
+	
+	//Если НЕ _Ответ.Отказ Тогда
+	//	Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстЗапроса, пИмяОперации, "Запрос");
+	//	Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстОтветаЗаявки, пИмяОперации, "Запрос");
+	//	Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстОтвета, пИмяОперации, "Ответ");
+	//	Возврат _Ответ.Result;
+	//КонецЕсли;
+	
+	Возврат _Ответ;
+	
+КонецФункции
+
+Функция ПолучитьЧерезПрокси(пИмяОперации, пИмяОбъекта, пИмяСвойства = Неопределено, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "",
+	пИменаСвойств = Неопределено
+	, пЗн1 = Неопределено, пЗн2 = Неопределено, пЗн3 = Неопределено
+	, пЗн4 = Неопределено, пЗн5 = Неопределено, пЗн6 = Неопределено
+	, пЗн7 = Неопределено, пЗн8 = Неопределено, пЗн9 = Неопределено)
+	
+	_Request = Создать(пИмяОбъекта+"Request", пИменаСвойств, пЗн1, пЗн2, пЗн3, пЗн4, пЗн5, пЗн6, пЗн7, пЗн8, пЗн9);
+	
+	_Response = Прокси(пИмяОперации+"Request", _Request, issuerId, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат _Response; КонецЕсли;
+	
+	_Объект = _Response.Result[пИмяОбъекта+"Response"];
+	
+	Если пИмяСвойства = Неопределено Тогда
+		_Response.Вставить("Response", ВетисОбщегоНазначения.ПривестиКТипу(_Объект, пИмяОбъекта+"Response", URI()));
 	Иначе
-		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
-		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+		_Response.Вставить("Response", ВетисОбщегоНазначения.ПривестиКТипу(_Объект, пИмяОбъекта+"Response", URI())[пИмяСвойства]);
+	КонецЕсли;
+	
+	Возврат _Response;
+	
+КонецФункции
+
+Функция ПолучитьЧерезПроксиТолькоОбъект(пИмяОперации, пИмяОбъекта, пИмяСвойства = Неопределено, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "",
+	пИменаСвойств = Неопределено
+	, пЗн1 = Неопределено, пЗн2 = Неопределено, пЗн3 = Неопределено
+	, пЗн4 = Неопределено, пЗн5 = Неопределено, пЗн6 = Неопределено
+	, пЗн7 = Неопределено, пЗн8 = Неопределено, пЗн9 = Неопределено)
+	
+	_Ответ = ПолучитьЧерезПрокси(пИмяОперации, пИмяОбъекта, пИмяСвойства, issuerId, пОтказ, пОшибка, пИменаСвойств, пЗн1, пЗн2, пЗн3, пЗн4, пЗн5, пЗн6, пЗн7, пЗн8, пЗн9);
+	
+	Если _Ответ.Отказ Тогда
+		Возврат Неопределено;
+	Иначе
+		Возврат _Ответ.Response;
 	КонецЕсли;
 	
 КонецФункции

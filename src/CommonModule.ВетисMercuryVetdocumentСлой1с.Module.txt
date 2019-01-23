@@ -419,12 +419,33 @@
 	
 КонецФункции
 
-Функция VetDocument(value) Экспорт
+Функция VetDocument(value, enterpriseGuid = Неопределено, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если ТипЗнч(value) = Тип("ДокументСсылка.ВетисВетеринарноСопроводительныйДокумент") Тогда
-		Возврат value.uuid;
+		Возврат ВетисОбщегоНазначения.ЗначениеРеквизита(value, "uuid");
 	Иначе
-		Возврат Ветис.Соответствие_ПолучитьСсылку(value, "Документ.ВетисВетеринарноСопроводительныйДокумент");
+		_ссылка = Документы.ВетисВетеринарноСопроводительныйДокумент.ПолучитьСсылку(Новый УникальныйИдентификатор(value.uuid));
+		Если ВетисОбщегоНазначения.СсылкаСуществует(_ссылка) Тогда
+			Возврат _ссылка;
+		Иначе
+			_vetDocument = ВетисMercuryApplications.getVetDocumentByUuid(value.uuid, enterpriseGuid, issuerId, пОтказ, пОшибка);
+			Если пОтказ = Истина Тогда
+				Возврат Неопределено;
+			КонецЕсли;
+			_Документ = Документы.ВетисВетеринарноСопроводительныйДокумент.СоздатьДокумент();
+			_Документ.УстановитьСсылкуНового(_ссылка);
+			//_Документ.Дата = ТекущаяДата();
+			VetDocumentКонвертировать(_Документ, _vetDocument);
+			_Документ.ДополнительныеСвойства.Вставить("Загрузка");
+			Попытка
+				_Документ.Записать(РежимЗаписиДокумента.Проведение);
+			Исключение
+				ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке());
+				ВызватьИсключение;
+			КонецПопытки;
+			Возврат _Документ.Ссылка;
+			//Возврат Ветис.Соответствие_Конвертировать(value, "Документ", "ВетисВетеринарноСопроводительныйДокумент", "ВетисMercuryApplications", "getVetDocumentByUuid", "getVetDocumentByUuid", , Новый Структура("enterpriseGuid,issuerid", enterpriseGuid,issuerId));
+		КонецЕсли;
 	КонецЕсли;
 	
 КонецФункции
@@ -640,48 +661,57 @@
 			КонецЕсли;
 		КонецЕсли;
 		
-		_СтрокаВСД = ?(_док.РезультатыОсмотра.Количество() = 0, _док.РезультатыОсмотра.Добавить(), _док.РезультатыОсмотра[0]);
-		_СтрокаВСД.НазначениеГруза        = ВетисDictionaryСлой1с.Purpose(_всд.authentication.purpose);
-		_СтрокаВСД.КонтрольГосВетврачем   = _всд.authentication.cargoInspected;
-		_СтрокаВСД.Ветсанэкспертиза       = ВетисDictionaryСлой1с.ResearchResult(_всд.authentication.cargoExpertized);
-		_СтрокаВСД.БлагополучиеМестности  = _всд.authentication.locationProsperity;
-		_СтрокаВСД.ОсобыеОтметки          = _всд.authentication.specialMarks;
-		
 		_док.Иммунизация.Очистить();
-		Для каждого _immunization Из _всд.authentication.immunization Цикл
-			_Строка = _док.Иммунизация.Добавить();
-			//_Строка.Заболевание  = ВетисDictionaryСлой1с.AnimalDisease(_immunization.disease);
-			_Строка.Заболевание  = ?(_immunization.disease = Неопределено, "", _immunization.disease.name);
-			_Строка.Вакцина      = ?(ЗначениеЗаполнено(_immunization.medicinalDrug.ID), _immunization.medicinalDrug.ID, _immunization.medicinalDrug.name);
-			_Строка.СрокДействия = _immunization.effectiveBeforeDate;
-		КонецЦикла;
-		
+		_док.УсловияПеремещения.Очистить();
 		_док.ЛабораторныеИсследования.Очистить();
-		Для каждого _laboratoryResearch Из _всд.authentication.laboratoryResearch Цикл
-			_ИДПартии = "";
-			Для каждого _batchID Из _laboratoryResearch.batchID Цикл
-				_ИДПартии = _ИДПартии + ?(_ИДПартии = "", "", "; ") + _batchID;
+		Если НЕ _всд.authentication = Неопределено Тогда
+			_СтрокаВСД = ?(_док.РезультатыОсмотра.Количество() = 0, _док.РезультатыОсмотра.Добавить(), _док.РезультатыОсмотра[0]);
+			_СтрокаВСД.НазначениеГруза        = ВетисDictionaryСлой1с.Purpose(_всд.authentication.purpose);
+			_СтрокаВСД.КонтрольГосВетврачем   = _всд.authentication.cargoInspected;
+			_СтрокаВСД.Ветсанэкспертиза       = ВетисDictionaryСлой1с.ResearchResult(_всд.authentication.cargoExpertized);
+			_СтрокаВСД.БлагополучиеМестности  = _всд.authentication.locationProsperity;
+			_СтрокаВСД.ОсобыеОтметки          = _всд.authentication.specialMarks;
+			
+			Для каждого _immunization Из _всд.authentication.immunization Цикл
+				_Строка = _док.Иммунизация.Добавить();
+				//_Строка.Заболевание  = ВетисDictionaryСлой1с.AnimalDisease(_immunization.disease);
+				_Строка.Заболевание  = ?(_immunization.disease = Неопределено, "", _immunization.disease.name);
+				_Строка.Вакцина      = ?(ЗначениеЗаполнено(_immunization.medicinalDrug.ID), _immunization.medicinalDrug.ID, _immunization.medicinalDrug.name);
+				_Строка.СрокДействия = _immunization.effectiveBeforeDate;
 			КонецЦикла;
-			_Строка = _док.ЛабораторныеИсследования.Добавить();
-			_Строка.ИДПартии               = _ИДПартии;
-			_Строка.НомерЭкспертизы        = _laboratoryResearch.expertiseID;
-			_Строка.ПоказательБезопасности = ?(_laboratoryResearch.indicator = Неопределено, "", _laboratoryResearch.indicator.name);
-			//_Строка.Заболевание            = ВетисDictionaryСлой1с.AnimalDisease(_laboratoryResearch.disease);
-			_Строка.Заболевание            = ?(_laboratoryResearch.disease = Неопределено, "", _laboratoryResearch.disease.name);
-			_Строка.МетодИсследования      = ?(_laboratoryResearch.method = Неопределено, "", _laboratoryResearch.method.name);
-			_Строка.РезультатИсследования  = ВетисDictionaryСлой1с.ResearchResult(_laboratoryResearch.result);
-			_Строка.Заключение             = _laboratoryResearch.conclusion;
-		КонецЦикла;
+			
+			Для каждого _laboratoryResearch Из _всд.authentication.laboratoryResearch Цикл
+				_ИДПартии = "";
+				Для каждого _batchID Из _laboratoryResearch.batchID Цикл
+					_ИДПартии = _ИДПартии + ?(_ИДПартии = "", "", "; ") + _batchID;
+				КонецЦикла;
+				_Строка = _док.ЛабораторныеИсследования.Добавить();
+				_Строка.ИДПартии               = _ИДПартии;
+				_Строка.НомерЭкспертизы        = _laboratoryResearch.expertiseID;
+				_Строка.ПоказательБезопасности = ?(_laboratoryResearch.indicator = Неопределено, "", _laboratoryResearch.indicator.name);
+				//_Строка.Заболевание            = ВетисDictionaryСлой1с.AnimalDisease(_laboratoryResearch.disease);
+				_Строка.Заболевание            = ?(_laboratoryResearch.disease = Неопределено, "", _laboratoryResearch.disease.name);
+				_Строка.МетодИсследования      = ?(_laboratoryResearch.method = Неопределено, "", _laboratoryResearch.method.name);
+				_Строка.РезультатИсследования  = ВетисDictionaryСлой1с.ResearchResult(_laboratoryResearch.result);
+				_Строка.Заключение             = _laboratoryResearch.conclusion;
+			КонецЦикла;
+			
+			Если НЕ _всд.authentication.r13nClause = Неопределено Тогда
+				Для каждого _r13nClause Из _всд.authentication.r13nClause Цикл
+					_Строка = _док.УсловияПеремещения.Добавить();
+					_Строка.Условие = ВетисDictionaryСлой1с.RegionalizationCondition(_r13nClause.condition);
+					_Строка.Текст   = _r13nClause.text;
+				КонецЦикла;
+			КонецЕсли;
+		КонецЕсли;
 		
 		Если НЕ _всд.certifiedConsignment = Неопределено Тогда
 			_СтрокаТТН = ?(_док.ТТН.Количество() = 0, _док.ТТН.Добавить(), _док.ТТН[0]);
 			_СтрокаТТН.Посредник      = ВетисDictionaryСлой1с.BusinessEntity(_всд.certifiedConsignment.broker);
 			_СтрокаТТН.СпособХранения = ВетисDictionaryСлой1с.TransportationStorageType(_всд.certifiedConsignment.transportStorageType);
 			_СтрокаТТН.НомерТранспорта = TransportNumber(_всд.certifiedConsignment.transportInfo, , _СтрокаТТН.НомерПрицепа, _СтрокаТТН.НомерКонтейнера, _СтрокаТТН.ТипТранспорта);
-		КонецЕсли;
 		
-		_док.МаршрутСледования.Очистить();
-		Если НЕ _всд.certifiedConsignment = Неопределено Тогда
+			_док.МаршрутСледования.Очистить();
 			Если НЕ _всд.certifiedConsignment.shipmentRoute = Неопределено Тогда
 				Для каждого _point Из _всд.certifiedConsignment.shipmentRoute.routePoint Цикл
 					_Строка = _док.МаршрутСледования.Добавить();
@@ -699,6 +729,7 @@
 				КонецЦикла;
 			КонецЕсли;
 		КонецЕсли;
+		
 		
 		_док.СвязанныеДокументы.Очистить();
 		Если НЕ _всд.referencedDocument = Неопределено Тогда
@@ -827,7 +858,8 @@
 			_TransportationStorageType,
 			_ShipmentRoute
 			);
-		
+			
+		//конверсия используется только для гашения, поэтому лаб. иссл. и условия перемещения не передаем
 		_всд.authentication = ВетисMercuryVetdocument.VeterinaryAuthentication(
 			ВетисDictionary.Purpose(ВетисDictionaryСлой1с.Purpose(_СтрокаВСД.НазначениеГруза)),
 			_СтрокаВСД.КонтрольГосВетврачем,

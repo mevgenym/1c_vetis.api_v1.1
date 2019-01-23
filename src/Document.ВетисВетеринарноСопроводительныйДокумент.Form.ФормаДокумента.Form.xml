@@ -102,6 +102,12 @@
 						</InputField>
 						<InputField name="НомерВСД" id="445">
 							<DataPath>Объект.НомерВСД</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>№</v8:content>
+								</v8:item>
+							</Title>
 							<HorizontalStretch>false</HorizontalStretch>
 							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="НомерВСДКонтекстноеМеню" id="446"/>
@@ -109,6 +115,12 @@
 						</InputField>
 						<InputField name="ДатаВСД" id="448">
 							<DataPath>Объект.ДатаВСД</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>от</v8:content>
+								</v8:item>
+							</Title>
 							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="ДатаВСДКонтекстноеМеню" id="449"/>
 							<ExtendedTooltip name="ДатаВСДРасширеннаяПодсказка" id="450"/>
@@ -1235,6 +1247,83 @@
 						</Table>
 					</ChildItems>
 				</Page>
+				<Page name="ГруппаИммунизация" id="1013">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Иммунизация</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа иммунизация</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаИммунизацияРасширеннаяПодсказка" id="1014"/>
+					<ChildItems>
+						<Table name="Иммунизация" id="1015">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Иммунизация</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ИммунизацияКонтекстноеМеню" id="1016"/>
+							<AutoCommandBar name="ИммунизацияКоманднаяПанель" id="1017"/>
+							<ExtendedTooltip name="ИммунизацияРасширеннаяПодсказка" id="1018"/>
+							<SearchStringAddition name="ИммунизацияСтрокаПоиска" id="1019">
+								<AdditionSource>
+									<Item>Иммунизация</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИммунизацияСтрокаПоискаКонтекстноеМеню" id="1020"/>
+								<ExtendedTooltip name="ИммунизацияСтрокаПоискаРасширеннаяПодсказка" id="1021"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ИммунизацияСостояниеПросмотра" id="1022">
+								<AdditionSource>
+									<Item>Иммунизация</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИммунизацияСостояниеПросмотраКонтекстноеМеню" id="1023"/>
+								<ExtendedTooltip name="ИммунизацияСостояниеПросмотраРасширеннаяПодсказка" id="1024"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ИммунизацияУправлениеПоиском" id="1025">
+								<AdditionSource>
+									<Item>Иммунизация</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ИммунизацияУправлениеПоискомКонтекстноеМеню" id="1026"/>
+								<ExtendedTooltip name="ИммунизацияУправлениеПоискомРасширеннаяПодсказка" id="1027"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ИммунизацияНомерСтроки" id="1028">
+									<DataPath>Объект.Иммунизация.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ИммунизацияНомерСтрокиКонтекстноеМеню" id="1029"/>
+									<ExtendedTooltip name="ИммунизацияНомерСтрокиРасширеннаяПодсказка" id="1030"/>
+								</LabelField>
+								<InputField name="ИммунизацияЗаболевание" id="1034">
+									<DataPath>Объект.Иммунизация.Заболевание</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ИммунизацияЗаболеваниеКонтекстноеМеню" id="1035"/>
+									<ExtendedTooltip name="ИммунизацияЗаболеваниеРасширеннаяПодсказка" id="1036"/>
+								</InputField>
+								<InputField name="ИммунизацияВакцина" id="1037">
+									<DataPath>Объект.Иммунизация.Вакцина</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ИммунизацияВакцинаКонтекстноеМеню" id="1038"/>
+									<ExtendedTooltip name="ИммунизацияВакцинаРасширеннаяПодсказка" id="1039"/>
+								</InputField>
+								<InputField name="ИммунизацияСрокДействия" id="1040">
+									<DataPath>Объект.Иммунизация.СрокДействия</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ИммунизацияСрокДействияКонтекстноеМеню" id="1041"/>
+									<ExtendedTooltip name="ИммунизацияСрокДействияРасширеннаяПодсказка" id="1042"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
 				<Page name="ГруппаМероприятия" id="617">
 					<Title>
 						<v8:item>
@@ -1325,7 +1414,6 @@
 					</ChildItems>
 				</Page>
 				<Page name="ГруппаУсловияПеремещения" id="650">
-					<Visible>false</Visible>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -2404,7 +2492,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда заполнить из сервиса</v8:content>
+					<v8:content>Заполнить из сервиса</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаЗаполнитьИзСервиса</Action>
@@ -2434,24 +2522,10 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда провести и закрыть</v8:content>
+					<v8:content>Провести и закрыть</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаПровестиИЗакрыть</Action>
-		</Command>
-		<Command name="КомандаДатаВыработкиСтрокой" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда дата выработки строкой</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда дата выработки строкой</v8:content>
-				</v8:item>
-			</ToolTip>
 		</Command>
 		<Command name="КомандаВозврат" id="5">
 			<Title>
@@ -2463,7 +2537,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда возврат</v8:content>
+					<v8:content>Возврат</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаВозврат</Action>
@@ -2478,7 +2552,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда аннулировать</v8:content>
+					<v8:content>Аннулировать</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаАннулировать</Action>

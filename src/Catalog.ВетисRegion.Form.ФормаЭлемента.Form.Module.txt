@@ -7,7 +7,7 @@
 &НаСервере
 Процедура КомандаПроверитьВСервисеНаСервере()
 	
-	_se = ВетисIkarService_2_0.GetRegionByGuid(Объект.guid);
+	_se = ВетисIkarService.GetRegionByGuid(Объект.guid);
 	
 	active = _se.active;
 	last   = _se.last;

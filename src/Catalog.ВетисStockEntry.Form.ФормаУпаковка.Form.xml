@@ -117,6 +117,7 @@
 				<InputField name="ProductMarksvalue" id="42">
 					<DataPath>ProductMarks.value</DataPath>
 					<EditMode>EnterOnInput</EditMode>
+					<AutoCellHeight>true</AutoCellHeight>
 					<Width>10</Width>
 					<ContextMenu name="ProductMarksvalueКонтекстноеМеню" id="43"/>
 					<ExtendedTooltip name="ProductMarksvalueРасширеннаяПодсказка" id="44"/>

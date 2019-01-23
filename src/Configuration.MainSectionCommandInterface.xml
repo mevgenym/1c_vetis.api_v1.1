@@ -16,7 +16,17 @@
 				<xr:Common>false</xr:Common>
 			</Visibility>
 		</Command>
-		<Command name="CommonCommand.ВетисStockEntryList">
+		<Command name="AccumulationRegister.ВетисStockEntry.Command.ВетисStockEntry">
+			<Visibility>
+				<xr:Common>false</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисXSD">
+			<Visibility>
+				<xr:Common>false</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисПланОбмена">
 			<Visibility>
 				<xr:Common>false</xr:Common>
 			</Visibility>

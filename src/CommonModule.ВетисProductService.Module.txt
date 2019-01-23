@@ -2,67 +2,63 @@
 // Предназначена для получения записи продукции
 Функция GetProductByGuid(guid, пОтказ = Ложь, пОшибка = "", пВызватьИсключение = Ложь) Экспорт
 	
-	Если Ложь Тогда
-	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисProductService_2_0.GetProductByGuid(guid, пОтказ, пОшибка, пВызватьИсключение);
-	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисProductService_2_0.GetProductByGuid(guid, пОтказ, пОшибка, пВызватьИсключение);
-	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисProductService_1_4.GetProductByGuid(guid, пОтказ, пОшибка, пВызватьИсключение);
-	Иначе
-		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
-		ВызватьИсключение Ветис.ВерсияТекстОшибки();
-	КонецЕсли;
+	Попытка
+		Возврат Прокси().GetProductByGuid(guid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetProductByGuid");
+		Если пВызватьИсключение = Истина Тогда ВызватьИсключение; КонецЕсли;
+	КонецПопытки;
 	
 КонецФункции
 
 // Предназначена для получения записи о виде продукции
 Функция GetSubProductByGuid(guid, пОтказ = Ложь, пОшибка = "", пВызватьИсключение = Ложь) Экспорт
 	
-	Если Ложь Тогда
-	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисProductService_2_0.GetSubProductByGuid(guid, пОтказ, пОшибка, пВызватьИсключение);
-	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисProductService_2_0.GetSubProductByGuid(guid, пОтказ, пОшибка, пВызватьИсключение);
-	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисProductService_1_4.GetSubProductByGuid(guid, пОтказ, пОшибка, пВызватьИсключение);
-	Иначе
-		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
-		ВызватьИсключение Ветис.ВерсияТекстОшибки();
-	КонецЕсли;
+	Попытка
+		Возврат Прокси().GetSubProductByGuid(guid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetSubProductByGuid");
+		Если пВызватьИсключение = Истина Тогда ВызватьИсключение; КонецЕсли;
+	КонецПопытки;
 	
 КонецФункции
 
 // Предназначена для получения записи о номенклатуре производителя по её глобальному идентификатору.
-Функция GetProductItemByGuid(guid, пОтказ = Ложь, пОшибка = "", пВызватьИсключение = Ложь) Экспорт
+Функция GetProductItemByGuid(guid, пОтказ = Ложь, пОшибка = "", пВызватьИсключение = Истина) Экспорт
 	
-	Если Ложь Тогда
-	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисProductService_2_0.GetProductItemByGuid(guid, пОтказ, пОшибка, пВызватьИсключение);
-	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисProductService_2_0.GetProductItemByGuid(guid, пОтказ, пОшибка, пВызватьИсключение);
-	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисProductService_1_4.GetProductItemByGuid(guid, пОтказ, пОшибка, пВызватьИсключение);
-	Иначе
-		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
-		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	Если Ветис.Настройки_ОберткаHttp() Тогда
+		Возврат ВетисRegistry.getProductItemByGuid(guid, пОтказ, пОшибка);
 	КонецЕсли;
+	
+	Попытка
+		Возврат Прокси().GetProductItemByGuid(guid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetProductItemByGuid");
+		Если пВызватьИсключение = Истина Тогда ВызватьИсключение; КонецЕсли;
+	КонецПопытки;
 	
 КонецФункции
 
-Функция GetProductItemByUuid(uuid, пОтказ = Ложь, пОшибка = "", пВызватьИсключение = Ложь) Экспорт
+Функция GetProductItemByUuid(uuid, пОтказ = Ложь, пОшибка = "", пВызватьИсключение = Истина) Экспорт
 	
-	Если Ложь Тогда
-	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисProductService_2_0.GetProductItemByUuid(uuid, пОтказ, пОшибка, пВызватьИсключение);
-	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисProductService_2_0.GetProductItemByUuid(uuid, пОтказ, пОшибка, пВызватьИсключение);
-	//ИначеЕсли Ветис.Версия_1_4() Тогда
-	//	Возврат ВетисProductService_1_4.GetProductItemByUuid(uuid, пОтказ, пОшибка, пВызватьИсключение);
-	Иначе
-		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
-		ВызватьИсключение Ветис.ВерсияТекстОшибки();
-	КонецЕсли;
+	//Если Ветис.Настройки_ОберткаHttp() Тогда
+	//	Возврат ВетисRegistry_2_0.getProductItemByUuid(uuid, пОтказ, пОшибка);
+	//КонецЕсли;
+	
+	Попытка
+		Возврат Прокси().GetProductItemByUuid(uuid);
+	Исключение
+		пОтказ = Истина;
+		пОшибка = ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
+		ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "GetProductItemByUuid");
+		Если пВызватьИсключение = Истина Тогда ВызватьИсключение; КонецЕсли;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -77,17 +73,11 @@
 //	Булево - Ложь значит список пройден весь
 Функция GetProductByTypeListNext(productType, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если Ложь Тогда
-	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисProductService_2_0.GetProductByTypeListNext(productType, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисProductService_2_0.GetProductByTypeListNext(productType, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисProductService_1_4.GetProductByTypeListNext(productType, Item, Params, пОтказ, пОшибка);
-	Иначе
-		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
-		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	Если Ветис.GetListItFirst(Params) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetProductByTypeList", "product", "", Params,	productType);
 	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, Params, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -101,17 +91,11 @@
 //	Булево - Ложь значит список пройден весь
 Функция GetSubProductByProductListNext(productGuid, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если Ложь Тогда
-	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисProductService_2_0.GetSubProductByProductListNext(productGuid, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисProductService_2_0.GetSubProductByProductListNext(productGuid, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисProductService_1_4.GetSubProductByProductListNext(productGuid, Item, Params, пОтказ, пОшибка);
-	Иначе
-		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
-		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	Если Ветис.GetListItFirst(Params) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetSubProductByProductList", "subProduct", "", Params, productGuid);
 	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, Params, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -125,19 +109,76 @@
 //  Params - для внутреннего использования, начальное значение - Неопределено
 // Возвращаемое значение:
 //	Булево - Ложь значит список пройден весь
-Функция GetProductItemListNext(subProductGuid, enterpriseGuid, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция GetProductItemListNext(Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Перем productType, product, subProduct, businessEntity, producer, globalId, enterprise, subProductGuid, enterpriseGuid;
+	
+	Params = ?(Params = Неопределено, Новый Структура, Params);
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисProductService_2_0.GetProductItemListNext(subProductGuid, enterpriseGuid, Item, Params, пОтказ, пОшибка);
+		Params.Свойство("productType", productType);
+		Params.Свойство("product", product);
+		Params.Свойство("subProduct", subProduct);
+		Params.Свойство("businessEntity", businessEntity);
+		Params.Свойство("producer", producer);
+		Params.Свойство("globalId", globalId);
+		Возврат GetProductItemListNext_2_1(productType, product, subProduct, businessEntity, producer, globalId, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисProductService_2_0.GetProductItemListNext(subProductGuid, enterpriseGuid, Item, Params, пОтказ, пОшибка);
+		Params.Свойство("productType", productType);
+		Params.Свойство("product", product);
+		Params.Свойство("subProduct", subProduct);
+		Params.Свойство("businessEntity", businessEntity);
+		Params.Свойство("enterprise", enterprise);
+		Возврат GetProductItemListNext_2_0(productType, product, subProduct, businessEntity, enterprise, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисProductService_1_4.GetProductItemListNext(subProductGuid, enterpriseGuid, Item, Params, пОтказ, пОшибка);
+		Params.Свойство("subProductGuid", subProductGuid);
+		Params.Свойство("enterpriseGuid", enterpriseGuid);
+		Возврат GetProductItemListNext_1_4(subProductGuid, enterpriseGuid, Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetProductItemListNext_2_1(productType, product, subProduct, businessEntity, producer, globalId, Item, Params, пОтказ = Ложь, пОшибка = "")
+	
+	Params = ?(Params = Неопределено, Новый Структура, Params);
+	
+	//Если Ветис.Настройки_ОберткаHttp() ИЛИ Params.Свойство("ОберткаHttp") Тогда
+	//КонецЕсли;
+	
+	Если Ветис.GetListItFirst(Params) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetProductItemList", "productItem", "", Params,
+			productType, product, subProduct, businessEntity, producer, globalId);
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, Params, пОтказ, пОшибка);
+	
+КонецФункции
+Функция GetProductItemListNext_2_0(productType, product, subProduct, businessEntity, enterprise, Item, Params, пОтказ = Ложь, пОшибка = "")
+	
+	Params = ?(Params = Неопределено, Новый Структура, Params);
+	
+	Если Ветис.Настройки_ОберткаHttp() ИЛИ Params.Свойство("ОберткаHttp") Тогда
+		Возврат ВетисRegistry.getProductItemListNext(productType, product, subProduct, businessEntity, enterprise, Item, Params, пОтказ, пОшибка);
+	КонецЕсли;
+	
+	Если Ветис.GetListItFirst(Params) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetProductItemList", "productItem", "", Params,
+			productType, product, subProduct, businessEntity, enterprise);
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, Params, пОтказ, пОшибка);
+	
+КонецФункции
+Функция GetProductItemListNext_1_4(subProductGuid, enterpriseGuid, Item, Params, пОтказ = Ложь, пОшибка = "")
+	
+	Если Ветис.GetListItFirst(Params) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetProductItemList", "productItem", "", Params, subProductGuid, enterpriseGuid);
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, Params, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -153,17 +194,16 @@
 //	Булево - Ложь значит список пройден весь
 Функция GetProductChangesListNext(beginDate, endDate = Неопределено, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если Ложь Тогда
-	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисProductService_2_0.GetProductChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисProductService_2_0.GetProductChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисProductService_1_4.GetProductChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
-	Иначе
-		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
-		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	//Если Ветис.Настройки_ОберткаHttp() Тогда
+	//	Возврат ВетисRegistry_2_0.getProductChangesListNext(beginDate, endDate, product, Params, пОтказ, пОшибка);
+	//КонецЕсли;
+	
+	Если Ветис.GetListItFirst(Params) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetProductChangesList", "product", "", Params,
+			ВетисBase.DateInterval(beginDate, endDate));
 	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, Params, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -178,17 +218,16 @@
 //	Булево - Ложь значит список пройден весь
 Функция GetSubProductChangesListNext(beginDate, endDate = Неопределено, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если Ложь Тогда
-	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисProductService_2_0.GetSubProductChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисProductService_2_0.GetSubProductChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
-	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисProductService_1_4.GetSubProductChangesListNext(beginDate, endDate, Item, Params, пОтказ, пОшибка);
-	Иначе
-		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
-		ВызватьИсключение Ветис.ВерсияТекстОшибки();
+	//Если Ветис.Настройки_ОберткаHttp() Тогда
+	//	Возврат ВетисRegistry_2_0.getSubProductChangesListNext(beginDate, endDate, subProduct, Params, пОтказ, пОшибка);
+	//КонецЕсли;
+	
+	Если Ветис.GetListItFirst(Params) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetSubProductChangesList", "subProduct", "", Params,
+			ВетисBase.DateInterval(beginDate, endDate));
 	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, Params, пОтказ, пОшибка);
 	
 КонецФункции
 
@@ -202,19 +241,58 @@
 //  Params - для внутреннего использования, начальное значение - Неопределено
 // Возвращаемое значение:
 //	Булево - Ложь значит список пройден весь
-Функция GetProductItemChangesListNext(enterpriseGuid, beginDate, endDate = Неопределено, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция GetProductItemChangesListNext(beginDate, endDate = Неопределено, Item, Params, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Перем businessEntity, enterprise, enterpriseGuid;
+	
+	Params = ?(Params = Неопределено, Новый Структура, Params);
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ВетисProductService_2_0.GetProductItemChangesListNext(enterpriseGuid, beginDate, endDate, Item, Params, пОтказ, пОшибка);
+		Params.Свойство("businessEntity", businessEntity);
+		Params.Свойство("enterprise", enterprise);
+		Возврат GetProductItemChangesListNext_2_0(businessEntity, enterprise, beginDate, endDate, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ВетисProductService_2_0.GetProductItemChangesListNext(enterpriseGuid, beginDate, endDate, Item, Params, пОтказ, пОшибка);
+		Params.Свойство("businessEntity", businessEntity);
+		Params.Свойство("enterprise", enterprise);
+		Возврат GetProductItemChangesListNext_2_0(businessEntity, enterprise, beginDate, endDate, Item, Params, пОтказ, пОшибка);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ВетисProductService_1_4.GetProductItemChangesListNext(enterpriseGuid, beginDate, endDate, Item, Params, пОтказ, пОшибка);
+		Params.Свойство("enterpriseGuid", enterpriseGuid);
+		Возврат GetProductItemChangesListNext_1_4(enterpriseGuid, beginDate, endDate, Item, Params, пОтказ, пОшибка);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
 	КонецЕсли;
+	
+КонецФункции
+Функция GetProductItemChangesListNext_2_0(businessEntity, enterprise, beginDate, endDate = Неопределено, Item, Params, пОтказ = Ложь, пОшибка = "")
+	
+	Params = ?(Params = Неопределено, Новый Структура, Params);
+	
+	Если Ветис.Настройки_ОберткаHttp() ИЛИ Params.Свойство("ОберткаHttp") Тогда
+		Возврат ВетисRegistry.getProductItemChangesListNext(businessEntity, enterprise, beginDate, endDate, Item, Params, пОтказ, пОшибка);
+	КонецЕсли;
+	
+	Если Ветис.GetListItFirst(Params) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetProductItemChangesList", "productItem", "", Params,
+			ВетисBase.DateInterval(beginDate, endDate), businessEntity, enterprise);
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, Params, пОтказ, пОшибка);
+	
+КонецФункции
+Функция GetProductItemChangesListNext_1_4(enterpriseGuid, beginDate, endDate = Неопределено, Item, Params, пОтказ = Ложь, пОшибка = "")
+	
+	//Если Ветис.Настройки_ОберткаHttp() Тогда
+	//	Возврат ВетисRegistry_2_0.getProductItemChangesListNext(enterpriseGuid, beginDate, endDate, productItem, Params, пОтказ, пОшибка);
+	//КонецЕсли;
+	
+	Если Ветис.GetListItFirst(Params) Тогда
+		Ветис.GetRefListInit(ИмяСервиса(), "GetProductItemChangesList", "productItem", "", Params,
+			ВетисBase.DateInterval(beginDate, endDate), enterpriseGuid);
+	КонецЕсли;
+	
+	Возврат Ветис.GetRefListNext(Item, Params, пОтказ, пОшибка);
 	
 КонецФункции
 
