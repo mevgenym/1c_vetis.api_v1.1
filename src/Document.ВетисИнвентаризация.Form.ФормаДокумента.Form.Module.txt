@@ -43,6 +43,7 @@
 	
 	_issuerId = ВетисDictionaryСлой1с.BusinessEntity(Объект.ХС);
 	_enterpriseGuid = ВетисDictionaryСлой1с.Enterprise(Объект.Предприятие);
+	_ТекущийПользователь = Ветис.ТекущийПользователь();
 	
 	_stockEntryList = Новый Массив;
 	_stockEntryList1 = Новый Массив;
@@ -106,7 +107,7 @@
 		Иначе
 			_stockEntryList1.Очистить();
 			_stockEntryList1.Add(_stockEntry);
-			_Результат = ВетисMercuryApplicationsСлой1с.ResolveDiscrepancy(_enterpriseGuid, _stockEntryList1, Объект.АктПричина, Объект.АктОписание, _issuerId, пОтказ, пОшибка);
+			_Результат = ВетисMercuryApplicationsСлой1с.ResolveDiscrepancy(_enterpriseGuid, _stockEntryList1, Объект.АктПричина, Объект.АктОписание, _issuerId, _ТекущийПользователь, пОтказ, пОшибка);
 			
 			Если пОтказ = Истина Тогда
 				Возврат;
@@ -125,7 +126,7 @@
 	КонецЦикла;
 	
 	Если _stockEntryList.Количество() > 0 Тогда
-		_Результат = ВетисMercuryApplicationsСлой1с.ResolveDiscrepancy(_enterpriseGuid, _stockEntryList, Объект.АктПричина, Объект.АктОписание, _issuerId, пОтказ, пОшибка);
+		_Результат = ВетисMercuryApplicationsСлой1с.ResolveDiscrepancy(_enterpriseGuid, _stockEntryList, Объект.АктПричина, Объект.АктОписание, _issuerId, _ТекущийПользователь, пОтказ, пОшибка);
 		
 		Если пОтказ = Истина Тогда
 			Возврат;

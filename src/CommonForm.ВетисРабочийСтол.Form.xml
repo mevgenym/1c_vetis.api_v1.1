@@ -449,11 +449,6 @@
 										<CommandName>Form.Command.КомандаТранзакцияАннулировать</CommandName>
 										<ExtendedTooltip name="СписокТранспортныеПартииКомандаТранзакцияАннулироватьРасширеннаяПодсказка" id="744"/>
 									</Button>
-									<Button name="СписокТранспортныеПартииКомандаОтложенныеОперацииРегл" id="848">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.КомандаОтложенныеОперацииРегл</CommandName>
-										<ExtendedTooltip name="СписокТранспортныеПартииКомандаОтложенныеОперацииРеглРасширеннаяПодсказка" id="849"/>
-									</Button>
 									<Button name="СписокТранспортныеПартииКомандаТранзакцияПечать" id="741">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаТранзакцияПечать</CommandName>
@@ -1753,21 +1748,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаИсходящиеПерезаписать</Action>
-		</Command>
-		<Command name="КомандаОтложенныеОперацииРегл" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отложенные</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда транзакция отправить</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаОтложенныеОперацииРегл</Action>
 		</Command>
 		<Command name="КомандаЗаписатьСЖ" id="8">
 			<Title>

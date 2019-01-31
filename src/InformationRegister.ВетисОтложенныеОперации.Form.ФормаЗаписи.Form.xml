@@ -5,6 +5,7 @@
 	<Events>
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<UsualGroup name="Группа1" id="22">
@@ -40,6 +41,11 @@
 			<ContextMenu name="НастройкаКонтекстноеМеню" id="14"/>
 			<ExtendedTooltip name="НастройкаРасширеннаяПодсказка" id="15"/>
 		</InputField>
+		<InputField name="Ответственный" id="29">
+			<DataPath>Запись.Ответственный</DataPath>
+			<ContextMenu name="ОтветственныйКонтекстноеМеню" id="30"/>
+			<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="31"/>
+		</InputField>
 		<UsualGroup name="Группа2" id="27">
 			<Group>Horizontal</Group>
 			<Representation>None</Representation>
@@ -62,8 +68,13 @@
 		</UsualGroup>
 		<TextDocumentField name="Сообщение" id="19">
 			<DataPath>Сообщение</DataPath>
+			<Width>1</Width>
+			<Height>3</Height>
 			<ContextMenu name="СообщениеКонтекстноеМеню" id="20"/>
 			<ExtendedTooltip name="СообщениеРасширеннаяПодсказка" id="21"/>
+			<Events>
+				<Event name="OnChange">СообщениеПриИзменении</Event>
+			</Events>
 		</TextDocumentField>
 	</ChildItems>
 	<Attributes>

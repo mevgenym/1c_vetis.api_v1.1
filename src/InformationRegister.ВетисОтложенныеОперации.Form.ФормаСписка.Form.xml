@@ -3,6 +3,11 @@
 	<ScalingMode>Compact</ScalingMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
+			<Button name="ФормаКомандаЗапуск" id="42">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаЗапуск</CommandName>
+				<ExtendedTooltip name="ФормаКомандаЗапускРасширеннаяПодсказка" id="43"/>
+			</Button>
 			<Button name="ФормаОбновить" id="37">
 				<Type>CommandBarButton</Type>
 				<Representation>PictureAndText</Representation>
@@ -104,6 +109,11 @@
 					<ContextMenu name="НастройкаКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="НастройкаРасширеннаяПодсказка" id="30"/>
 				</LabelField>
+				<LabelField name="Ответственный" id="44">
+					<DataPath>Список.Ответственный</DataPath>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="46"/>
+				</LabelField>
 				<CheckBoxField name="Завершено" id="31">
 					<DataPath>Список.Завершено</DataPath>
 					<CheckBoxType>Auto</CheckBoxType>
@@ -153,4 +163,26 @@
 			</Settings>
 		</Attribute>
 	</Attributes>
+	<Commands>
+		<Command name="КомандаЗапуск" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запуск</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда запуск</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаЗапуск</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
 </Form>

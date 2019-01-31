@@ -3,7 +3,7 @@
 	
 КонецПроцедуры
 
-Функция ResolveDiscrepancy(enterpriseGuid, stockEntryList, АктПричина = Неопределено, АктОписание = Неопределено, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция ResolveDiscrepancy(enterpriseGuid, stockEntryList, АктПричина = Неопределено, АктОписание = Неопределено, issuerId = Неопределено, initiator = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_enterprise = ВетисDictionary.Enterprise(enterpriseGuid);
 	
@@ -36,13 +36,13 @@
 	//и сборной записью со всех маркировок по тексту
 	//http://vetrf.ru/vetrf-forum/posts/list/7811.page
 	
-	_Response = ВетисMercuryApplications.resolveDiscrepancy(_enterprise, _inventoryDate, _responsible, _stockDiscrepancy, _discrepancyReport, issuerId, пОтказ, пОшибка);
+	_Ответ = ВетисMercuryApplications.resolveDiscrepancy(_enterprise, _inventoryDate, _responsible, _stockDiscrepancy, _discrepancyReport, issuerId, initiator, пОтказ, пОшибка);
 	
-	Возврат _Response;
+	Возврат _Ответ;
 	
 КонецФункции
 
-Функция IncomingOperation(пОбъект, пНастройка = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция IncomingOperation(пОбъект, issuerId = Неопределено, initiator = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Перем _discrepancyReport, _returnedDelivery;
 	
@@ -308,7 +308,10 @@
 			КонецЕсли;
 		КонецЕсли;
 		
-		_Ответ = ВетисMercuryApplications.processIncomingConsignment(_delivery, _deliveryFacts, _discrepancyReport, _returnedDelivery, ?(пНастройка = Неопределено, _Получатель, пНастройка), пОтказ, пОшибка);
+		_issuerId = ?(issuerId = Неопределено, _Объект.Получатель, issuerId);
+		_initiator = ?(initiator = Неопределено, _Объект.Ответственный, initiator);
+		
+		_Ответ = ВетисMercuryApplications.processIncomingConsignment(_delivery, _deliveryFacts, _discrepancyReport, _returnedDelivery, _issuerId, _initiator, пОтказ, пОшибка);
 		
 		_Ссылка = ?(_Объект.Свойство("Ссылка"), _Объект.Ссылка, Неопределено);
 		
@@ -322,8 +325,9 @@
 		
 		Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстОтвета, "processIncomingConsignment", "Ответ", _Объект.ПолучательПредприятие, _Объект.Получатель, _Ссылка);
 		
-		пОтказ = Ложь;
-		пОшибка = "";
+		//операция прошла успешно, дальше отказ не трогаем, при ошибке записи выходим по исключению
+		//пОтказ = Ложь;
+		//пОшибка = "";
 		
 		_Response = _Ответ.Response;
 		
@@ -409,9 +413,8 @@
 						Попытка
 							_возвратный.Записать(РежимЗаписиДокумента.Проведение);
 						Исключение
-							пОтказ = Истина;
-							пОшибка = пОшибка + ?(пОшибка = "", "", Символы.ПС) + ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
-							Продолжить;
+							ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "IncomingOperation: Ошибка при записи возвратного ВСД (" + _Объект.Ссылка + ")");
+							ВызватьИсключение;
 						КонецПопытки;
 						
 						_ТоварыСтрока.ВозвратныйВСД = _возвратный.Ссылка;
@@ -431,13 +434,12 @@
 			
 			Попытка
 				_se.Записать();
-				
-				_Ответ.StockEntry.Добавить(_se.Ссылка);
 			Исключение
-				пОтказ = Истина;
-				пОшибка = пОшибка + ?(пОшибка = "", "", Символы.ПС) + ПодробноеПредставлениеОшибки(ИнформацияОбОшибке());
-				Продолжить;
+				ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "IncomingOperation: Ошибка при записи StockEntry (" + _Объект.Ссылка + ")");
+				ВызватьИсключение;
 			КонецПопытки;
+			
+			_Ответ.StockEntry.Добавить(_se.Ссылка);
 			
 		КонецЦикла;
 		
@@ -447,7 +449,7 @@
 	
 КонецФункции
 
-Функция TransportOperation(пОбъектСсылка, пНастройка = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция TransportOperation(пОбъектСсылка, issuerId = Неопределено, initiator = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Версия20 = Ветис.Версия_2_0() ИЛИ Ветис.Версия_2_1();
 	
@@ -464,6 +466,9 @@
 	Иначе
 		_Объект = пОбъектСсылка.ПолучитьОбъект();
 	КонецЕсли;
+	
+	_issuerId = ?(issuerId = Неопределено, _Объект.Отправитель, issuerId);
+	_initiator = ?(initiator = Неопределено, _Объект.Ответственный, initiator);
 	
 	_НачалоПериода = ТекущаяДата();
 	
@@ -591,7 +596,7 @@
 			ВетисDictionaryСлой1с.TransportationStorageType(_ттн.СпособХранения)
 			);
 		
-		_Ответ = ВетисMercuryApplications.PrepareOutgoingConsignment(_delivery, ?(пНастройка = Неопределено, _Отправитель, пНастройка), пОтказ, пОшибка);
+		_Ответ = ВетисMercuryApplications.PrepareOutgoingConsignment(_delivery, _issuerId, _initiator, пОтказ, пОшибка);
 	Иначе
 		Для каждого _СтрокаСЖ Из _Объект.Партии Цикл
 			_Consignment = ВетисMercuryVetdocument.Consignment();
@@ -629,7 +634,7 @@
 			_ConsignmentСписок,
 			ВетисMercuryVetdocument.ConsignmentDocumentList(_waybill, _VetDocument));
 		
-		_Ответ = ВетисMercuryApplications.PrepareOutgoingConsignment(_delivery, ?(пНастройка = Неопределено, _Отправитель, пНастройка), пОтказ, пОшибка);
+		_Ответ = ВетисMercuryApplications.PrepareOutgoingConsignment(_delivery, _issuerId, _initiator, пОтказ, пОшибка);
 	КонецЕсли;
 	
 	Ветис.ЖурналОпераций_Добавить(_Ответ.ТекстЗапроса, "prepareOutcomingConsignment", "Запрос", _Объект.ОтправительПредприятие, _Объект.Отправитель, _Объект.Ссылка);
@@ -722,13 +727,7 @@
 //Параметры:
 // subProductList - список видов продукции (массив)
 // routePointList - список точек маршрута, массив структур Страна, Регион или Предприятие
-Функция CheckShipmentRegionalization(subProductList, routePointList, пНастройка = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
-	
-	Если пНастройка = Неопределено Тогда
-		_issuerId = Ветис.ТекущийХС();
-	Иначе
-		_issuerId = пНастройка;
-	КонецЕсли;
+Функция CheckShipmentRegionalization(subProductList, routePointList, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_cargoType = Новый Массив;
 	
@@ -766,27 +765,44 @@
 		_Индекс = _Индекс + 1;
 	КонецЦикла;
 	
-	_Response = ВетисMercuryApplications.CheckShipmentRegionalization(_cargoType, _shipmentRoute, _issuerId, пОтказ, пОшибка);
+	_Ответ = ВетисMercuryApplications.CheckShipmentRegionalization(_cargoType, _shipmentRoute, issuerId, пОтказ, пОшибка);
 	
 	//Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
-	Возврат _Response;
+	Возврат _Ответ;
 	
 КонецФункции
 
-Процедура WithdrawVetDocumentOperation(пСсылка, пПричина, пНастройка = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+Процедура WithdrawVetDocumentOperation(пСсылка, пПричина, issuerId = Неопределено, initiator = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	пОшибка = "";
 	
 	_vetDocumentId = ВетисMercuryVetdocumentСлой1с.VetDocument(пСсылка);
 	
 	_Reason = ВетисMercuryVetdocument.VetDocumentStatusChangeReason(пПричина);
 	
-	_Response = ВетисMercuryApplications.WithdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), пНастройка, пОтказ, пОшибка);
+	_Ответ = ВетисMercuryApplications.WithdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), issuerId, initiator, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда Возврат; КонецЕсли;
 	
+	//операция прошла успешно, дальше отказ не трогаем, пользуемся исключениями
+	//если дальше будут ошибки, т.е. не получится обновить ВСД и строку СЖ,
+	//то они обновятся при синхронизации позднее
+	
+	Если НЕ _Ответ.Свойство("Response") Тогда
+		ВетисОбщегоНазначения.ВывестиСообщение("В ответе нет блока Response", "WithdrawVetDocumentOperation");
+		Возврат;
+	ИначеЕсли НЕ _Ответ.Response.Свойство("vetDocument") Тогда
+		ВетисОбщегоНазначения.ВывестиСообщение("В ответе нет блока vetDocument", "WithdrawVetDocumentOperation");
+		Возврат;
+	ИначеЕсли НЕ _Ответ.Response.Свойство("stockEntry") Тогда
+		ВетисОбщегоНазначения.ВывестиСообщение("В ответе нет блока stockEntry", "WithdrawVetDocumentOperation");
+		Возврат;
+	КонецЕсли;
+	
 	_док = пСсылка.ПолучитьОбъект();
 	
-	ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_док, _Response);
+	ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_док, _Ответ.Response.vetDocument);
 	
 	_док.ДополнительныеСвойства.Вставить("Загрузка");
 	
@@ -814,27 +830,37 @@
 		_Объект.Записать();
 	КонецЦикла;
 	
+	_se = ВетисОбменДанными.ПолучитьОбъект(Справочники.ВетисStockEntry, _Ответ.Response.stockEntry.guid);
+	_se.Заполнить(_Ответ.Response.stockEntry);
+	_se.Записать();
+	
 КонецПроцедуры
 
-Процедура WithdrawTransportOperation(пСсылка, пПричина, пНастройка = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+Процедура WithdrawTransportOperation(пСсылка, пПричина, issuerId = Неопределено, initiator = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Настройка = Новый Структура;
 	
 	Запрос = Новый Запрос(
 	"ВЫБРАТЬ
 	|	_Таблица.ВСД,
-	|	_Таблица.ВСД.Статус КАК Статус
+	|	_Таблица.ВСД.Статус КАК Статус,
+	|	_Таблица.Ссылка.Отправитель КАК Настройка,
+	|	_Таблица.Ссылка.Ответственный.Логин КАК Логин
 	|ИЗ
 	|	Документ.ВетисТранспортнаяПартия.Партии КАК _Таблица
 	|ГДЕ
 	|	_Таблица.Ссылка = &Ссылка");
 	
-	Запрос.УстановитьПараметр("", );
+	Запрос.УстановитьПараметр("Ссылка", пСсылка);
 	
 	Результат = Запрос.Выполнить();
 	Выборка = Результат.Выбрать();
 	
 	Пока Выборка.Следующий() Цикл
 		Если ЗначениеЗаполнено(Выборка.всд) И Выборка.Статус = Перечисления.ВетисVetDocumentStatus.Оформлен Тогда
-			ВетисMercuryApplicationsСлой1с.WithdrawVetDocumentOperation(Выборка.всд, "ошибка оформления", пНастройка, пОтказ, пОшибка);
+			_issuerId = ?(issuerId = Неопределено, Выборка.Настройка, issuerId);
+			_initiator = ?(initiator = Неопределено, Выборка.Логин, initiator);
+			ВетисMercuryApplicationsСлой1с.WithdrawVetDocumentOperation(Выборка.всд, "ошибка оформления", _issuerId, _initiator, пОтказ, пОшибка);
 			Если пОтказ = Истина Тогда
 				Прервать;
 			КонецЕсли;

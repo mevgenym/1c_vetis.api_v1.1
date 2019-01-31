@@ -224,6 +224,7 @@
 											<v8:content>Имя</v8:content>
 										</v8:item>
 									</Title>
+									<Width>10</Width>
 									<ContextMenu name="СписокПользователиКодКонтекстноеМеню" id="403"/>
 									<ExtendedTooltip name="СписокПользователиКодРасширеннаяПодсказка" id="404"/>
 								</LabelField>
@@ -235,18 +236,27 @@
 											<v8:content>Полное имя</v8:content>
 										</v8:item>
 									</Title>
+									<Width>10</Width>
 									<ContextMenu name="СписокПользователиНаименованиеКонтекстноеМеню" id="355"/>
 									<ExtendedTooltip name="СписокПользователиНаименованиеРасширеннаяПодсказка" id="356"/>
 								</LabelField>
 								<LabelField name="СписокПользователиЛогин" id="399">
 									<DataPath>СписокПользователи.Логин</DataPath>
+									<Width>10</Width>
 									<ContextMenu name="СписокПользователиЛогинКонтекстноеМеню" id="400"/>
 									<ExtendedTooltip name="СписокПользователиЛогинРасширеннаяПодсказка" id="401"/>
 								</LabelField>
 								<LabelField name="СписокПользователиНастройка" id="405">
 									<DataPath>СписокПользователи.Настройка</DataPath>
+									<Width>10</Width>
 									<ContextMenu name="СписокПользователиНастройкаКонтекстноеМеню" id="406"/>
 									<ExtendedTooltip name="СписокПользователиНастройкаРасширеннаяПодсказка" id="407"/>
+								</LabelField>
+								<LabelField name="СписокПользователиПользователь" id="442">
+									<DataPath>СписокПользователи.Пользователь</DataPath>
+									<Width>10</Width>
+									<ContextMenu name="СписокПользователиПользовательКонтекстноеМеню" id="443"/>
+									<ExtendedTooltip name="СписокПользователиПользовательРасширеннаяПодсказка" id="444"/>
 								</LabelField>
 							</ChildItems>
 						</Table>

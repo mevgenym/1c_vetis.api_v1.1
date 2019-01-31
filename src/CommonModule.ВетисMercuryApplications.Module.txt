@@ -3,11 +3,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByGuid", "GetStockEntryByGuid", "stockEntry", issuerId, пОтказ, пОшибка, "enterpriseGuid,guid", enterpriseGuid, guid);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByGuid", "GetStockEntryByGuid", "stockEntry", issuerId, , пОтказ, пОшибка, "enterpriseGuid,guid", enterpriseGuid, guid);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByGuid", "GetStockEntryByGuid", "stockEntry", issuerId, пОтказ, пОшибка, "enterpriseGuid,guid", enterpriseGuid, guid);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByGuid", "GetStockEntryByGuid", "stockEntry", issuerId, , пОтказ, пОшибка, "enterpriseGuid,guid", enterpriseGuid, guid);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByGuid", "getStockEntryByGuid", "stockEntry", issuerId, пОтказ, пОшибка, "enterpriseGuid,guid", enterpriseGuid, guid);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByGuid", "getStockEntryByGuid", "stockEntry", issuerId, , пОтказ, пОшибка, "enterpriseGuid,guid", enterpriseGuid, guid);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -19,11 +19,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByUuid", "GetStockEntryByUuid", "stockEntry", issuerId, пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, uuid);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByUuid", "GetStockEntryByUuid", "stockEntry", issuerId, , пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, uuid);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByUuid", "GetStockEntryByUuid", "stockEntry", issuerId, пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, uuid);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByUuid", "GetStockEntryByUuid", "stockEntry", issuerId, , пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, uuid);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByUuid", "getStockEntryByUuid", "stockEntry", issuerId, пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, uuid);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getStockEntryByUuid", "getStockEntryByUuid", "stockEntry", issuerId, , пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, uuid);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -74,11 +74,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПроксиТолькоОбъект("getVetDocumentByUuid", "GetVetDocumentByUuid", "vetDocument", issuerId, пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, vetDocumentUuid);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getVetDocumentByUuid", "GetVetDocumentByUuid", "vetDocument", issuerId, , пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, vetDocumentUuid);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПроксиТолькоОбъект("getVetDocumentByUuid", "GetVetDocumentByUuid", "vetDocument", issuerId, пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, vetDocumentUuid);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getVetDocumentByUuid", "GetVetDocumentByUuid", "vetDocument", issuerId, , пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, vetDocumentUuid);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ПолучитьЧерезПроксиТолькоОбъект("getVetDocumentByUuid", "GetVetDocumentByUuid", "vetDocument", issuerId, пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, vetDocumentUuid);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getVetDocumentByUuid", "GetVetDocumentByUuid", "vetDocument", issuerId, , пОтказ, пОшибка, "enterpriseGuid,uuid", enterpriseGuid, vetDocumentUuid);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -115,13 +115,13 @@
 	
 КонецФункции
 
-Функция UpdateVeterinaryEvents(enterprise, stockEntry, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция UpdateVeterinaryEvents(enterprise, stockEntry, issuerId = Неопределено, initiator = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПроксиТолькоОбъект("updateVeterinaryEvents", "UpdateVeterinaryEvents", "stockEntry", issuerId, пОтказ, пОшибка, "enterprise,stockEntry", enterprise, stockEntry);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("updateVeterinaryEvents", "UpdateVeterinaryEvents", "stockEntry", issuerId, initiator, пОтказ, пОшибка, "enterprise,stockEntry", enterprise, stockEntry);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПроксиТолькоОбъект("updateVeterinaryEvents", "UpdateVeterinaryEvents", "stockEntry", issuerId, пОтказ, пОшибка, "enterprise,stockEntry", enterprise, stockEntry);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("updateVeterinaryEvents", "UpdateVeterinaryEvents", "stockEntry", issuerId, initiator, пОтказ, пОшибка, "enterprise,stockEntry", enterprise, stockEntry);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -129,13 +129,13 @@
 	
 КонецФункции
 
-Функция MergeStockEntries(enterprise, mergeOperation, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция MergeStockEntries(enterprise, mergeOperation, issuerId = Неопределено, initiator = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПроксиТолькоОбъект("mergeStockEntries", "MergeStockEntries", "stockEntry", issuerId, пОтказ, пОшибка, "enterprise,mergeOperation", enterprise, mergeOperation);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("mergeStockEntries", "MergeStockEntries", "stockEntry", issuerId, initiator, пОтказ, пОшибка, "enterprise,mergeOperation", enterprise, mergeOperation);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПроксиТолькоОбъект("mergeStockEntries", "MergeStockEntries", "stockEntry", issuerId, пОтказ, пОшибка, "enterprise,mergeOperation", enterprise, mergeOperation);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("mergeStockEntries", "MergeStockEntries", "stockEntry", issuerId, initiator, пОтказ, пОшибка, "enterprise,mergeOperation", enterprise, mergeOperation);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -143,15 +143,15 @@
 	
 КонецФункции
 
-Функция processIncomingConsignment(delivery, deliveryFacts, discrepancyReport = Неопределено, returnedDelivery = Неопределено, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция processIncomingConsignment(delivery, deliveryFacts, discrepancyReport = Неопределено, returnedDelivery = Неопределено, issuerId = Неопределено, initiator = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПрокси("processIncomingConsignment", "ProcessIncomingConsignment", , issuerId, пОтказ, пОшибка, "delivery,deliveryFacts,discrepancyReport,returnedDelivery", delivery, deliveryFacts, discrepancyReport, returnedDelivery);
+		Возврат ПолучитьЧерезПрокси("processIncomingConsignment", "ProcessIncomingConsignment", , issuerId, initiator, пОтказ, пОшибка, "delivery,deliveryFacts,discrepancyReport,returnedDelivery", delivery, deliveryFacts, discrepancyReport, returnedDelivery);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПрокси("processIncomingConsignment", "ProcessIncomingConsignment", , issuerId, пОтказ, пОшибка, "delivery,deliveryFacts,discrepancyReport,returnedDelivery", delivery, deliveryFacts, discrepancyReport, returnedDelivery);
+		Возврат ПолучитьЧерезПрокси("processIncomingConsignment", "ProcessIncomingConsignment", , issuerId, initiator, пОтказ, пОшибка, "delivery,deliveryFacts,discrepancyReport,returnedDelivery", delivery, deliveryFacts, discrepancyReport, returnedDelivery);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ПолучитьЧерезПрокси("processIncomingConsignment", "ProcessIncomingConsignment", , issuerId, пОтказ, пОшибка, "delivery,deliveryFacts,discrepancyReport,returnedDelivery", delivery, deliveryFacts, discrepancyReport, returnedDelivery);
+		Возврат ПолучитьЧерезПрокси("processIncomingConsignment", "ProcessIncomingConsignment", , issuerId, initiator, пОтказ, пОшибка, "delivery,deliveryFacts,discrepancyReport,returnedDelivery", delivery, deliveryFacts, discrepancyReport, returnedDelivery);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -162,15 +162,15 @@
 //Операция предназначена для оформления транспортной партии.
 //Параметры:
 // delivery - vetd:Delivery - Сведения для оформления транспортного ВСД
-Функция PrepareOutgoingConsignment(delivery, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция PrepareOutgoingConsignment(delivery, issuerId = Неопределено, initiator = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПрокси("prepareOutgoingConsignment", "PrepareOutgoingConsignment", , issuerId, пОтказ, пОшибка, "delivery", delivery);
+		Возврат ПолучитьЧерезПрокси("prepareOutgoingConsignment", "PrepareOutgoingConsignment", , issuerId, initiator, пОтказ, пОшибка, "delivery", delivery);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПрокси("prepareOutgoingConsignment", "PrepareOutgoingConsignment", , issuerId, пОтказ, пОшибка, "delivery", delivery);
+		Возврат ПолучитьЧерезПрокси("prepareOutgoingConsignment", "PrepareOutgoingConsignment", , issuerId, initiator, пОтказ, пОшибка, "delivery", delivery);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ПолучитьЧерезПрокси("prepareOutcomingConsignment", "PrepareOutcomingConsignment", , issuerId, пОтказ, пОшибка, "delivery", delivery);
+		Возврат ПолучитьЧерезПрокси("prepareOutcomingConsignment", "PrepareOutcomingConsignment", , issuerId, initiator, пОтказ, пОшибка, "delivery", delivery);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -186,15 +186,15 @@
 // responsible - argc:User - Ответственный за инвентаризацию
 // stockDiscrepancy - vetd:StockDiscrepancy - Сведения о результате инвентаризации (по одному факту расхождения)
 // discrepancyReport - vetd:DiscrepancyReport - Сведения об акте несоответствия
-Функция ResolveDiscrepancy(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция ResolveDiscrepancy(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport, issuerId = Неопределено, initiator = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПрокси("resolveDiscrepancy", "ResolveDiscrepancy", "stockEntryList", issuerId, пОтказ, пОшибка, "enterprise,inventoryDate,responsible,stockDiscrepancy,discrepancyReport", enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("resolveDiscrepancy", "ResolveDiscrepancy", "stockEntryList", issuerId, initiator, пОтказ, пОшибка, "enterprise,inventoryDate,responsible,stockDiscrepancy,discrepancyReport", enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПрокси("resolveDiscrepancy", "ResolveDiscrepancy", "stockEntryList", issuerId, пОтказ, пОшибка, "enterprise,inventoryDate,responsible,stockDiscrepancy,discrepancyReport", enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("resolveDiscrepancy", "ResolveDiscrepancy", "stockEntryList", issuerId, initiator, пОтказ, пОшибка, "enterprise,inventoryDate,responsible,stockDiscrepancy,discrepancyReport", enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ПолучитьЧерезПрокси("resolveDiscrepancy", "ResolveDiscrepancy", "stockEntryList", issuerId, пОтказ, пОшибка, "enterprise,inventoryDate,responsible,stockDiscrepancy,discrepancyReport", enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("resolveDiscrepancy", "ResolveDiscrepancy", "stockEntryList", issuerId, initiator, пОтказ, пОшибка, "enterprise,inventoryDate,responsible,stockDiscrepancy,discrepancyReport", enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -208,15 +208,15 @@
 // withdrawReason - vetd:WithdrawReason - Причина аннулирования ВСД
 // withdrawDate - xs:dateTime - Дата аннулирования ВСД
 // vetDoctor - argc:User - Ветеринарный врач, ответственный за аннулирование ВСД
-Функция WithdrawVetDocument(vetDocumentId, withdrawReason, withdrawDate, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция WithdrawVetDocument(vetDocumentId, withdrawReason, withdrawDate, issuerId = Неопределено, initiator = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПрокси("withdrawVetDocument", "WithdrawVetDocument", "vetDocument", issuerId, пОтказ, пОшибка, "vetDocumentId,withdrawReason,withdrawDate,specifiedPerson", vetDocumentId, withdrawReason, withdrawDate, User());
+		Возврат ПолучитьЧерезПрокси("withdrawVetDocument", "WithdrawVetDocument", , issuerId, initiator, пОтказ, пОшибка, "vetDocumentId,withdrawReason,withdrawDate,specifiedPerson", vetDocumentId, withdrawReason, withdrawDate, User());
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПрокси("withdrawVetDocument", "WithdrawVetDocument", "vetDocument", issuerId, пОтказ, пОшибка, "vetDocumentId,withdrawReason,withdrawDate,specifiedPerson", vetDocumentId, withdrawReason, withdrawDate, User());
+		Возврат ПолучитьЧерезПрокси("withdrawVetDocument", "WithdrawVetDocument", , issuerId, initiator, пОтказ, пОшибка, "vetDocumentId,withdrawReason,withdrawDate,specifiedPerson", vetDocumentId, withdrawReason, withdrawDate, User());
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ПолучитьЧерезПрокси("withdrawVetDocument", "WithdrawVetDocument", "vetDocument", issuerId, пОтказ, пОшибка, "vetDocumentId,withdrawReason,withdrawDate,vetDoctor", vetDocumentId, withdrawReason, withdrawDate, User());
+		Возврат ПолучитьЧерезПрокси("withdrawVetDocument", "WithdrawVetDocument", , issuerId, initiator, пОтказ, пОшибка, "vetDocumentId,withdrawReason,withdrawDate,vetDoctor", vetDocumentId, withdrawReason, withdrawDate, User());
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -232,11 +232,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПрокси("modifyBusinessEntity", "ModifyBusinessEntity", "businessEntity", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("modifyBusinessEntity", "ModifyBusinessEntity", "businessEntity", issuerId, , пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПрокси("modifyBusinessEntity", "ModifyBusinessEntity", "businessEntity", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("modifyBusinessEntity", "ModifyBusinessEntity", "businessEntity", issuerId, , пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ПолучитьЧерезПрокси("modifyBusinessEntity", "ModifyBusinessEntity", "businessEntity", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("modifyBusinessEntity", "ModifyBusinessEntity", "businessEntity", issuerId, , пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -252,11 +252,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПрокси("modifyEnterprise", "ModifyEnterprise", "enterprise", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("modifyEnterprise", "ModifyEnterprise", "enterprise", issuerId, , пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПрокси("modifyEnterprise", "ModifyEnterprise", "enterprise", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("modifyEnterprise", "ModifyEnterprise", "enterprise", issuerId, , пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ПолучитьЧерезПрокси("modifyEnterprise", "ModifyEnterprise", "enterprise", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("modifyEnterprise", "ModifyEnterprise", "enterprise", issuerId, , пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -271,11 +271,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПрокси("modifyActivityLocations", "ModifyActivityLocations", "businessEntity", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("modifyActivityLocations", "ModifyActivityLocations", "businessEntity", issuerId, , пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПрокси("modifyActivityLocations", "ModifyActivityLocations", "businessEntity", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("modifyActivityLocations", "ModifyActivityLocations", "businessEntity", issuerId, , пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ПолучитьЧерезПрокси("modifyActivityLocations", "ModifyActivityLocations", "businessEntity", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("modifyActivityLocations", "ModifyActivityLocations", "businessEntity", issuerId, , пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -290,11 +290,11 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПрокси("modifyProducerStockList", "ModifyProducerStockList", "productItemList", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("modifyProducerStockList", "ModifyProducerStockList", "productItemList", issuerId, , пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПрокси("modifyProducerStockList", "ModifyProducerStockList", "productItemList", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("modifyProducerStockList", "ModifyProducerStockList", "productItemList", issuerId, , пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат ПолучитьЧерезПрокси("modifyProducerStockList", "ModifyProducerStockList", "productItemList", issuerId, пОтказ, пОшибка, "modificationOperation", modificationOperation);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("modifyProducerStockList", "ModifyProducerStockList", "productItemList", issuerId, , пОтказ, пОшибка, "modificationOperation", modificationOperation);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -308,9 +308,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПрокси("updateTransportMovementDetails", "UpdateTransportMovementDetails", "vetDocument", issuerId, пОтказ, пОшибка, "deliveryParticipant,vetDocumentUuid,shipmentRoute", deliveryParticipant, vetDocumentUuid, shipmentRoute);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("updateTransportMovementDetails", "UpdateTransportMovementDetails", "vetDocument", issuerId, , пОтказ, пОшибка, "deliveryParticipant,vetDocumentUuid,shipmentRoute", deliveryParticipant, vetDocumentUuid, shipmentRoute);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПрокси("updateTransportMovementDetails", "UpdateTransportMovementDetails", "vetDocument", issuerId, пОтказ, пОшибка, "deliveryParticipant,vetDocumentUuid,shipmentRoute", deliveryParticipant, vetDocumentUuid, shipmentRoute);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("updateTransportMovementDetails", "UpdateTransportMovementDetails", "vetDocument", issuerId, , пОтказ, пОшибка, "deliveryParticipant,vetDocumentUuid,shipmentRoute", deliveryParticipant, vetDocumentUuid, shipmentRoute);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -324,9 +324,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПроксиТолькоОбъект("checkShipmentRegionalization", "CheckShipmentRegionalization", "r13nRouteSection", issuerId, пОтказ, пОшибка, "cargoType,shipmentRoute", cargoType, shipmentRoute);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("checkShipmentRegionalization", "CheckShipmentRegionalization", "r13nRouteSection", issuerId, , пОтказ, пОшибка, "cargoType,shipmentRoute", cargoType, shipmentRoute);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПроксиТолькоОбъект("checkShipmentRegionalization", "CheckShipmentRegionalization", "r13nRouteSection", issuerId, пОтказ, пОшибка, "cargoType,shipmentRoute", cargoType, shipmentRoute);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("checkShipmentRegionalization", "CheckShipmentRegionalization", "r13nRouteSection", issuerId, , пОтказ, пОшибка, "cargoType,shipmentRoute", cargoType, shipmentRoute);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -342,9 +342,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПрокси("addBusinessEntityUser", "AddBusinessEntityUser", "user", issuerId, пОтказ, пОшибка, "user", user);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("addBusinessEntityUser", "AddBusinessEntityUser", "user", issuerId, , пОтказ, пОшибка, "user", user);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПрокси("addBusinessEntityUser", "AddBusinessEntityUser", "user", issuerId, пОтказ, пОшибка, "user", user);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("addBusinessEntityUser", "AddBusinessEntityUser", "user", issuerId, , пОтказ, пОшибка, "user", user);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -359,9 +359,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПрокси("getBusinessEntityUser", "GetBusinessEntityUser", "user", issuerId, пОтказ, пОшибка, "user", user);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getBusinessEntityUser", "GetBusinessEntityUser", "user", issuerId, , пОтказ, пОшибка, "user", user);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПрокси("getBusinessEntityUser", "GetBusinessEntityUser", "user", issuerId, пОтказ, пОшибка, "user", user);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("getBusinessEntityUser", "GetBusinessEntityUser", "user", issuerId, , пОтказ, пОшибка, "user", user);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -391,9 +391,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПрокси("updateUserAuthorities", "UpdateUserAuthorities", "user", issuerId, пОтказ, пОшибка, "user", user);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("updateUserAuthorities", "UpdateUserAuthorities", "user", issuerId, , пОтказ, пОшибка, "user", user);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПрокси("updateUserAuthorities", "UpdateUserAuthorities", "user", issuerId, пОтказ, пОшибка, "user", user);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("updateUserAuthorities", "UpdateUserAuthorities", "user", issuerId, , пОтказ, пОшибка, "user", user);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -408,9 +408,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПрокси("updateUserWorkingAreas", "UpdateUserWorkingAreas", "user", issuerId, пОтказ, пОшибка, "user", user);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("updateUserWorkingAreas", "UpdateUserWorkingAreas", "user", issuerId, , пОтказ, пОшибка, "user", user);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПрокси("updateUserWorkingAreas", "UpdateUserWorkingAreas", "user", issuerId, пОтказ, пОшибка, "user", user);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("updateUserWorkingAreas", "UpdateUserWorkingAreas", "user", issuerId, , пОтказ, пОшибка, "user", user);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -425,9 +425,9 @@
 	
 	Если Ложь Тогда
 	ИначеЕсли Ветис.Версия_2_1() Тогда
-		Возврат ПолучитьЧерезПрокси("unbindBusinessEntityUser", "UnbindBusinessEntityUser", "user", issuerId, пОтказ, пОшибка, "user", user);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("unbindBusinessEntityUser", "UnbindBusinessEntityUser", "user", issuerId, , пОтказ, пОшибка, "user", user);
 	ИначеЕсли Ветис.Версия_2_0() Тогда
-		Возврат ПолучитьЧерезПрокси("unbindBusinessEntityUser", "UnbindBusinessEntityUser", "user", issuerId, пОтказ, пОшибка, "user", user);
+		Возврат ПолучитьЧерезПроксиТолькоОбъект("unbindBusinessEntityUser", "UnbindBusinessEntityUser", "user", issuerId, , пОтказ, пОшибка, "user", user);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -447,18 +447,6 @@
 	
 КонецФункции
 
-Процедура ДополнитьСтруктуру(пСтруктура, пИмена
-	, пЗн1 = Неопределено, пЗн2 = Неопределено, пЗн3 = Неопределено
-	, пЗн4 = Неопределено, пЗн5 = Неопределено, пЗн6 = Неопределено
-	, пЗн7 = Неопределено, пЗн8 = Неопределено, пЗн9 = Неопределено)
-	
-	_Номер = 1;
-	Для каждого _Имя Из СтрРазделить(пИмена, ",") Цикл
-		пСтруктура.Вставить(_Имя, Вычислить("пЗн"+_Номер));
-		_Номер = _Номер + 1;
-	КонецЦикла;
-	
-КонецПроцедуры
 
 Функция GetListInit(пИмяОперации, пИмяОбъекта, пИмяСписка, пИмяКоллекции, пИмяСвойства = "", issuerId, пПараметры = Неопределено,
 	пИменаСвойств = Неопределено
@@ -469,7 +457,7 @@
 	//Если Ветис.GetListItFirst(пПараметры) Тогда
 		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
 		
-		_request = Создать(пИмяОбъекта+"Request", пИменаСвойств, пЗн1, пЗн2, пЗн3, пЗн4, пЗн5, пЗн6, пЗн7, пЗн8, пЗн9);
+		_request = Создать(пИмяОбъекта+"Request", , пИменаСвойств, пЗн1, пЗн2, пЗн3, пЗн4, пЗн5, пЗн6, пЗн7, пЗн8, пЗн9);
 		
 		Если пПараметры.Свойство("count") ИЛИ пПараметры.Свойство("offset") Тогда
 			ВетисОбщегоНазначения.УстановитьЗначение(_request, ВетисBase.ListOptions(?(пПараметры.Свойство("count"), пПараметры.count, Неопределено), ?(пПараметры.Свойство("offset"), пПараметры.offset, Неопределено)), "listOptions");
@@ -484,23 +472,16 @@
 	
 КонецФункции
 
-Функция Создать(пИмя, пИменаСвойств = Неопределено
+Функция Создать(пИмя, initiator = Неопределено, пИменаСвойств = Неопределено
 	, пЗн1 = Неопределено, пЗн2 = Неопределено, пЗн3 = Неопределено
 	, пЗн4 = Неопределено, пЗн5 = Неопределено, пЗн6 = Неопределено
-	, пЗн7 = Неопределено, пЗн8 = Неопределено, пЗн9 = Неопределено) Экспорт
+	, пЗн7 = Неопределено, пЗн8 = Неопределено, пЗн9 = Неопределено
+	) Экспорт
 	
 	_Объект = ВетисОбщегоНазначения.Создать(пИмя, URI());
 	
 	Если НЕ _Объект.Свойства().Получить("localTransactionId") = Неопределено Тогда
 		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
-	КонецЕсли;
-	
-	Если НЕ _Объект.Свойства().Получить("initiator") = Неопределено Тогда
-		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
-	КонецЕсли;
-	
-	Если НЕ _Объект.Свойства().Получить("listOptions") = Неопределено Тогда
-		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase.ListOptions(), "listOptions");
 	КонецЕсли;
 	
 	Если НЕ пИменаСвойств = Неопределено Тогда
@@ -509,6 +490,23 @@
 			ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Вычислить("пЗн"+_Номер), _Имя);
 			_Номер = _Номер + 1;
 		КонецЦикла;
+	КонецЕсли;
+	
+	Если НЕ _Объект.Свойства().Получить("initiator") = Неопределено И _Объект.initiator = Неопределено Тогда
+		Если Ложь Тогда
+		ИначеЕсли ТипЗнч(initiator) = Тип("Строка") Тогда
+			ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(initiator), "initiator");
+		ИначеЕсли ТипЗнч(initiator) = Тип("СправочникСсылка.ВетисПользователи") Тогда
+			ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(ВетисОбщегоНазначения.ЗначениеРеквизита(initiator, "Логин")), "initiator");
+		ИначеЕсли ТипЗнч(initiator) = Тип("ОбъектXDTO") Тогда
+			ВетисОбщегоНазначения.УстановитьЗначение(_Объект, initiator, "initiator");
+		Иначе
+			ВетисОбщегоНазначения.УстановитьЗначение(_Объект, User(), "initiator");
+		КонецЕсли;
+	КонецЕсли;
+	
+	Если НЕ _Объект.Свойства().Получить("listOptions") = Неопределено И _Объект.listOptions = Неопределено Тогда
+		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase.ListOptions(), "listOptions");
 	КонецЕсли;
 	
 	Возврат _Объект;
@@ -540,9 +538,9 @@
 	
 КонецФункции
 
-Функция User()
+Функция User(пЛогин = Неопределено)
 	
-	Возврат ВетисMercuryVetdocument.User(ВетисПовтИсп.ТекущийПользователь_Логин());
+	Возврат ВетисMercuryVetdocument.User(?(пЛогин = Неопределено, ВетисПовтИсп.ТекущийПользователь_Логин(), пЛогин));
 	
 КонецФункции
 
@@ -590,13 +588,13 @@
 	
 КонецФункции
 
-Функция ПолучитьЧерезПрокси(пИмяОперации, пИмяОбъекта, пИмяСвойства = Неопределено, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "",
+Функция ПолучитьЧерезПрокси(пИмяОперации, пИмяОбъекта, пИмяСвойства = Неопределено, issuerId = Неопределено, initiator = Неопределено, пОтказ = Ложь, пОшибка = "",
 	пИменаСвойств = Неопределено
 	, пЗн1 = Неопределено, пЗн2 = Неопределено, пЗн3 = Неопределено
 	, пЗн4 = Неопределено, пЗн5 = Неопределено, пЗн6 = Неопределено
 	, пЗн7 = Неопределено, пЗн8 = Неопределено, пЗн9 = Неопределено)
 	
-	_Request = Создать(пИмяОбъекта+"Request", пИменаСвойств, пЗн1, пЗн2, пЗн3, пЗн4, пЗн5, пЗн6, пЗн7, пЗн8, пЗн9);
+	_Request = Создать(пИмяОбъекта+"Request", initiator, пИменаСвойств, пЗн1, пЗн2, пЗн3, пЗн4, пЗн5, пЗн6, пЗн7, пЗн8, пЗн9);
 	
 	_Response = Прокси(пИмяОперации+"Request", _Request, issuerId, пОтказ, пОшибка);
 	
@@ -614,13 +612,13 @@
 	
 КонецФункции
 
-Функция ПолучитьЧерезПроксиТолькоОбъект(пИмяОперации, пИмяОбъекта, пИмяСвойства = Неопределено, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "",
+Функция ПолучитьЧерезПроксиТолькоОбъект(пИмяОперации, пИмяОбъекта, пИмяСвойства = Неопределено, issuerId = Неопределено, initiator = Неопределено, пОтказ = Ложь, пОшибка = "",
 	пИменаСвойств = Неопределено
 	, пЗн1 = Неопределено, пЗн2 = Неопределено, пЗн3 = Неопределено
 	, пЗн4 = Неопределено, пЗн5 = Неопределено, пЗн6 = Неопределено
 	, пЗн7 = Неопределено, пЗн8 = Неопределено, пЗн9 = Неопределено)
 	
-	_Ответ = ПолучитьЧерезПрокси(пИмяОперации, пИмяОбъекта, пИмяСвойства, issuerId, пОтказ, пОшибка, пИменаСвойств, пЗн1, пЗн2, пЗн3, пЗн4, пЗн5, пЗн6, пЗн7, пЗн8, пЗн9);
+	_Ответ = ПолучитьЧерезПрокси(пИмяОперации, пИмяОбъекта, пИмяСвойства, issuerId, initiator, пОтказ, пОшибка, пИменаСвойств, пЗн1, пЗн2, пЗн3, пЗн4, пЗн5, пЗн6, пЗн7, пЗн8, пЗн9);
 	
 	Если _Ответ.Отказ Тогда
 		Возврат Неопределено;
