@@ -4,7 +4,7 @@
 	
 	shipmentRouteList.ЗагрузитьЗначения(Параметры.shipmentRoute);
 	
-	SubProductList.ЗагрузитьЗначения(Параметры.SubProduct);
+	StockEntryList.ЗагрузитьЗначения(Параметры.StockEntryList);
 	
 	BusinessEntity = Параметры.BusinessEntity;
 	
@@ -61,7 +61,7 @@
 &НаСервере
 Процедура КомандаЗаполнитьНаСервере(пОтказ = Ложь, пОшибка = "")
 	
-	_Ответ = ВетисMercuryApplicationsСлой1с.CheckShipmentRegionalization(SubProductList.ВыгрузитьЗначения(), shipmentRouteList.ВыгрузитьЗначения(), BusinessEntity, пОтказ, пОшибка);
+	_Ответ = ВетисMercuryApplicationsСлой1с.CheckShipmentRegionalization(StockEntryList.ВыгрузитьЗначения(), shipmentRouteList.ВыгрузитьЗначения(), BusinessEntity, пОтказ, пОшибка);
 	
 	Если пОтказ = Ложь Тогда
 		_дерево = РеквизитФормыВЗначение("Список");

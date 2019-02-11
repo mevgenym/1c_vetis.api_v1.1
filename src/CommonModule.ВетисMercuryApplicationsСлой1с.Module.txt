@@ -7,7 +7,7 @@
 	
 	_enterprise = ВетисDictionary.Enterprise(enterpriseGuid);
 	
-	_inventoryDate = ТекущаяДата();
+	_inventoryDate = ТекущаяДатаСеанса();
 	
 	_responsible = ВетисMercuryVetdocument.User(ВетисПовтИсп.ТекущийПользователь_Логин());
 	
@@ -470,8 +470,6 @@
 	_issuerId = ?(issuerId = Неопределено, _Объект.Отправитель, issuerId);
 	_initiator = ?(initiator = Неопределено, _Объект.Ответственный, initiator);
 	
-	_НачалоПериода = ТекущаяДата();
-	
 	_Отладка = Ветис.РазрешенаОтладка();
 	
 	_СтрокаВСД = _Объект.ВСД[0];
@@ -727,7 +725,52 @@
 //Параметры:
 // subProductList - список видов продукции (массив)
 // routePointList - список точек маршрута, массив структур Страна, Регион или Предприятие
-Функция CheckShipmentRegionalization(subProductList, routePointList, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция CheckShipmentRegionalization(StockEntryList, routePointList, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_cargoType = Новый Массив;
+	
+	Запрос = Новый Запрос(
+	"ВЫБРАТЬ РАЗЛИЧНЫЕ
+	|	_Таблица.SubProduct.guid КАК guid
+	|ИЗ
+	|	Справочник.ВетисStockEntry КАК _Таблица
+	|ГДЕ
+	|	_Таблица.Ссылка В(&Список)");
+	
+	Запрос.УстановитьПараметр("Список", StockEntryList);
+	
+	Результат = Запрос.Выполнить();
+	Выборка = Результат.Выбрать();
+	
+	Пока Выборка.Следующий() Цикл
+		_cargoType.Добавить(ВетисDictionary.SubProduct(Выборка.guid));
+	КонецЦикла;
+	
+	_shipmentRoute = ВетисMercuryVetdocument.ShipmentRoute();
+	
+	_Индекс = 1;
+	Для каждого _routePoint Из routePointList Цикл
+		
+		_Location = Неопределено; _Enterprise = Неопределено;
+		Если _routePoint.Свойство("Предприятие") Тогда
+			_Enterprise = ВетисDictionary.Enterprise(ВетисDictionaryСлой1с.Enterprise(_routePoint.Предприятие));
+		Иначе
+			_Location = ВетисDictionary.Location(,ВетисDictionary.Address(, ВетисDictionaryСлой1с.Country(_routePoint.Страна), ВетисDictionaryСлой1с.Region(_routePoint.Регион)));
+		КонецЕсли;
+		
+		_shipmentRoute.routePoint.Добавить(ВетисMercuryVetdocument.ShipmentRoutePoint(_Индекс, _Location, _Enterprise));
+		
+		_Индекс = _Индекс + 1;
+	КонецЦикла;
+	
+	_Ответ = ВетисMercuryApplications.CheckShipmentRegionalization(_cargoType, _shipmentRoute, issuerId, пОтказ, пОшибка);
+	
+	//Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Возврат _Ответ;
+	
+КонецФункции
+Функция CheckShipmentRegionalizationSubProductList(subProductList, routePointList, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_cargoType = Новый Массив;
 	
@@ -781,7 +824,7 @@
 	
 	_Reason = ВетисMercuryVetdocument.VetDocumentStatusChangeReason(пПричина);
 	
-	_Ответ = ВетисMercuryApplications.WithdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), issuerId, initiator, пОтказ, пОшибка);
+	_Ответ = ВетисMercuryApplications.WithdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДатаСеанса(), issuerId, initiator, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда Возврат; КонецЕсли;
 	

@@ -108,7 +108,7 @@
 	ИначеЕсли Ветис.Версия_2_0() Тогда
 		Возврат BusinessEntity_2_0(guid);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат BusinessEntity_2_0(guid);
+		Возврат BusinessEntity_1_4(guid);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -118,6 +118,15 @@
 Функция BusinessEntity_2_0(guid = Неопределено)
 	
 	_Объект = Создать("BusinessEntity");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid);
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция BusinessEntity_1_4(guid = Неопределено)
+	
+	_Объект = Создать("BusinessEntity", "enterprise");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid);
 	
@@ -134,7 +143,7 @@
 	ИначеЕсли Ветис.Версия_2_0() Тогда
 		Возврат BusinessMember_2_0(businessEntityGuid, enterpriseGuid, globalID);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат BusinessMember_2_0(businessEntityGuid, enterpriseGuid);
+		Возврат BusinessMember_1_4(businessEntityGuid, enterpriseGuid);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -144,6 +153,17 @@
 Функция BusinessMember_2_0(businessEntityGuid, enterpriseGuid, globalID = Неопределено)
 	
 	_Объект = Создать("BusinessMember");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, BusinessEntity(businessEntityGuid), "businessEntity");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Enterprise(enterpriseGuid), "enterprise");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, globalID, "globalID");
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция BusinessMember_1_4(businessEntityGuid, enterpriseGuid, globalID = Неопределено)
+	
+	_Объект = Создать("BusinessMember", "enterprise");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, BusinessEntity(businessEntityGuid), "businessEntity");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Enterprise(enterpriseGuid), "enterprise");
@@ -228,7 +248,7 @@
 			_Дата = Ветис.ВремяСервиса(Object);
 		КонецЕсли;
 		
-		_Объект = Создать("ComplexDate");
+		_Объект = Создать("ComplexDate", "base");
 		
 		_Объект.year  = Год(_Дата);
 		_Объект.month = Месяц(_Дата);
@@ -409,7 +429,7 @@
 	ИначеЕсли Ветис.Версия_2_0() Тогда
 		Возврат Enterprise_2_0(guid);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат Enterprise(guid);
+		Возврат Enterprise_1_4(guid);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -419,6 +439,15 @@
 Функция Enterprise_2_0(guid = Неопределено)
 	
 	_Объект = Создать("Enterprise");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid);
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция Enterprise_1_4(guid = Неопределено)
+	
+	_Объект = Создать("Enterprise", "enterprise");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid);
 	
@@ -488,7 +517,7 @@
 	ИначеЕсли Ветис.Версия_2_0() Тогда
 		Возврат EnterpriseList_2_0(enterprise);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат EnterpriseList(enterprise);
+		Возврат EnterpriseList_1_4(enterprise);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -508,6 +537,19 @@
 	Возврат _Объект;
 	
 КонецФункции
+Функция EnterpriseList_1_4(enterprise = Неопределено)
+	
+	_Объект = Создать("EnterpriseList", "enterprise");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
+	
+	_Объект.count = _Объект.enterprise.Количество();
+	_Объект.offset = 0;
+	_Объект.total = 0;
+	
+	Возврат _Объект;
+	
+КонецФункции
 
 Функция EnterpriseNumberList(enterpriseNumber = Неопределено) Экспорт
 	
@@ -517,7 +559,7 @@
 	ИначеЕсли Ветис.Версия_2_0() Тогда
 		Возврат EnterpriseNumberList_2_0(enterpriseNumber);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат EnterpriseNumberList(enterpriseNumber);
+		Возврат EnterpriseNumberList_1_4(enterpriseNumber);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -527,6 +569,15 @@
 Функция EnterpriseNumberList_2_0(enterpriseNumber = Неопределено)
 	
 	_Объект = Создать("EnterpriseNumberList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseNumber, "enterpriseNumber");
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция EnterpriseNumberList_1_4(enterpriseNumber = Неопределено)
+	
+	_Объект = Создать("EnterpriseNumberList", "enterprise");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseNumber, "enterpriseNumber");
 	
@@ -576,7 +627,7 @@
 	ИначеЕсли Ветис.Версия_2_0() Тогда
 		Возврат IncorporationForm_2_0(code, shortName, name);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат IncorporationForm(code, shortName, name);
+		Возврат IncorporationForm_1_4(code, shortName, name);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -586,6 +637,17 @@
 Функция IncorporationForm_2_0(code, shortName = "", name = "")
 	
 	_Объект = Создать("IncorporationForm");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, code, "code");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, name, "name");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, shortName, "shortName");
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция IncorporationForm_1_4(code, shortName = "", name = "")
+	
+	_Объект = Создать("IncorporationForm", "enterprise");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, code, "code");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, name, "name");
@@ -916,7 +978,7 @@
 	ИначеЕсли Ветис.Версия_2_0() Тогда
 		Возврат Producer_2_0(enterpriseGuid, role);
 	ИначеЕсли Ветис.Версия_1_4() Тогда
-		Возврат Producer(enterpriseGuid, role);
+		Возврат Producer_1_4(enterpriseGuid, role);
 	Иначе
 		ВетисОбщегоНазначения.ВывестиСообщение(Ветис.ВерсияТекстОшибки());
 		ВызватьИсключение Ветис.ВерсияТекстОшибки();
@@ -926,6 +988,17 @@
 Функция Producer_2_0(enterpriseGuid = Неопределено, role = Неопределено)
 	
 	_Объект = Создать("Producer");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Enterprise(enterpriseGuid), "enterprise");
+	
+	_Объект.role = ?(role = Неопределено, ВетисКонстанты.EnterpriseRole_PRODUCER(), role);
+	
+	Возврат _Объект;
+	
+КонецФункции
+Функция Producer_1_4(enterpriseGuid = Неопределено, role = Неопределено)
+	
+	_Объект = Создать("Producer", "enterprise");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Enterprise(enterpriseGuid), "enterprise");
 	
@@ -1513,6 +1586,8 @@
 		Возврат "http://api.vetrf.ru/schema/cdm/argus/production";
 	ИначеЕсли name = "common" Тогда
 		Возврат "http://api.vetrf.ru/schema/cdm/argus/common";
+	ИначеЕсли name = "base" Тогда
+		Возврат "http://api.vetrf.ru/schema/cdm/base";
 	КонецЕсли;
 	
 КонецФункции
