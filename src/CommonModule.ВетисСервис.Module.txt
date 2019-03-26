@@ -346,6 +346,15 @@
 		
 	КонецЦикла;
 	
+	_Объект.УсловияПеремещения.Очистить();
+	Для каждого _УсловияПеремещенияСтрока Из пОбъект.r13nClause Цикл
+		
+		_ТЧСтрока = _Объект.УсловияПеремещения.Добавить();
+		_ТЧСтрока.SubProduct = ОбработатьСсылку(_УсловияПеремещенияСтрока.SubProduct);
+		_ТЧСтрока.Условие = ОбработатьСсылку(_УсловияПеремещенияСтрока.Condition);
+		
+	КонецЦикла;
+	
 	//_Объект.ОбменДанными.Загрузка = Истина;
 	_Объект.ОбменДанными.Получатели.АвтоЗаполнение = Ложь;
 	
@@ -972,37 +981,37 @@
 	КонецЕсли;
 	
 	пОтвет.ShipmentRegionalization = ВетисОбщегоНазначения.ПолучитьСтруктуруXDTO(_Ответ);
-	Для каждого _r13nRouteSection Из пОтвет.ShipmentRegionalization Цикл
-		Для каждого _appliedR13nRule Из _r13nRouteSection.appliedR13nRule Цикл
-			Если _appliedR13nRule.decision = "2" Тогда
-				_cargoTypeList = Новый Массив;
-				Для каждого _cargoType Из _appliedR13nRule.cargoType Цикл
-					//_cargoType = ПолучитьСтруктуруОбъекта(ВетисDictionaryСлой1с.SubProduct(_cargoType), Новый Структура("Подробно", Истина));
-					//_SubProduct = Новый Структура;
-					//_SubProduct.Вставить("Тип", _cargoType.Тип);
-					//_SubProduct.Вставить("ref", _cargoType.ref);
-					//_SubProduct.Вставить("guid", _cargoType.guid);
-					//_SubProduct.Вставить("name", _cargoType.Наименование);
-					//_SubProduct.Вставить("code", СокрП(_cargoType.Код));
-					_cargoTypeList.Добавить(ПолучитьСтруктуруОбъекта(ВетисDictionaryСлой1с.SubProduct(_cargoType)));
-				КонецЦикла;
-				_appliedR13nRule.cargoType = _cargoTypeList;
-				//_appliedR13nRule.cargoType.Очистить();
-				//Для каждого _cargoType Из _cargoTypeList Цикл
-				//	_appliedR13nRule.cargoType.Добавить(_cargoType);
-				//КонецЦикла;
-				Для каждого _requirement Из _appliedR13nRule.requirement Цикл
-					Для каждого _conditionGroup Из _requirement.conditionGroup Цикл
-						_conditionList = Новый Массив;
-						Для каждого _condition Из _conditionGroup.condition Цикл
-   							_conditionList.Добавить(ПолучитьСтруктуруОбъекта(ВетисDictionaryСлой1с.RegionalizationCondition(_condition)));
-						КонецЦикла;
-						_conditionGroup.condition = _conditionList;
-					КонецЦикла;
-				КонецЦикла;
-			КонецЕсли;
-		КонецЦикла;
-	КонецЦикла;
+	//Для каждого _r13nRouteSection Из пОтвет.ShipmentRegionalization Цикл
+	//	Для каждого _appliedR13nRule Из _r13nRouteSection.appliedR13nRule Цикл
+	//		Если _appliedR13nRule.decision = "2" Тогда
+	//			_cargoTypeList = Новый Массив;
+	//			Для каждого _cargoType Из _appliedR13nRule.cargoType Цикл
+	//				//_cargoType = ПолучитьСтруктуруОбъекта(ВетисDictionaryСлой1с.SubProduct(_cargoType), Новый Структура("Подробно", Истина));
+	//				//_SubProduct = Новый Структура;
+	//				//_SubProduct.Вставить("Тип", _cargoType.Тип);
+	//				//_SubProduct.Вставить("ref", _cargoType.ref);
+	//				//_SubProduct.Вставить("guid", _cargoType.guid);
+	//				//_SubProduct.Вставить("name", _cargoType.Наименование);
+	//				//_SubProduct.Вставить("code", СокрП(_cargoType.Код));
+	//				_cargoTypeList.Добавить(ПолучитьСтруктуруОбъекта(ВетисDictionaryСлой1с.SubProduct(_cargoType)));
+	//			КонецЦикла;
+	//			_appliedR13nRule.cargoType = _cargoTypeList;
+	//			//_appliedR13nRule.cargoType.Очистить();
+	//			//Для каждого _cargoType Из _cargoTypeList Цикл
+	//			//	_appliedR13nRule.cargoType.Добавить(_cargoType);
+	//			//КонецЦикла;
+	//			Для каждого _requirement Из _appliedR13nRule.requirement Цикл
+	//				Для каждого _conditionGroup Из _requirement.conditionGroup Цикл
+	//					_conditionList = Новый Массив;
+	//					Для каждого _condition Из _conditionGroup.condition Цикл
+	// 							_conditionList.Добавить(ПолучитьСтруктуруОбъекта(ВетисDictionaryСлой1с.RegionalizationCondition(_condition)));
+	//					КонецЦикла;
+	//					_conditionGroup.condition = _conditionList;
+	//				КонецЦикла;
+	//			КонецЦикла;
+	//		КонецЕсли;
+	//	КонецЦикла;
+	//КонецЦикла;
 	
 	Возврат Истина;
 	

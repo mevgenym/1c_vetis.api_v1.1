@@ -191,6 +191,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисОтложенныеОперации</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисОтложенныеОперации</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисФоновыеЗадания</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">80425461-fc47-47f2-a32d-fb8ff61f1836</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисТестовый</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисОбъектыДляУточнения</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.ВетисStockEntry</xr:Item>
