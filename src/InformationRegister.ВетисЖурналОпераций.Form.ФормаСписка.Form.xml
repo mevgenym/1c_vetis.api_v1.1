@@ -105,6 +105,18 @@
 									<ContextMenu name="МиллисекундыКонтекстноеМеню" id="37"/>
 									<ExtendedTooltip name="МиллисекундыРасширеннаяПодсказка" id="38"/>
 								</LabelField>
+								<LabelField name="Длительность" id="79">
+									<DataPath>Список.Длительность</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Длит.</v8:content>
+										</v8:item>
+									</Title>
+									<Width>3</Width>
+									<ContextMenu name="ДлительностьКонтекстноеМеню" id="80"/>
+									<ExtendedTooltip name="ДлительностьРасширеннаяПодсказка" id="81"/>
+								</LabelField>
 							</ChildItems>
 						</ColumnGroup>
 						<ColumnGroup name="Группа3" id="52">

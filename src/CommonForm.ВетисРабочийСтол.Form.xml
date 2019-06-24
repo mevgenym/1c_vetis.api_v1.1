@@ -885,7 +885,13 @@
 							</SearchControlAddition>
 							<ChildItems>
 								<LabelField name="СписокСкладскойЖурналПредставление" id="829">
-									<DataPath>СписокСкладскойЖурнал.Представление</DataPath>
+									<DataPath>СписокСкладскойЖурнал.ПредставлениеПартии</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Наименование</v8:content>
+										</v8:item>
+									</Title>
 									<ContextMenu name="СписокСкладскойЖурналПредставлениеКонтекстноеМеню" id="830"/>
 									<ExtendedTooltip name="СписокСкладскойЖурналПредставлениеРасширеннаяПодсказка" id="831"/>
 								</LabelField>
@@ -944,6 +950,28 @@
 								</LabelField>
 							</ChildItems>
 						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаОтладка" id="857">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отладка</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отладка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаОтладкаРасширеннаяПодсказка" id="858"/>
+					<ChildItems>
+						<Button name="КомандаСинхронизироватьVetDocument" id="859">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.КомандаСинхронизироватьVetDocument</CommandName>
+							<ExtendedTooltip name="КомандаСинхронизироватьVetDocumentРасширеннаяПодсказка" id="860"/>
+						</Button>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -1778,6 +1806,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаТранзакцияЗаписать</Action>
+		</Command>
+		<Command name="КомандаСинхронизироватьVetDocument" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда синхронизировать vet document</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда синхронизировать vet document</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаСинхронизироватьVetDocument</Action>
 		</Command>
 	</Commands>
 </Form>

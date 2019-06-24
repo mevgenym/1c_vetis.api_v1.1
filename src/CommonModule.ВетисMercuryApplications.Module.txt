@@ -97,8 +97,21 @@
 // Булево         - Ложь значит список пройден весь
 Функция getVetDocumentListNext(enterpriseGuid, issuerId = Неопределено, Item, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
+	Перем _Зн1, _Зн2, _Зн3, _Зн4, _Зн5, _Зн6, _Зн7, _Зн8, _Зн9;
+	
 	Если Ветис.GetListItFirst(пПараметры) Тогда
-		GetListInit("getVetDocumentList", "GetVetDocumentList", "vetDocumentList", "vetDocument", , issuerId, пПараметры, "enterpriseGuid", enterpriseGuid);
+		Если ТипЗнч(enterpriseGuid) = Тип("Структура") Тогда
+			_ИменаСвойств = ""; _Номер = 1;
+			Для каждого _парам Из enterpriseGuid Цикл
+				_ИменаСвойств = _ИменаСвойств + ?(_ИменаСвойств="","",",") + _парам.Ключ;
+				Выполнить("_Зн"+_Номер+"=_парам.Значение");
+				_Номер = _Номер + 1;
+			КонецЦикла;
+		Иначе
+			_ИменаСвойств = "enterpriseGuid";
+			_Зн1 = enterpriseGuid;
+		КонецЕсли;
+		GetListInit("getVetDocumentList", "GetVetDocumentList", "vetDocumentList", "vetDocument", , issuerId, пПараметры, _ИменаСвойств, _Зн1, _Зн2, _Зн3, _Зн4, _Зн5, _Зн6, _Зн7, _Зн8, _Зн9);
 	КонецЕсли;
 	
 	Возврат Ветис.GetListNext(Item, пПараметры, пОтказ, пОшибка);

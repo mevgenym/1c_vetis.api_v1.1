@@ -29,6 +29,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисВходящаяПартияПоДокументам.TabularSection.Товары.Attribute.ВСД</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисВходящаяПартияПоДокументам.TabularSection.Товары.Attribute.ВозвратныйВСД</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисТранспортнаяПартия.Attribute.ДокументОснование</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисТранспортнаяПартия.Attribute.ТранспортнаяПартияПодпитка</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисТранспортнаяПартия.TabularSection.Партии.Attribute.ВСД</xr:Item>
 			</Content>
 			<DefaultForm/>

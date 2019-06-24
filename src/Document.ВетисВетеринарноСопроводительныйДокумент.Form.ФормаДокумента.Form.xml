@@ -410,7 +410,7 @@
 												<Event name="OnChange">сжSubProductПриИзменении</Event>
 											</Events>
 										</InputField>
-										<InputField name="сжНоменклатура" id="199">
+										<InputField name="сжProductItem" id="199">
 											<DataPath>сжProductItem</DataPath>
 											<ChoiceParameterLinks>
 												<xr:Link>
@@ -429,8 +429,8 @@
 													<xr:ValueChange>Clear</xr:ValueChange>
 												</xr:Link>
 											</ChoiceParameterLinks>
-											<ContextMenu name="сжНоменклатураКонтекстноеМеню" id="200"/>
-											<ExtendedTooltip name="сжНоменклатураРасширеннаяПодсказка" id="201"/>
+											<ContextMenu name="сжProductItemКонтекстноеМеню" id="200"/>
+											<ExtendedTooltip name="сжProductItemРасширеннаяПодсказка" id="201"/>
 											<Events>
 												<Event name="OnChange">сжProductItemПриИзменении</Event>
 											</Events>
@@ -573,15 +573,15 @@
 											<ShowTitle>false</ShowTitle>
 											<ExtendedTooltip name="ГруппаВыработаноРасширеннаяПодсказка" id="333"/>
 											<ChildItems>
-												<InputField name="сжВыработкаНачало" id="334">
+												<InputField name="сжДатаВыработкиНачало" id="334">
 													<DataPath>сжДатаВыработкиНачало</DataPath>
-													<ContextMenu name="сжВыработкаНачалоКонтекстноеМеню" id="335"/>
-													<ExtendedTooltip name="сжВыработкаНачалоРасширеннаяПодсказка" id="336"/>
+													<ContextMenu name="сжДатаВыработкиНачалоКонтекстноеМеню" id="335"/>
+													<ExtendedTooltip name="сжДатаВыработкиНачалоРасширеннаяПодсказка" id="336"/>
 												</InputField>
-												<InputField name="сжВыработкаКонец" id="337">
+												<InputField name="сжДатаВыработкиКонец" id="337">
 													<DataPath>сжДатаВыработкиКонец</DataPath>
-													<ContextMenu name="сжВыработкаКонецКонтекстноеМеню" id="338"/>
-													<ExtendedTooltip name="сжВыработкаКонецРасширеннаяПодсказка" id="339"/>
+													<ContextMenu name="сжДатаВыработкиКонецКонтекстноеМеню" id="338"/>
+													<ExtendedTooltip name="сжДатаВыработкиКонецРасширеннаяПодсказка" id="339"/>
 												</InputField>
 												<InputField name="сжДатаВыработкиСтрокой" id="819">
 													<DataPath>сжДатаВыработкиСтрокой</DataPath>
@@ -925,98 +925,6 @@
 							<ContextMenu name="осмОсобыеОтметкиКонтекстноеМеню" id="502"/>
 							<ExtendedTooltip name="осмОсобыеОтметкиРасширеннаяПодсказка" id="503"/>
 						</TextDocumentField>
-					</ChildItems>
-				</Page>
-				<Page name="ГруппаВСД" id="298">
-					<Visible>false</Visible>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ВСД</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа ВСД</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ExtendedTooltip name="ГруппаВСДРасширеннаяПодсказка" id="299"/>
-					<ChildItems>
-						<LabelField name="Тип" id="463">
-							<DataPath>Объект.ТипВСД</DataPath>
-							<ContextMenu name="ТипКонтекстноеМеню" id="464"/>
-							<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="465"/>
-						</LabelField>
-						<InputField name="всдНазначениеГруза" id="415">
-							<DataPath>всдНазначениеГруза</DataPath>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<ContextMenu name="всдНазначениеГрузаКонтекстноеМеню" id="416"/>
-							<ExtendedTooltip name="всдНазначениеГрузаРасширеннаяПодсказка" id="417"/>
-						</InputField>
-						<InputField name="всдЛабораторныеИсследования" id="397">
-							<DataPath>всдЛабораторныеИсследования</DataPath>
-							<ContextMenu name="всдЛабораторныеИсследованияКонтекстноеМеню" id="398"/>
-							<ExtendedTooltip name="всдЛабораторныеИсследованияРасширеннаяПодсказка" id="399"/>
-						</InputField>
-						<InputField name="всдБлагополучиеМестности" id="400">
-							<DataPath>всдБлагополучиеМестности</DataPath>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<ContextMenu name="всдБлагополучиеМестностиКонтекстноеМеню" id="401"/>
-							<ExtendedTooltip name="всдБлагополучиеМестностиРасширеннаяПодсказка" id="402"/>
-						</InputField>
-						<UsualGroup name="ГруппаКарантирование" id="365">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа карантирование</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа карантирование</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>Horizontal</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаКарантированиеРасширеннаяПодсказка" id="366"/>
-							<ChildItems>
-								<InputField name="всдКарантированиеМесто" id="403">
-									<DataPath>всдКарантированиеМесто</DataPath>
-									<ContextMenu name="всдКарантированиеМестоКонтекстноеМеню" id="404"/>
-									<ExtendedTooltip name="всдКарантированиеМестоРасширеннаяПодсказка" id="405"/>
-								</InputField>
-								<InputField name="всдКарантированиеДней" id="406">
-									<DataPath>всдКарантированиеДней</DataPath>
-									<ContextMenu name="всдКарантированиеДнейКонтекстноеМеню" id="407"/>
-									<ExtendedTooltip name="всдКарантированиеДнейРасширеннаяПодсказка" id="408"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<InputField name="всдОсобыеОтметки" id="409">
-							<DataPath>всдОсобыеОтметки</DataPath>
-							<ContextMenu name="всдОсобыеОтметкиКонтекстноеМеню" id="410"/>
-							<ExtendedTooltip name="всдОсобыеОтметкиРасширеннаяПодсказка" id="411"/>
-						</InputField>
-						<InputField name="всдИммунизация" id="412">
-							<DataPath>всдИммунизация</DataPath>
-							<ContextMenu name="всдИммунизацияКонтекстноеМеню" id="413"/>
-							<ExtendedTooltip name="всдИммунизацияРасширеннаяПодсказка" id="414"/>
-						</InputField>
-						<CheckBoxField name="всдВетсанэкспертиза" id="394">
-							<DataPath>всдВетсанэкспертиза</DataPath>
-							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="всдВетсанэкспертизаКонтекстноеМеню" id="395"/>
-							<ExtendedTooltip name="всдВетсанэкспертизаРасширеннаяПодсказка" id="396"/>
-						</CheckBoxField>
-						<CheckBoxField name="всдКонтрольГосВетврачем" id="391">
-							<DataPath>всдКонтрольГосВетврачем</DataPath>
-							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="всдКонтрольГосВетврачемКонтекстноеМеню" id="392"/>
-							<ExtendedTooltip name="всдКонтрольГосВетврачемРасширеннаяПодсказка" id="393"/>
-						</CheckBoxField>
 					</ChildItems>
 				</Page>
 				<Page name="ГруппаМаршрутСледования" id="512">
@@ -1887,130 +1795,6 @@
 			</Title>
 			<Type>
 				<v8:Type>cfg:CatalogRef.ВетисCountry</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="всдБлагополучиеМестности" id="14">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Благополучие местности</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>255</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
-			</Type>
-		</Attribute>
-		<Attribute name="всдВетсанэкспертиза" id="15">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Ветсанэкспертиза</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="всдИммунизация" id="16">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Иммунизация</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
-			</Type>
-		</Attribute>
-		<Attribute name="всдКарантированиеДней" id="17">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Дней</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:decimal</v8:Type>
-				<v8:NumberQualifiers>
-					<v8:Digits>10</v8:Digits>
-					<v8:FractionDigits>0</v8:FractionDigits>
-					<v8:AllowedSign>Any</v8:AllowedSign>
-				</v8:NumberQualifiers>
-			</Type>
-		</Attribute>
-		<Attribute name="всдКарантированиеМесто" id="18">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Карантирование место</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>10</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
-			</Type>
-		</Attribute>
-		<Attribute name="всдКонтрольГосВетврачем" id="19">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Контроль гос ветврачем</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="всдЛабораторныеИсследования" id="20">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Лабораторные исследования</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
-			</Type>
-		</Attribute>
-		<Attribute name="всдНазначениеГруза" id="21">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Назначение груза</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>cfg:CatalogRef.ВетисPurpose</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="всдОсобыеОтметки" id="22">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Особые отметки</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
 		<Attribute name="ттнДата" id="24">

@@ -329,6 +329,7 @@
 					</Synonym>
 					<Comment/>
 					<Type>
+						<v8:Type>cfg:DocumentRef.ВетисТранспортнаяПартия</v8:Type>
 						<v8:Type>cfg:DocumentRef.РеализацияТоваровУслуг</v8:Type>
 						<v8:Type>cfg:DocumentRef.РасходныйОрдерНаТовары</v8:Type>
 						<v8:Type>cfg:DocumentRef.ПеремещениеТоваров</v8:Type>
@@ -550,11 +551,11 @@
 			</Attribute>
 			<Attribute uuid="ffe01b75-db49-4dce-8876-7ebc9cd71f7c">
 				<Properties>
-					<Name>ТранзакцияПодпитка</Name>
+					<Name>ТранспортнаяПартияПодпитка</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Транзакция подпитка</v8:content>
+							<v8:content>Транспортная партия подпитка</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -987,6 +988,44 @@
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Расхождения согласованы</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>false</FillFromFillingValue>
+					<FillValue xsi:nil="true"/>
+					<FillChecking>DontCheck</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Indexing>DontIndex</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+				</Properties>
+			</Attribute>
+			<Attribute uuid="21d1c042-279a-4e7f-b081-36eea7c40733">
+				<Properties>
+					<Name>УсловияПеремещенияПроверены</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Условия перемещения проверены</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -2556,7 +2595,7 @@
 							<ExtendedEdit>false</ExtendedEdit>
 							<MinValue xsi:nil="true"/>
 							<MaxValue xsi:nil="true"/>
-							<FillChecking>ShowError</FillChecking>
+							<FillChecking>DontCheck</FillChecking>
 							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 							<ChoiceParameterLinks/>
 							<ChoiceParameters/>
@@ -2592,7 +2631,7 @@
 							<ExtendedEdit>false</ExtendedEdit>
 							<MinValue xsi:nil="true"/>
 							<MaxValue xsi:nil="true"/>
-							<FillChecking>ShowError</FillChecking>
+							<FillChecking>DontCheck</FillChecking>
 							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 							<ChoiceParameterLinks/>
 							<ChoiceParameters/>
@@ -2820,21 +2859,21 @@
 			</TabularSection>
 			<TabularSection uuid="f06976b3-166a-40cd-af1b-3975081dd012">
 				<InternalInfo>
-					<xr:GeneratedType name="DocumentTabularSection.ВетисТранспортнаяПартия.ВСД" category="TabularSection">
+					<xr:GeneratedType name="DocumentTabularSection.ВетисТранспортнаяПартия.РезультатыОсмотра" category="TabularSection">
 						<xr:TypeId>84f2485c-8525-4740-aafb-80f861002dd9</xr:TypeId>
 						<xr:ValueId>7f7df0c4-a70c-4ce4-ae72-13c45fc140b4</xr:ValueId>
 					</xr:GeneratedType>
-					<xr:GeneratedType name="DocumentTabularSectionRow.ВетисТранспортнаяПартия.ВСД" category="TabularSectionRow">
+					<xr:GeneratedType name="DocumentTabularSectionRow.ВетисТранспортнаяПартия.РезультатыОсмотра" category="TabularSectionRow">
 						<xr:TypeId>2e530259-c0ad-4ddf-9b8c-51d34fb78466</xr:TypeId>
 						<xr:ValueId>039f61b8-5605-4fdc-89be-01482d98dc34</xr:ValueId>
 					</xr:GeneratedType>
 				</InternalInfo>
 				<Properties>
-					<Name>ВСД</Name>
+					<Name>РезультатыОсмотра</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ВСД</v8:content>
+							<v8:content>Результаты осмотра</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -2869,22 +2908,18 @@
 					</StandardAttributes>
 				</Properties>
 				<ChildObjects>
-					<Attribute uuid="1d334959-6e06-4cba-af9a-1e9952265a88">
+					<Attribute uuid="013cc127-c499-42c1-9e86-bf87a92ccb00">
 						<Properties>
-							<Name>БлагополучиеМестности</Name>
+							<Name>НазначениеГруза</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Благополучие местности</v8:content>
+									<v8:content>Назначение груза</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>xs:string</v8:Type>
-								<v8:StringQualifiers>
-									<v8:Length>255</v8:Length>
-									<v8:AllowedLength>Variable</v8:AllowedLength>
-								</v8:StringQualifiers>
+								<v8:Type>cfg:CatalogRef.ВетисPurpose</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -2909,13 +2944,13 @@
 							<FullTextSearch>Use</FullTextSearch>
 						</Properties>
 					</Attribute>
-					<Attribute uuid="352032b0-b6fe-4b93-a11a-78645f542f42">
+					<Attribute uuid="e4e79d97-0c0f-4a1d-b90a-8c98e7e6dea5">
 						<Properties>
-							<Name>Ветсанэкспертиза</Name>
+							<Name>КонтрольГосВетврачем</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Ветсанэкспертиза</v8:content>
+									<v8:content>Контроль гос. ветврачем</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>
@@ -2981,18 +3016,18 @@
 							<FullTextSearch>Use</FullTextSearch>
 						</Properties>
 					</Attribute>
-					<Attribute uuid="e4e79d97-0c0f-4a1d-b90a-8c98e7e6dea5">
+					<Attribute uuid="352032b0-b6fe-4b93-a11a-78645f542f42">
 						<Properties>
-							<Name>КонтрольГосВетврачем</Name>
+							<Name>Ветсанэкспертиза</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Контроль гос. ветврачем</v8:content>
+									<v8:content>Ветсанэкспертиза</v8:content>
 								</v8:item>
 							</Synonym>
-							<Comment/>
+							<Comment>cargoExpertized</Comment>
 							<Type>
-								<v8:Type>xs:boolean</v8:Type>
+								<v8:Type>cfg:EnumRef.ВетисResearchResult</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -3057,18 +3092,62 @@
 							<FullTextSearch>Use</FullTextSearch>
 						</Properties>
 					</Attribute>
-					<Attribute uuid="013cc127-c499-42c1-9e86-bf87a92ccb00">
+					<Attribute uuid="1d334959-6e06-4cba-af9a-1e9952265a88">
 						<Properties>
-							<Name>НазначениеГруза</Name>
+							<Name>БлагополучиеМестности</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Назначение груза</v8:content>
+									<v8:content>Благополучие местности</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:CatalogRef.ВетисPurpose</v8:Type>
+								<v8:Type>xs:string</v8:Type>
+								<v8:StringQualifiers>
+									<v8:Length>255</v8:Length>
+									<v8:AllowedLength>Variable</v8:AllowedLength>
+								</v8:StringQualifiers>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="25779991-fc24-4e3b-a1c0-df88046c5e60">
+						<Properties>
+							<Name>ОсобыеОтметки</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Особые отметки</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>specialMarks {bs:Text}</Comment>
+							<Type>
+								<v8:Type>xs:string</v8:Type>
+								<v8:StringQualifiers>
+									<v8:Length>0</v8:Length>
+									<v8:AllowedLength>Variable</v8:AllowedLength>
+								</v8:StringQualifiers>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
