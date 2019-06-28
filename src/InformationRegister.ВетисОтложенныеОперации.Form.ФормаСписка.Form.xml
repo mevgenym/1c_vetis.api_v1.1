@@ -114,12 +114,24 @@
 					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="45"/>
 					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="46"/>
 				</LabelField>
-				<CheckBoxField name="Завершено" id="31">
-					<DataPath>Список.Завершено</DataPath>
-					<CheckBoxType>Auto</CheckBoxType>
-					<ContextMenu name="ЗавершеноКонтекстноеМеню" id="32"/>
-					<ExtendedTooltip name="ЗавершеноРасширеннаяПодсказка" id="33"/>
-				</CheckBoxField>
+				<ColumnGroup name="Группа1" id="50">
+					<Group>InCell</Group>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="51"/>
+					<ChildItems>
+						<CheckBoxField name="Завершено" id="31">
+							<DataPath>Список.Завершено</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ЗавершеноКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="ЗавершеноРасширеннаяПодсказка" id="33"/>
+						</CheckBoxField>
+						<LabelField name="ЗавершеноДата" id="47">
+							<DataPath>Список.ЗавершеноДата</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="ЗавершеноДатаКонтекстноеМеню" id="48"/>
+							<ExtendedTooltip name="ЗавершеноДатаРасширеннаяПодсказка" id="49"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
 				<CheckBoxField name="Ошибка" id="39">
 					<DataPath>Список.Ошибка</DataPath>
 					<CheckBoxType>Auto</CheckBoxType>
