@@ -5,6 +5,7 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<InputField name="Наименование" id="1">
@@ -132,6 +133,182 @@
 							<ContextMenu name="addressViewКонтекстноеМеню" id="44"/>
 							<ExtendedTooltip name="addressViewРасширеннаяПодсказка" id="45"/>
 						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаПредприятия" id="92">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Предприятия</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница предприятия</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаПредприятияРасширеннаяПодсказка" id="93"/>
+					<ChildItems>
+						<Table name="Предприятия" id="94">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Предприятия</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПредприятияКонтекстноеМеню" id="95"/>
+							<AutoCommandBar name="ПредприятияКоманднаяПанель" id="96">
+								<ChildItems>
+									<Button name="ПредприятияКомандаПредприятияЗаполнить" id="143">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаПредприятияЗаполнить</CommandName>
+										<ExtendedTooltip name="ПредприятияКомандаПредприятияЗаполнитьРасширеннаяПодсказка" id="144"/>
+									</Button>
+									<Button name="ПредприятияКомандаПривязатьВСервисе" id="167">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаПривязатьВСервисе</CommandName>
+										<ExtendedTooltip name="ПредприятияКомандаПривязатьВСервисеРасширеннаяПодсказка" id="168"/>
+									</Button>
+									<Button name="ПредприятияКомандаОтвязатьВСервисе" id="165">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаОтвязатьВСервисе</CommandName>
+										<ExtendedTooltip name="ПредприятияКомандаОтвязатьВСервисеРасширеннаяПодсказка" id="166"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПредприятияРасширеннаяПодсказка" id="97"/>
+							<SearchStringAddition name="ПредприятияСтрокаПоиска" id="98">
+								<AdditionSource>
+									<Item>Предприятия</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПредприятияСтрокаПоискаКонтекстноеМеню" id="99"/>
+								<ExtendedTooltip name="ПредприятияСтрокаПоискаРасширеннаяПодсказка" id="100"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПредприятияСостояниеПросмотра" id="101">
+								<AdditionSource>
+									<Item>Предприятия</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПредприятияСостояниеПросмотраКонтекстноеМеню" id="102"/>
+								<ExtendedTooltip name="ПредприятияСостояниеПросмотраРасширеннаяПодсказка" id="103"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПредприятияУправлениеПоиском" id="104">
+								<AdditionSource>
+									<Item>Предприятия</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПредприятияУправлениеПоискомКонтекстноеМеню" id="105"/>
+								<ExtendedTooltip name="ПредприятияУправлениеПоискомРасширеннаяПодсказка" id="106"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ПредприятияВыбор</Event>
+								<Event name="BeforeAddRow">ПредприятияПередНачаломДобавления</Event>
+								<Event name="BeforeRowChange">ПредприятияПередНачаломИзменения</Event>
+								<Event name="OnChange">ПредприятияПриИзменении</Event>
+							</Events>
+							<ChildItems>
+								<CheckBoxField name="ПредприятияИспользовать" id="131">
+									<DataPath>Предприятия.Использовать</DataPath>
+									<EditMode>Directly</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПредприятияИспользоватьКонтекстноеМеню" id="132"/>
+									<ExtendedTooltip name="ПредприятияИспользоватьРасширеннаяПодсказка" id="133"/>
+								</CheckBoxField>
+								<CheckBoxField name="ПредприятияСвой" id="137">
+									<DataPath>Предприятия.Свой</DataPath>
+									<EditMode>Directly</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПредприятияСвойКонтекстноеМеню" id="138"/>
+									<ExtendedTooltip name="ПредприятияСвойРасширеннаяПодсказка" id="139"/>
+								</CheckBoxField>
+								<CheckBoxField name="ПредприятияВСервисе" id="134">
+									<DataPath>Предприятия.ВСервисе</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПредприятияВСервисеКонтекстноеМеню" id="135"/>
+									<ExtendedTooltip name="ПредприятияВСервисеРасширеннаяПодсказка" id="136"/>
+								</CheckBoxField>
+								<CheckBoxField name="ПредприятияЕстьОтличия" id="145">
+									<DataPath>Предприятия.ЕстьОтличия</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПредприятияЕстьОтличияКонтекстноеМеню" id="146"/>
+									<ExtendedTooltip name="ПредприятияЕстьОтличияРасширеннаяПодсказка" id="147"/>
+								</CheckBoxField>
+								<InputField name="Предприятияname" id="113">
+									<DataPath>Предприятия.name</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПредприятияnameКонтекстноеМеню" id="114"/>
+									<ExtendedTooltip name="ПредприятияnameРасширеннаяПодсказка" id="115"/>
+								</InputField>
+								<InputField name="ПредприятияaddressView" id="125">
+									<DataPath>Предприятия.addressView</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПредприятияaddressViewКонтекстноеМеню" id="126"/>
+									<ExtendedTooltip name="ПредприятияaddressViewРасширеннаяПодсказка" id="127"/>
+								</InputField>
+								<InputField name="ПредприятияenterpriseNumber" id="110">
+									<DataPath>Предприятия.enterpriseNumber</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПредприятияenterpriseNumberКонтекстноеМеню" id="111"/>
+									<ExtendedTooltip name="ПредприятияenterpriseNumberРасширеннаяПодсказка" id="112"/>
+								</InputField>
+								<InputField name="ПредприятияПоследнийОтвет" id="148">
+									<DataPath>Предприятия.ПоследнийОтвет</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПредприятияПоследнийОтветКонтекстноеМеню" id="149"/>
+									<ExtendedTooltip name="ПредприятияПоследнийОтветРасширеннаяПодсказка" id="150"/>
+								</InputField>
+								<InputField name="ПредприятияOwner" id="122">
+									<DataPath>Предприятия.Owner</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПредприятияOwnerКонтекстноеМеню" id="123"/>
+									<ExtendedTooltip name="ПредприятияOwnerРасширеннаяПодсказка" id="124"/>
+								</InputField>
+								<InputField name="Предприятияtype" id="128">
+									<DataPath>Предприятия.type</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПредприятияtypeКонтекстноеМеню" id="129"/>
+									<ExtendedTooltip name="ПредприятияtypeРасширеннаяПодсказка" id="130"/>
+								</InputField>
+								<CheckBoxField name="Предприятияlast" id="151">
+									<DataPath>Предприятия.last</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПредприятияlastКонтекстноеМеню" id="152"/>
+									<ExtendedTooltip name="ПредприятияlastРасширеннаяПодсказка" id="153"/>
+								</CheckBoxField>
+								<CheckBoxField name="Предприятияactive" id="162">
+									<DataPath>Предприятия.active</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПредприятияactiveКонтекстноеМеню" id="163"/>
+									<ExtendedTooltip name="ПредприятияactiveРасширеннаяПодсказка" id="164"/>
+								</CheckBoxField>
+								<InputField name="Предприятияstatus" id="157">
+									<DataPath>Предприятия.status</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПредприятияstatusКонтекстноеМеню" id="158"/>
+									<ExtendedTooltip name="ПредприятияstatusРасширеннаяПодсказка" id="159"/>
+								</InputField>
+								<ColumnGroup name="ПредприятияГруппа1" id="160">
+									<Group>InCell</Group>
+									<ExtendedTooltip name="ПредприятияГруппа1РасширеннаяПодсказка" id="161"/>
+								</ColumnGroup>
+							</ChildItems>
+						</Table>
 					</ChildItems>
 				</Page>
 				<Page name="СтраницаСервис" id="55">
@@ -350,6 +527,204 @@
 				<v8:Type>cfg:EnumRef.ВетисVersionStatus</v8:Type>
 			</Type>
 		</Attribute>
+		<Attribute name="Предприятия" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предприятия</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="guid" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Guid</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>36</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="enterpriseNumber" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Enterprise number</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="name" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Name</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="last" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Last</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="active" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Active</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Owner" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Owner</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ВетисBusinessEntity</v8:Type>
+					</Type>
+				</Column>
+				<Column name="addressView" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Address view</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="type" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Type</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ВетисEnterpriseType</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Использовать" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Использовать</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВСервисе" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>В сервисе</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Свой" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Свой</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Ссылка" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ВетисEnterprise</v8:Type>
+					</Type>
+				</Column>
+				<Column name="status" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Status</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ВетисVersionStatus</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЕстьОтличия" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Есть отличия</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПоследнийОтвет" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Последний ответ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="КомандаЗаполнитьИзСервиса" id="1">
@@ -366,6 +741,66 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаЗаполнитьИзСервиса</Action>
+		</Command>
+		<Command name="КомандаПредприятияЗаполнить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить из сервиса</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда предприятия заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПредприятияЗаполнить</Action>
+		</Command>
+		<Command name="КомандаПредприятияЗаписать" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда предприятия заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПредприятияЗаписать</Action>
+		</Command>
+		<Command name="КомандаОтвязатьВСервисе" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отвязать в сервисе</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда отвязать в сервисе</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтвязатьВСервисе</Action>
+		</Command>
+		<Command name="КомандаПривязатьВСервисе" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Привязать в сервисе</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда привязать в сервисе</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПривязатьВСервисе</Action>
 		</Command>
 	</Commands>
 </Form>

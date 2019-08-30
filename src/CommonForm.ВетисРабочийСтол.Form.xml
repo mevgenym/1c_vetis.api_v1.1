@@ -68,6 +68,7 @@
 							<ExtendedTooltip name="ОтборХСРасширеннаяПодсказка" id="174"/>
 							<Events>
 								<Event name="OnChange">ОтборХСПриИзменении</Event>
+								<Event name="StartChoice">ОтборХСНачалоВыбора</Event>
 							</Events>
 						</InputField>
 						<InputField name="ОтборПредприятие" id="175">
@@ -96,6 +97,12 @@
 									<v8:content>Предприятие связь</v8:content>
 								</v8:item>
 							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ХС-Предприятие связь</v8:content>
+								</v8:item>
+							</ToolTip>
 							<GroupVerticalAlign>Center</GroupVerticalAlign>
 							<Hyperlink>true</Hyperlink>
 							<Picture>
@@ -106,6 +113,31 @@
 							<ExtendedTooltip name="ПредприятиеСвязьРасширеннаяПодсказка" id="481"/>
 							<Events>
 								<Event name="Click">ПредприятиеСвязьНажатие</Event>
+							</Events>
+						</PictureDecoration>
+						<PictureDecoration name="УстановитьТекущийХСПредприятие" id="869">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Установить текущий ХС-Предприятие</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Установить текущий ХС-Предприятие</v8:content>
+								</v8:item>
+							</ToolTip>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<Hyperlink>true</Hyperlink>
+							<Picture>
+								<xr:Ref>StdPicture.DataCompositionFilter</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ContextMenu name="УстановитьТекущийХСПредприятиеКонтекстноеМеню" id="870"/>
+							<ExtendedTooltip name="УстановитьТекущийХСПредприятиеРасширеннаяПодсказка" id="871"/>
+							<Events>
+								<Event name="Click">УстановитьТекущийХСНажатие</Event>
 							</Events>
 						</PictureDecoration>
 					</ChildItems>
@@ -268,6 +300,22 @@
 									<ContextMenu name="СписокВСДПроизводительКонтекстноеМеню" id="619"/>
 									<ExtendedTooltip name="СписокВСДПроизводительРасширеннаяПодсказка" id="620"/>
 								</LabelField>
+								<LabelField name="СписокВСДДатаТТН" id="861">
+									<DataPath>СписокВСД.ДатаТТН</DataPath>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДЛФ=D</v8:content>
+										</v8:item>
+									</Format>
+									<ContextMenu name="СписокВСДДатаТТНКонтекстноеМеню" id="862"/>
+									<ExtendedTooltip name="СписокВСДДатаТТНРасширеннаяПодсказка" id="863"/>
+								</LabelField>
+								<LabelField name="СписокВСДНомерТТН" id="864">
+									<DataPath>СписокВСД.НомерТТН</DataPath>
+									<ContextMenu name="СписокВСДНомерТТНКонтекстноеМеню" id="865"/>
+									<ExtendedTooltip name="СписокВСДНомерТТНРасширеннаяПодсказка" id="866"/>
+								</LabelField>
 								<LabelField name="СписокВСДОтветственныйВетис" id="458">
 									<DataPath>СписокВСД.ОтветственныйВетис</DataPath>
 									<ContextMenu name="СписокВСДОтветственныйВетисКонтекстноеМеню" id="459"/>
@@ -397,7 +445,7 @@
 						</Table>
 					</ChildItems>
 				</Page>
-				<Page name="ГруппаТранспортныеПартии" id="73">
+				<Page name="СтраницаТранспортныеПартии" id="73">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -407,10 +455,10 @@
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа транспортные партии</v8:content>
+							<v8:content>Страница транспортные партии</v8:content>
 						</v8:item>
 					</ToolTip>
-					<ExtendedTooltip name="ГруппаТранспортныеПартииРасширеннаяПодсказка" id="74"/>
+					<ExtendedTooltip name="СтраницаТранспортныеПартииРасширеннаяПодсказка" id="74"/>
 					<ChildItems>
 						<Table name="СписокТранспортныеПартии" id="75">
 							<HeightInTableRows>1</HeightInTableRows>
@@ -598,7 +646,6 @@
 									</Button>
 									<Button name="СписокИсходящихВСДКомандаАннулироватьВСД" id="723">
 										<Type>CommandBarButton</Type>
-										<Visible>false</Visible>
 										<CommandName>Form.Command.КомандаИсходящиеАннулировать</CommandName>
 										<ExtendedTooltip name="СписокИсходящихВСДКомандаАннулироватьВСДРасширеннаяПодсказка" id="724"/>
 									</Button>
@@ -720,7 +767,7 @@
 						</Table>
 					</ChildItems>
 				</Page>
-				<Page name="ГруппаИнвентаризация" id="482">
+				<Page name="СтраницаИнвентаризация" id="482">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -730,10 +777,10 @@
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа инвентаризация</v8:content>
+							<v8:content>Страница инвентаризация</v8:content>
 						</v8:item>
 					</ToolTip>
-					<ExtendedTooltip name="ГруппаИнвентаризацияРасширеннаяПодсказка" id="483"/>
+					<ExtendedTooltip name="СтраницаИнвентаризацияРасширеннаяПодсказка" id="483"/>
 					<ChildItems>
 						<Table name="СписокИнвентаризация" id="484">
 							<HeightInTableRows>1</HeightInTableRows>
@@ -806,7 +853,7 @@
 						</Table>
 					</ChildItems>
 				</Page>
-				<Page name="ГруппаСкладскойЖурнал" id="130">
+				<Page name="СтраницаСкладскойЖурнал" id="130">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -816,10 +863,10 @@
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа складской журнал</v8:content>
+							<v8:content>Страница складской журнал</v8:content>
 						</v8:item>
 					</ToolTip>
-					<ExtendedTooltip name="ГруппаСкладскойЖурналРасширеннаяПодсказка" id="131"/>
+					<ExtendedTooltip name="СтраницаСкладскойЖурналРасширеннаяПодсказка" id="131"/>
 					<ChildItems>
 						<Table name="СписокСкладскойЖурнал" id="132">
 							<ChangeRowSet>false</ChangeRowSet>
@@ -885,7 +932,7 @@
 							</SearchControlAddition>
 							<ChildItems>
 								<LabelField name="СписокСкладскойЖурналПредставление" id="829">
-									<DataPath>СписокСкладскойЖурнал.ПредставлениеПартии</DataPath>
+									<DataPath>~СписокСкладскойЖурнал.ПредставлениеПартии</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -952,7 +999,7 @@
 						</Table>
 					</ChildItems>
 				</Page>
-				<Page name="ГруппаОтладка" id="857">
+				<Page name="СтраницаОтладка" id="857">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -962,10 +1009,10 @@
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа отладка</v8:content>
+							<v8:content>Страница отладка</v8:content>
 						</v8:item>
 					</ToolTip>
-					<ExtendedTooltip name="ГруппаОтладкаРасширеннаяПодсказка" id="858"/>
+					<ExtendedTooltip name="СтраницаОтладкаРасширеннаяПодсказка" id="858"/>
 					<ChildItems>
 						<Button name="КомандаСинхронизироватьVetDocument" id="859">
 							<Type>UsualButton</Type>
@@ -1811,7 +1858,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда синхронизировать vet document</v8:content>
+					<v8:content>Синхронизировать VetDocument</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -1821,6 +1868,24 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаСинхронизироватьVetDocument</Action>
+		</Command>
+		<Command name="КомандаУстановитьТекущийХС" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить текущий ХС</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить текущий ХС-Предприятие</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.DataCompositionFilter</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 		</Command>
 	</Commands>
 </Form>

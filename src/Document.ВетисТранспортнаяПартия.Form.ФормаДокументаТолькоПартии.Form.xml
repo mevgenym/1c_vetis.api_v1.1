@@ -378,6 +378,12 @@
 														<Event name="StartChoice">ПартииЗаписьСЖНачалоВыбора</Event>
 													</Events>
 												</InputField>
+												<InputField name="ПартииProductItem" id="704">
+													<DataPath>Объект.Партии.ProductItem</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ПартииProductItemКонтекстноеМеню" id="705"/>
+													<ExtendedTooltip name="ПартииProductItemРасширеннаяПодсказка" id="706"/>
+												</InputField>
 												<InputField name="ПартииProductItemName" id="525">
 													<DataPath>Объект.Партии.ProductItemName</DataPath>
 													<EditMode>EnterOnInput</EditMode>
@@ -733,11 +739,24 @@
 									</ToolTip>
 									<ExtendedTooltip name="ГруппаРезультатыОсмотраРасширеннаяПодсказка" id="253"/>
 									<ChildItems>
-										<InputField name="осмНазначениеГруза" id="691">
-											<DataPath>осмНазначениеГруза</DataPath>
-											<ContextMenu name="осмНазначениеГрузаКонтекстноеМеню" id="692"/>
-											<ExtendedTooltip name="осмНазначениеГрузаРасширеннаяПодсказка" id="693"/>
-										</InputField>
+										<UsualGroup name="Группа8" id="702">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа8РасширеннаяПодсказка" id="703"/>
+											<ChildItems>
+												<InputField name="осмНазначениеГруза" id="691">
+													<DataPath>осмНазначениеГруза</DataPath>
+													<ContextMenu name="осмНазначениеГрузаКонтекстноеМеню" id="692"/>
+													<ExtendedTooltip name="осмНазначениеГрузаРасширеннаяПодсказка" id="693"/>
+												</InputField>
+												<Button name="КомандаЗаполнитьРезультатыОсмотра" id="700">
+													<Type>UsualButton</Type>
+													<CommandName>Form.Command.КомандаЗаполнитьРезультатыОсмотра</CommandName>
+													<ExtendedTooltip name="КомандаЗаполнитьРезультатыОсмотраРасширеннаяПодсказка" id="701"/>
+												</Button>
+											</ChildItems>
+										</UsualGroup>
 										<InputField name="осмБлагополучиеМестности" id="682">
 											<DataPath>осмБлагополучиеМестности</DataPath>
 											<ContextMenu name="осмБлагополучиеМестностиКонтекстноеМеню" id="683"/>
@@ -1694,6 +1713,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаИзменить</Action>
+		</Command>
+		<Command name="КомандаЗаполнитьРезультатыОсмотра" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда заполнить результаты осмотра</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаЗаполнитьРезультатыОсмотра</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>

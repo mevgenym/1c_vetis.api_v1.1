@@ -15,6 +15,11 @@
 				<CommandName>Form.StandardCommand.Refresh</CommandName>
 				<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="38"/>
 			</Button>
+			<Button name="ФормаКомандаПовторить" id="52">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаПовторить</CommandName>
+				<ExtendedTooltip name="ФормаКомандаПовторитьРасширеннаяПодсказка" id="53"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<ChildItems>
@@ -195,6 +200,21 @@
 			</Picture>
 			<Action>КомандаЗапуск</Action>
 			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="КомандаПовторить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Повторить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда повторить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПовторить</Action>
 		</Command>
 	</Commands>
 </Form>

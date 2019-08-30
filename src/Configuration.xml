@@ -178,8 +178,9 @@
 			<CommonModule>ВетисСервис</CommonModule>
 			<CommonModule>ВетисСинхронизация</CommonModule>
 			<CommonModule>ВетисСинхронизацияВызовСервера</CommonModule>
+			<CommonModule>ВетисСтроковыеФункции</CommonModule>
 			<ExchangePlan>ВетисКлиенты</ExchangePlan>
-			<HTTPService>trade</HTTPService>
+			<HTTPService>ВетисТорговля</HTTPService>
 			<EventSubscription>ВетисОбработкаЗаполненияДокумент</EventSubscription>
 			<EventSubscription>ВетисОбработкаПроведенияДокумент</EventSubscription>
 			<EventSubscription>ВетисПередЗаписьюДокумент</EventSubscription>
@@ -219,6 +220,7 @@
 			<CommonCommand>ВетисЖурналОпераций</CommonCommand>
 			<CommonCommand>ВетисНастройки</CommonCommand>
 			<CommonCommand>ВетисНастройкиПодключения</CommonCommand>
+			<CommonCommand>ВетисОбъектыДляУточнения</CommonCommand>
 			<CommonCommand>ВетисОтложенныеОперации</CommonCommand>
 			<CommonCommand>ВетисПланОбмена</CommonCommand>
 			<CommonCommand>ВетисПредприятияХС</CommonCommand>

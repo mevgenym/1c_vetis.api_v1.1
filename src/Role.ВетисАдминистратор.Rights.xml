@@ -421,6 +421,13 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonCommand.ВетисОбъектыДляУточнения</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.ВетисAnimalDisease</name>
 		<right>
 			<name>Read</name>

@@ -90,18 +90,6 @@
 			<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
 		</Properties>
 		<ChildObjects>
-			<EnumValue uuid="ebcb873e-7a44-4760-8c34-2b3ff3e1befc">
-				<Properties>
-					<Name>ВПроцессе</Name>
-					<Synonym>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>В процессе</v8:content>
-						</v8:item>
-					</Synonym>
-					<Comment/>
-				</Properties>
-			</EnumValue>
 			<EnumValue uuid="3220300a-818a-43a1-8c6c-53b010827862">
 				<Properties>
 					<Name>Отправлен</Name>
@@ -114,13 +102,13 @@
 					<Comment/>
 				</Properties>
 			</EnumValue>
-			<EnumValue uuid="4983993f-e64a-4382-affe-3da47f32a117">
+			<EnumValue uuid="dcb3c8ea-53ae-4e55-9fc2-64f0e13231a3">
 				<Properties>
-					<Name>Получен</Name>
+					<Name>Ошибка</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Получен</v8:content>
+							<v8:content>Ошибка</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>

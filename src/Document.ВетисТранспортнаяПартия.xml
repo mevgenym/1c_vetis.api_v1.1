@@ -178,7 +178,7 @@
 			<ChoiceDataGetModeOnInputByString>Directly</ChoiceDataGetModeOnInputByString>
 			<DefaultObjectForm>Document.ВетисТранспортнаяПартия.Form.ФормаДокументаТолькоПартии</DefaultObjectForm>
 			<DefaultListForm/>
-			<DefaultChoiceForm/>
+			<DefaultChoiceForm>Document.ВетисТранспортнаяПартия.Form.ФормаВыбора</DefaultChoiceForm>
 			<AuxiliaryObjectForm/>
 			<AuxiliaryListForm/>
 			<AuxiliaryChoiceForm/>
@@ -1061,6 +1061,7 @@
 			<Form>ФормаПодбора</Form>
 			<Form>ФормаУсловияПеремещения</Form>
 			<Form>ФормаВводаКоличества</Form>
+			<Form>ФормаВыбора</Form>
 			<TabularSection uuid="f5f9771c-9962-444b-94a1-a2e72d832ef4">
 				<InternalInfo>
 					<xr:GeneratedType name="DocumentTabularSection.ВетисТранспортнаяПартия.Товары" category="TabularSection">
@@ -1951,6 +1952,42 @@
 							<Comment/>
 							<Type>
 								<v8:Type>cfg:CatalogRef.ВетисStockEntry</v8:Type>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="4ef64dd0-6602-4fe0-8102-c2a9fa662032">
+						<Properties>
+							<Name>ProductItem</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номенклатура</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>cfg:CatalogRef.ВетисProductItem</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>

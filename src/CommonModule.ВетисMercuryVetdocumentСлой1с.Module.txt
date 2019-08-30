@@ -744,7 +744,8 @@
 				_Строка.Тип = ВетисDictionaryСлой1с.DocumentType(_document.type);
 				_Строка.ТипОтношения = ВетисDictionaryСлой1с.ReferenceType(_document.relationshipType);
 				
-				Если _Строка.ТипОтношения = Перечисления.ВетисReferenceType.ComplementaryDocument 
+				Если (_Строка.ТипОтношения = Перечисления.ВетисReferenceType.ComplementaryDocument
+					ИЛИ _Строка.ТипОтношения = Перечисления.ВетисReferenceType.RelatedDocument)
 					И (_Строка.Тип = Перечисления.ВетисDocumentType.ТовароТранспортнаяНакладная
 					ИЛИ _Строка.Тип = Перечисления.ВетисDocumentType.ТранспортнаяНакладная) Тогда
 					_СтрокаТТН.Серия = _Строка.Серия;

@@ -313,7 +313,7 @@
 		<ChildObjects>
 			<Attribute uuid="0b6032ae-1113-4412-a17d-51eb0e6b574d">
 				<Properties>
-					<Name>ПредставлениеПартии</Name>
+					<Name>УдалитьПредставлениеПартии</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>

@@ -259,6 +259,7 @@
 			</Dimension>
 			<Form>ФормаСписка</Form>
 			<Form>ФормаЗаписи</Form>
+			<Form>ФормаВыбора</Form>
 		</ChildObjects>
 	</InformationRegister>
 </MetaDataObject>

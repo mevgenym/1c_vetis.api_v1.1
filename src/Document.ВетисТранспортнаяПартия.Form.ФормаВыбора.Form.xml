@@ -1,20 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаОбновить" id="19">
-				<Type>CommandBarButton</Type>
-				<OnlyInAllActions>true</OnlyInAllActions>
-				<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
-				<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="20"/>
-			</Button>
-			<Button name="ФормаКомандаЗаполнить" id="24">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаЗаполнить</CommandName>
-				<ExtendedTooltip name="ФормаКомандаЗаполнитьРасширеннаяПодсказка" id="25"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<ChildItems>
 		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
 			<Title>
@@ -32,8 +19,7 @@
 			<Representation>List</Representation>
 			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
-			<ChangeRowOrder>false</ChangeRowOrder>
-			<Header>false</Header>
+			<ChoiceMode>true</ChoiceMode>
 			<UseAlternationRowColor>true</UseAlternationRowColor>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -83,16 +69,62 @@
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
 			</SearchControlAddition>
 			<ChildItems>
-				<LabelField name="Ссылка" id="16">
-					<DataPath>Список.Ссылка</DataPath>
+				<LabelField name="Дата" id="16">
+					<DataPath>Список.Date</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<ContextMenu name="СсылкаКонтекстноеМеню" id="17"/>
-					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="18"/>
+					<Width>1</Width>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="18"/>
 				</LabelField>
-				<LabelField name="Узел" id="21">
-					<DataPath>Список.Узел</DataPath>
-					<ContextMenu name="УзелКонтекстноеМеню" id="22"/>
-					<ExtendedTooltip name="УзелРасширеннаяПодсказка" id="23"/>
+				<LabelField name="Номер" id="19">
+					<DataPath>Список.Number</DataPath>
+					<ContextMenu name="НомерКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="21"/>
+				</LabelField>
+				<LabelField name="Статус" id="22">
+					<DataPath>Список.Статус</DataPath>
+					<ContextMenu name="СтатусКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="24"/>
+				</LabelField>
+				<LabelField name="СтатусТранзакции" id="25">
+					<DataPath>Список.СтатусТранзакции</DataPath>
+					<ContextMenu name="СтатусТранзакцииКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="СтатусТранзакцииРасширеннаяПодсказка" id="27"/>
+				</LabelField>
+				<LabelField name="ДокументОснование" id="28">
+					<DataPath>Список.ДокументОснование</DataPath>
+					<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="30"/>
+				</LabelField>
+				<LabelField name="Отправитель" id="31">
+					<DataPath>Список.Отправитель</DataPath>
+					<ContextMenu name="ОтправительКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ОтправительРасширеннаяПодсказка" id="33"/>
+				</LabelField>
+				<LabelField name="ОтправительПредприятие" id="34">
+					<DataPath>Список.ОтправительПредприятие</DataPath>
+					<ContextMenu name="ОтправительПредприятиеКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ОтправительПредприятиеРасширеннаяПодсказка" id="36"/>
+				</LabelField>
+				<LabelField name="Получатель" id="37">
+					<DataPath>Список.Получатель</DataPath>
+					<ContextMenu name="ПолучательКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="ПолучательРасширеннаяПодсказка" id="39"/>
+				</LabelField>
+				<LabelField name="ПолучательПредприятие" id="40">
+					<DataPath>Список.ПолучательПредприятие</DataPath>
+					<ContextMenu name="ПолучательПредприятиеКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="ПолучательПредприятиеРасширеннаяПодсказка" id="42"/>
+				</LabelField>
+				<LabelField name="Ответственный" id="43">
+					<DataPath>Список.Ответственный</DataPath>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="45"/>
+				</LabelField>
+				<LabelField name="Количество" id="46">
+					<DataPath>Список.Количество</DataPath>
+					<ContextMenu name="КоличествоКонтекстноеМеню" id="47"/>
+					<ExtendedTooltip name="КоличествоРасширеннаяПодсказка" id="48"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
@@ -106,7 +138,7 @@
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>false</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
-				<MainTable>InformationRegister.ВетисОбъектыДляУточнения</MainTable>
+				<MainTable>Document.ВетисТранспортнаяПартия</MainTable>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
@@ -126,21 +158,4 @@
 			</Settings>
 		</Attribute>
 	</Attributes>
-	<Commands>
-		<Command name="КомандаЗаполнить" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Заполнить</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда заполнить</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаЗаполнить</Action>
-		</Command>
-	</Commands>
 </Form>

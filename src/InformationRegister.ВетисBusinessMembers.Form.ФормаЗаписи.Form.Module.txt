@@ -37,12 +37,12 @@
 	
 КонецПроцедуры
 
-&НаСервере
-Функция ПолучитьСвязьНаСервере(пХозяйствующийСубъект, пПредприятие, пОтказ = Ложь, пОшибка = "")
+&НаСервереБезКонтекста
+Функция ПолучитьСвязьНаСервере(BusinessEntity, Enterprise, пОтказ = Ложь, пОшибка = "")
 	
-	_BusinessEntityGuid = ВетисDictionaryСлой1с.BusinessEntity(пХозяйствующийСубъект);
+	_BusinessEntityGuid = ВетисDictionaryСлой1с.BusinessEntity(BusinessEntity);
 	
-	_EnterpriseGuid = ВетисDictionaryСлой1с.Enterprise(пПредприятие);
+	_EnterpriseGuid = ВетисDictionaryСлой1с.Enterprise(Enterprise);
 	
 	_Enterprise = Неопределено;
 	

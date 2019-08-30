@@ -126,7 +126,6 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисСервис</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисГраницыЗапросов</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисОперации</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисСинхронизация</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">FunctionalOption.ВетисВидимостьGuid</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисВидимостьGuid</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисProduct</xr:Item>
@@ -173,6 +172,39 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисТестовый</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисОбъектыДляУточнения</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.ВетисStockEntry</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисОбъектыДляУточнения</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисDictionary</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисRegionalizationService</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисSoapEnvelopeПовтИсп</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисГлобальныйКлиент</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисКлиент</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисОбменДанными</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисПовтИсп</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисПодписки</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисСинхронизация</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисСинхронизацияВызовСервера</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">EventSubscription.ВетисОбработкаЗаполненияДокумент</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">EventSubscription.ВетисОбработкаПроведенияДокумент</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">EventSubscription.ВетисПередЗаписьюДокумент</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">EventSubscription.ВетисПередЗаписьюСправочник</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">EventSubscription.ВетисПриЗаписиДокумент</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">EventSubscription.ВетисПриЗаписиСправочник</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">EventSubscription.ВетисПриКопированииДокумент</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">EventSubscription.ВетисПриКопированииСправочник</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">ScheduledJob.ВетисОтложенныеОперации</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">ScheduledJob.ВетисТехОбслуживание</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommandGroup.ВетисСправочникПродукции</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonTemplate.ВСДКратко</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">HTTPService.ВетисТорговля</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">StyleItem.ВетисЦветТекстаПодсказок</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисVeterinaryEventType</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.РеализацияТоваровУслуг</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйОрдерНаТовары</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйОрдерНаТовары</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ПоступлениеТоваровУслуг</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ИнвентаризацияТоваровНаСкладе</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">SessionParameter.ТекущийПользователь</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>
